@@ -14,12 +14,12 @@
 }
 
 :root {
-  --background: #f5efe6;
-  --cream: #efe7d9;
-  --foreground: #1a1512;
-  --muted-foreground: #524842;
-  --border: #cfc5b4;
-  --accent: #8b6f4e;
+  --background: #F7F4EE;
+  --cream: #ECE4DB;
+  --foreground: #2C2119;
+  --muted-foreground: #4B3528;
+  --border: #D7CEC3;
+  --accent: #4B3528;
 }
 
 @layer base {
