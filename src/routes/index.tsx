@@ -3,6 +3,7 @@ import { Search, User, ShoppingBag } from "lucide-react";
 import aboutus1 from "@/assets/aboutus1.png.asset.json";
 import aboutus2 from "@/assets/aboutus2.png.asset.json";
 import aboutus3 from "@/assets/aboutus3.png.asset.json";
+import nipLogo from "@/assets/nip_logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: AboutPage,
