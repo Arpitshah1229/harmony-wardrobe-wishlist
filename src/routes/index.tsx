@@ -39,9 +39,11 @@ function Footer() {
     { title: "CONNECT", items: ["Instagram", "Email"] },
   ];
   return (
-    <footer className="px-8 md:px-16 py-10 border-t border-border/60">
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-start">
-        <div className="font-serif text-2xl">n<span className="italic">i</span>p</div>
+    <footer className="px-8 md:px-16 py-12 border-t border-border/60">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
+        <div className="flex items-start">
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-24 h-auto" />
+        </div>
         {cols.map((c) => (
           <div key={c.title}>
             <h4 className="text-[11px] tracking-[0.2em] mb-3">{c.title}</h4>
@@ -50,9 +52,9 @@ function Footer() {
             </ul>
           </div>
         ))}
-        <div className="text-[11px] text-muted-foreground leading-relaxed">
-          © Notions in Pattern<br />All rights reserved.
-        </div>
+      </div>
+      <div className="mt-12 pt-6 border-t border-border/60 text-center text-[12px] text-muted-foreground">
+        © Notions in Pattern. All rights reserved.
       </div>
     </footer>
   );
