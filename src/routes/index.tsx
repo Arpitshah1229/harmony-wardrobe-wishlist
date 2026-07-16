@@ -71,7 +71,7 @@ function Icon({ type }: { type: string }) {
 
 function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-[calc(100vh-10px)] m-[5px]">
       <Header />
 
       {/* Hero */}
