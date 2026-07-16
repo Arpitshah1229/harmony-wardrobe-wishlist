@@ -3,6 +3,7 @@ import { Search, User, ShoppingBag } from "lucide-react";
 import aboutus1 from "@/assets/aboutus1.png.asset.json";
 import aboutus2 from "@/assets/aboutus2.png.asset.json";
 import aboutus3 from "@/assets/aboutus3.png.asset.json";
+import nipLogo from "@/assets/nip_logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: AboutPage,
@@ -38,9 +39,11 @@ function Footer() {
     { title: "CONNECT", items: ["Instagram", "Email"] },
   ];
   return (
-    <footer className="px-8 md:px-16 py-10 border-t border-border/60">
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-start">
-        <div className="font-serif text-2xl">n<span className="italic">i</span>p</div>
+    <footer className="px-8 md:px-16 py-12 border-t border-border/60">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
+        <div className="flex items-start">
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-24 h-auto" />
+        </div>
         {cols.map((c) => (
           <div key={c.title}>
             <h4 className="text-[11px] tracking-[0.2em] mb-3">{c.title}</h4>
@@ -49,9 +52,9 @@ function Footer() {
             </ul>
           </div>
         ))}
-        <div className="text-[11px] text-muted-foreground leading-relaxed">
-          © Notions in Pattern<br />All rights reserved.
-        </div>
+      </div>
+      <div className="mt-12 pt-6 border-t border-border/60 text-center text-[12px] text-muted-foreground">
+        © Notions in Pattern. All rights reserved.
       </div>
     </footer>
   );
@@ -149,20 +152,20 @@ function AboutPage() {
       </section>
 
       {/* Gratitude */}
-      <section className="relative">
-        <img src={aboutus3.url} alt="With gratitude" className="w-full h-auto object-cover" />
-        <div className="absolute inset-0 flex items-center px-8 md:px-16">
-          <div className="max-w-md">
-            <h2 className="font-serif text-4xl md:text-5xl mb-2">With Gratitude.</h2>
-            <div className="w-14 h-px bg-foreground/40 my-4" />
-            <p className="text-[13px] leading-[1.9] text-foreground/85">
-              Notions in Pattern began with our family.<br />
-              I continues through every artisan, every collaborator,<br />
-              and everyone who becomes part of the story.
-            </p>
-            <p className="text-[13px] leading-[1.9] mt-4 text-foreground/85">Thank you for being here.</p>
-            <p className="text-[13px] mt-3 text-foreground/85">— Neha &amp; Anita</p>
-          </div>
+      <section className="grid md:grid-cols-2 items-center bg-[var(--cream)]">
+        <div className="px-8 md:px-16 py-16 md:py-24">
+          <h2 className="font-serif text-4xl md:text-5xl mb-2">With Gratitude.</h2>
+          <div className="w-14 h-px bg-foreground/40 my-4" />
+          <p className="text-[13px] leading-[1.9] text-foreground/85 max-w-md">
+            Notions in Pattern began with our family.<br />
+            It continues through every artisan, every collaborator,<br />
+            and everyone who becomes part of the story.
+          </p>
+          <p className="text-[13px] leading-[1.9] mt-4 text-foreground/85">Thank you for being here.</p>
+          <p className="text-[13px] mt-3 text-foreground/85">— Neha &amp; Anita</p>
+        </div>
+        <div>
+          <img src={aboutus3.url} alt="Portrait" className="w-full h-full object-cover" />
         </div>
       </section>
 
