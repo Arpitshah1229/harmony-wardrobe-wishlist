@@ -160,9 +160,12 @@ function AboutPage() {
       </section>
 
       {/* Gratitude */}
-      <section className="w-full bg-[var(--cream)] px-8 md:px-16 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <div style={{ color: DARK }}>
+      <section
+        className="w-full px-8 md:px-16 py-24 bg-no-repeat bg-cover bg-center"
+        style={{ backgroundImage: `url(${gratitudeBg.url})` }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-md" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-6" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="space-y-4 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
@@ -170,9 +173,6 @@ function AboutPage() {
               <p>Thank you for being here.</p>
               <p className="pt-2">— Neha &amp; Anita</p>
             </div>
-          </div>
-          <div>
-            <img src={aboutus3.url} alt="With gratitude" className="w-full h-auto object-cover" />
           </div>
         </div>
       </section>
