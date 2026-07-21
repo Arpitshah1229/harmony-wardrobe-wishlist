@@ -95,7 +95,7 @@ function AboutPage() {
 
       {/* Our Story */}
       <section className="px-8 md:px-16 pb-24">
-        <h3 className="text-[11px] tracking-[0.25em] mb-10">OUR STORY</h3>
+        <h3 className="text-[11px] font-bold tracking-[0.25em] mb-10 text-[#4B3528]">OUR STORY</h3>
         <div className="grid md:grid-cols-4 gap-8 text-[13px] leading-[1.9] text-foreground/85 relative">
           <div className="md:pr-6 md:border-r border-foreground/20 space-y-4">
             <p>Notions in Pattern began at home.<br />With my mother.</p>
