@@ -120,11 +120,11 @@ function AboutPage() {
 
       {/* What we do */}
       <section className="grid md:grid-cols-2 gap-12 md:gap-16 items-center pb-24">
-        <div>
-          <img src={aboutus2.url} alt="Hand embroidering fabric" className="w-full h-auto object-cover" />
+        <div className="px-8 md:pl-16 md:pr-0">
+          <img src={aboutus2.url} alt="Hand embroidering fabric" className="w-full max-h-[420px] h-auto object-cover" />
         </div>
         <div className="px-8 md:pr-16 md:pl-0">
-          <h3 className="text-[11px] tracking-[0.25em] mb-6">WHAT WE DO</h3>
+          <h3 className="text-[11px] font-bold tracking-[0.25em] mb-6 text-[#4B3528]">WHAT WE DO</h3>
           <div className="space-y-4 text-[13px] leading-[1.9] max-w-lg text-foreground/85">
             <p>At Notions in Patterns, we want to work with traditional crafts across various forms — stitching, dyeing, printing, weaving, and handwork.</p>
             <p>We do not approach craft as something to preserve unchanged.</p>
