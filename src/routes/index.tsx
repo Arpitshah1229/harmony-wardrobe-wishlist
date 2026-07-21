@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Search, User, ShoppingBag } from "lucide-react";
 import aboutus1 from "@/assets/aboutus1.png.asset.json";
 import aboutus2 from "@/assets/aboutus2.png.asset.json";
-import aboutus3 from "@/assets/aboutus3.png.asset.json";
+
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -13,16 +13,19 @@ const navLinks = ["COLLECTION", "CRAFT", "ABOUT", "FOUNDER", "CONTACT"];
 
 function Header() {
   return (
-    <header className="w-full px-8 md:px-12 py-6 flex items-center justify-between">
-      <div className="font-serif text-lg tracking-[0.15em] border-t border-b border-foreground py-1 px-2">
-        NOTIONS <span className="italic">IN</span> PATTERN
+    <header className="w-full px-8 md:px-12 py-6 flex items-center justify-between text-[#4B3528]">
+      <div className="flex items-center gap-4">
+        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
+        <div className="font-serif font-bold text-lg tracking-[0.15em] border-t border-b border-[#4B3528] py-1 px-2">
+          NOTIONS <span className="italic">IN</span> PATTERN
+        </div>
       </div>
-      <nav className="hidden md:flex items-center gap-10 text-[11px] tracking-[0.2em]">
+      <nav className="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em]">
         {navLinks.map((l) => (
-          <a key={l} href="#" className="hover:text-accent transition-colors">{l}</a>
+          <a key={l} href="#" className="hover:opacity-70 transition-opacity">{l}</a>
         ))}
       </nav>
-      <div className="flex items-center gap-6 text-[11px] tracking-[0.2em]">
+      <div className="flex items-center gap-6 text-[11px] font-bold tracking-[0.2em]">
         <a href="#" className="flex items-center gap-1.5"><Search size={14} /> SEARCH</a>
         <a href="#" className="flex items-center gap-1.5"><User size={14} /> ACCOUNT</a>
         <a href="#" className="flex items-center gap-1.5"><ShoppingBag size={14} /> CART (0)</a>
@@ -42,7 +45,7 @@ function Footer() {
     <footer className="px-8 md:px-16 py-12 border-t border-border/60">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
         <div className="flex items-start">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-24 h-auto" />
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-40 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title}>
@@ -76,12 +79,12 @@ function AboutPage() {
 
       {/* Hero */}
       <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-12 items-start">
-        <div className="pt-10">
-          <h1 className="font-serif text-5xl md:text-6xl leading-[1.1] tracking-tight">
+        <div className="pt-10 text-[#4B3528]">
+          <h1 className="font-serif text-5xl md:text-6xl leading-[1.1] tracking-tight text-[#4B3528]">
             A thinking label<br />using craft as<br />expression.
           </h1>
-          <div className="w-16 h-px bg-foreground/40 my-6" />
-          <p className="text-[13px] leading-[1.9] max-w-md text-foreground/80">
+          <div className="w-16 h-px bg-[#4B3528]/40 my-6" />
+          <p className="text-[13px] leading-[1.9] max-w-md text-[#4B3528]">
             Exploring textiles and handicrafts as a way of understanding life — through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
@@ -92,7 +95,7 @@ function AboutPage() {
 
       {/* Our Story */}
       <section className="px-8 md:px-16 pb-24">
-        <h3 className="text-[11px] tracking-[0.25em] mb-10">OUR STORY</h3>
+        <h3 className="text-[11px] font-bold tracking-[0.25em] mb-10 text-[#4B3528]">OUR STORY</h3>
         <div className="grid md:grid-cols-4 gap-8 text-[13px] leading-[1.9] text-foreground/85 relative">
           <div className="md:pr-6 md:border-r border-foreground/20 space-y-4">
             <p>Notions in Pattern began at home.<br />With my mother.</p>
@@ -117,11 +120,11 @@ function AboutPage() {
 
       {/* What we do */}
       <section className="grid md:grid-cols-2 gap-12 md:gap-16 items-center pb-24">
-        <div>
-          <img src={aboutus2.url} alt="Hand embroidering fabric" className="w-full h-auto object-cover" />
+        <div className="px-8 md:pl-16 md:pr-0">
+          <img src={aboutus2.url} alt="Hand embroidering fabric" className="w-full max-h-[420px] h-auto object-cover" />
         </div>
         <div className="px-8 md:pr-16 md:pl-0">
-          <h3 className="text-[11px] tracking-[0.25em] mb-6">WHAT WE DO</h3>
+          <h3 className="text-[11px] font-bold tracking-[0.25em] mb-6 text-[#4B3528]">WHAT WE DO</h3>
           <div className="space-y-4 text-[13px] leading-[1.9] max-w-lg text-foreground/85">
             <p>At Notions in Patterns, we want to work with traditional crafts across various forms — stitching, dyeing, printing, weaving, and handwork.</p>
             <p>We do not approach craft as something to preserve unchanged.</p>
@@ -152,8 +155,16 @@ function AboutPage() {
       </section>
 
       {/* Gratitude */}
-      <section className="w-full bg-[var(--cream)]">
-        <img src={aboutus3.url} alt="With Gratitude — Notions in Pattern" className="w-full h-auto object-cover" />
+      <section className="w-full bg-[var(--cream)] px-8 md:px-16 py-20">
+        <div className="max-w-2xl mx-auto text-[#4B3528]">
+          <h2 className="font-serif text-4xl md:text-5xl mb-6">With Gratitude.</h2>
+          <div className="space-y-4 text-[14px] leading-[1.9]">
+            <p>Notions in Pattern began with our family.</p>
+            <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
+            <p>Thank you for being here.</p>
+            <p className="pt-2">— Neha &amp; Anita</p>
+          </div>
+        </div>
       </section>
 
       <Footer />
