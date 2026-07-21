@@ -13,16 +13,19 @@ const navLinks = ["COLLECTION", "CRAFT", "ABOUT", "FOUNDER", "CONTACT"];
 
 function Header() {
   return (
-    <header className="w-full px-8 md:px-12 py-6 flex items-center justify-between">
-      <div className="font-serif text-lg tracking-[0.15em] border-t border-b border-foreground py-1 px-2">
-        NOTIONS <span className="italic">IN</span> PATTERN
+    <header className="w-full px-8 md:px-12 py-6 flex items-center justify-between text-[#4B3528]">
+      <div className="flex items-center gap-4">
+        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
+        <div className="font-serif font-bold text-lg tracking-[0.15em] border-t border-b border-[#4B3528] py-1 px-2">
+          NOTIONS <span className="italic">IN</span> PATTERN
+        </div>
       </div>
-      <nav className="hidden md:flex items-center gap-10 text-[11px] tracking-[0.2em]">
+      <nav className="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em]">
         {navLinks.map((l) => (
-          <a key={l} href="#" className="hover:text-accent transition-colors">{l}</a>
+          <a key={l} href="#" className="hover:opacity-70 transition-opacity">{l}</a>
         ))}
       </nav>
-      <div className="flex items-center gap-6 text-[11px] tracking-[0.2em]">
+      <div className="flex items-center gap-6 text-[11px] font-bold tracking-[0.2em]">
         <a href="#" className="flex items-center gap-1.5"><Search size={14} /> SEARCH</a>
         <a href="#" className="flex items-center gap-1.5"><User size={14} /> ACCOUNT</a>
         <a href="#" className="flex items-center gap-1.5"><ShoppingBag size={14} /> CART (0)</a>
