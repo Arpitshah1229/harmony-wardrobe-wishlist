@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Search, User, ShoppingBag } from "lucide-react";
 import aboutus1 from "@/assets/aboutus1.png.asset.json";
 import aboutus2 from "@/assets/aboutus2.png.asset.json";
-import aboutus3 from "@/assets/aboutus3.png.asset.json";
+import gratitudeBg from "@/assets/gratitude_bg.png.asset.json";
 
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
@@ -17,11 +17,11 @@ const DARK = "#2C2119";
 
 function Header() {
   return (
-    <header className="w-full px-8 md:px-12 py-6 flex items-center justify-between" style={{ color: BROWN }}>
-      <div className="flex items-center gap-5">
-        <img src={nipLogo.url} alt="Notions in Pattern" className="h-14 w-auto" />
-        <div className="font-serif font-bold text-2xl md:text-3xl tracking-[0.18em] border-t-2 border-b-2 py-1.5 px-3" style={{ borderColor: BROWN }}>
-          NOTIONS <span className="italic">IN</span> PATTERN
+    <header className="w-full px-8 md:px-12 py-5 flex items-center justify-between" style={{ color: BROWN }}>
+      <div className="flex items-center gap-4">
+        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
+        <div className="font-serif font-bold text-lg md:text-xl tracking-[0.18em] border-t-2 border-b-2 py-2.5 px-3 leading-none" style={{ borderColor: BROWN }}>
+          NOTIONS IN PATTERN
         </div>
       </div>
       <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em]">
@@ -77,7 +77,7 @@ function Icon({ type }: { type: string }) {
 }
 
 function AboutPage() {
-  const titleClass = "font-serif font-bold text-[18px] md:text-[20px] tracking-[0.25em] mb-8";
+  const titleClass = "font-serif font-black text-[22px] md:text-[26px] tracking-[0.25em] mb-8";
   return (
     <div className="min-h-[calc(100vh-10px)] m-[5px]" style={{ color: DARK }}>
       <Header />
@@ -160,9 +160,12 @@ function AboutPage() {
       </section>
 
       {/* Gratitude */}
-      <section className="w-full bg-[var(--cream)] px-8 md:px-16 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <div style={{ color: DARK }}>
+      <section
+        className="w-full px-8 md:px-16 py-24 bg-no-repeat bg-cover bg-center"
+        style={{ backgroundImage: `url(${gratitudeBg.url})` }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-md" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-6" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="space-y-4 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
@@ -170,9 +173,6 @@ function AboutPage() {
               <p>Thank you for being here.</p>
               <p className="pt-2">— Neha &amp; Anita</p>
             </div>
-          </div>
-          <div>
-            <img src={aboutus3.url} alt="With gratitude" className="w-full h-auto object-cover" />
           </div>
         </div>
       </section>
