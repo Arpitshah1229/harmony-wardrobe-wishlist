@@ -79,12 +79,12 @@ function AboutPage() {
 
       {/* Hero */}
       <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-12 items-start">
-        <div className="pt-10">
-          <h1 className="font-serif text-5xl md:text-6xl leading-[1.1] tracking-tight">
+        <div className="pt-10 text-[#4B3528]">
+          <h1 className="font-serif text-5xl md:text-6xl leading-[1.1] tracking-tight text-[#4B3528]">
             A thinking label<br />using craft as<br />expression.
           </h1>
-          <div className="w-16 h-px bg-foreground/40 my-6" />
-          <p className="text-[13px] leading-[1.9] max-w-md text-foreground/80">
+          <div className="w-16 h-px bg-[#4B3528]/40 my-6" />
+          <p className="text-[13px] leading-[1.9] max-w-md text-[#4B3528]">
             Exploring textiles and handicrafts as a way of understanding life — through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
