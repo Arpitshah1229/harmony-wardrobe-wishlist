@@ -155,8 +155,16 @@ function AboutPage() {
       </section>
 
       {/* Gratitude */}
-      <section className="w-full bg-[var(--cream)]">
-        <img src={aboutus3.url} alt="With Gratitude — Notions in Pattern" className="w-full h-auto object-cover" />
+      <section className="w-full bg-[var(--cream)] px-8 md:px-16 py-20">
+        <div className="max-w-2xl mx-auto text-[#4B3528]">
+          <h2 className="font-serif text-4xl md:text-5xl mb-6">With Gratitude.</h2>
+          <div className="space-y-4 text-[14px] leading-[1.9]">
+            <p>Notions in Pattern began with our family.</p>
+            <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
+            <p>Thank you for being here.</p>
+            <p className="pt-2">— Neha &amp; Anita</p>
+          </div>
+        </div>
       </section>
 
       <Footer />
