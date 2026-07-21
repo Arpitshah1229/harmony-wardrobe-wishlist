@@ -77,7 +77,7 @@ function Icon({ type }: { type: string }) {
 }
 
 function AboutPage() {
-  const titleClass = "font-serif font-bold text-[18px] md:text-[20px] tracking-[0.25em] mb-8";
+  const titleClass = "font-serif font-black text-[22px] md:text-[26px] tracking-[0.25em] mb-8";
   return (
     <div className="min-h-[calc(100vh-10px)] m-[5px]" style={{ color: DARK }}>
       <Header />
