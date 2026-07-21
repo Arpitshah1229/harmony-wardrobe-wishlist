@@ -17,11 +17,11 @@ const DARK = "#2C2119";
 
 function Header() {
   return (
-    <header className="w-full px-8 md:px-12 py-6 flex items-center justify-between" style={{ color: BROWN }}>
-      <div className="flex items-center gap-5">
-        <img src={nipLogo.url} alt="Notions in Pattern" className="h-14 w-auto" />
-        <div className="font-serif font-bold text-2xl md:text-3xl tracking-[0.18em] border-t-2 border-b-2 py-1.5 px-3" style={{ borderColor: BROWN }}>
-          NOTIONS <span className="italic">IN</span> PATTERN
+    <header className="w-full px-8 md:px-12 py-5 flex items-center justify-between" style={{ color: BROWN }}>
+      <div className="flex items-center gap-4">
+        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
+        <div className="font-serif font-bold text-lg md:text-xl tracking-[0.18em] border-t-2 border-b-2 py-2.5 px-3 leading-none" style={{ borderColor: BROWN }}>
+          NOTIONS IN PATTERN
         </div>
       </div>
       <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em]">
