@@ -20,8 +20,10 @@ function Header() {
     <header className="w-full px-8 md:px-12 py-5 flex items-center justify-between" style={{ color: BROWN }}>
       <div className="flex items-center gap-4">
         <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
-        <div className="font-serif font-bold text-lg md:text-xl tracking-[0.18em] border-t-2 border-b-2 py-2.5 px-3 leading-none" style={{ borderColor: BROWN }}>
-          NOTIONS IN PATTERN
+        <div className="flex items-center font-serif font-bold text-lg md:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
+          <span className="px-1">NOTIONS</span>
+          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>IN</span>
+          <span className="px-1">PATTERN</span>
         </div>
       </div>
       <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em]">
