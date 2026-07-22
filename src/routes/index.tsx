@@ -21,9 +21,9 @@ function Header() {
       <div className="flex items-center gap-4">
         <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
         <div className="flex items-center font-serif font-bold text-lg md:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
-          <span className="px-1">NOTIONS</span>
-          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>IN</span>
-          <span className="px-1">PATTERN</span>
+          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>NOTIONS</span>
+          <span className="px-1">IN</span>
+          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>PATTERN</span>
         </div>
       </div>
       <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em]">
@@ -50,8 +50,8 @@ function Footer() {
   return (
     <footer className="px-8 md:px-16 py-12 border-t border-border/60" style={{ color: BROWN }}>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
-        <div className="self-start">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-40 h-auto" />
+        <div className="-mt-4 self-start">
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-28 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title}>
@@ -71,11 +71,35 @@ function Footer() {
 
 function Icon({ type }: { type: string }) {
   const stroke = "currentColor";
-  const s = 28;
-  if (type === "craft") return <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1"><path d="M8 21V10c0-1 .5-2 2-2s2 1 2 2v4M12 14V6c0-1 .5-2 2-2s2 1 2 2v8M16 14V8c0-1 .5-2 2-2s2 1 2 2v9c0 2-2 4-5 4H10c-3 0-6-2-6-6v-3c0-1 .5-2 2-2s2 1 2 2v2" /></svg>;
-  if (type === "thought") return <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1"><ellipse cx="12" cy="12" rx="10" ry="6" /><circle cx="12" cy="12" r="2.5" /></svg>;
-  if (type === "process") return <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1"><path d="M2 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0" /></svg>;
-  return <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1"><circle cx="12" cy="12" r="9" /></svg>;
+  const s = 32;
+  if (type === "craft")
+    return (
+      <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11" />
+        <path d="M12 11V4a1.5 1.5 0 0 1 3 0v7" />
+        <path d="M15 11V5.5a1.5 1.5 0 0 1 3 0V13" />
+        <path d="M9 11V8a1.5 1.5 0 0 0-3 0v6.5c0 3.5 2.5 6.5 6 6.5h1.5c3 0 4.5-2 5.5-4.5L20.5 13" />
+      </svg>
+    );
+  if (type === "thought")
+    return (
+      <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z" />
+        <circle cx="12" cy="12" r="2.5" />
+      </svg>
+    );
+  if (type === "process")
+    return (
+      <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0" />
+        <path d="M3 15c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0" />
+      </svg>
+    );
+  return (
+    <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1">
+      <circle cx="12" cy="12" r="9" />
+    </svg>
+  );
 }
 
 function AboutPage() {
@@ -85,13 +109,13 @@ function AboutPage() {
       <Header />
 
       {/* Hero */}
-      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-6 items-start">
-        <div className="pt-10" style={{ color: BROWN }}>
-          <h1 className="font-serif text-6xl md:text-7xl leading-[1.1] tracking-tight">
+      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-2 md:gap-4 items-start">
+        <div className="pt-6" style={{ color: BROWN }}>
+          <h1 className="font-serif text-7xl md:text-8xl leading-[1.05] tracking-tight">
             A thinking label<br />using craft as<br />expression.
           </h1>
           <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
-          <p className="text-[15px] leading-[1.9] max-w-md">
+          <p className="text-[17px] md:text-[18px] leading-[1.85] max-w-md">
             Exploring textiles and handicrafts as a way of understanding life — through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
