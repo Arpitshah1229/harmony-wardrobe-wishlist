@@ -109,13 +109,13 @@ function AboutPage() {
       <Header />
 
       {/* Hero */}
-      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-6 items-start">
-        <div className="pt-10" style={{ color: BROWN }}>
-          <h1 className="font-serif text-6xl md:text-7xl leading-[1.1] tracking-tight">
+      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-2 md:gap-4 items-start">
+        <div className="pt-6" style={{ color: BROWN }}>
+          <h1 className="font-serif text-7xl md:text-8xl leading-[1.05] tracking-tight">
             A thinking label<br />using craft as<br />expression.
           </h1>
           <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
-          <p className="text-[15px] leading-[1.9] max-w-md">
+          <p className="text-[17px] md:text-[18px] leading-[1.85] max-w-md">
             Exploring textiles and handicrafts as a way of understanding life — through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
