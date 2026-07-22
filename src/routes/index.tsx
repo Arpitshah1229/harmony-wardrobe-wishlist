@@ -20,8 +20,10 @@ function Header() {
     <header className="w-full px-8 md:px-12 py-5 flex items-center justify-between" style={{ color: BROWN }}>
       <div className="flex items-center gap-4">
         <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
-        <div className="font-serif font-bold text-lg md:text-xl tracking-[0.18em] border-t-2 border-b-2 py-2.5 px-3 leading-none" style={{ borderColor: BROWN }}>
-          NOTIONS IN PATTERN
+        <div className="flex items-center font-serif font-bold text-lg md:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
+          <span className="px-1">NOTIONS</span>
+          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>IN</span>
+          <span className="px-1">PATTERN</span>
         </div>
       </div>
       <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em]">
@@ -48,7 +50,7 @@ function Footer() {
   return (
     <footer className="px-8 md:px-16 py-12 border-t border-border/60" style={{ color: BROWN }}>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
-        <div className="flex items-start">
+        <div className="self-start">
           <img src={nipLogo.url} alt="Notions in Pattern" className="w-40 h-auto" />
         </div>
         {cols.map((c) => (
@@ -83,13 +85,13 @@ function AboutPage() {
       <Header />
 
       {/* Hero */}
-      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-12 items-start">
+      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-6 items-start">
         <div className="pt-10" style={{ color: BROWN }}>
-          <h1 className="font-serif text-5xl md:text-6xl leading-[1.1] tracking-tight">
+          <h1 className="font-serif text-6xl md:text-7xl leading-[1.1] tracking-tight">
             A thinking label<br />using craft as<br />expression.
           </h1>
           <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
-          <p className="text-[13px] leading-[1.9] max-w-md">
+          <p className="text-[15px] leading-[1.9] max-w-md">
             Exploring textiles and handicrafts as a way of understanding life — through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
@@ -164,10 +166,10 @@ function AboutPage() {
         className="w-full px-8 md:px-16 py-24 bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: `url(${gratitudeBg.url})` }}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl">
           <div className="max-w-md" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-6" style={{ color: BROWN }}>With Gratitude.</h2>
-            <div className="space-y-4 text-[14px] leading-[1.9]">
+            <div className="space-y-2 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
               <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
               <p>Thank you for being here.</p>
