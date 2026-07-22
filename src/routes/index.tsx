@@ -166,10 +166,10 @@ function AboutPage() {
         className="w-full px-8 md:px-16 py-24 bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: `url(${gratitudeBg.url})` }}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl">
           <div className="max-w-md" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-6" style={{ color: BROWN }}>With Gratitude.</h2>
-            <div className="space-y-4 text-[14px] leading-[1.9]">
+            <div className="space-y-2 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
               <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
               <p>Thank you for being here.</p>
