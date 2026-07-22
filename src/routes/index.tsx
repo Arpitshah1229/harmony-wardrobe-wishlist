@@ -50,8 +50,8 @@ function Footer() {
   return (
     <footer className="px-8 md:px-16 py-12 border-t border-border/60" style={{ color: BROWN }}>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
-        <div className="self-start -mt-4">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-28 h-auto" />
+        <div className="self-start -mt-2">
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-40 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title}>
