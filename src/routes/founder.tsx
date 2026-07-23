@@ -27,7 +27,7 @@ function TextBlock({ num, title, children }: { num: string; title: string; child
   return (
     <div className="p-8 md:p-10 h-full flex flex-col justify-start">
       <h3 className="font-serif text-[22px] md:text-[26px] mb-4" style={{ color: BROWN }}>
-        <span className="mr-2">{num} —</span>{title}
+        <span className="mr-2">Ch {num} —</span>{title}
       </h3>
       <div className="text-[13px] leading-[1.9] space-y-3" style={{ color: DARK }}>
         {children}
