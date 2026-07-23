@@ -42,7 +42,7 @@ export function Footer() {
   const cols = [
     { title: "SHOP", items: ["Collection", "New In", "Gift Cards"] },
     { title: "HELP", items: ["Orders", "Shipping", "Returns"] },
-    { title: "ABOUT", items: ["Our Story", "Craft", "Founder"] },
+    { title: "ABOUT", items: [{ label: "Our Story", to: "/" }, { label: "Craft", to: "/" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },
   ];
   return (
