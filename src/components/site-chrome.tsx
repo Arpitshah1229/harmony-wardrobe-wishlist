@@ -55,7 +55,19 @@ export function Footer() {
           <div key={c.title}>
             <h4 className="text-[12px] font-bold tracking-[0.22em] mb-3" style={{ color: BROWN }}>{c.title}</h4>
             <ul className="space-y-1.5 text-[13px] font-bold" style={{ color: BROWN }}>
-              {c.items.map((i) => <li key={i}><a href="#" className="hover:opacity-70">{i}</a></li>)}
+              {c.items.map((i) => {
+                const label = typeof i === "string" ? i : i.label;
+                const to = typeof i === "string" ? undefined : i.to;
+                return (
+                  <li key={label}>
+                    {to ? (
+                      <Link to={to} className="hover:opacity-70">{label}</Link>
+                    ) : (
+                      <a href="#" className="hover:opacity-70">{label}</a>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}
