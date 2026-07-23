@@ -107,7 +107,7 @@ function FounderPage() {
 
           {/* Row 6 : image | two stacked text */}
           <ImgBlock src={founder7.url} alt="Threads, swatches and tools" />
-          <div className="flex flex-col gap-6 md:gap-8">
+          <div className="flex flex-col gap-0">
             <TextBlock num="7" title="A day at Notions in Pattern.">
               <p>My typical day looks like swatches. Colours for dyes. Thread combinations. Sitting with my team, figuring things out together. The path is not always clear — but the destination always is. There are too many swatches in my bag. Too many threads. Random things everywhere.</p>
               <p>But a very clear vision.</p>
