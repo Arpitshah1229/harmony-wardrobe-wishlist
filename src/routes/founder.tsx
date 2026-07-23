@@ -61,9 +61,10 @@ function FounderPage() {
 
       {/* Story grid */}
       <section className="px-8 md:px-16 pb-20">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 gap-0">
           {/* Row 1 : two stacked text blocks | one tall image */}
-          <div className="flex flex-col gap-6 md:gap-8">
+          <div className="flex flex-col gap-0">
+
             <TextBlock num="1" title="I grew up moving.">
               <p>Army family.</p>
               <p>Sometimes the most metropolitan cities. Sometimes the most remote postings — places most people never reach.</p>
