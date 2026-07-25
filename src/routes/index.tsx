@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
   component: AboutPage,
 });
 
-const navLinks = ["COLLECTION", "CRAFT", "ABOUT", "FOUNDER", "CONTACT"];
+const navLinks = ["COLLECTION", "ABOUT", "FOUNDER", "CONTACT"];
 
 const BROWN = "#4B3528";
 const DARK = "#2C2119";
