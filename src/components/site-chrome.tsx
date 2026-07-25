@@ -7,7 +7,6 @@ export const DARK = "#2C2119";
 
 const navLinks = [
   { label: "COLLECTION", to: "/" },
-  { label: "CRAFT", to: "/" },
   { label: "ABOUT", to: "/" },
   { label: "FOUNDER", to: "/founder" },
   { label: "CONTACT", to: "/" },
@@ -46,10 +45,10 @@ export function Footer() {
     { title: "CONNECT", items: ["Instagram", "Email"] },
   ];
   return (
-    <footer className="px-8 md:px-16 py-12 border-t border-border/60" style={{ color: BROWN }}>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
-        <div className="self-start -mt-2">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-40 h-auto" />
+    <footer className="px-8 md:px-16 py-8 border-t border-border/60" style={{ color: BROWN }}>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-start">
+        <div className="self-start">
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-24 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title}>
@@ -72,7 +71,7 @@ export function Footer() {
           </div>
         ))}
       </div>
-      <div className="mt-12 pt-6 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
+      <div className="mt-8 pt-4 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
         © Notions in Pattern. All rights reserved.
       </div>
     </footer>

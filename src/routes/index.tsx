@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, User, ShoppingBag } from "lucide-react";
-import aboutus1 from "@/assets/aboutus1.png.asset.json";
-import aboutus2 from "@/assets/aboutus2.png.asset.json";
-import gratitudeBg from "@/assets/gratitude_bg.png.asset.json";
+import aboutus1 from "@/assets/aboutus1_v2.jpeg.asset.json";
+import aboutus2 from "@/assets/aboutus2_v2.jpeg.asset.json";
+import aboutus3 from "@/assets/aboutus3_v2.jpeg.asset.json";
 
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
   component: AboutPage,
 });
 
-const navLinks = ["COLLECTION", "CRAFT", "ABOUT", "FOUNDER", "CONTACT"];
+const navLinks = ["COLLECTION", "ABOUT", "FOUNDER", "CONTACT"];
 
 const BROWN = "#4B3528";
 const DARK = "#2C2119";
@@ -48,10 +48,10 @@ function Footer() {
     { title: "CONNECT", items: ["Instagram", "Email"] },
   ];
   return (
-    <footer className="px-8 md:px-16 py-12 border-t border-border/60" style={{ color: BROWN }}>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
-        <div className="self-start -mt-2">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-40 h-auto" />
+    <footer className="px-8 md:px-16 py-8 border-t border-border/60" style={{ color: BROWN }}>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-start">
+        <div className="self-start">
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-24 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title}>
@@ -62,7 +62,7 @@ function Footer() {
           </div>
         ))}
       </div>
-      <div className="mt-12 pt-6 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
+      <div className="mt-8 pt-4 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
         © Notions in Pattern. All rights reserved.
       </div>
     </footer>
@@ -187,10 +187,10 @@ function AboutPage() {
 
       {/* Gratitude */}
       <section
-        className="w-full px-8 md:px-16 py-24 bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: `url(${gratitudeBg.url})` }}
+        className="relative w-full px-8 md:px-16 py-24 bg-no-repeat bg-cover bg-right"
+        style={{ backgroundImage: `url(${aboutus3.url})`, minHeight: "480px" }}
       >
-        <div className="max-w-6xl">
+        <div className="max-w-6xl relative z-10">
           <div className="max-w-md" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-6" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="space-y-2 text-[14px] leading-[1.9]">
