@@ -48,7 +48,7 @@ function FounderPage() {
       {/* Hero */}
       <section className="px-8 md:px-16 pt-4 pb-16 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div>
-          <img src={founder1.url} alt="Neha Prasad" className="w-full h-auto object-cover" />
+          <img src={founder1.url} alt="Neha Prasad" className="w-full h-auto object-cover" style={{ objectPosition: "right center" }} />
         </div>
         <div style={{ color: BROWN }}>
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4">FOUNDER &amp; DESIGNER</p>
