@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
-import founder1 from "@/assets/founder_1.png.asset.json";
-import founder2 from "@/assets/founder_2.png.asset.json";
-import founder3 from "@/assets/founder_3.png.asset.json";
+import founder1 from "@/assets/founder_new_1.jpg.asset.json";
+import founder2 from "@/assets/founder_new_2.jpg.asset.json";
+import founder3 from "@/assets/founder_new_3.jpg.asset.json";
 import founder4 from "@/assets/founder_4.png.asset.json";
 import founder5 from "@/assets/founder_5.png.asset.json";
 import founder6 from "@/assets/founder_6.png.asset.json";
@@ -36,8 +36,8 @@ function TextBlock({ num, title, children }: { num: string; title: string; child
   );
 }
 
-function ImgBlock({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} className="w-full h-full min-h-[520px] md:min-h-[620px] object-cover block" />;
+function ImgBlock({ src, alt, position = "center" }: { src: string; alt: string; position?: string }) {
+  return <img src={src} alt={alt} style={{ objectPosition: position }} className="w-full h-full min-h-[520px] md:min-h-[620px] object-cover block" />;
 }
 
 function FounderPage() {
@@ -48,7 +48,7 @@ function FounderPage() {
       {/* Hero */}
       <section className="px-8 md:px-16 pt-4 pb-16 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div>
-          <img src={founder1.url} alt="Neha Prasad" className="w-full h-auto object-cover" />
+          <img src={founder1.url} alt="Neha Prasad" className="w-full h-auto object-cover" style={{ objectPosition: "right center" }} />
         </div>
         <div style={{ color: BROWN }}>
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4">FOUNDER &amp; DESIGNER</p>
@@ -77,7 +77,7 @@ function FounderPage() {
           <ImgBlock src={founder2.url} alt="River valley at sunset" />
 
           {/* Row 2 : image | text */}
-          <ImgBlock src={founder3.url} alt="Two women embroidering" />
+          <ImgBlock src={founder3.url} alt="Portrait" position="right center" />
           <TextBlock num="3" title="Those pieces became my personality.">
             <p>I wouldn't say it was something that was mindfully happening for me. How and when it became a part of me — I still don't know. And you know how parents are. If they made something for themselves, they would sometimes go out of their way to make an exquisite piece for us too. That is how it always happened — beautiful things in unexpected places. People whose craft had no audience but their own love for it.</p>
             <p>I loved it. I enjoyed it. But I didn't always know what I was collecting.</p>
