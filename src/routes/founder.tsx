@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
-import founder1 from "@/assets/founder_1.png.asset.json";
-import founder2 from "@/assets/founder_2.png.asset.json";
-import founder3 from "@/assets/founder_3.png.asset.json";
+import founder1 from "@/assets/founder_new_1.jpg.asset.json";
+import founder2 from "@/assets/founder_new_2.jpg.asset.json";
+import founder3 from "@/assets/founder_new_3.jpg.asset.json";
 import founder4 from "@/assets/founder_4.png.asset.json";
 import founder5 from "@/assets/founder_5.png.asset.json";
 import founder6 from "@/assets/founder_6.png.asset.json";
