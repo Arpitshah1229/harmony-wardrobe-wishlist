@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, User, ShoppingBag } from "lucide-react";
-import aboutus1 from "@/assets/aboutus1.png.asset.json";
-import aboutus2 from "@/assets/aboutus2.png.asset.json";
-import gratitudeBg from "@/assets/gratitude_bg.png.asset.json";
+import aboutus1 from "@/assets/aboutus1_v2.jpeg.asset.json";
+import aboutus2 from "@/assets/aboutus2_v2.jpeg.asset.json";
+import aboutus3 from "@/assets/aboutus3_v2.jpeg.asset.json";
 
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
