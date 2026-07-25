@@ -71,7 +71,7 @@ export function Footer() {
           </div>
         ))}
       </div>
-      <div className="mt-12 pt-6 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
+      <div className="mt-8 pt-4 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
         © Notions in Pattern. All rights reserved.
       </div>
     </footer>
