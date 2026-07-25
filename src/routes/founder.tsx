@@ -36,8 +36,8 @@ function TextBlock({ num, title, children }: { num: string; title: string; child
   );
 }
 
-function ImgBlock({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} className="w-full h-full min-h-[520px] md:min-h-[620px] object-cover block" />;
+function ImgBlock({ src, alt, position = "center" }: { src: string; alt: string; position?: string }) {
+  return <img src={src} alt={alt} style={{ objectPosition: position }} className="w-full h-full min-h-[520px] md:min-h-[620px] object-cover block" />;
 }
 
 function FounderPage() {
