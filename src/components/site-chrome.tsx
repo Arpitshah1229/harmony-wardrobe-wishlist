@@ -7,7 +7,6 @@ export const DARK = "#2C2119";
 
 const navLinks = [
   { label: "COLLECTION", to: "/" },
-  { label: "CRAFT", to: "/" },
   { label: "ABOUT", to: "/" },
   { label: "FOUNDER", to: "/founder" },
   { label: "CONTACT", to: "/" },
