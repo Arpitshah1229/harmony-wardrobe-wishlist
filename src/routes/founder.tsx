@@ -23,9 +23,9 @@ export const Route = createFileRoute("/founder")({
   }),
 });
 
-function TextBlock({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
+function TextBlock({ num, title, center, children }: { num: string; title: string; center?: boolean; children: React.ReactNode }) {
   return (
-    <div className="p-8 md:p-10 h-full flex flex-col justify-start">
+    <div className={`p-8 md:p-10 h-full flex flex-col ${center ? "justify-center text-center" : "justify-start"}`}>
       <h3 className="font-serif text-[22px] md:text-[26px] mb-4" style={{ color: BROWN }}>
         <span className="mr-2">Ch {num} :</span>{title}
       </h3>
