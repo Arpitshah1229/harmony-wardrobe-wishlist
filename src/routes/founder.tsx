@@ -23,11 +23,11 @@ export const Route = createFileRoute("/founder")({
   }),
 });
 
-function TextBlock({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
+function TextBlock({ num, title, center, children }: { num: string; title: string; center?: boolean; children: React.ReactNode }) {
   return (
-    <div className="p-8 md:p-10 h-full flex flex-col justify-start">
+    <div className={`p-8 md:p-10 h-full flex flex-col ${center ? "justify-center text-center" : "justify-start"}`}>
       <h3 className="font-serif text-[22px] md:text-[26px] mb-4" style={{ color: BROWN }}>
-        <span className="mr-2">Ch {num} —</span>{title}
+        <span className="mr-2">Ch {num} :</span>{title}
       </h3>
       <div className="text-[13px] leading-[1.9] space-y-3" style={{ color: DARK }}>
         {children}
@@ -78,13 +78,13 @@ function FounderPage() {
 
           {/* Row 2 : image | text */}
           <ImgBlock src={founder3.url} alt="Two women embroidering" />
-          <TextBlock num="3" title="Those pieces became my personality.">
+          <TextBlock num="3" title="Those pieces became my personality." center>
             <p>I wouldn't say it was something that was mindfully happening for me. How and when it became a part of me — I still don't know. And you know how parents are. If they made something for themselves, they would sometimes go out of their way to make an exquisite piece for us too. That is how it always happened — beautiful things in unexpected places. People whose craft had no audience but their own love for it.</p>
             <p>I loved it. I enjoyed it. But I didn't always know what I was collecting.</p>
           </TextBlock>
 
           {/* Row 3 : text | image */}
-          <TextBlock num="4" title="The path that shaped me.">
+          <TextBlock num="4" title="The path that shaped me." center>
             <p>It is only now, in my thirties, that I realise — those people, those places, those pieces have become the most treasured things in me. The happiest parts of myself.</p>
             <p>I studied fashion and apparel design in Bangalore. Then spent years on-screen (film), and eventually working independently as a costume stylist. That world taught me how aesthetics work. How a garment carries a story. How deeply people attach to what they wear — how a particular piece can belong so completely to a particular person, a particular moment.</p>
           </TextBlock>
@@ -92,13 +92,13 @@ function FounderPage() {
 
           {/* Row 4 : image | text */}
           <ImgBlock src={founder5.url} alt="Bara Imambara, Lucknow" />
-          <TextBlock num="5" title="Coming back home.">
+          <TextBlock num="5" title="Coming back home." center>
             <p>Post COVID, I came back to Lucknow. Where my family finally settled after my father's retirement. The city where I did my schooling. The place I have always called my base. My city. My people.</p>
             <p>I came back because I wanted to spend real time here. And because I had always seen traditional chikankari — the blocks, the stitches, the craft — worn so closely, so quietly. And I wanted to see what happened when the notions shifted. When the patterns evolved. But the effort stayed. The purity of the stitch stayed. And something new emerged.</p>
           </TextBlock>
 
           {/* Row 5 : text | image */}
-          <TextBlock num="6" title="Naqsh-e-Nigāh.">
+          <TextBlock num="6" title="Naqsh-e-Nigāh." center>
             <p>That is why Naqsh-e-Nigāh — Patterns of the Vision — became my first collection. Built from this city. Made with the beautiful people here.</p>
             <p>I wanted to create pieces that weren't really there. The same blocks had been rotating for years — I wanted to ask: what if they changed? What if new notions could be formed? What if something rooted in real craft could also feel completely of today? I could be wrong. But what is wrong? That is my notion.</p>
             <p>And if such pieces existed at all, they were either exported or priced entirely out of reach. That is the space Notions in Pattern steps into.</p>
@@ -120,7 +120,7 @@ function FounderPage() {
           </div>
 
           {/* Row 7 : text | image */}
-          <TextBlock num="9" title="With Gratitude.">
+          <TextBlock num="9" title="With Gratitude." center>
             <p>The concepts, the designs, the vision — those are mine. But the patterns that came to life, the craft that gave them form — that could only have come from people who truly know what they were doing.</p>
             <p>My artisans. My team.</p>
             <p>I do not take that lightly. I never will.</p>
