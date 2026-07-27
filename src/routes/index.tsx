@@ -109,8 +109,8 @@ function AboutPage() {
       <Header />
 
       {/* Hero */}
-      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-2 md:gap-4 items-start">
-        <div className="pt-6" style={{ color: BROWN }}>
+      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-2 md:gap-4 items-stretch">
+        <div className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
           <h1 className="font-serif text-7xl md:text-8xl leading-[1.05] tracking-tight">
             A thinking label<br />using craft as<br />expression.
           </h1>
@@ -119,8 +119,8 @@ function AboutPage() {
             Exploring textiles and handicrafts as a way of understanding life — through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
-        <div>
-          <img src={aboutus1.url} alt="Artisans working on textile" className="w-full h-auto object-cover" />
+        <div className="h-full">
+          <img src={aboutus1.url} alt="Artisans working on textile" className="w-full h-full object-cover" />
         </div>
       </section>
 
