@@ -37,6 +37,34 @@ export function Header() {
   );
 }
 
+export function AnnouncementBar() {
+  const items = [
+    "HAND-EMBROIDERED IN LUCKNOW",
+    "SMALL BATCH · HAND-DYED FABRIC",
+    "FREE SHIPPING ACROSS INDIA",
+    "NAQSH-E-NIGĀH — NOW AVAILABLE",
+  ];
+  const strip = [...items, ...items];
+  return (
+    <div className="w-full overflow-hidden border-t border-b border-border/60 py-2" style={{ backgroundColor: BROWN }}>
+      <div className="flex w-max animate-marquee">
+        {[0, 1].map((k) => (
+          <div key={k} className="flex shrink-0 items-center">
+            {strip.map((t, i) => (
+              <span
+                key={`${k}-${i}`}
+                className="px-6 text-[11px] font-bold tracking-[0.24em] whitespace-nowrap text-background"
+              >
+                {t} <span className="px-3">✦</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Footer() {
   const cols = [
     { title: "SHOP", items: [{ label: "Collection", to: "/collections" }, "New In", "Gift Cards"] },

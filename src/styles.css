@@ -33,3 +33,12 @@
   }
   h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; }
 }
+
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@utility animate-marquee {
+  animation: marquee-x 28s linear infinite;
+}

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
+import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
 import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
 import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
@@ -7,6 +7,8 @@ import mohar from "@/assets/mohar_shirt.jpeg.asset.json";
 import raah from "@/assets/raah_shirt.jpeg.asset.json";
 import sukoon from "@/assets/sukoon_shirt.jpeg.asset.json";
 import zameen from "@/assets/zameen_shirt.jpeg.asset.json";
+import heroImg from "@/assets/collection_hero.png.asset.json";
+import stitchesStrip from "@/assets/stitches_strip.png.asset.json";
 
 export const Route = createFileRoute("/collections")({
   component: CollectionsPage,
@@ -45,13 +47,12 @@ function CollectionsPage() {
       <Header />
 
       {/* Hero */}
-      <section className="grid grid-cols-1 md:grid-cols-2 items-stretch">
-        <img
-          src={gulraaz.url}
-          alt="Model wearing the Naqsh-e-Nigāh chikankari shirt"
-          className="w-full h-full object-cover max-h-[520px]"
-        />
-        <div className="flex flex-col justify-center px-8 md:px-14 py-12">
+      <section
+        className="relative w-full bg-cover bg-center min-h-[420px] md:min-h-[560px] flex items-center"
+        style={{ backgroundImage: `url(${heroImg.url})` }}
+      >
+        <div className="absolute inset-0 bg-background/35" />
+        <div className="relative px-8 md:px-16 py-16 max-w-xl">
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
@@ -69,6 +70,7 @@ function CollectionsPage() {
           </p>
         </div>
       </section>
+
 
       {/* Filters */}
       <div className="px-8 md:px-16 py-8 flex flex-wrap items-end gap-10">
@@ -163,12 +165,13 @@ function CollectionsPage() {
           </div>
         </div>
         <div className="grid grid-cols-4 gap-0">
-          {[bahaar.url, mohar.url, kinara.url, zameen.url].map((src) => (
+          {[bahaar.url, mohar.url, kinara.url, stitchesStrip.url].map((src) => (
             <img key={src} src={src} alt="Chikankari stitch detail" className="w-full h-40 md:h-48 object-cover" />
           ))}
         </div>
       </section>
 
+      <AnnouncementBar />
       <Footer />
     </div>
   );
