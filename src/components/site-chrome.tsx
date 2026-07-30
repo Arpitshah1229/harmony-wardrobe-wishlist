@@ -6,7 +6,7 @@ export const BROWN = "#4B3528";
 export const DARK = "#2C2119";
 
 const navLinks = [
-  { label: "COLLECTION", to: "/" },
+  { label: "COLLECTION", to: "/collections" },
   { label: "ABOUT", to: "/" },
   { label: "FOUNDER", to: "/founder" },
   { label: "CONTACT", to: "/" },
