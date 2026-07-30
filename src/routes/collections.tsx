@@ -165,12 +165,13 @@ function CollectionsPage() {
           </div>
         </div>
         <div className="grid grid-cols-4 gap-0">
-          {[bahaar.url, mohar.url, kinara.url, zameen.url].map((src) => (
+          {[bahaar.url, mohar.url, kinara.url, stitchesStrip.url].map((src) => (
             <img key={src} src={src} alt="Chikankari stitch detail" className="w-full h-40 md:h-48 object-cover" />
           ))}
         </div>
       </section>
 
+      <AnnouncementBar />
       <Footer />
     </div>
   );
