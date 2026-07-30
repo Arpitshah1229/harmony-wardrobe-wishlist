@@ -6,7 +6,7 @@ export const BROWN = "#4B3528";
 export const DARK = "#2C2119";
 
 const navLinks = [
-  { label: "COLLECTION", to: "/" },
+  { label: "COLLECTION", to: "/collections" },
   { label: "ABOUT", to: "/" },
   { label: "FOUNDER", to: "/founder" },
   { label: "CONTACT", to: "/" },
@@ -39,7 +39,7 @@ export function Header() {
 
 export function Footer() {
   const cols = [
-    { title: "SHOP", items: ["Collection", "New In", "Gift Cards"] },
+    { title: "SHOP", items: [{ label: "Collection", to: "/collections" }, "New In", "Gift Cards"] },
     { title: "HELP", items: ["Orders", "Shipping", "Returns"] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/" }, { label: "Craft", to: "/" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },
