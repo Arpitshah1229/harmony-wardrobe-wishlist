@@ -126,6 +126,9 @@ function FounderPage() {
             <p>I do not take that lightly. I never will.</p>
             <p>If there is one thing this journey has given me, it is the privilege of sitting beside the people who know. Learning from them. Moving with them. Creating, together, of something that didn't exist before.</p>
             <p>That, more than anything, is where Notions in Pattern lives.</p>
+            <p className="font-bold text-center text-lg md:text-xl mt-6" style={{ color: BROWN }}>
+              *Here's to many more chapters.*
+            </p>
           </TextBlock>
           <ImgBlock src={founder8.url} alt="Team gathered around a table" />
         </div>
