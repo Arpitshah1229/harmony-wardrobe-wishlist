@@ -165,11 +165,12 @@ function CollectionsPage() {
             <p>Naqsh-e-Nigāh is not about being seen loudly. It is about being understood—slowly.</p>
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-0">
-          {[bahaar.url, mohar.url, kinara.url, stitchesStrip.url].map((src) => (
-            <img key={src} src={src} alt="Chikankari stitch detail" className="w-full h-40 md:h-48 object-cover" />
-          ))}
-        </div>
+        <img
+          src={stitchesStrip.url}
+          alt="Chikankari stitch details on hand-dyed fabric"
+          className="w-full h-full object-cover"
+        />
+
       </section>
 
       <AnnouncementBar />
