@@ -39,7 +39,7 @@ export function Header() {
 
 export function Footer() {
   const cols = [
-    { title: "SHOP", items: ["Collection", "New In", "Gift Cards"] },
+    { title: "SHOP", items: [{ label: "Collection", to: "/collections" }, "New In", "Gift Cards"] },
     { title: "HELP", items: ["Orders", "Shipping", "Returns"] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/" }, { label: "Craft", to: "/" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },
