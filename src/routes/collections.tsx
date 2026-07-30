@@ -51,8 +51,9 @@ function CollectionsPage() {
         className="relative w-full bg-cover bg-center min-h-[420px] md:min-h-[560px] flex items-center"
         style={{ backgroundImage: `url(${heroImg.url})` }}
       >
-        <div className="absolute inset-0 bg-background/35" />
-        <div className="relative px-8 md:px-16 py-16 max-w-xl">
+        <div className="absolute inset-0 bg-background/25" />
+        <div className="relative ml-auto px-8 md:px-16 py-16 max-w-xl text-left">
+
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
@@ -164,11 +165,12 @@ function CollectionsPage() {
             <p>Naqsh-e-Nigāh is not about being seen loudly. It is about being understood—slowly.</p>
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-0">
-          {[bahaar.url, mohar.url, kinara.url, stitchesStrip.url].map((src) => (
-            <img key={src} src={src} alt="Chikankari stitch detail" className="w-full h-40 md:h-48 object-cover" />
-          ))}
-        </div>
+        <img
+          src={stitchesStrip.url}
+          alt="Chikankari stitch details on hand-dyed fabric"
+          className="w-full h-full object-cover"
+        />
+
       </section>
 
       <AnnouncementBar />
