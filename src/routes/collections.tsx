@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
+import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
 import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
 import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
@@ -7,6 +7,8 @@ import mohar from "@/assets/mohar_shirt.jpeg.asset.json";
 import raah from "@/assets/raah_shirt.jpeg.asset.json";
 import sukoon from "@/assets/sukoon_shirt.jpeg.asset.json";
 import zameen from "@/assets/zameen_shirt.jpeg.asset.json";
+import heroImg from "@/assets/collection_hero.png.asset.json";
+import stitchesStrip from "@/assets/stitches_strip.png.asset.json";
 
 export const Route = createFileRoute("/collections")({
   component: CollectionsPage,
