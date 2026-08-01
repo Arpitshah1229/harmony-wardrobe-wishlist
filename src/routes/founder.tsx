@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
+import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import founder1 from "@/assets/founder_new_1.jpg.asset.json";
 import founder2 from "@/assets/founder_new_2.png.asset.json";
 import founder3 from "@/assets/founder_new_3.jpg.asset.json";
@@ -132,6 +132,7 @@ function FounderPage() {
         </div>
       </section>
 
+      <AnnouncementBar bg="#A66A52" color="#FDF6EC" />
       <Footer />
     </div>
   );
