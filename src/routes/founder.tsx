@@ -109,7 +109,7 @@ function FounderPage() {
               <p>But a very clear vision.</p>
             </TextBlock>
             <TextBlock num="8" title="My people.">
-              <p>My mother is a starist, a traveller, a doctor of Hindi literature. My father — a retired Army officer, art enthusiast, someone who writes beautifully, plays guitar, and loves to read. Craft and creativity have always run quietly through my family.</p>
+              <p>My mother is a starist, a traveller, a doctor of Hindi literature. My father, a retired Army officer, art enthusiast, someone who writes beautifully, plays guitar, and loves to read. Craft and creativity have always run quietly through my family.</p>
               <p>I am what I am because of them.</p>
               <p>And I love to dance. That too.</p>
             </TextBlock>
