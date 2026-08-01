@@ -37,7 +37,7 @@ export function Header() {
   );
 }
 
-export function AnnouncementBar() {
+export function AnnouncementBar({ bg = BROWN, color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
   const items = [
     "HAND-EMBROIDERED IN LUCKNOW",
     "SMALL BATCH · HAND-DYED FABRIC",
@@ -46,15 +46,18 @@ export function AnnouncementBar() {
   ];
   const strip = [...items, ...items];
   return (
-    <div className="w-full overflow-hidden border-t border-b border-border/60 py-2" style={{ backgroundColor: BROWN }}>
+    <div className="w-full overflow-hidden border-t border-b border-border/60 py-2" style={{ backgroundColor: bg }}>
+
       <div className="flex w-max animate-marquee">
         {[0, 1].map((k) => (
           <div key={k} className="flex shrink-0 items-center">
             {strip.map((t, i) => (
               <span
                 key={`${k}-${i}`}
-                className="px-6 text-[11px] font-bold tracking-[0.24em] whitespace-nowrap text-background"
+                className="px-6 text-[11px] font-bold tracking-[0.24em] whitespace-nowrap"
+                style={{ color }}
               >
+
                 {t} <span className="px-3">✦</span>
               </span>
             ))}
