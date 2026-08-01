@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Search, User, ShoppingBag } from "lucide-react";
 import aboutus1 from "@/assets/aboutus1_v2.jpeg.asset.json";
 import aboutus2 from "@/assets/aboutus2_v2.jpeg.asset.json";
-import aboutus3 from "@/assets/aboutus3_v2.jpeg.asset.json";
+import aboutus3 from "@/assets/aboutus3_v3.jpeg.asset.json";
+import { AnnouncementBar } from "@/components/site-chrome";
 
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
@@ -116,7 +117,7 @@ function AboutPage() {
           </h1>
           <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
           <p className="text-[17px] md:text-[18px] leading-[1.85] max-w-md">
-            Exploring textiles and handicrafts as a way of understanding life — through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
+            Exploring textiles and handicrafts as a way of understanding life, through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
         <div className="h-full">
@@ -130,7 +131,7 @@ function AboutPage() {
         <div className="grid md:grid-cols-4 gap-8 text-[13px] leading-[1.9] relative" style={{ color: DARK }}>
           <div className="md:pr-6 md:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>Notions in Pattern began at home.<br />With my mother.</p>
-            <p>It did not begin as a brand,<br />but as something quieter — repetition.</p>
+            <p>It did not begin as a brand,<br />but as something quieter. Repetition.</p>
           </div>
           <div className="md:pr-6 md:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>The same sentences. The same advice. The same words heard so often, they fade into the background.</p>
@@ -157,9 +158,9 @@ function AboutPage() {
         <div className="px-8 md:pr-16 md:pl-0">
           <h3 className={titleClass} style={{ color: BROWN }}>WHAT WE DO</h3>
           <div className="space-y-4 text-[13px] leading-[1.9] max-w-lg" style={{ color: DARK }}>
-            <p>At Notions in Patterns, we want to work with traditional crafts across various forms — stitching, dyeing, printing, weaving, and handwork.</p>
+            <p>At Notions in Patterns, we want to work with traditional crafts across various forms: stitching, dyeing, printing, weaving, and handwork.</p>
             <p>We do not approach craft as something to preserve unchanged.</p>
-            <p>We see it as a living system — open to reinterpretation.</p>
+            <p>We see it as a living system, open to reinterpretation.</p>
             <p>It begins with observation and moves into making.</p>
             <p>Because what changes the outcome is not only what we make, but how we are taught to see it.</p>
             <p>What we shift is not the technique, but the way it is seen.</p>
@@ -197,12 +198,13 @@ function AboutPage() {
               <p>Notions in Pattern began with our family.</p>
               <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
               <p>Thank you for being here.</p>
-              <p className="pt-2">— Neha &amp; Anita</p>
+              <p className="pt-2">Neha &amp; Anita</p>
             </div>
           </div>
         </div>
       </section>
 
+      <AnnouncementBar bg="#7A8063" color="#F7F4EE" />
       <Footer />
     </div>
   );
