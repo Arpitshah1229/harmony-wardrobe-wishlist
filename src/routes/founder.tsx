@@ -64,12 +64,17 @@ function FounderPage() {
             <div className="w-16 h-px mt-6" style={{ backgroundColor: `${BROWN}66` }} />
           </div>
 
-          {/* Ch 1 */}
-          <TextBlock num="1" title="I grew up moving.">
-            <p>Army family.</p>
-            <p>Sometimes the most metropolitan cities. Sometimes the most remote postings. Places most people never reach.</p>
-            <p>It was in those places that I discovered craft that the world simply didn't know existed.</p>
-          </TextBlock>
+          {/* Ch 1 + Ch 2 stacked */}
+          <div className="flex flex-col gap-0">
+            <TextBlock num="1" title="I grew up moving.">
+              <p>Army family.</p>
+              <p>Sometimes the most metropolitan cities. Sometimes the most remote postings. Places most people never reach.</p>
+              <p>It was in those places that I discovered craft that the world simply didn't know existed.</p>
+            </TextBlock>
+            <TextBlock num="2" title="Beautiful things in unexpected places.">
+              <p>My father was posted in Assam. I was young, but it was my mother who first noticed. She always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
+            </TextBlock>
+          </div>
           <ImgBlock src={founder2.url} alt="River valley at sunset" />
 
           {/* Row 2 : image | text */}
