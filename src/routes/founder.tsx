@@ -6,8 +6,8 @@ import founder3 from "@/assets/founder_new_3.jpg.asset.json";
 import founder4 from "@/assets/founder_new_4.png.asset.json";
 import founder5 from "@/assets/founder_new_5.jpg.asset.json";
 import founder6 from "@/assets/founder_new_6.jpeg.asset.json";
-import founder7 from "@/assets/founder_new_7.jpeg.asset.json";
-import founder8 from "@/assets/founder_new_8.jpeg.asset.json";
+import founder7 from "@/assets/founder_new_7b.jpeg.asset.json";
+import founder8 from "@/assets/founder_new_8b.jpeg.asset.json";
 
 export const Route = createFileRoute("/founder")({
   component: FounderPage,
@@ -72,10 +72,12 @@ function FounderPage() {
               <p>It was in those places that I discovered craft that the world simply didn't know existed.</p>
             </TextBlock>
             <TextBlock num="2" title="Beautiful things in unexpected places.">
-              <p>My father was posted in Assam. I was young, but it was my mother who first noticed. She always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
+              <p>My father was posted in Assam. I was young, but it was my mother who first noticed. She always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
             </TextBlock>
           </div>
-          <ImgBlock src={founder2.url} alt="River valley at sunset" />
+          <div className="w-full h-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden">
+            <img src={founder2.url} alt="Ripples in water at sunset" className="w-full h-full object-contain block" />
+          </div>
 
           {/* Row 2 : image | text */}
           <ImgBlock src={founder3.url} alt="Two women embroidering" />
@@ -87,7 +89,7 @@ function FounderPage() {
           {/* Row 3 : text | image */}
           <TextBlock num="4" title="The path that shaped me." center>
             <p>It is only now, in my thirties, that I realise. Those people, those places, those pieces have become the most treasured things in me. The happiest parts of myself.</p>
-            <p>I studied fashion and apparel design in Bangalore. Then spent years on-screen (film), and eventually working independently as a costume stylist. That world taught me how aesthetics work. How a garment carries a story. How deeply people attach to what they wear. How a particular piece can belong so completely to a particular person, a particular moment.</p>
+            <p>I studied fashion and apparel design in Bangalore. Then spent years assisting on major films, advertising campaigns, and photoshoots and eventually working independently as a costume stylist. That world taught me how aesthetics work. How a garment carries a story. How deeply people attach to what they wear. How a particular piece can belong so completely to a particular person, a particular moment.</p>
           </TextBlock>
           <ImgBlock src={founder4.url} alt="Sketchbook and motifs" />
 
@@ -100,7 +102,7 @@ function FounderPage() {
 
           {/* Row 5 : text | image */}
           <TextBlock num="6" title="Naqsh-e-Nigāh." center>
-            <p>That is why Naqsh-e-Nigāh, Patterns of the Vision, became my first collection. Built from this city. Made with the beautiful people here.</p>
+            <p>That is why Naqsh-e-Nigāh Patterns of the Vision, became my first collection. Built from this city. Made and by the beautiful people here.</p>
             <p>I wanted to create pieces that weren't really there. The same blocks had been rotating for years. I wanted to ask: what if they changed? What if new notions could be formed? What if something rooted in real craft could also feel completely of today? I could be wrong. But what is wrong? That is my notion.</p>
             <p>And if such pieces existed at all, they were either exported or priced entirely out of reach. That is the space Notions in Pattern steps into.</p>
           </TextBlock>
@@ -125,7 +127,7 @@ function FounderPage() {
             <p>The concepts, the designs, the vision, those are mine. But the patterns that came to life, the craft that gave them form, that could only have come from people who truly know what they were doing.</p>
             <p>My artisans. My team.</p>
             <p>I do not take that lightly. I never will.</p>
-            <p>If there is one thing this journey has given me, it is the privilege of sitting beside the people who know. Learning from them. Moving with them. Creating, together, of something that didn't exist before.</p>
+            <p>If there is one thing this journey has given me, it is the privilege of sitting beside the people I love working with most. Learning from them. Moving with them. Creating together, of something that didn't exist before, according to us.</p>
             <p>That, more than anything, is where Notions in Pattern lives.</p>
           </TextBlock>
           <ImgBlock src={founder8.url} alt="Team gathered around a table" />
