@@ -102,7 +102,7 @@ export function Footer() {
     <footer className="px-8 md:px-16 py-8 border-t border-border/60" style={{ color: BROWN }}>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-start">
         <div className="self-start">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-24 h-auto" />
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-36 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title}>
