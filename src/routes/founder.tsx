@@ -89,7 +89,7 @@ function FounderPage() {
           </TextBlock>
 
           {/* Row 3 : text | image */}
-          <TextBlock num="4" title="The path that shaped me.">
+          <TextBlock num="4" title="The path that shaped me." vCenter>
             <p>It is only now, in my thirties, that I realise. Those people, those places, those pieces have become the most treasured things in me. The happiest parts of myself.</p>
             <p>I studied fashion and apparel design in Bangalore. Then spent years assisting on major films, advertising campaigns, and photoshoots and eventually working independently as a costume stylist. That world taught me how aesthetics work. How a garment carries a story. How deeply people attach to what they wear. How a particular piece can belong so completely to a particular person, a particular moment.</p>
           </TextBlock>
@@ -97,13 +97,13 @@ function FounderPage() {
 
           {/* Row 4 : image | text */}
           <ImgBlock src={founder5.url} alt="Bara Imambara, Lucknow" />
-          <TextBlock num="5" title="Coming back home.">
+          <TextBlock num="5" title="Coming back home." vCenter>
             <p>Post COVID, I came back to Lucknow. Where my family finally settled after my father's retirement. The city where I did my schooling. The place I have always called my base. My city. My people.</p>
             <p>I came back because I wanted to spend real time here. And because I had always seen traditional chikankari. The blocks, the stitches, the craft. Worn so closely, so quietly. And I wanted to see what happened when the notions shifted. When the patterns evolved. But the effort stayed. The purity of the stitch stayed. And something new emerged.</p>
           </TextBlock>
 
           {/* Row 5 : text | image */}
-          <TextBlock num="6" title="Naqsh-e-Nigāh.">
+          <TextBlock num="6" title="Naqsh-e-Nigāh." vCenter>
             <p>That is why Naqsh-e-Nigāh Patterns of the Vision, became my first collection. Built from this city. Made and by the beautiful people here.</p>
             <p>I wanted to create pieces that weren't really there. The same blocks had been rotating for years. I wanted to ask: what if they changed? What if new notions could be formed? What if something rooted in real craft could also feel completely of today? I could be wrong. But what is wrong? That is my notion.</p>
             <p>And if such pieces existed at all, they were either exported or priced entirely out of reach. That is the space Notions in Pattern steps into.</p>
