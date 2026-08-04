@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Search, User, ShoppingBag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
