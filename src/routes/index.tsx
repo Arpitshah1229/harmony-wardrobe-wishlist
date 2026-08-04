@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Search, User, ShoppingBag } from "lucide-react";
 import aboutus1 from "@/assets/aboutus1_v2.jpeg.asset.json";
 import aboutus2 from "@/assets/aboutus2_v2.jpeg.asset.json";
-import aboutus3 from "@/assets/aboutus3_v3.jpeg.asset.json";
+import aboutus3 from "@/assets/aboutus3_v4.jpeg.asset.json";
 import { AnnouncementBar } from "@/components/site-chrome";
 
 import nipLogo from "@/assets/nip_logo.png.asset.json";
@@ -52,7 +52,7 @@ function Footer() {
     <footer className="px-8 md:px-16 py-8 border-t border-border/60" style={{ color: BROWN }}>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-start">
         <div className="self-start">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-24 h-auto" />
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-36 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title}>
@@ -193,12 +193,14 @@ function AboutPage() {
       >
         <div className="max-w-6xl relative z-10">
           <div className="max-w-md" style={{ color: DARK }}>
-            <h2 className="font-serif font-bold text-4xl md:text-5xl mb-6" style={{ color: BROWN }}>With Gratitude.</h2>
+            <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4" style={{ color: BROWN }}>With Gratitude.</h2>
+            <div className="w-14 h-px mb-6" style={{ backgroundColor: `${BROWN}66` }} />
             <div className="space-y-2 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
               <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
               <p>Thank you for being here.</p>
-              <p className="pt-2">Neha &amp; Anita</p>
+              <div className="w-14 h-px mt-5 mb-3" style={{ backgroundColor: `${BROWN}66` }} />
+              <p>Neha &amp; Anita</p>
             </div>
           </div>
         </div>
