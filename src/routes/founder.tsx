@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
+import logo from "@/assets/nip_logo.png.asset.json";
 import founder1 from "@/assets/founder_new_1.jpg.asset.json";
 import founder2 from "@/assets/founder_new_2.png.asset.json";
 import founder3 from "@/assets/founder_new_3.jpg.asset.json";
@@ -23,9 +24,9 @@ export const Route = createFileRoute("/founder")({
   }),
 });
 
-function TextBlock({ num, title, center, footer, children }: { num: string; title: string; center?: boolean; footer?: React.ReactNode; children: React.ReactNode }) {
+function TextBlock({ num, title, center, vCenter, footer, children }: { num: string; title: string; center?: boolean; vCenter?: boolean; footer?: React.ReactNode; children: React.ReactNode }) {
   return (
-    <div className={`p-8 md:p-10 h-full flex flex-col ${center ? "justify-center text-center" : footer ? "justify-between" : "justify-start"}`}>
+    <div className={`p-8 md:p-10 h-full flex flex-col ${center ? "justify-center text-center" : vCenter ? "justify-center text-left" : footer ? "justify-between" : "justify-start"}`}>
       <div className={footer ? "flex-1 flex flex-col justify-center" : ""}>
         <h3 className="font-serif text-[22px] md:text-[26px] mb-4" style={{ color: BROWN }}>
           <span className="mr-2">Ch {num} :</span>{title}
@@ -58,6 +59,7 @@ function FounderPage() {
 
           {/* Hero text */}
           <div className="p-8 md:p-10 h-full flex flex-col justify-center" style={{ color: BROWN }}>
+            <img src={logo.url} alt="Notions in Pattern" className="w-16 h-auto mb-4" />
             <p className="text-[12px] font-bold tracking-[0.28em] mb-4">FOUNDER &amp; DESIGNER</p>
             <div className="w-16 h-px mb-6" style={{ backgroundColor: `${BROWN}66` }} />
             <h1 className="font-serif text-6xl md:text-7xl leading-[1.05] tracking-tight mb-3">Neha Prasad</h1>
@@ -81,13 +83,13 @@ function FounderPage() {
 
           {/* Row 2 : image | text */}
           <ImgBlock src={founder3.url} alt="Two women embroidering" />
-          <TextBlock num="3" title="Those pieces became my personality.">
+          <TextBlock num="3" title="Those pieces became my personality." vCenter>
             <p>I wouldn't say it was something that was mindfully happening for me. How and when it became a part of me, I still don't know. And you know how parents are. If they made something for themselves, they would sometimes go out of their way to make an exquisite piece for us too. That is how it always happened. Beautiful things in unexpected places. People whose craft had no audience but their own love for it.</p>
             <p>I loved it. I enjoyed it. But I didn't always know what I was collecting.</p>
           </TextBlock>
 
           {/* Row 3 : text | image */}
-          <TextBlock num="4" title="The path that shaped me.">
+          <TextBlock num="4" title="The path that shaped me." vCenter>
             <p>It is only now, in my thirties, that I realise. Those people, those places, those pieces have become the most treasured things in me. The happiest parts of myself.</p>
             <p>I studied fashion and apparel design in Bangalore. Then spent years assisting on major films, advertising campaigns, and photoshoots and eventually working independently as a costume stylist. That world taught me how aesthetics work. How a garment carries a story. How deeply people attach to what they wear. How a particular piece can belong so completely to a particular person, a particular moment.</p>
           </TextBlock>
@@ -95,13 +97,13 @@ function FounderPage() {
 
           {/* Row 4 : image | text */}
           <ImgBlock src={founder5.url} alt="Bara Imambara, Lucknow" />
-          <TextBlock num="5" title="Coming back home.">
+          <TextBlock num="5" title="Coming back home." vCenter>
             <p>Post COVID, I came back to Lucknow. Where my family finally settled after my father's retirement. The city where I did my schooling. The place I have always called my base. My city. My people.</p>
             <p>I came back because I wanted to spend real time here. And because I had always seen traditional chikankari. The blocks, the stitches, the craft. Worn so closely, so quietly. And I wanted to see what happened when the notions shifted. When the patterns evolved. But the effort stayed. The purity of the stitch stayed. And something new emerged.</p>
           </TextBlock>
 
           {/* Row 5 : text | image */}
-          <TextBlock num="6" title="Naqsh-e-Nigāh.">
+          <TextBlock num="6" title="Naqsh-e-Nigāh." vCenter>
             <p>That is why Naqsh-e-Nigāh Patterns of the Vision, became my first collection. Built from this city. Made and by the beautiful people here.</p>
             <p>I wanted to create pieces that weren't really there. The same blocks had been rotating for years. I wanted to ask: what if they changed? What if new notions could be formed? What if something rooted in real craft could also feel completely of today? I could be wrong. But what is wrong? That is my notion.</p>
             <p>And if such pieces existed at all, they were either exported or priced entirely out of reach. That is the space Notions in Pattern steps into.</p>
