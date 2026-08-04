@@ -199,7 +199,6 @@ function AboutPage() {
               <p>Notions in Pattern began with our family.</p>
               <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
               <p>Thank you for being here.</p>
-              <div className="w-14 h-px mt-5 mb-3" style={{ backgroundColor: `${BROWN}66` }} />
               <p>— Neha &amp; Anita</p>
             </div>
           </div>
