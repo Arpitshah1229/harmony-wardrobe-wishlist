@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
+import logo from "@/assets/nip_logo.png.asset.json";
 import founder1 from "@/assets/founder_new_1.jpg.asset.json";
 import founder2 from "@/assets/founder_new_2.png.asset.json";
 import founder3 from "@/assets/founder_new_3.jpg.asset.json";
