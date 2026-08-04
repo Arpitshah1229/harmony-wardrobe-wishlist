@@ -83,7 +83,7 @@ function FounderPage() {
 
           {/* Row 2 : image | text */}
           <ImgBlock src={founder3.url} alt="Two women embroidering" />
-          <TextBlock num="3" title="Those pieces became my personality.">
+          <TextBlock num="3" title="Those pieces became my personality." vCenter>
             <p>I wouldn't say it was something that was mindfully happening for me. How and when it became a part of me, I still don't know. And you know how parents are. If they made something for themselves, they would sometimes go out of their way to make an exquisite piece for us too. That is how it always happened. Beautiful things in unexpected places. People whose craft had no audience but their own love for it.</p>
             <p>I loved it. I enjoyed it. But I didn't always know what I was collecting.</p>
           </TextBlock>
