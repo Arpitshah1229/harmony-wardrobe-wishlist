@@ -18,7 +18,7 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
 
   useEffect(() => {
     if (!overlay) return;
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.5);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -29,20 +29,23 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
       className={
         overlay
           ? `fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500 ${
-              scrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+              scrolled
+                ? "bg-background/95 backdrop-blur-md shadow-sm"
+                : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
             }`
           : "w-full px-8 md:px-12 py-5 flex items-center justify-between"
       }
       style={{ color: BROWN }}
     >
-      <div className="flex items-center gap-4">
-        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
-        <div className="flex items-center font-serif font-bold text-lg md:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
+      <div className="flex min-w-0 items-center gap-4">
+        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto shrink-0" />
+        <div className="hidden sm:flex items-center font-serif font-bold text-lg md:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>NOTIONS</span>
           <span className="px-1">IN</span>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>PATTERN</span>
         </div>
       </div>
+
       <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em]">
         {navLinks.map((l) => (
           <Link key={l.label} to={l.to} className="hover:opacity-70 transition-opacity">{l.label}</Link>
@@ -57,7 +60,7 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
   );
 }
 
-export function AnnouncementBar({ bg = BROWN, color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
+export function AnnouncementBar({ bg = "#7A8063", color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
   const items = [
     "HAND-EMBROIDERED IN LUCKNOW",
     "SMALL BATCH · HAND-DYED FABRIC",
