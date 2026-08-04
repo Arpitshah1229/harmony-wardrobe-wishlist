@@ -117,14 +117,15 @@ function CollectionsPage() {
       </div>
 
       {/* Product grid */}
-      <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-14">
+      <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
         {products.map((p) => (
-          <article key={p.name} className="group">
-            <div className="relative overflow-hidden bg-muted/30">
+          <article key={p.name} className="group flex flex-col">
+            <div className="relative overflow-hidden bg-cream/60">
               <img
                 src={p.img}
                 alt={p.name}
-                className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                loading="lazy"
+                className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.05]"
               />
               <span
                 className="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
@@ -134,84 +135,115 @@ function CollectionsPage() {
               </span>
               <button
                 type="button"
-                className="absolute bottom-0 left-0 right-0 py-3 text-[11px] font-bold tracking-[0.22em] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                className="absolute bottom-0 left-0 right-0 py-3.5 text-[11px] font-bold tracking-[0.22em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                 style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
               >
                 ADD TO CART
               </button>
             </div>
-            <h3 className="font-serif text-[17px] mt-4" style={{ color: BROWN }}>
-              {p.name}
-            </h3>
-            <p className="text-[12px] mt-1 tracking-[0.08em]" style={{ color: DARK }}>
-              {p.note}
-            </p>
-            <p className="text-[14px] mt-1.5 font-bold" style={{ color: DARK }}>
-              {p.price}
-            </p>
+            <div className="mt-4 flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <h3 className="font-serif text-[19px] font-bold leading-snug truncate" style={{ color: BROWN }}>
+                  {p.name}
+                </h3>
+                <p className="text-[11px] mt-1 tracking-[0.16em] uppercase" style={{ color: DARK }}>
+                  {p.note}
+                </p>
+              </div>
+              <p className="shrink-0 text-[15px] font-bold" style={{ color: DARK }}>
+                {p.price}
+              </p>
+            </div>
           </article>
         ))}
       </section>
 
       {/* Collection story */}
-      <section className="px-8 md:px-16 pt-24">
-        <h2 className="text-[15px] font-bold tracking-[0.24em]" style={{ color: BROWN }}>
-          COLLECTION STORY
-        </h2>
-        <span className="block w-8 border-t mt-3 mb-8" style={{ borderColor: BROWN }} />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-[14px] leading-relaxed" style={{ color: DARK }}>
-          <div className="space-y-5">
-            <p>
-              Rooted in Lucknow, it brings chikankari into a modern, everyday sensibility. Each block is hand-carved
-              with a new twist on tradition, then embroidered by artisans who understand the craft deeply.
-            </p>
-            <p>Every fabric is hand-dyed; every batch, small.</p>
-          </div>
-          <div className="space-y-5">
-            <p>
-              Precision and patience are not ideas here, they are the process itself. Nothing here is rushed. Nothing
-              here is incidental.
-            </p>
-            <p>
-              Crafted in breathable fabrics, each piece is designed for ease, not reserved for occasion, but meant to be
-              lived in.
-            </p>
-          </div>
-          <div className="space-y-5">
-            <p>The hand does not decorate what the eye imagines, it interprets it.</p>
-            <p>
-              Traditional Lucknow chikankari holds 32 principal stitches. Across this collection, we've worked with
-              eleven, Tepchi, Bakhiya (Ulti &amp; Sidhi), Phanda, Keel Kangan, Ghas Patti, Hool, Jaali, Orma, Hathkati,
-              Chana Patti, and Zanzeera, each chosen for the character it brings to breathable, everyday fabric.
-            </p>
-            <p>Among them:</p>
+      <section className="mt-24 px-8 md:px-16 py-20" style={{ backgroundColor: "var(--cream)" }}>
+        <div className="max-w-6xl mx-auto">
+          <h2
+            className="font-serif text-4xl md:text-5xl font-bold tracking-[0.04em] text-center"
+            style={{ color: BROWN }}
+          >
+            Collection Story
+          </h2>
+          <span className="block w-16 border-t-2 mx-auto mt-5 mb-14" style={{ borderColor: BROWN }} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 text-[15px] leading-[1.9]" style={{ color: DARK }}>
+            <div className="space-y-5 md:border-r md:pr-10 border-border/70">
+              <p className="font-serif italic text-2xl leading-snug" style={{ color: BROWN }}>
+                Rooted in Lucknow.
+              </p>
+              <p>
+                It brings chikankari into a modern, everyday sensibility. Each block is hand-carved with a new twist on
+                tradition, then embroidered by artisans who understand the craft deeply.
+              </p>
+              <p>Every fabric is hand-dyed; every batch, small.</p>
+            </div>
+            <div className="space-y-5 md:border-r md:pr-10 border-border/70">
+              <p className="font-serif italic text-2xl leading-snug" style={{ color: BROWN }}>
+                Precision and patience.
+              </p>
+              <p>
+                They are not ideas here, they are the process itself. Nothing here is rushed. Nothing here is
+                incidental.
+              </p>
+              <p>
+                Crafted in breathable fabrics, each piece is designed for ease, not reserved for occasion, but meant to
+                be lived in.
+              </p>
+            </div>
+            <div className="space-y-5">
+              <p className="font-serif italic text-2xl leading-snug" style={{ color: BROWN }}>
+                Eleven of thirty-two.
+              </p>
+              <p>The hand does not decorate what the eye imagines, it interprets it.</p>
+              <p>
+                Traditional Lucknow chikankari holds 32 principal stitches. Across this collection, we've worked with
+                eleven, Tepchi, Bakhiya (Ulti &amp; Sidhi), Phanda, Keel Kangan, Ghas Patti, Hool, Jaali, Orma,
+                Hathkati, Chana Patti, and Zanzeera, each chosen for the character it brings to breathable, everyday
+                fabric.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Language of stitches */}
-      <section className="px-8 md:px-16 pt-20 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start mb-10">
-          <div>
-            <h2 className="text-[15px] font-bold tracking-[0.24em]" style={{ color: BROWN }}>
-              THE LANGUAGE OF STITCHES
-            </h2>
-            <span className="block w-8 border-t mt-3 mb-8" style={{ borderColor: BROWN }} />
-            <div className="space-y-5 text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
-              <p>
-                Together, they form a language, subtle, intentional. Detail doesn't demand attention; it reveals itself
-                over time.
-              </p>
-              <p>Naqsh-e-Nigāh is not about being seen loudly. It is about being understood, slowly.</p>
-            </div>
+      <section className="px-8 md:px-16 pt-24 pb-20">
+        <div className="max-w-6xl mx-auto">
+          <h2
+            className="font-serif text-4xl md:text-5xl font-bold tracking-[0.04em] text-center"
+            style={{ color: BROWN }}
+          >
+            The Language of Stitches
+          </h2>
+          <span className="block w-16 border-t-2 mx-auto mt-5 mb-10" style={{ borderColor: BROWN }} />
+          <div className="max-w-2xl mx-auto text-center space-y-5 text-[15px] leading-[1.9]" style={{ color: DARK }}>
+            <p>
+              Together, they form a language, subtle, intentional. Detail doesn't demand attention; it reveals itself
+              over time.
+            </p>
+            <p className="font-serif italic text-2xl md:text-[28px] leading-snug" style={{ color: BROWN }}>
+              Naqsh-e-Nigāh is not about being seen loudly. It is about being understood, slowly.
+            </p>
           </div>
         </div>
-        <img
-          src={stitchesStrip.url}
-          alt="Chikankari stitch details on hand-dyed fabric"
-          className="w-full object-cover"
-        />
+        <figure className="mt-14 overflow-hidden">
+          <img
+            src={stitchesStrip.url}
+            alt="Chikankari stitch details on hand-dyed fabric"
+            loading="lazy"
+            className="w-full object-cover"
+          />
+          <figcaption
+            className="mt-4 text-center text-[11px] font-bold tracking-[0.24em] uppercase"
+            style={{ color: BROWN }}
+          >
+            Eleven stitches, one vocabulary
+          </figcaption>
+        </figure>
       </section>
+
 
       <AnnouncementBar />
       <Footer />
