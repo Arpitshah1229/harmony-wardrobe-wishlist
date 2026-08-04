@@ -43,7 +43,7 @@ const products = [
 
 function CollectionsPage() {
   return (
-    <div className="m-[5px] bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       <Header overlay />
 
       {/* Hero */}
@@ -68,13 +68,6 @@ function CollectionsPage() {
             <br />
             and how that vision takes form.
           </p>
-          <a
-            href="#shop"
-            className="inline-block mt-10 px-8 py-3 text-[11px] font-bold tracking-[0.24em] transition-opacity hover:opacity-80"
-            style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
-          >
-            SHOP THE COLLECTION
-          </a>
         </div>
       </section>
 
@@ -121,9 +114,6 @@ function CollectionsPage() {
             </select>
           </div>
         </div>
-        <p className="text-[12px] font-bold tracking-[0.2em]" style={{ color: DARK }}>
-          {products.length} PIECES
-        </p>
       </div>
 
       {/* Product grid */}
