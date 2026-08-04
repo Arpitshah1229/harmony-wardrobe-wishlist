@@ -60,7 +60,7 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
   );
 }
 
-export function AnnouncementBar({ bg = BROWN, color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
+export function AnnouncementBar({ bg = "#7A8063", color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
   const items = [
     "HAND-EMBROIDERED IN LUCKNOW",
     "SMALL BATCH · HAND-DYED FABRIC",
