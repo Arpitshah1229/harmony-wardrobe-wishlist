@@ -7,8 +7,8 @@ import mohar from "@/assets/mohar_shirt.jpeg.asset.json";
 import raah from "@/assets/raah_shirt.jpeg.asset.json";
 import sukoon from "@/assets/sukoon_shirt.jpeg.asset.json";
 import zameen from "@/assets/zameen_shirt.jpeg.asset.json";
-import heroImg from "@/assets/collection_hero.png.asset.json";
-import stitchesStrip from "@/assets/stitches_strip.png.asset.json";
+import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
+import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
 export const Route = createFileRoute("/collections")({
   component: CollectionsPage,
@@ -18,12 +18,12 @@ export const Route = createFileRoute("/collections")({
       {
         name: "description",
         content:
-          "Naqsh-e-Nigāh — Patterns of the Vision. The inaugural chikankari shirt collection from Notions in Pattern, hand-embroidered in Lucknow.",
+          "Naqsh-e-Nigāh, Patterns of the Vision. The inaugural chikankari shirt collection from Notions in Pattern, hand-embroidered in Lucknow.",
       },
       { property: "og:title", content: "Naqsh-e-Nigāh Collection | Notions in Pattern" },
       {
         property: "og:description",
-        content: "A collection that begins with how we see—and how that vision takes form.",
+        content: "A collection that begins with how we see, and how that vision takes form.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -32,28 +32,27 @@ export const Route = createFileRoute("/collections")({
 });
 
 const products = [
-  { name: "GulRaaz Shirt", price: "₹6,300", img: gulraaz.url },
-  { name: "Bahaar Shirt", price: "₹6,300", img: bahaar.url },
-  { name: "Kinara Shirt", price: "₹6,300", img: kinara.url },
-  { name: "Mohar Shirt", price: "₹6,300", img: mohar.url },
-  { name: "Raah Shirt", price: "₹6,300", img: raah.url },
-  { name: "Sukoon Shirt", price: "₹6,300", img: sukoon.url },
-  { name: "Zameen Shirt", price: "₹6,300", img: zameen.url },
+  { name: "GulRaaz Shirt", price: "₹6,300", img: gulraaz.url, note: "Hand-dyed cotton" },
+  { name: "Bahaar Shirt", price: "₹6,300", img: bahaar.url, note: "Hand-dyed cotton" },
+  { name: "Kinara Shirt", price: "₹6,300", img: kinara.url, note: "Hand-dyed cotton" },
+  { name: "Mohar Shirt", price: "₹6,300", img: mohar.url, note: "Hand-dyed cotton" },
+  { name: "Raah Shirt", price: "₹6,300", img: raah.url, note: "Hand-dyed cotton" },
+  { name: "Sukoon Shirt", price: "₹6,300", img: sukoon.url, note: "Hand-dyed cotton" },
+  { name: "Zameen Shirt", price: "₹6,300", img: zameen.url, note: "Hand-dyed cotton" },
 ];
 
 function CollectionsPage() {
   return (
     <div className="m-[5px] bg-background min-h-screen">
-      <Header />
+      <Header overlay />
 
       {/* Hero */}
       <section
-        className="relative w-full bg-cover bg-center min-h-[420px] md:min-h-[560px] flex items-center"
+        className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center"
         style={{ backgroundImage: `url(${heroImg.url})` }}
       >
-        <div className="absolute inset-0 bg-background/25" />
-        <div className="relative ml-auto px-8 md:px-16 py-16 max-w-xl text-left">
-
+        <div className="absolute inset-0 bg-background/10" />
+        <div className="relative ml-auto px-8 md:px-16 py-24 max-w-xl text-left">
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
@@ -65,52 +64,99 @@ function CollectionsPage() {
           </p>
           <span className="block w-10 border-t mt-6 mb-6" style={{ borderColor: BROWN }} />
           <p className="text-[15px] leading-relaxed max-w-md" style={{ color: DARK }}>
-            A collection that begins with how we see—
+            A collection that begins with how we see,
             <br />
             and how that vision takes form.
           </p>
+          <a
+            href="#shop"
+            className="inline-block mt-10 px-8 py-3 text-[11px] font-bold tracking-[0.24em] transition-opacity hover:opacity-80"
+            style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+          >
+            SHOP THE COLLECTION
+          </a>
         </div>
       </section>
 
+      {/* Trust strip */}
+      <div className="px-8 md:px-16 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-border/60">
+        {[
+          "HAND-EMBROIDERED IN LUCKNOW",
+          "HAND-DYED, SMALL BATCH",
+          "FREE SHIPPING ACROSS INDIA",
+          "EASY 7-DAY RETURNS",
+        ].map((t) => (
+          <p key={t} className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+            {t}
+          </p>
+        ))}
+      </div>
 
       {/* Filters */}
-      <div className="px-8 md:px-16 py-8 flex flex-wrap items-end gap-10">
-        <span className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
-          FILTER:
-        </span>
-        <div>
-          <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
-            CATEGORY
-          </p>
-          <select
-            className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[140px]"
-            style={{ color: DARK, borderColor: BROWN }}
-          >
-            <option>Shirts</option>
-          </select>
+      <div id="shop" className="px-8 md:px-16 pt-12 pb-8 flex flex-wrap items-end justify-between gap-8">
+        <div className="flex flex-wrap items-end gap-10">
+          <span className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
+            FILTER:
+          </span>
+          <div>
+            <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
+              CATEGORY
+            </p>
+            <select
+              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[140px]"
+              style={{ color: DARK, borderColor: BROWN }}
+            >
+              <option>Shirts</option>
+            </select>
+          </div>
+          <div>
+            <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
+              SORT BY
+            </p>
+            <select
+              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[140px]"
+              style={{ color: DARK, borderColor: BROWN }}
+            >
+              <option>Featured</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
-            SORT BY
-          </p>
-          <select
-            className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[140px]"
-            style={{ color: DARK, borderColor: BROWN }}
-          >
-            <option>Featured</option>
-          </select>
-        </div>
+        <p className="text-[12px] font-bold tracking-[0.2em]" style={{ color: DARK }}>
+          {products.length} PIECES
+        </p>
       </div>
 
       {/* Product grid */}
-      <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+      <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-14">
         {products.map((p) => (
-          <article key={p.name}>
-            <img src={p.img} alt={p.name} className="w-full aspect-[3/4] object-cover" />
+          <article key={p.name} className="group">
+            <div className="relative overflow-hidden bg-muted/30">
+              <img
+                src={p.img}
+                alt={p.name}
+                className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              <span
+                className="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
+                style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+              >
+                HANDMADE
+              </span>
+              <button
+                type="button"
+                className="absolute bottom-0 left-0 right-0 py-3 text-[11px] font-bold tracking-[0.22em] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+              >
+                ADD TO CART
+              </button>
+            </div>
             <h3 className="font-serif text-[17px] mt-4" style={{ color: BROWN }}>
               {p.name}
             </h3>
-            <p className="text-[14px] mt-1" style={{ color: DARK }}>
+            <p className="text-[12px] mt-1 tracking-[0.08em]" style={{ color: DARK }}>
+              {p.note}
+            </p>
+            <p className="text-[14px] mt-1.5 font-bold" style={{ color: DARK }}>
               {p.price}
             </p>
           </article>
@@ -118,7 +164,7 @@ function CollectionsPage() {
       </section>
 
       {/* Collection story */}
-      <section className="px-8 md:px-16 pt-20">
+      <section className="px-8 md:px-16 pt-24">
         <h2 className="text-[15px] font-bold tracking-[0.24em]" style={{ color: BROWN }}>
           COLLECTION STORY
         </h2>
@@ -133,20 +179,20 @@ function CollectionsPage() {
           </div>
           <div className="space-y-5">
             <p>
-              Precision and patience are not ideas here—they are the process itself. Nothing here is rushed. Nothing
+              Precision and patience are not ideas here, they are the process itself. Nothing here is rushed. Nothing
               here is incidental.
             </p>
             <p>
-              Crafted in breathable fabrics, each piece is designed for ease— not reserved for occasion, but meant to
-              be lived in.
+              Crafted in breathable fabrics, each piece is designed for ease, not reserved for occasion, but meant to be
+              lived in.
             </p>
           </div>
           <div className="space-y-5">
-            <p>The hand does not decorate what the eye imagines— it interprets it.</p>
+            <p>The hand does not decorate what the eye imagines, it interprets it.</p>
             <p>
               Traditional Lucknow chikankari holds 32 principal stitches. Across this collection, we've worked with
-              eleven— Tepchi, Bakhiya (Ulti &amp; Sidhi), Phanda, Keel Kangan, Ghas Patti, Hool, Jaali, Orma, Hathkati,
-              Chana Patti, and Zanzeera—each chosen for the character it brings to breathable, everyday fabric.
+              eleven, Tepchi, Bakhiya (Ulti &amp; Sidhi), Phanda, Keel Kangan, Ghas Patti, Hool, Jaali, Orma, Hathkati,
+              Chana Patti, and Zanzeera, each chosen for the character it brings to breathable, everyday fabric.
             </p>
             <p>Among them:</p>
           </div>
@@ -154,23 +200,27 @@ function CollectionsPage() {
       </section>
 
       {/* Language of stitches */}
-      <section className="px-8 md:px-16 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        <div>
-          <h2 className="text-[15px] font-bold tracking-[0.24em]" style={{ color: BROWN }}>
-            THE LANGUAGE OF STITCHES
-          </h2>
-          <span className="block w-8 border-t mt-3 mb-8" style={{ borderColor: BROWN }} />
-          <div className="space-y-5 text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
-            <p>Together, they form a language—subtle, intentional. Detail doesn't demand attention; it reveals itself over time.</p>
-            <p>Naqsh-e-Nigāh is not about being seen loudly. It is about being understood—slowly.</p>
+      <section className="px-8 md:px-16 pt-20 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start mb-10">
+          <div>
+            <h2 className="text-[15px] font-bold tracking-[0.24em]" style={{ color: BROWN }}>
+              THE LANGUAGE OF STITCHES
+            </h2>
+            <span className="block w-8 border-t mt-3 mb-8" style={{ borderColor: BROWN }} />
+            <div className="space-y-5 text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
+              <p>
+                Together, they form a language, subtle, intentional. Detail doesn't demand attention; it reveals itself
+                over time.
+              </p>
+              <p>Naqsh-e-Nigāh is not about being seen loudly. It is about being understood, slowly.</p>
+            </div>
           </div>
         </div>
         <img
           src={stitchesStrip.url}
           alt="Chikankari stitch details on hand-dyed fabric"
-          className="w-full h-full object-cover"
+          className="w-full object-cover"
         />
-
       </section>
 
       <AnnouncementBar />

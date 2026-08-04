@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Search, User, ShoppingBag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
@@ -12,9 +13,28 @@ const navLinks = [
   { label: "CONTACT", to: "/" },
 ];
 
-export function Header() {
+export function Header({ overlay = false }: { overlay?: boolean } = {}) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!overlay) return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [overlay]);
+
   return (
-    <header className="w-full px-8 md:px-12 py-5 flex items-center justify-between" style={{ color: BROWN }}>
+    <header
+      className={
+        overlay
+          ? `fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500 ${
+              scrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+            }`
+          : "w-full px-8 md:px-12 py-5 flex items-center justify-between"
+      }
+      style={{ color: BROWN }}
+    >
       <div className="flex items-center gap-4">
         <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto" />
         <div className="flex items-center font-serif font-bold text-lg md:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
