@@ -132,7 +132,7 @@ function FounderPage() {
         </div>
       </section>
 
-      <AnnouncementBar bg="#A66A52" color="#FDF6EC" />
+      <AnnouncementBar />
       <Footer />
     </div>
   );
