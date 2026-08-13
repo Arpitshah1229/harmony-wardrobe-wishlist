@@ -2,22 +2,24 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
-import { products, PRODUCT_SUBTITLE } from "@/lib/products";
+import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
 import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
-function ProductCard({ startIndex }: { startIndex: number }) {
-  const [idx, setIdx] = useState(startIndex);
-  const p = products[idx];
-  const move = (d: number) => setIdx((c) => (c + d + products.length) % products.length);
+
+function ProductCard({ product }: { product: Product }) {
+  const [imgIdx, setImgIdx] = useState(0);
+  const hasMultiple = product.images.length > 1;
+  const move = (d: number) =>
+    setImgIdx((c) => (c + d + product.images.length) % product.images.length);
 
   return (
     <article className="group flex flex-col">
       <div className="relative overflow-hidden bg-cream/60">
-        <Link to="/product/$slug" params={{ slug: p.slug }} className="block">
+        <Link to="/product/$slug" params={{ slug: product.slug }} className="block">
           <img
-            src={p.img}
-            alt={p.name}
+            src={product.images[imgIdx]}
+            alt={product.name}
             loading="lazy"
             className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.05]"
           />
@@ -35,31 +37,35 @@ function ProductCard({ startIndex }: { startIndex: number }) {
           </span>
         </Link>
 
-        <button
-          type="button"
-          aria-label="Previous shirt"
-          onClick={() => move(-1)}
-          className="absolute left-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
-          style={{ backgroundColor: "#F7F4EE", color: BROWN }}
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          aria-label="Next shirt"
-          onClick={() => move(1)}
-          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
-          style={{ backgroundColor: "#F7F4EE", color: BROWN }}
-        >
-          <ChevronRight className="h-4 w-4" />
-        </button>
+        {hasMultiple && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={() => move(-1)}
+              className="absolute left-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+              style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={() => move(1)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+              style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </>
+        )}
       </div>
 
       <div className="mt-4 flex items-start justify-between gap-3">
         <div className="min-w-0">
           <h3 className="font-serif text-[19px] font-bold leading-snug truncate" style={{ color: BROWN }}>
-            <Link to="/product/$slug" params={{ slug: p.slug }} className="hover:opacity-70">
-              {p.name}
+            <Link to="/product/$slug" params={{ slug: product.slug }} className="hover:opacity-70">
+              {product.name}
             </Link>
           </h3>
           <p className="text-[11px] mt-1 leading-snug" style={{ color: DARK }}>
@@ -67,12 +73,13 @@ function ProductCard({ startIndex }: { startIndex: number }) {
           </p>
         </div>
         <p className="shrink-0 text-[15px] font-bold" style={{ color: DARK }}>
-          {p.price}
+          {product.price}
         </p>
       </div>
     </article>
   );
 }
+
 
 
 export const Route = createFileRoute("/collections")({
@@ -169,10 +176,11 @@ function CollectionsPage() {
 
       {/* Product grid */}
       <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
-        {products.map((p, i) => (
-          <ProductCard key={p.slug} startIndex={i} />
+        {products.map((p) => (
+          <ProductCard key={p.slug} product={p} />
         ))}
       </section>
+
 
 
 

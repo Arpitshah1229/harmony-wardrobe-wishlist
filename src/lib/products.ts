@@ -14,21 +14,22 @@ export type Product = {
   slug: string;
   name: string;
   price: string;
-  img: string;
+  images: string[];
   colorName: string;
   colorHex: string;
   detailImg: string;
 };
 
 export const products: Product[] = [
-  { slug: "gulraaz-shirt", name: "GulRaaz Shirt", price: "₹6,300", img: gulraaz.url, colorName: "Undyed Cream", colorHex: "#EDE6D6", detailImg: stitchesStrip.url },
-  { slug: "bahaar-shirt", name: "Bahaar Shirt", price: "₹6,300", img: bahaar.url, colorName: "Leaf Green", colorHex: "#7A8063", detailImg: stitchesStrip.url },
-  { slug: "kinara-shirt", name: "Kinara Shirt", price: "₹6,300", img: kinara.url, colorName: "Marigold", colorHex: "#D9B24C", detailImg: stitchesStrip.url },
-  { slug: "mohar-shirt", name: "Mohar Shirt", price: "₹6,300", img: mohar.url, colorName: "Rose Blush", colorHex: "#E3B6B4", detailImg: stitchesStrip.url },
-  { slug: "raah-shirt", name: "Raah Shirt", price: "₹6,300", img: raah.url, colorName: "Sky", colorHex: "#B9CBD8", detailImg: stitchesStrip.url },
-  { slug: "sukoon-shirt", name: "Sukoon Shirt", price: "₹6,300", img: sukoon.url, colorName: "Ivory White", colorHex: "#F4F1EA", detailImg: stitchesStrip.url },
-  { slug: "zameen-shirt", name: "Zameen Shirt", price: "₹6,300", img: zameen.url, colorName: "Clay Mauve", colorHex: "#A8968F", detailImg: stitchesStrip.url },
+  { slug: "gulraaz-shirt", name: "GulRaaz Shirt", price: "₹6,300", images: [gulraaz.url], colorName: "Undyed Cream", colorHex: "#EDE6D6", detailImg: stitchesStrip.url },
+  { slug: "bahaar-shirt", name: "Bahaar Shirt", price: "₹6,300", images: [bahaar.url], colorName: "Leaf Green", colorHex: "#7A8063", detailImg: stitchesStrip.url },
+  { slug: "kinara-shirt", name: "Kinara Shirt", price: "₹6,300", images: [kinara.url], colorName: "Marigold", colorHex: "#D9B24C", detailImg: stitchesStrip.url },
+  { slug: "mohar-shirt", name: "Mohar Shirt", price: "₹6,300", images: [mohar.url], colorName: "Rose Blush", colorHex: "#E3B6B4", detailImg: stitchesStrip.url },
+  { slug: "raah-shirt", name: "Raah Shirt", price: "₹6,300", images: [raah.url], colorName: "Sky", colorHex: "#B9CBD8", detailImg: stitchesStrip.url },
+  { slug: "sukoon-shirt", name: "Sukoon Shirt", price: "₹6,300", images: [sukoon.url], colorName: "Ivory White", colorHex: "#F4F1EA", detailImg: stitchesStrip.url },
+  { slug: "zameen-shirt", name: "Zameen Shirt", price: "₹6,300", images: [zameen.url], colorName: "Clay Mauve", colorHex: "#A8968F", detailImg: stitchesStrip.url },
 ];
+
 
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
 
