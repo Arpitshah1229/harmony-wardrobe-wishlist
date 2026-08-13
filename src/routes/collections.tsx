@@ -57,13 +57,8 @@ function CollectionsPage() {
       </section>
 
       {/* Trust strip */}
-      <div className="px-8 md:px-16 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-border/60">
-        {[
-          "HAND-EMBROIDERED IN LUCKNOW",
-          "HAND-DYED, SMALL BATCH",
-          "FREE SHIPPING ACROSS INDIA",
-          "EASY 7-DAY RETURNS",
-        ].map((t) => (
+      <div className="px-8 md:px-16 py-6 flex flex-wrap items-center justify-center gap-x-16 gap-y-4 border-b border-border/60">
+        {["HAND-EMBROIDERED IN LUCKNOW", "HAND-DYED, SMALL BATCH"].map((t) => (
           <p key={t} className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
             {t}
           </p>
