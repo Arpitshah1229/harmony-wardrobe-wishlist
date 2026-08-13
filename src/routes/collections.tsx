@@ -98,46 +98,11 @@ function CollectionsPage() {
 
       {/* Product grid */}
       <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
-        {products.map((p) => (
-          <article key={p.name} className="group flex flex-col">
-            <Link to="/product/$slug" params={{ slug: p.slug }} className="relative block overflow-hidden bg-cream/60">
-              <img
-                src={p.img}
-                alt={p.name}
-                loading="lazy"
-                className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-              />
-              <span
-                className="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
-                style={{ backgroundColor: "#F7F4EE", color: BROWN }}
-              >
-                HANDMADE
-              </span>
-              <span
-                className="absolute bottom-0 left-0 right-0 py-3.5 text-center text-[11px] font-bold tracking-[0.22em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
-                style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
-              >
-                VIEW DETAILS
-              </span>
-            </Link>
-            <div className="mt-4 flex items-start justify-between gap-3">
-              <div className="min-w-0">
-                <h3 className="font-serif text-[19px] font-bold leading-snug truncate" style={{ color: BROWN }}>
-                  <Link to="/product/$slug" params={{ slug: p.slug }} className="hover:opacity-70">
-                    {p.name}
-                  </Link>
-                </h3>
-                <p className="text-[11px] mt-1 leading-snug" style={{ color: DARK }}>
-                  {PRODUCT_SUBTITLE}
-                </p>
-              </div>
-              <p className="shrink-0 text-[15px] font-bold" style={{ color: DARK }}>
-                {p.price}
-              </p>
-            </div>
-          </article>
+        {products.map((p, i) => (
+          <ProductCard key={p.slug} startIndex={i} />
         ))}
       </section>
+
 
 
       {/* Collection story */}
