@@ -1,12 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
-import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
-import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
-import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
-import mohar from "@/assets/mohar_shirt.jpeg.asset.json";
-import raah from "@/assets/raah_shirt.jpeg.asset.json";
-import sukoon from "@/assets/sukoon_shirt.jpeg.asset.json";
-import zameen from "@/assets/zameen_shirt.jpeg.asset.json";
+import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
@@ -31,15 +25,6 @@ export const Route = createFileRoute("/collections")({
   }),
 });
 
-const products = [
-  { name: "GulRaaz Shirt", price: "₹6,300", img: gulraaz.url, note: "Hand-dyed cotton" },
-  { name: "Bahaar Shirt", price: "₹6,300", img: bahaar.url, note: "Hand-dyed cotton" },
-  { name: "Kinara Shirt", price: "₹6,300", img: kinara.url, note: "Hand-dyed cotton" },
-  { name: "Mohar Shirt", price: "₹6,300", img: mohar.url, note: "Hand-dyed cotton" },
-  { name: "Raah Shirt", price: "₹6,300", img: raah.url, note: "Hand-dyed cotton" },
-  { name: "Sukoon Shirt", price: "₹6,300", img: sukoon.url, note: "Hand-dyed cotton" },
-  { name: "Zameen Shirt", price: "₹6,300", img: zameen.url, note: "Hand-dyed cotton" },
-];
 
 function CollectionsPage() {
   return (
@@ -72,13 +57,8 @@ function CollectionsPage() {
       </section>
 
       {/* Trust strip */}
-      <div className="px-8 md:px-16 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-border/60">
-        {[
-          "HAND-EMBROIDERED IN LUCKNOW",
-          "HAND-DYED, SMALL BATCH",
-          "FREE SHIPPING ACROSS INDIA",
-          "EASY 7-DAY RETURNS",
-        ].map((t) => (
+      <div className="px-8 md:px-16 py-6 flex flex-wrap items-center justify-center gap-x-16 gap-y-4 border-b border-border/60">
+        {["HAND-EMBROIDERED IN LUCKNOW", "HAND-DYED, SMALL BATCH"].map((t) => (
           <p key={t} className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
             {t}
           </p>
@@ -120,7 +100,7 @@ function CollectionsPage() {
       <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
         {products.map((p) => (
           <article key={p.name} className="group flex flex-col">
-            <div className="relative overflow-hidden bg-cream/60">
+            <Link to="/product/$slug" params={{ slug: p.slug }} className="relative block overflow-hidden bg-cream/60">
               <img
                 src={p.img}
                 alt={p.name}
@@ -133,21 +113,22 @@ function CollectionsPage() {
               >
                 HANDMADE
               </span>
-              <button
-                type="button"
-                className="absolute bottom-0 left-0 right-0 py-3.5 text-[11px] font-bold tracking-[0.22em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+              <span
+                className="absolute bottom-0 left-0 right-0 py-3.5 text-center text-[11px] font-bold tracking-[0.22em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                 style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
               >
-                ADD TO CART
-              </button>
-            </div>
+                VIEW DETAILS
+              </span>
+            </Link>
             <div className="mt-4 flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <h3 className="font-serif text-[19px] font-bold leading-snug truncate" style={{ color: BROWN }}>
-                  {p.name}
+                  <Link to="/product/$slug" params={{ slug: p.slug }} className="hover:opacity-70">
+                    {p.name}
+                  </Link>
                 </h3>
-                <p className="text-[11px] mt-1 tracking-[0.16em] uppercase" style={{ color: DARK }}>
-                  {p.note}
+                <p className="text-[11px] mt-1 leading-snug" style={{ color: DARK }}>
+                  {PRODUCT_SUBTITLE}
                 </p>
               </div>
               <p className="shrink-0 text-[15px] font-bold" style={{ color: DARK }}>
@@ -157,6 +138,7 @@ function CollectionsPage() {
           </article>
         ))}
       </section>
+
 
       {/* Collection story */}
       <section className="mt-24 px-8 md:px-16 py-20" style={{ backgroundColor: "var(--cream)" }}>
@@ -239,7 +221,7 @@ function CollectionsPage() {
             className="mt-4 text-center text-[11px] font-bold tracking-[0.24em] uppercase"
             style={{ color: BROWN }}
           >
-            Eleven stitches, one vocabulary
+            Eleven stitches, one &ldquo;Notion&rdquo;
           </figcaption>
         </figure>
       </section>
