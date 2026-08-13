@@ -176,10 +176,11 @@ function CollectionsPage() {
 
       {/* Product grid */}
       <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
-        {products.map((p, i) => (
-          <ProductCard key={p.slug} startIndex={i} />
+        {products.map((p) => (
+          <ProductCard key={p.slug} product={p} />
         ))}
       </section>
+
 
 
 
