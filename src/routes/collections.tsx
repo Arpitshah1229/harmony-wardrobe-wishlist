@@ -1,8 +1,79 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
+
+function ProductCard({ startIndex }: { startIndex: number }) {
+  const [idx, setIdx] = useState(startIndex);
+  const p = products[idx];
+  const move = (d: number) => setIdx((c) => (c + d + products.length) % products.length);
+
+  return (
+    <article className="group flex flex-col">
+      <div className="relative overflow-hidden bg-cream/60">
+        <Link to="/product/$slug" params={{ slug: p.slug }} className="block">
+          <img
+            src={p.img}
+            alt={p.name}
+            loading="lazy"
+            className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+          />
+          <span
+            className="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
+            style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+          >
+            HANDMADE
+          </span>
+          <span
+            className="absolute bottom-0 left-0 right-0 py-3.5 text-center text-[11px] font-bold tracking-[0.22em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+            style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+          >
+            VIEW DETAILS
+          </span>
+        </Link>
+
+        <button
+          type="button"
+          aria-label="Previous shirt"
+          onClick={() => move(-1)}
+          className="absolute left-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+          style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          aria-label="Next shirt"
+          onClick={() => move(1)}
+          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+          style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+        >
+          <ChevronRight className="h-4 w-4" />
+        </button>
+      </div>
+
+      <div className="mt-4 flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <h3 className="font-serif text-[19px] font-bold leading-snug truncate" style={{ color: BROWN }}>
+            <Link to="/product/$slug" params={{ slug: p.slug }} className="hover:opacity-70">
+              {p.name}
+            </Link>
+          </h3>
+          <p className="text-[11px] mt-1 leading-snug" style={{ color: DARK }}>
+            {PRODUCT_SUBTITLE}
+          </p>
+        </div>
+        <p className="shrink-0 text-[15px] font-bold" style={{ color: DARK }}>
+          {p.price}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 
 export const Route = createFileRoute("/collections")({
   component: CollectionsPage,
