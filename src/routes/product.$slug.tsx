@@ -1,21 +1,31 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Phone, MessageCircle, Truck, RotateCcw, Store } from "lucide-react";
+import { Heart, Minus, Plus, Phone, MessageCircle, Truck, RotateCcw, Store, X, Ruler } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
-import { products, getProduct, PRODUCT_SUBTITLE, SIZES } from "@/lib/products";
+import {
+  products,
+  getProduct,
+  PRODUCT_SUBTITLE,
+  SIZES,
+  SIZE_CHART,
+  CARE_INSTRUCTIONS,
+  SIZING_NOTE,
+  SHIPPING_NOTE,
+} from "@/lib/products";
 
 export const Route = createFileRoute("/product/$slug")({
   component: ProductPage,
   head: ({ params }) => {
     const p = getProduct(params.slug);
-    const title = p ? `${p.name} | Notions in Pattern` : "Product | Notions in Pattern";
+    const title = p ? p.metaTitle : "Product | Notions in Pattern";
     const description = p
-      ? `${p.name} — ${PRODUCT_SUBTITLE}. Hand-dyed, small batch, embroidered in Lucknow.`
+      ? p.metaDescription
       : "Hand embroidered chikankari shirts from Notions in Pattern.";
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        { name: "keywords", content: p ? p.tags.join(", ") : "" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
@@ -25,75 +35,93 @@ export const Route = createFileRoute("/product/$slug")({
   },
 });
 
-const accordions = [
-  {
-    title: "PRODUCT DETAILS & CARE",
-    body: (
-      <div className="space-y-4 text-[14px] leading-[1.9]">
-        <dl className="grid grid-cols-2 gap-y-1.5 max-w-sm">
-          {[
-            ["Fit", "Relaxed"],
-            ["Sleeve", "Short sleeve"],
-            ["Collar", "Classic"],
-            ["Pattern", "Hand embroidered"],
-            ["Lining", "No"],
-          ].map(([k, v]) => (
-            <div key={k} className="contents">
-              <dt className="font-bold">{k}</dt>
-              <dd>{v}</dd>
-            </div>
-          ))}
-        </dl>
-        <div>
-          <p className="font-bold tracking-[0.12em] uppercase text-[12px] mb-1">Care Instructions</p>
-          <p>Gentle hand wash separately in cold water. Do not bleach. Dry in shade. Cool iron on reverse.</p>
+const BORDER = "rgba(75,53,40,0.25)";
+
+function SizeChartModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      style={{ backgroundColor: "rgba(44,33,25,0.55)" }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Size chart"
+    >
+      <div
+        className="bg-background w-full max-w-2xl max-h-[85vh] overflow-y-auto p-6 md:p-8 relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          aria-label="Close size chart"
+          onClick={onClose}
+          className="absolute top-4 right-4"
+        >
+          <X size={20} color={BROWN} />
+        </button>
+        <h2 className="font-serif text-2xl md:text-3xl font-bold" style={{ color: BROWN }}>
+          Size Chart
+        </h2>
+        <p className="mt-1 text-[12px] font-bold tracking-[0.18em] uppercase" style={{ color: DARK }}>
+          In inches
+        </p>
+
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full text-[13px] border-collapse" style={{ color: DARK }}>
+            <thead>
+              <tr>
+                {["Measurement", "S", "M", "L", "XL", "Tolerance"].map((h) => (
+                  <th
+                    key={h}
+                    className="text-left py-2.5 px-3 font-bold text-[11px] tracking-[0.14em] uppercase border-b"
+                    style={{ color: BROWN, borderColor: BROWN }}
+                  >
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {SIZE_CHART.map((r) => (
+                <tr key={r.measurement}>
+                  <td className="py-2.5 px-3 font-bold border-b" style={{ borderColor: BORDER }}>
+                    {r.measurement}
+                  </td>
+                  {[r.s, r.m, r.l, r.xl, r.tolerance].map((v, i) => (
+                    <td key={i} className="py-2.5 px-3 border-b" style={{ borderColor: BORDER }}>
+                      {v}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div>
-          <p className="font-bold tracking-[0.12em] uppercase text-[12px] mb-1">Note</p>
-          <p>
-            Slight irregularities in hand-dyeing and embroidery are inherent to the craft and make each piece singular.
+
+        <p className="mt-5 text-[12px] leading-[1.8] italic" style={{ color: DARK }}>
+          Note: As pieces are handmade, measurements may vary slightly (see tolerance column) — this is natural to the
+          craft.
+        </p>
+        <div className="mt-5 pt-5 border-t" style={{ borderColor: BORDER }}>
+          <p className="text-[12px] font-bold tracking-[0.16em] uppercase" style={{ color: BROWN }}>
+            Sizing Note
+          </p>
+          <p className="mt-1.5 text-[13px] leading-[1.8]" style={{ color: DARK }}>
+            {SIZING_NOTE}
           </p>
         </div>
       </div>
-    ),
-  },
-  {
-    title: "SHIPPING & PAYMENT",
-    body: (
-      <ul className="space-y-2 text-[14px] leading-[1.9] list-disc pl-5">
-        <li>Free shipping across India on all orders.</li>
-        <li>Standard delivery timeline is 5 to 7 business days.</li>
-        <li>We ship worldwide; duties and conveyance charges may apply.</li>
-        <li>Payments accepted via cards, netbanking, UPI, and wallets.</li>
-      </ul>
-    ),
-  },
-  {
-    title: "RETURN & EXCHANGE",
-    body: (
-      <ul className="space-y-2 text-[14px] leading-[1.9] list-disc pl-5">
-        <li>Easy returns or exchange within 7 days of delivery.</li>
-        <li>The piece must be unworn, unwashed, and with the original tags intact.</li>
-        <li>Write to us and we will arrange a pickup wherever service is available.</li>
-      </ul>
-    ),
-  },
-  {
-    title: "FIND IN STORE",
-    body: (
-      <p className="text-[14px] leading-[1.9]">
-        Our pieces are made in small batches in Lucknow. Write to us to book a studio visit or a virtual viewing.
-      </p>
-    ),
-  },
-];
+    </div>
+  );
+}
 
 function ProductPage() {
   const { slug } = Route.useParams();
   const product = getProduct(slug);
   const [size, setSize] = useState<string | null>(null);
   const [qty, setQty] = useState(1);
-  const [open, setOpen] = useState<string | null>("PRODUCT DETAILS & CARE");
+  const [open, setOpen] = useState<string | null>("FABRIC & DETAILS");
+  const [chartOpen, setChartOpen] = useState(false);
 
   if (!product) {
     return (
@@ -116,6 +144,47 @@ function ProductPage() {
   const gallery = [...product.images, product.detailImg, ...product.images, product.detailImg].slice(0, 4);
   const others = products.filter((p) => p.slug !== product.slug).slice(0, 4);
 
+  const accordions = [
+    {
+      title: "FABRIC & DETAILS",
+      body: (
+        <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-[14px] leading-[1.8]">
+          {product.details.map(([k, v]) => (
+            <div key={k} className="contents">
+              <dt className="font-bold">{k}</dt>
+              <dd>{v}</dd>
+            </div>
+          ))}
+        </dl>
+      ),
+    },
+    {
+      title: "A NOTE ON HANDMADE CHARACTER",
+      body: <p className="text-[14px] leading-[1.9]">{product.handmadeNote}</p>,
+    },
+    {
+      title: "CARE INSTRUCTIONS",
+      body: (
+        <ul className="space-y-2 text-[14px] leading-[1.9] list-disc pl-5">
+          {CARE_INSTRUCTIONS.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+      ),
+    },
+    {
+      title: "SHIPPING & PROCESSING",
+      body: (
+        <div className="space-y-3 text-[14px] leading-[1.9]">
+          <p>{SHIPPING_NOTE}</p>
+          <p className="font-bold" style={{ color: BROWN }}>
+            Read our full Exchange &amp; Store Credit Policy →
+          </p>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <div className="bg-background min-h-screen">
       <Header />
@@ -135,7 +204,7 @@ function ProductPage() {
             <img
               key={i}
               src={src}
-              alt={`${product.name} view ${i + 1}`}
+              alt={product.altText}
               loading={i === 0 ? "eager" : "lazy"}
               className="w-full aspect-[3/4] object-cover bg-cream/60"
             />
@@ -158,14 +227,14 @@ function ProductPage() {
             </span>
           </p>
 
-          <p className="mt-6 text-[14px] leading-[1.9]" style={{ color: DARK }}>
-            Hand-dyed breathable fabric with all-over chikankari embroidery, worked by artisans in Lucknow. Eleven
-            traditional stitches, read slowly across a relaxed silhouette that is made to be lived in.
+          <p className="mt-6 font-serif text-[19px] font-bold leading-snug" style={{ color: BROWN }}>
+            {product.tagline}
           </p>
-
-          <p className="mt-5 text-[14px]" style={{ color: DARK }}>
-            <span className="font-bold">Material:</span> Hand-dyed cotton
-          </p>
+          <div className="mt-3 space-y-4 text-[14px] leading-[1.9]" style={{ color: DARK }}>
+            {product.description.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
 
           <div className="mt-5">
             <p className="text-[14px]" style={{ color: DARK }}>
@@ -179,13 +248,18 @@ function ProductPage() {
 
           {/* Size */}
           <div className="mt-7">
-            <div className="flex items-end justify-between">
+            <div className="flex items-end justify-between gap-4">
               <p className="text-[14px] font-bold" style={{ color: DARK }}>
                 Size:
               </p>
-              <span className="text-[11px] font-bold tracking-[0.2em]" style={{ color: BROWN }}>
-                SIZE GUIDE
-              </span>
+              <button
+                type="button"
+                onClick={() => setChartOpen(true)}
+                className="flex items-center gap-1.5 border px-3 py-2 text-[11px] font-bold tracking-[0.18em] transition-colors hover:bg-[color:var(--cream)]"
+                style={{ color: BROWN, borderColor: BROWN }}
+              >
+                <Ruler size={13} /> SIZE CHART
+              </button>
             </div>
             <div className="mt-3 grid grid-cols-4 gap-2">
               {SIZES.map((s) => (
@@ -204,8 +278,8 @@ function ProductPage() {
                 </button>
               ))}
             </div>
-            <p className="mt-3 text-[12px]" style={{ color: DARK }}>
-              The model (height 5&apos;11&quot;) is wearing a size M.
+            <p className="mt-3 text-[12px] leading-[1.8]" style={{ color: DARK }}>
+              {SIZING_NOTE}
             </p>
           </div>
 
@@ -225,18 +299,6 @@ function ProductPage() {
                 <Plus size={14} color={BROWN} />
               </button>
             </div>
-          </div>
-
-          {/* Why you'll love this */}
-          <div className="mt-8">
-            <p className="flex items-center gap-2 text-[13px] font-bold tracking-[0.14em] uppercase" style={{ color: BROWN }}>
-              <Heart size={14} /> Why you&apos;ll love this
-            </p>
-            <ul className="mt-3 space-y-2 list-disc pl-5 text-[14px] leading-[1.85]" style={{ color: DARK }}>
-              <li>Looks quiet from across the room and detailed up close.</li>
-              <li>Hand-dyed, breathable fabric that stays easy through long days.</li>
-              <li>Relaxed enough for everyday, considered enough for the occasion.</li>
-            </ul>
           </div>
 
           <div className="mt-8 flex items-stretch gap-3">
@@ -259,10 +321,10 @@ function ProductPage() {
 
           <div className="mt-6 grid grid-cols-3 gap-3 text-[10px] font-bold tracking-[0.14em] text-center" style={{ color: BROWN }}>
             <div className="flex flex-col items-center gap-1.5">
-              <Truck size={16} /> FREE SHIPPING
+              <Truck size={16} /> DISPATCH IN 2-4 DAYS
             </div>
             <div className="flex flex-col items-center gap-1.5">
-              <RotateCcw size={16} /> 7-DAY RETURNS
+              <RotateCcw size={16} /> EXCHANGE &amp; STORE CREDIT
             </div>
             <div className="flex flex-col items-center gap-1.5">
               <Store size={16} /> MADE IN LUCKNOW
@@ -270,17 +332,17 @@ function ProductPage() {
           </div>
 
           {/* Accordions */}
-          <div className="mt-9 border-t" style={{ borderColor: "rgba(75,53,40,0.25)" }}>
+          <div className="mt-9 border-t" style={{ borderColor: BORDER }}>
             {accordions.map((a) => (
-              <div key={a.title} className="border-b" style={{ borderColor: "rgba(75,53,40,0.25)" }}>
+              <div key={a.title} className="border-b" style={{ borderColor: BORDER }}>
                 <button
                   type="button"
                   onClick={() => setOpen((o) => (o === a.title ? null : a.title))}
-                  className="w-full py-4 flex items-center justify-between text-[12px] font-bold tracking-[0.2em]"
+                  className="w-full py-4 flex items-center justify-between gap-4 text-left text-[12px] font-bold tracking-[0.2em]"
                   style={{ color: BROWN }}
                 >
                   {a.title}
-                  {open === a.title ? <Minus size={14} /> : <Plus size={14} />}
+                  {open === a.title ? <Minus size={14} className="shrink-0" /> : <Plus size={14} className="shrink-0" />}
                 </button>
                 {open === a.title && (
                   <div className="pb-5" style={{ color: DARK }}>
@@ -322,7 +384,7 @@ function ProductPage() {
             <Link key={p.slug} to="/product/$slug" params={{ slug: p.slug }} className="group flex flex-col">
               <img
                 src={p.images[0]}
-                alt={p.name}
+                alt={p.altText}
                 loading="lazy"
                 className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
@@ -342,6 +404,8 @@ function ProductPage() {
 
       <AnnouncementBar />
       <Footer />
+
+      {chartOpen && <SizeChartModal onClose={() => setChartOpen(false)} />}
     </div>
   );
 }
