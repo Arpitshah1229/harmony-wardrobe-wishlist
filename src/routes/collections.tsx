@@ -221,7 +221,7 @@ function CollectionsPage() {
             className="mt-4 text-center text-[11px] font-bold tracking-[0.24em] uppercase"
             style={{ color: BROWN }}
           >
-            Eleven stitches, one vocabulary
+            Eleven stitches, one &ldquo;Notion&rdquo;
           </figcaption>
         </figure>
       </section>
