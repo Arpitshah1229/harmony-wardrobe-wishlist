@@ -113,7 +113,7 @@ function ProductPage() {
     );
   }
 
-  const gallery = [product.img, product.detailImg, product.img, product.detailImg];
+  const gallery = [...product.images, product.detailImg, ...product.images, product.detailImg].slice(0, 4);
   const others = products.filter((p) => p.slug !== product.slug).slice(0, 4);
 
   return (
@@ -321,7 +321,7 @@ function ProductPage() {
           {others.map((p) => (
             <Link key={p.slug} to="/product/$slug" params={{ slug: p.slug }} className="group flex flex-col">
               <img
-                src={p.img}
+                src={p.images[0]}
                 alt={p.name}
                 loading="lazy"
                 className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.04]"
