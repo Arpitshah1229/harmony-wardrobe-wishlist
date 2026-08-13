@@ -27,6 +27,7 @@ export type Product = {
   metaTitle: string;
   metaDescription: string;
   tags: string[];
+  badge?: string;
 };
 
 const DYED_NOTE =
