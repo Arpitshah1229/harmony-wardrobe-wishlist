@@ -25,15 +25,6 @@ export const Route = createFileRoute("/collections")({
   }),
 });
 
-const products = [
-  { name: "GulRaaz Shirt", price: "₹6,300", img: gulraaz.url, note: "Hand-dyed cotton" },
-  { name: "Bahaar Shirt", price: "₹6,300", img: bahaar.url, note: "Hand-dyed cotton" },
-  { name: "Kinara Shirt", price: "₹6,300", img: kinara.url, note: "Hand-dyed cotton" },
-  { name: "Mohar Shirt", price: "₹6,300", img: mohar.url, note: "Hand-dyed cotton" },
-  { name: "Raah Shirt", price: "₹6,300", img: raah.url, note: "Hand-dyed cotton" },
-  { name: "Sukoon Shirt", price: "₹6,300", img: sukoon.url, note: "Hand-dyed cotton" },
-  { name: "Zameen Shirt", price: "₹6,300", img: zameen.url, note: "Hand-dyed cotton" },
-];
 
 function CollectionsPage() {
   return (
