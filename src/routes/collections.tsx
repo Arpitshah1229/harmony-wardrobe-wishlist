@@ -27,7 +27,7 @@ function ProductCard({ product }: { product: Product }) {
             className="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
             style={{ backgroundColor: "#F7F4EE", color: BROWN }}
           >
-            HANDMADE
+            {product.badge || "HANDMADE"}
           </span>
           <span
             className="absolute bottom-0 left-0 right-0 py-3.5 text-center text-[11px] font-bold tracking-[0.22em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
