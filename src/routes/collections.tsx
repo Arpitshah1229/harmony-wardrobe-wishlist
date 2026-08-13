@@ -1,12 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
-import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
-import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
-import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
-import mohar from "@/assets/mohar_shirt.jpeg.asset.json";
-import raah from "@/assets/raah_shirt.jpeg.asset.json";
-import sukoon from "@/assets/sukoon_shirt.jpeg.asset.json";
-import zameen from "@/assets/zameen_shirt.jpeg.asset.json";
+import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
