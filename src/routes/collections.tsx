@@ -76,6 +76,15 @@ function ProductCard({ product }: { product: Product }) {
           {product.price}
         </p>
       </div>
+
+      <Link
+        to="/product/$slug"
+        params={{ slug: product.slug }}
+        className="mt-3 block w-full py-3 text-center text-[11px] font-bold tracking-[0.22em] transition-opacity hover:opacity-85"
+        style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+      >
+        ADD TO CART
+      </Link>
     </article>
   );
 }
@@ -133,6 +142,8 @@ function CollectionsPage() {
           </p>
         </div>
       </section>
+
+      <AnnouncementBar bg="#C43D32" color="#F7F4EE" />
 
       {/* Trust strip */}
       <div className="px-8 md:px-16 py-6 flex flex-wrap items-center justify-center gap-x-16 gap-y-4 border-b border-border/60">
@@ -265,13 +276,12 @@ function CollectionsPage() {
             className="mt-4 text-center text-[11px] font-bold tracking-[0.24em] uppercase"
             style={{ color: BROWN }}
           >
-            Eleven stitches, one &ldquo;Notion&rdquo;
+            Eleven stitches, one Notion
           </figcaption>
         </figure>
       </section>
 
 
-      <AnnouncementBar />
       <Footer />
     </div>
   );

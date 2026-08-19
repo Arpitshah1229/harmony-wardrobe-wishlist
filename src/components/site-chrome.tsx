@@ -38,7 +38,7 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
       style={{ color: BROWN }}
     >
       <div className="flex min-w-0 items-center gap-4">
-        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto shrink-0" />
+        <img src={nipLogo.url} alt="Notions in Pattern" className="h-14 w-auto shrink-0" />
         <div className="hidden sm:flex items-center font-serif font-bold text-lg md:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>NOTIONS</span>
           <span className="px-1">IN</span>
