@@ -42,3 +42,9 @@
 @utility animate-marquee {
   animation: marquee-x 28s linear infinite;
 }
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
+}
