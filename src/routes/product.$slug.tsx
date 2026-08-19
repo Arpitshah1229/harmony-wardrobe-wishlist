@@ -343,7 +343,7 @@ function ProductPage() {
     );
   }
 
-  const gallery = [...product.images, product.detailImg, ...product.images, product.detailImg].slice(0, 4);
+  const gallery = Array.from(new Set([...product.images, product.detailImg].filter(Boolean)));
   const others = products.filter((p) => p.slug !== product.slug).slice(0, 4);
 
   const accordions = [
