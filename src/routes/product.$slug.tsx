@@ -115,6 +115,207 @@ function SizeChartModal({ onClose }: { onClose: () => void }) {
   );
 }
 
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 5;
+const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
+
+function Lightbox({
+  images,
+  index,
+  alt,
+  onClose,
+  onIndex,
+}: {
+  images: string[];
+  index: number;
+  alt: string;
+  onClose: () => void;
+  onIndex: (i: number) => void;
+}) {
+  const [zoom, setZoom] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
+  const stateRef = useRef({ zoom, offset });
+  stateRef.current = { zoom, offset };
+
+  const reset = useCallback(() => {
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  }, []);
+
+  const step = (dir: number) => {
+    onIndex((index + dir + images.length) % images.length);
+    reset();
+  };
+
+  const zoomAt = useCallback((next: number, px: number, py: number) => {
+    const { zoom: z, offset: o } = stateRef.current;
+    const target = clamp(next, MIN_ZOOM, MAX_ZOOM);
+    const k = target / z;
+    const nx = px - (px - o.x) * k;
+    const ny = py - (py - o.y) * k;
+    setZoom(target);
+    setOffset(target === 1 ? { x: 0, y: 0 } : { x: nx, y: ny });
+  }, []);
+
+  const zoomCenter = (factor: number) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    zoomAt(stateRef.current.zoom * factor, (rect?.width ?? 0) / 2, (rect?.height ?? 0) / 2);
+  };
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1);
+      const rect = el.getBoundingClientRect();
+      zoomAt(stateRef.current.zoom * Math.exp(-dy * 0.002), e.clientX - rect.left, e.clientY - rect.top);
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [zoomAt]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  });
+
+  return (
+    <div
+      className="fixed inset-0 z-[110] flex flex-col"
+      style={{ backgroundColor: "rgba(44,33,25,0.94)" }}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Product image viewer"
+    >
+      <div className="flex items-center justify-end gap-2 p-4">
+        <button
+          type="button"
+          aria-label="Zoom out"
+          onClick={() => zoomCenter(1 / 1.4)}
+          className="h-10 w-10 grid place-items-center border"
+          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
+        >
+          <ZoomOut size={18} />
+        </button>
+        <button
+          type="button"
+          aria-label="Zoom in"
+          onClick={() => zoomCenter(1.4)}
+          className="h-10 w-10 grid place-items-center border"
+          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
+        >
+          <ZoomIn size={18} />
+        </button>
+        <button
+          type="button"
+          onClick={reset}
+          className="h-10 px-4 text-[11px] font-bold tracking-[0.18em] border"
+          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
+        >
+          RESET
+        </button>
+        <button
+          type="button"
+          aria-label="Close viewer"
+          onClick={onClose}
+          className="h-10 w-10 grid place-items-center border"
+          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
+        >
+          <X size={18} />
+        </button>
+      </div>
+
+      <div
+        ref={containerRef}
+        className="relative flex-1 overflow-hidden touch-none select-none"
+        style={{ cursor: zoom > 1 ? (dragRef.current ? "grabbing" : "grab") : "zoom-in" }}
+        onPointerDown={(e) => {
+          if (zoom === 1) return;
+          (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+          dragRef.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
+        }}
+        onPointerMove={(e) => {
+          const d = dragRef.current;
+          if (!d) return;
+          setOffset({ x: d.ox + (e.clientX - d.x), y: d.oy + (e.clientY - d.y) });
+        }}
+        onPointerUp={() => {
+          dragRef.current = null;
+        }}
+        onDoubleClick={(e) => {
+          const rect = containerRef.current!.getBoundingClientRect();
+          zoomAt(zoom > 1 ? 1 : 2.5, e.clientX - rect.left, e.clientY - rect.top);
+        }}
+      >
+        <img
+          src={images[index]}
+          alt={alt}
+          draggable={false}
+          className="absolute inset-0 m-auto max-h-full max-w-full object-contain"
+          style={{
+            transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
+            transformOrigin: "center center",
+            transition: dragRef.current ? "none" : "transform 120ms ease-out",
+          }}
+        />
+
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={() => step(-1)}
+              className="absolute left-3 top-1/2 -translate-y-1/2 h-11 w-11 grid place-items-center"
+              style={{ backgroundColor: "rgba(247,244,238,0.9)", color: BROWN }}
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={() => step(1)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 h-11 w-11 grid place-items-center"
+              style={{ backgroundColor: "rgba(247,244,238,0.9)", color: BROWN }}
+            >
+              <ChevronRight size={20} />
+            </button>
+          </>
+        )}
+      </div>
+
+      <div className="p-4 flex items-center justify-center gap-2 overflow-x-auto no-scrollbar">
+        {images.map((src, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`View image ${i + 1}`}
+            onClick={() => {
+              onIndex(i);
+              reset();
+            }}
+            className="shrink-0"
+            style={{ outline: i === index ? "2px solid #F7F4EE" : "none" }}
+          >
+            <img src={src} alt="" className="h-16 w-12 object-cover" />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ProductPage() {
   const { slug } = Route.useParams();
   const product = getProduct(slug);
