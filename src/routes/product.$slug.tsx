@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Phone, MessageCircle, Truck, RotateCcw, Store, X, Ruler } from "lucide-react";
+import { Heart, Minus, Plus, Phone, MessageCircle, Truck, RotateCcw, Store, X, Ruler, Banknote, Package } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import {
   products,
@@ -122,6 +122,7 @@ function ProductPage() {
   const [qty, setQty] = useState(1);
   const [open, setOpen] = useState<string | null>("FABRIC & DETAILS");
   const [chartOpen, setChartOpen] = useState(false);
+  const [email, setEmail] = useState("");
 
   if (!product) {
     return (
@@ -398,6 +399,72 @@ function ProductPage() {
                 {p.price}
               </p>
             </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter + Trust */}
+      <section className="px-8 md:px-16 py-16 bg-background border-t" style={{ borderColor: "rgba(75,53,40,0.15)" }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold" style={{ color: BROWN }}>
+            Get on the list
+          </h2>
+          <p className="mt-4 text-[14px] leading-[1.8]" style={{ color: DARK }}>
+            Perks include 10% off your first online order. Be the first to know about new collections, store launches, sales, and much more!
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address here"
+              className="flex-1 px-4 py-3 bg-background border text-[13px] outline-none"
+              style={{ borderColor: "rgba(75,53,40,0.35)", color: DARK }}
+            />
+            <button
+              type="button"
+              className="px-8 py-3 text-[12px] font-bold tracking-[0.18em]"
+              style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+            >
+              SIGN ME UP
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              icon: <RotateCcw size={28} color={BROWN} strokeWidth={1.5} />,
+              title: "Easy returns",
+              text: "Return within 15 days of order delivery.",
+            },
+            {
+              icon: <Truck size={28} color={BROWN} strokeWidth={1.5} />,
+              title: "We ship pan India",
+              text: "Delivery across India.",
+            },
+            {
+              icon: <Package size={28} color={BROWN} strokeWidth={1.5} />,
+              title: "Free shipping",
+              text: "Free shipping on orders above ₹1,000.",
+            },
+            {
+              icon: <Banknote size={28} color={BROWN} strokeWidth={1.5} />,
+              title: "Cash on delivery",
+              text: "COD available.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="flex items-start gap-4">
+              <div className="shrink-0">{item.icon}</div>
+              <div>
+                <h3 className="text-[14px] font-bold" style={{ color: BROWN }}>
+                  {item.title}
+                </h3>
+                <p className="mt-1 text-[13px] leading-[1.7]" style={{ color: DARK }}>
+                  {item.text}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
