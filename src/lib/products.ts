@@ -159,7 +159,7 @@ export const products: Product[] = [
     title: "Mohar | Hand Embroidered Relaxed Fit Men's Chikankari Shirt",
     tagline: "A Mark That Holds Memory",
     price: "₹6,300",
-    images: [mohar.url],
+    images: [mohar1.url, mohar2.url, mohar3.url, mohar4.url, mohar5.url, mohar6.url, mohar7.url, mohar8.url],
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
     detailImg: stitchesStrip.url,
