@@ -403,18 +403,31 @@ function ProductPage() {
         {/* Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {gallery.map((src, i) => (
-            <img
+            <button
               key={i}
-              src={src}
-              alt={product.altText}
-              loading={i === 0 ? "eager" : "lazy"}
-              className="w-full aspect-[3/4] object-cover bg-cream/60"
-            />
+              type="button"
+              aria-label={`Open image ${i + 1} in viewer`}
+              onClick={() => setLightbox(i)}
+              className="group relative block w-full overflow-hidden bg-cream/60 cursor-zoom-in"
+            >
+              <img
+                src={src}
+                alt={product.altText}
+                loading={i === 0 ? "eager" : "lazy"}
+                className="w-full aspect-[3/4] object-cover"
+              />
+              <span
+                className="absolute bottom-3 right-3 h-9 w-9 grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+              >
+                <Expand size={15} />
+              </span>
+            </button>
           ))}
         </div>
 
         {/* Detail column */}
-        <div className="lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pb-10 pr-1">
+        <div className="lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto no-scrollbar pb-10 pr-1">
           <h1 className="font-serif text-3xl md:text-4xl font-bold leading-tight" style={{ color: BROWN }}>
             {product.name}
           </h1>
