@@ -205,7 +205,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <AnnouncementBar />
+      <AnnouncementBar bg="#501F26" color="#F7F4EE" />
       <Footer />
     </div>
   );
