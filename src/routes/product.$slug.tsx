@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Phone, MessageCircle, Truck, RotateCcw, Store, X, Ruler } from "lucide-react";
+import { Heart, Minus, Plus, Phone, MessageCircle, Truck, RotateCcw, Store, X, Ruler, Banknote, Package } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import {
   products,
@@ -122,6 +122,7 @@ function ProductPage() {
   const [qty, setQty] = useState(1);
   const [open, setOpen] = useState<string | null>("FABRIC & DETAILS");
   const [chartOpen, setChartOpen] = useState(false);
+  const [email, setEmail] = useState("");
 
   if (!product) {
     return (
