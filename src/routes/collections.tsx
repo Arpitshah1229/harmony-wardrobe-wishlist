@@ -16,7 +16,7 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group flex flex-col">
       <div className="relative overflow-hidden bg-cream/60">
-        <Link to="/product/$slug" params={{ slug: product.slug }} className="block">
+        <Link to="/product/$slug" params={{ slug: product.slug }} className="block relative">
           <img
             src={product.images[imgIdx]}
             alt={product.name}
@@ -42,20 +42,28 @@ function ProductCard({ product }: { product: Product }) {
             <button
               type="button"
               aria-label="Previous image"
-              onClick={() => move(-1)}
-              className="absolute left-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                move(-1);
+              }}
+              className="absolute left-2 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110"
               style={{ backgroundColor: "#F7F4EE", color: BROWN }}
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               type="button"
               aria-label="Next image"
-              onClick={() => move(1)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                move(1);
+              }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110"
               style={{ backgroundColor: "#F7F4EE", color: BROWN }}
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-5 w-5" />
             </button>
           </>
         )}
