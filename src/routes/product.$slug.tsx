@@ -324,6 +324,7 @@ function ProductPage() {
   const [open, setOpen] = useState<string | null>("FABRIC & DETAILS");
   const [chartOpen, setChartOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
   if (!product) {
     return (
