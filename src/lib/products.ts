@@ -117,7 +117,7 @@ export const products: Product[] = [
       ["Colour", "Green"],
     ],
     handmadeNote: DYED_NOTE,
-    badge: "Hand dyed & Embroidered",
+    badge: "Hand Dyed & Embroidered",
     altText: "Bahaar hand embroidered green men's chikankari shirt in cotton flex with wooden buttons.",
     metaTitle: "Men's Green Chikankari Shirt | Hand Embroidered | Bahaar",
     metaDescription:
