@@ -688,6 +688,15 @@ function ProductPage() {
       <Footer />
 
       {chartOpen && <SizeChartModal onClose={() => setChartOpen(false)} />}
+      {lightbox !== null && (
+        <Lightbox
+          images={gallery}
+          index={lightbox}
+          alt={product.altText}
+          onClose={() => setLightbox(null)}
+          onIndex={setLightbox}
+        />
+      )}
     </div>
   );
 }
