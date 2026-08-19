@@ -1,7 +1,14 @@
 import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
 import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
 import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
-import mohar from "@/assets/mohar_shirt.jpeg.asset.json";
+import mohar1 from "@/assets/mohar_image_one.png.asset.json";
+import mohar2 from "@/assets/mohar_image_two.png.asset.json";
+import mohar3 from "@/assets/mohar_image_3.png.asset.json";
+import mohar4 from "@/assets/mohar_image_4.png.asset.json";
+import mohar5 from "@/assets/mohar_image_5.png.asset.json";
+import mohar6 from "@/assets/mohar_image_6_styling.png.asset.json";
+import mohar7 from "@/assets/mohar_image_7_styling.png.asset.json";
+import mohar8 from "@/assets/mohar_image_8_styling.png.asset.json";
 import raah from "@/assets/raah_shirt.jpeg.asset.json";
 import sukoon from "@/assets/sukoon_shirt.jpeg.asset.json";
 import zameen from "@/assets/zameen_shirt.jpeg.asset.json";
@@ -152,7 +159,7 @@ export const products: Product[] = [
     title: "Mohar | Hand Embroidered Relaxed Fit Men's Chikankari Shirt",
     tagline: "A Mark That Holds Memory",
     price: "₹6,300",
-    images: [mohar.url],
+    images: [mohar1.url, mohar2.url, mohar3.url, mohar4.url, mohar5.url, mohar6.url, mohar7.url, mohar8.url],
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
     detailImg: stitchesStrip.url,
