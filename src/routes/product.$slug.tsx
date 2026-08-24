@@ -321,6 +321,7 @@ function ProductPage() {
   const { slug } = Route.useParams();
   const product = getProduct(slug);
   const [size, setSize] = useState<string | null>(null);
+  const [pickerOpen, setPickerOpen] = useState(false);
   const [qty, setQty] = useState(1);
   const [open, setOpen] = useState<string | null>("FABRIC & DETAILS");
   const [chartOpen, setChartOpen] = useState(false);
@@ -531,17 +532,7 @@ function ProductPage() {
             </button>
             <button
               type="button"
-              onClick={() => {
-                addItem({
-                  slug: product.slug,
-                  name: product.name,
-                  price: parsePrice(product.price),
-                  image: product.images[0],
-                  size: size ?? "M",
-                  qty,
-                });
-                navigate({ to: "/cart" });
-              }}
+              onClick={() => setPickerOpen(true)}
               className="flex-1 py-4 text-[12px] font-bold tracking-[0.24em]"
               style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
             >
