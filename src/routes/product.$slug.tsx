@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Heart, Minus, Plus, Phone, MessageCircle, Truck, RotateCcw, Store, X, Ruler, Banknote, Package, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import {
