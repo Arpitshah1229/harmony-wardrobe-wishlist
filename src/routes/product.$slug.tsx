@@ -12,7 +12,7 @@ import {
   SIZING_NOTE,
   SHIPPING_NOTE,
 } from "@/lib/products";
-import { useCart, parsePrice } from "@/lib/cart";
+import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 
 export const Route = createFileRoute("/product/$slug")({
   component: ProductPage,
@@ -321,12 +321,12 @@ function ProductPage() {
   const { slug } = Route.useParams();
   const product = getProduct(slug);
   const [size, setSize] = useState<string | null>(null);
+  const [pickerOpen, setPickerOpen] = useState(false);
   const [qty, setQty] = useState(1);
   const [open, setOpen] = useState<string | null>("FABRIC & DETAILS");
   const [chartOpen, setChartOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
-  const { addItem } = useCart();
   const navigate = useNavigate();
 
   if (!product) {
@@ -531,22 +531,20 @@ function ProductPage() {
             </button>
             <button
               type="button"
-              onClick={() => {
-                addItem({
-                  slug: product.slug,
-                  name: product.name,
-                  price: parsePrice(product.price),
-                  image: product.images[0],
-                  size: size ?? "M",
-                  qty,
-                });
-                navigate({ to: "/cart" });
-              }}
+              onClick={() => setPickerOpen(true)}
               className="flex-1 py-4 text-[12px] font-bold tracking-[0.24em]"
               style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
             >
               ADD TO BAG
             </button>
+            <AddToCartDialog
+              product={product}
+              open={pickerOpen}
+              onClose={() => setPickerOpen(false)}
+              onAdded={() => navigate({ to: "/cart" })}
+              initialSize={size}
+              initialQty={qty}
+            />
           </div>
 
           <div className="mt-6 grid grid-cols-3 gap-3 text-[10px] font-bold tracking-[0.14em] text-center" style={{ color: BROWN }}>

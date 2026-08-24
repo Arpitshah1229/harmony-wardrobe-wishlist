@@ -3,14 +3,14 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
-import { useCart, parsePrice } from "@/lib/cart";
+import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
 
 function ProductCard({ product }: { product: Product }) {
   const [imgIdx, setImgIdx] = useState(0);
-  const { addItem } = useCart();
+  const [pickerOpen, setPickerOpen] = useState(false);
   const navigate = useNavigate();
   const hasMultiple = product.images.length > 1;
   const move = (d: number) =>
@@ -90,25 +90,23 @@ function ProductCard({ product }: { product: Product }) {
 
       <button
         type="button"
-        onClick={() => {
-          addItem({
-            slug: product.slug,
-            name: product.name,
-            price: parsePrice(product.price),
-            image: product.images[0],
-            size: "M",
-            qty: 1,
-          });
-          navigate({ to: "/cart" });
-        }}
+        onClick={() => setPickerOpen(true)}
         className="mt-3 block w-full py-3 text-center text-[11px] font-bold tracking-[0.22em] transition-opacity hover:opacity-85"
         style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
       >
         ADD TO CART
       </button>
+
+      <AddToCartDialog
+        product={product}
+        open={pickerOpen}
+        onClose={() => setPickerOpen(false)}
+        onAdded={() => navigate({ to: "/cart" })}
+      />
     </article>
   );
 }
+
 
 
 
