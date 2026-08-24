@@ -12,7 +12,7 @@ import {
   SIZING_NOTE,
   SHIPPING_NOTE,
 } from "@/lib/products";
-import { useCart, parsePrice } from "@/lib/cart";
+import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 
 export const Route = createFileRoute("/product/$slug")({
   component: ProductPage,
@@ -327,7 +327,6 @@ function ProductPage() {
   const [chartOpen, setChartOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
-  const { addItem } = useCart();
   const navigate = useNavigate();
 
   if (!product) {
@@ -538,6 +537,14 @@ function ProductPage() {
             >
               ADD TO BAG
             </button>
+            <AddToCartDialog
+              product={product}
+              open={pickerOpen}
+              onClose={() => setPickerOpen(false)}
+              onAdded={() => navigate({ to: "/cart" })}
+              initialSize={size}
+              initialQty={qty}
+            />
           </div>
 
           <div className="mt-6 grid grid-cols-3 gap-3 text-[10px] font-bold tracking-[0.14em] text-center" style={{ color: BROWN }}>
