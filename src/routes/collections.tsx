@@ -3,6 +3,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
+import { useCart, parsePrice } from "@/lib/cart";
 import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
