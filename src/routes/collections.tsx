@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import { useWishlist } from "@/lib/wishlist";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
