@@ -13,6 +13,8 @@ function ProductCard({ product }: { product: Product }) {
   const [imgIdx, setImgIdx] = useState(0);
   const [pickerOpen, setPickerOpen] = useState(false);
   const navigate = useNavigate();
+  const { has, toggle } = useWishlist();
+  const wished = has(product.slug);
   const hasMultiple = product.images.length > 1;
   const move = (d: number) =>
     setImgIdx((c) => (c + d + product.images.length) % product.images.length);
