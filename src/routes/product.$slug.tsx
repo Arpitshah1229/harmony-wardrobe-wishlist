@@ -325,6 +325,8 @@ function ProductPage() {
   const [chartOpen, setChartOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const { addItem } = useCart();
+  const navigate = useNavigate();
 
   if (!product) {
     return (
