@@ -15,6 +15,7 @@ const navLinks = [
 
 export function Header({ overlay = false }: { overlay?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
+  const { count: cartCount } = useCart();
 
   useEffect(() => {
     if (!overlay) return;
