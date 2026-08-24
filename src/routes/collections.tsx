@@ -9,6 +9,8 @@ import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
 function ProductCard({ product }: { product: Product }) {
   const [imgIdx, setImgIdx] = useState(0);
+  const { addItem } = useCart();
+  const navigate = useNavigate();
   const hasMultiple = product.images.length > 1;
   const move = (d: number) =>
     setImgIdx((c) => (c + d + product.images.length) % product.images.length);
