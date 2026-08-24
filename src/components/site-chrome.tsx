@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Search, User, ShoppingBag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
+import { useCart } from "@/lib/cart";
 
 export const BROWN = "#4B3528";
 export const DARK = "#2C2119";
@@ -15,6 +16,7 @@ const navLinks = [
 
 export function Header({ overlay = false }: { overlay?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
+  const { count: cartCount } = useCart();
 
   useEffect(() => {
     if (!overlay) return;
@@ -54,7 +56,9 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
       <div className="flex items-center gap-6 text-[12px] font-bold tracking-[0.22em]">
         <a href="#" className="flex items-center gap-1.5"><Search size={14} /> SEARCH</a>
         <a href="#" className="flex items-center gap-1.5"><User size={14} /> ACCOUNT</a>
-        <a href="#" className="flex items-center gap-1.5"><ShoppingBag size={14} /> CART (0)</a>
+        <Link to="/cart" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+          <ShoppingBag size={14} /> CART ({cartCount})
+        </Link>
       </div>
     </header>
   );
@@ -93,7 +97,7 @@ export function AnnouncementBar({ bg = "#7A8063", color = "#F7F4EE" }: { bg?: st
 
 export function Footer() {
   const cols = [
-    { title: "SHOP", items: [{ label: "Collection", to: "/collections" }, "New In", "Gift Cards"] },
+    { title: "SHOP", items: [{ label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, "New In"] },
     { title: "HELP", items: ["Orders", "Shipping", "Returns"] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/" }, { label: "Craft", to: "/" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },

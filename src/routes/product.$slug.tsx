@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Heart, Minus, Plus, Phone, MessageCircle, Truck, RotateCcw, Store, X, Ruler, Banknote, Package, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import {
@@ -12,6 +12,7 @@ import {
   SIZING_NOTE,
   SHIPPING_NOTE,
 } from "@/lib/products";
+import { useCart, parsePrice } from "@/lib/cart";
 
 export const Route = createFileRoute("/product/$slug")({
   component: ProductPage,
@@ -325,6 +326,8 @@ function ProductPage() {
   const [chartOpen, setChartOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const { addItem } = useCart();
+  const navigate = useNavigate();
 
   if (!product) {
     return (
@@ -528,6 +531,17 @@ function ProductPage() {
             </button>
             <button
               type="button"
+              onClick={() => {
+                addItem({
+                  slug: product.slug,
+                  name: product.name,
+                  price: parsePrice(product.price),
+                  image: product.images[0],
+                  size: size ?? "M",
+                  qty,
+                });
+                navigate({ to: "/cart" });
+              }}
               className="flex-1 py-4 text-[12px] font-bold tracking-[0.24em]"
               style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
             >
