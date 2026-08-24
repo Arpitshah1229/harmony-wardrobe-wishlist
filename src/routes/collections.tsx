@@ -3,14 +3,14 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
-import { useCart, parsePrice } from "@/lib/cart";
+import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
 
 function ProductCard({ product }: { product: Product }) {
   const [imgIdx, setImgIdx] = useState(0);
-  const { addItem } = useCart();
+  const [pickerOpen, setPickerOpen] = useState(false);
   const navigate = useNavigate();
   const hasMultiple = product.images.length > 1;
   const move = (d: number) =>
