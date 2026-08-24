@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Search, User, ShoppingBag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
+import { useCart } from "@/lib/cart";
 
 export const BROWN = "#4B3528";
 export const DARK = "#2C2119";
