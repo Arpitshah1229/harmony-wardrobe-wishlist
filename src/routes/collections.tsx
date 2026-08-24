@@ -35,13 +35,27 @@ function ProductCard({ product }: { product: Product }) {
           >
             {product.badge || "Hand Dyed & Embroidered"}
           </span>
-          <span
-            className="absolute bottom-0 left-0 right-0 py-3.5 text-center text-[11px] font-bold tracking-[0.22em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
-            style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
-          >
-            VIEW DETAILS
-          </span>
         </Link>
+
+        <button
+          type="button"
+          aria-label={wished ? `Remove ${product.name} from wishlist` : `Add ${product.name} to wishlist`}
+          aria-pressed={wished}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggle(product.slug);
+          }}
+          className="absolute top-3 right-3 h-9 w-9 rounded-full grid place-items-center shadow-sm transition-transform duration-300 hover:scale-110"
+          style={{ backgroundColor: "#F7F4EE" }}
+        >
+          <Heart
+            className="h-[18px] w-[18px] transition-colors"
+            style={{ color: wished ? "#C43D32" : BROWN }}
+            fill={wished ? "#C43D32" : "none"}
+          />
+        </button>
+
 
         {hasMultiple && (
           <>
