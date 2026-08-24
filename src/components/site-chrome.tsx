@@ -54,7 +54,9 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
       <div className="flex items-center gap-6 text-[12px] font-bold tracking-[0.22em]">
         <a href="#" className="flex items-center gap-1.5"><Search size={14} /> SEARCH</a>
         <a href="#" className="flex items-center gap-1.5"><User size={14} /> ACCOUNT</a>
-        <a href="#" className="flex items-center gap-1.5"><ShoppingBag size={14} /> CART (0)</a>
+        <Link to="/cart" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+          <ShoppingBag size={14} /> CART ({cartCount})
+        </Link>
       </div>
     </header>
   );
