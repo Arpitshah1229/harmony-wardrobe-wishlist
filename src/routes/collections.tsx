@@ -85,14 +85,24 @@ function ProductCard({ product }: { product: Product }) {
         </p>
       </div>
 
-      <Link
-        to="/product/$slug"
-        params={{ slug: product.slug }}
+      <button
+        type="button"
+        onClick={() => {
+          addItem({
+            slug: product.slug,
+            name: product.name,
+            price: parsePrice(product.price),
+            image: product.images[0],
+            size: "M",
+            qty: 1,
+          });
+          navigate({ to: "/cart" });
+        }}
         className="mt-3 block w-full py-3 text-center text-[11px] font-bold tracking-[0.22em] transition-opacity hover:opacity-85"
         style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
       >
         ADD TO CART
-      </Link>
+      </button>
     </article>
   );
 }
