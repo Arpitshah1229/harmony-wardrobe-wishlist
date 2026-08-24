@@ -12,6 +12,7 @@ import {
   SIZING_NOTE,
   SHIPPING_NOTE,
 } from "@/lib/products";
+import { useCart, parsePrice } from "@/lib/cart";
 
 export const Route = createFileRoute("/product/$slug")({
   component: ProductPage,
