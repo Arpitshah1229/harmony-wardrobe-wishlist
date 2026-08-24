@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FounderRoute = FounderRouteImport.update({
   id: '/founder',
   path: '/founder',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesById {
@@ -61,19 +69,33 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cart' | '/collections' | '/founder' | '/product/$slug'
+  fullPaths:
+    | '/'
+    | '/cart'
+    | '/collections'
+    | '/founder'
+    | '/wishlist'
+    | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cart' | '/collections' | '/founder' | '/product/$slug'
+  to:
+    | '/'
+    | '/cart'
+    | '/collections'
+    | '/founder'
+    | '/wishlist'
+    | '/product/$slug'
   id:
     | '__root__'
     | '/'
     | '/cart'
     | '/collections'
     | '/founder'
+    | '/wishlist'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -82,11 +104,19 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CollectionsRoute: typeof CollectionsRoute
   FounderRoute: typeof FounderRoute
+  WishlistRoute: typeof WishlistRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/founder': {
       id: '/founder'
       path: '/founder'
@@ -130,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CollectionsRoute: CollectionsRoute,
   FounderRoute: FounderRoute,
+  WishlistRoute: WishlistRoute,
   ProductSlugRoute: ProductSlugRoute,
 }
 export const routeTree = rootRouteImport
