@@ -103,10 +103,10 @@ export function AnnouncementBar({ bg = "#7A8063", color = "#F7F4EE" }: { bg?: st
 export function Footer() {
   const cols = [
     { title: "SHOP", items: [{ label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
-    { title: "HELP", items: ["Orders", "Shipping", "Returns"] },
+    { title: "HELP", items: ["Orders", "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/" }, { label: "Craft", to: "/" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },
-    { title: "LEGAL", items: [{ label: "Privacy Policy", to: "/privacy" }] },
+
   ];
   return (
     <footer className="px-8 md:px-16 py-8 border-t border-border/60" style={{ color: BROWN }}>
