@@ -77,8 +77,8 @@ export const products: Product[] = [
     colorHex: "#EDE6D6",
     detailImg: stitchesStrip.url,
     description: [
-      "More like a flower quietly unfolding from within, GulRaaz is a hand embroidered men's chikankari shirt crafted in breathable cotton flex in its natural colour with a relaxed fit. Rooted in the timeless craft of Lucknow chikankari, it brings together present-day ease and thoughtful craftsmanship, with blocks reimagined by our team.",
-      "Hand embroidered using Tepchi, Ghaspatti, and Olma, each stitch adds depth, movement, and quiet character. Finished with natural wooden buttons and brought to life by skilled artisans, GulRaaz is designed not simply to be worn, but to be lived in. Why should comfort and looking good be reserved for occasions? It's an everyday thing — made to make us feel good.",
+      "Like a flower quietly unfolding from within, shaping the soul as it blooms, and leaving its traces along the way. GulRaaz shirt is crafted in breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
+      "Because feeling good in what we wear shouldn't need an occasion. Isn't living one enough?",
     ],
     details: [
       ["Fabric", "100% Natural Cotton Flex"],
@@ -105,8 +105,8 @@ export const products: Product[] = [
     colorHex: "#7A8063",
     detailImg: stitchesStrip.url,
     description: [
-      "Inspired by the quiet rhythm of nature, Bahaar celebrates growth that unfolds with ease. Crafted in hand-dyed breathable cotton flex in a beautiful green with a relaxed fit, this hand embroidered men's chikankari shirt reflects the timeless artistry of Lucknow chikankari through a contemporary lens.",
-      "Hand embroidered using Ulta Bakhiya, Ghaspatti, and Olma, each motif is brought to life with contrast beige threads that add depth and movement. Finished with natural wooden buttons and handcrafted by skilled artisans, Bahaar is designed for effortless everyday elegance.",
+      "Inspired by the quiet rhythm of nature, Bahaar is about growth that keeps unfolding, even with a little uncertainty, we keep moving forward. Bahaar shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
+      "Because feeling good in what we wear shouldn't need an occasion. Isn't living one enough?",
     ],
     details: [
       ["Fabric", "100% Hand-Dyed Cotton Flex"],
@@ -135,9 +135,8 @@ export const products: Product[] = [
     colorHex: "#D9B24C",
     detailImg: stitchesStrip.url,
     description: [
-      "Kinara captures the quiet joy of sunlit shores, slow afternoons, and memories that linger long after the journey ends. Inspired by the calm happiness of coastal escapes, it is designed to evoke a feeling of ease, warmth, and lightness.",
-      "Fluid in silhouette and unhurried in detail, the hand embroidery moves across the fabric like something remembered rather than designed. Delicate Phool, Orma, Tepchi, Phanda, Bakhiya, Keel Kangan, and Hool stitches come together in a composition that celebrates the artistry of Lucknow's chikankari tradition.",
-      "Crafted from 100% hand-dyed cotton flex in a joyful summer yellow, Kinara feels light enough to forget you're wearing it, yet distinctive enough to be remembered. Finished with natural wooden buttons, it carries a quiet charm that feels effortless, relaxed, and uplifting.",
+      "Kinara captures the quiet joy of sunset skies, slow afternoons, and memories that linger long after the journey ends. Inspired by the simple happiness of coastal escapes, it is made to bring a feeling of ease, warmth, and lightness. Kinara shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
+      "Because feeling at ease shouldn't need an occasion. Isn't living one enough?",
     ],
     details: [
       ["Fabric", "100% Hand-Dyed Cotton Flex"],
@@ -164,10 +163,8 @@ export const products: Product[] = [
     colorHex: "#E3B6B4",
     detailImg: stitchesStrip.url,
     description: [
-      "Some marks are not made to be seen immediately. They are felt more deeply, their arrival quietly awaited before they are received and cherished. Mohar is inspired by those lasting impressions — the ones that stay long after the moment has passed, like the stamp on a letter that quietly carries a story from one hand to another. It speaks of identity, belonging, and the beauty of something made to be received and cherished.",
-      "The natural slub of the fabric carries its own character long before a single stitch is placed. Its subtle irregularities give the cloth an effortless depth, allowing the craftsmanship to feel honest and unforced. Hand-dyed in a soft onion pink, the 100% hand-dyed cotton slub becomes the perfect canvas for embroidery that works with the fabric, never against it.",
-      "The motif is brought to life through delicate Bakhiya (Shadow Work) and is thoughtfully appliquéd with machine stitching, creating a beautiful balance between traditional handcraft and contemporary construction. Every detail is considered, allowing the craft to remain understated yet deeply expressive.",
-      "Finished with natural wooden buttons, Mohar is designed not to demand attention, but to leave a lasting impression.",
+      "Some marks are made to be seen immediately, but felt more deeply over time. Like the stamp on a letter, they quietly carry a story from one hand to another. A mark of identity, belonging, and the beauty of something made to be received and cherished. Mohar shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
+      "Because feeling at ease shouldn't need an occasion. Isn't living one enough?",
     ],
     details: [
       ["Fabric", "100% Hand-Dyed Cotton Slub"],
@@ -195,10 +192,8 @@ export const products: Product[] = [
     colorHex: "#B9CBD8",
     detailImg: stitchesStrip.url,
     description: [
-      "It doesn't matter what path you take — it always leads to a destination. It's the journey that's meant to be enjoyed, and the stories created along the way, as it arrives at the destination you intend, manifest for, and choose, eventually. So there's no destination in particular, and no urgency about getting there.",
-      "Raah is cut loosely and finished with chain stitch and Hathkatti handwork that moves with the fabric rather than anchoring it. The slub cotton texture adds quiet presence without weight, dyed in a beautiful sky greyish-blue with a contrasting tonal blue that enhances the embroidery even further.",
-      "The handwork begins at the front placket and travels all the way around to the back, arriving again — a continuous motif with no start or end, much like the philosophy behind the shirt itself.",
-      "There is no occasion this is dressed for. It is simply made for days that belong to you. Wear it like you have nowhere to be, even when you do.",
+      "It doesn't matter which path you take. Every path leads somewhere. It is the journey that is meant to be lived, the stories, the moments, and everything we become along the way. There is no particular destination, and no urgency to get there. Enjoy the ride, and let it take you where you're meant to be. Raah shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
+      "Because feeling at ease shouldn't need an occasion. Isn't living one enough?",
     ],
     details: [
       ["Fabric", "100% Hand-Dyed Cotton Slub"],
@@ -225,9 +220,8 @@ export const products: Product[] = [
     colorHex: "#F4F1EA",
     detailImg: stitchesStrip.url,
     description: [
-      "It doesn't matter what the outside holds — one needs to be at ease with the lightest thing they reach for most. Mul mul, in its finest form, doesn't ask anything of the body.",
-      "Jaali work, Orma, Channa Patti, and Hathkatti come together in delicate hand stitches that add depth without adding weight. Detail that exists for those who look closely, not those who need to be impressed. Sukoon is not a statement. It is a preference. It is a choice.",
-      "Rendered in white-on-white chikankari, Sukoon honors a tradition that has long carried this legacy — with a quiet touch of our own.",
+      "It doesn't matter what the outside holds. One should be at ease with the lightest thing they reach for most. Mulmul, in its finest form, asks nothing of the body. Sukoon honours a tradition that has long carried this legacy, with a quiet touch of our own on, WHITE ON WHITE.",
+      "Because feeling at ease with your traditional roots shouldn't need an occasion. Isn't living one enough?",
     ],
     details: [
       ["Fabric", "100% Natural Mul Mul (Undyed)"],
@@ -255,8 +249,8 @@ export const products: Product[] = [
     colorHex: "#A8968F",
     detailImg: stitchesStrip.url,
     description: [
-      "Zameen begins with colour drawn slowly into mul mul — soft, earthy, and settled in a hand-dyed taupe, light enough for the warmer days. Considered enough for the ones that matter. It creates harmony, always rooted to its roots.",
-      "Two tones carry its story: a tonal taupe base where Jaali and Hathkatti take shape, and a harmonious grounded grey where Hathkatti, Channa Patti, and Orma create a beautiful boundary that holds its ground.",
+      "Zameen is grounded in where it comes from, soft, earthy, and always close to its roots. Tonal yet with a personality. It doesn't ask to be noticed, but holds a quiet presence effortlessly. Mulmul, in its finest form. Bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
+      "Because feeling at ease shouldn't need an occasion. Isn't living one enough?",
     ],
     details: [
       ["Fabric", "100% Hand-Dyed Cotton Mul Mul"],
