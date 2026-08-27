@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as CartRouteImport } from './routes/cart'
@@ -19,6 +20,11 @@ import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
   path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FounderRoute = FounderRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/privacy': typeof PrivacyRoute
   '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/privacy': typeof PrivacyRoute
   '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/privacy': typeof PrivacyRoute
   '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/founder'
+    | '/privacy'
     | '/wishlist'
     | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/founder'
+    | '/privacy'
     | '/wishlist'
     | '/product/$slug'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/founder'
+    | '/privacy'
     | '/wishlist'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CollectionsRoute: typeof CollectionsRoute
   FounderRoute: typeof FounderRoute
+  PrivacyRoute: typeof PrivacyRoute
   WishlistRoute: typeof WishlistRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/wishlist'
       fullPath: '/wishlist'
       preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/founder': {
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CollectionsRoute: CollectionsRoute,
   FounderRoute: FounderRoute,
+  PrivacyRoute: PrivacyRoute,
   WishlistRoute: WishlistRoute,
   ProductSlugRoute: ProductSlugRoute,
 }
