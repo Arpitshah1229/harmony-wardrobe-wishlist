@@ -145,56 +145,103 @@ function PrivacyPage() {
     <div className="min-h-screen bg-background">
       <AnnouncementBar bg="#7A8063" color="#F7F4EE" />
       <Header />
-      <main className="px-6 md:px-12 lg:px-20 py-16 md:py-24" style={{ color: DARK }}>
-        <div className="max-w-4xl mx-auto">
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4"
-            style={{ color: BROWN }}
-          >
-            Privacy Policy
-          </h1>
-          <p className="text-sm md:text-base font-medium mb-14" style={{ color: BROWN }}>
-            Last updated: 24 August 2026
-          </p>
 
-          <p className="text-base md:text-lg leading-relaxed mb-10">
-            At Notions in Pattern (“NIP”, “we”, “us” or “our”), we value your trust and respect your privacy. This Privacy Policy explains what information we collect when you visit or shop through our website, how we use it, and the choices available to you.
+      {/* Masthead */}
+      <section className="px-6 md:px-12 lg:px-20 pt-16 md:pt-24 pb-10 text-center border-b border-border/60">
+        <p className="text-[11px] font-bold tracking-[0.32em] mb-5" style={{ color: BROWN }}>
+          NOTIONS IN PATTERN
+        </p>
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-black tracking-tight" style={{ color: BROWN }}>
+          Privacy Policy
+        </h1>
+        <div className="mx-auto mt-6 flex items-center justify-center gap-3" style={{ color: BROWN }}>
+          <span className="h-px w-16 bg-current opacity-40" />
+          <span className="text-[10px] tracking-[0.3em] font-bold">✦</span>
+          <span className="h-px w-16 bg-current opacity-40" />
+        </div>
+        <p className="mt-6 text-[11px] font-bold tracking-[0.24em]" style={{ color: BROWN }}>
+          LAST UPDATED · 24 AUGUST 2026
+        </p>
+      </section>
+
+      <main className="px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ color: DARK }}>
+        <div className="max-w-3xl mx-auto">
+          <p className="font-serif text-xl md:text-2xl leading-relaxed mb-6">
+            At Notions in Pattern (“NIP”, “we”, “us” or “our”), we value your trust and respect your privacy. This
+            Privacy Policy explains what information we collect when you visit or shop through our website, how we use
+            it, and the choices available to you.
           </p>
-          <p className="text-base md:text-lg leading-relaxed mb-16">
+          <p className="text-base md:text-lg leading-relaxed mb-14 opacity-85">
             By using our website, you acknowledge the practices described below.
           </p>
 
-          <div className="space-y-14">
-            {sections.map((section) => (
-              <section key={section.title}>
-                <h2
-                  className="text-xl md:text-2xl font-bold tracking-tight mb-4"
-                  style={{ color: BROWN }}
-                >
-                  {section.title}
-                </h2>
-                {section.intro && (
-                  <p className="text-base md:text-lg leading-relaxed mb-3">{section.intro}</p>
-                )}
-                {section.points && (
-                  <ul className="list-disc pl-6 space-y-2 text-base md:text-lg leading-relaxed mb-3">
-                    {section.points.map((point, idx) => (
-                      <li key={idx}>{point}</li>
-                    ))}
-                  </ul>
-                )}
-                {section.paragraphs && (
-                  <div className="space-y-3 text-base md:text-lg leading-relaxed">
-                    {section.paragraphs.map((para, idx) => (
-                      <p key={idx}>{para}</p>
-                    ))}
-                  </div>
-                )}
-                {section.outro && (
-                  <p className="text-base md:text-lg leading-relaxed mt-3">{section.outro}</p>
-                )}
+          {/* Index */}
+          <nav className="mb-16 border-y border-border/60 py-8">
+            <p className="text-[11px] font-bold tracking-[0.26em] mb-5" style={{ color: BROWN }}>
+              CONTENTS
+            </p>
+            <ol className="grid gap-x-10 gap-y-2 sm:grid-cols-2 text-[13px] leading-relaxed">
+              {sections.map((s, i) => (
+                <li key={s.title}>
+                  <a
+                    href={`#s-${i + 1}`}
+                    className="hover:opacity-60 transition-opacity font-medium"
+                    style={{ color: BROWN }}
+                  >
+                    {s.title}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div className="space-y-16">
+            {sections.map((section, i) => (
+              <section key={section.title} id={`s-${i + 1}`} className="scroll-mt-28">
+                <div className="flex items-baseline gap-4 mb-5">
+                  <span
+                    className="font-serif text-3xl md:text-4xl font-black leading-none opacity-30"
+                    style={{ color: BROWN }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight" style={{ color: BROWN }}>
+                    {section.title.replace(/^\d+\.\s*/, "")}
+                  </h2>
+                </div>
+                <div className="border-l pl-6 md:pl-8" style={{ borderColor: "rgba(75,53,40,0.25)" }}>
+                  {section.intro && (
+                    <p className="text-base md:text-lg leading-relaxed mb-4">{section.intro}</p>
+                  )}
+                  {section.points && (
+                    <ul className="space-y-2.5 text-base md:text-lg leading-relaxed mb-4">
+                      {section.points.map((point, idx) => (
+                        <li key={idx} className="flex gap-3">
+                          <span className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rotate-45" style={{ backgroundColor: BROWN, opacity: 0.5 }} />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.paragraphs && (
+                    <div className="space-y-4 text-base md:text-lg leading-relaxed">
+                      {section.paragraphs.map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+                    </div>
+                  )}
+                  {section.outro && (
+                    <p className="text-base md:text-lg leading-relaxed mt-4">{section.outro}</p>
+                  )}
+                </div>
               </section>
             ))}
+          </div>
+
+          <div className="mt-20 border-t border-border/60 pt-8 text-center">
+            <p className="font-serif text-xl md:text-2xl" style={{ color: BROWN }}>
+              Thank you for trusting us with your details.
+            </p>
           </div>
         </div>
       </main>
@@ -202,3 +249,4 @@ function PrivacyPage() {
     </div>
   );
 }
+
