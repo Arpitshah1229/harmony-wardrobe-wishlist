@@ -106,6 +106,7 @@ export function Footer() {
     { title: "HELP", items: ["Orders", "Shipping", "Returns"] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/" }, { label: "Craft", to: "/" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },
+    { title: "LEGAL", items: [{ label: "Privacy Policy", to: "/privacy" }] },
   ];
   return (
     <footer className="px-8 md:px-16 py-8 border-t border-border/60" style={{ color: BROWN }}>
