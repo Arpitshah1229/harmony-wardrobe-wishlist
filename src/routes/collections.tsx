@@ -183,11 +183,11 @@ function CollectionsPage() {
 
       {/* Trust strip */}
       <div className="px-8 md:px-16 py-6 border-b border-border/60">
-        <div className="relative mx-auto grid max-w-4xl grid-cols-2 items-center">
-          <p className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+        <div className="relative grid grid-cols-4 items-center">
+          <p className="col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
             HAND-EMBROIDERED IN LUCKNOW
           </p>
-          <p className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+          <p className="col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
             HAND-DYED, SMALL BATCH
           </p>
           <span
