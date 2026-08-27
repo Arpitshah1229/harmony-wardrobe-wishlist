@@ -333,7 +333,6 @@ function ProductPage() {
     return (
       <div className="bg-background min-h-screen flex flex-col">
         <Header />
-      <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
         <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
         <div className="flex-1 px-8 py-32 text-center">
           <h1 className="font-serif text-4xl font-bold" style={{ color: BROWN }}>
@@ -395,7 +394,7 @@ function ProductPage() {
   return (
     <div className="bg-background min-h-screen">
       <Header />
-
+      <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
       <nav className="px-8 md:px-16 py-4 text-[11px] font-bold tracking-[0.2em]" style={{ color: BROWN }}>
         <Link to="/collections" className="hover:opacity-70">
           NAQSH-E-NIGĀH
