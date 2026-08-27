@@ -590,13 +590,17 @@ function ProductPage() {
               Get in touch. Mon to Sat, 10:00 AM to 6:00 PM IST.
             </p>
             <div className="mt-3 flex flex-wrap gap-5 text-[12px] font-bold tracking-[0.16em]" style={{ color: BROWN }}>
-              <span className="flex items-center gap-1.5">
-                <Phone size={13} /> +91 00000 00000
-              </span>
-              <span className="flex items-center gap-1.5">
-                <MessageCircle size={13} /> CHAT
-              </span>
+              <a href="tel:+918108938523" className="flex items-center gap-1.5 hover:opacity-70">
+                <Phone size={13} /> 8108938523
+              </a>
+              <a href="https://wa.me/918108938523" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:opacity-70">
+                <MessageCircle size={13} /> WHATSAPP
+              </a>
+              <a href="mailto:care.notionsinpattern@gmail.com" className="flex items-center gap-1.5 hover:opacity-70">
+                <Mail size={13} /> E-MAIL
+              </a>
             </div>
+
           </div>
         </div>
       </section>
