@@ -182,13 +182,20 @@ function CollectionsPage() {
       <AnnouncementBar bg="#C43D32" color="#F7F4EE" />
 
       {/* Trust strip */}
-      <div className="px-8 md:px-16 py-6 flex flex-wrap items-center justify-center gap-x-16 gap-y-4 border-b border-border/60">
-        {["HAND-EMBROIDERED IN LUCKNOW", "HAND-DYED, SMALL BATCH"].map((t) => (
-          <p key={t} className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
-            {t}
+      <div className="px-8 md:px-16 py-6 border-b border-border/60">
+        <div className="mx-auto grid max-w-4xl grid-cols-2 items-center">
+          <p className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+            HAND-EMBROIDERED IN LUCKNOW
           </p>
-        ))}
+          <p
+            className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center border-l"
+            style={{ color: BROWN, borderColor: "rgba(75,53,40,0.35)", filter: "blur(0px)" }}
+          >
+            HAND-DYED, SMALL BATCH
+          </p>
+        </div>
       </div>
+
 
       {/* Filters */}
       <div id="shop" className="px-8 md:px-16 pt-12 pb-8 flex flex-wrap items-end justify-between gap-8">
