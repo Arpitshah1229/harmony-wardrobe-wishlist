@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Phone, MessageCircle, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, Package, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import { Heart, Minus, Plus, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, Package, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import {
   products,
@@ -37,6 +37,44 @@ export const Route = createFileRoute("/product/$slug")({
 });
 
 const BORDER = "rgba(75,53,40,0.25)";
+
+function WhatsAppIcon({ size = 26, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.175L2 22l4.988-1.392A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2Zm5.25 13.9c-.225.637-1.125 1.163-1.838 1.313-.487.1-1.125.15-1.8-.05-.412-.125-.95-.312-1.625-.612-2.863-1.25-4.725-4.15-4.875-4.35-.15-.2-1.163-1.55-1.163-2.962 0-1.413.737-2.1.987-2.388.25-.288.55-.35.737-.35.187 0 .35 0 .512.002.163.003.35-.063.55.412.2.475.65 1.65.713 1.775.063.125.088.275.013.45-.075.175-.113.288-.225.45-.113.163-.238.338-.338.45-.113.125-.225.263-.1.513.125.25.563.925 1.213 1.5.838.737 1.55.975 1.775 1.075.225.1.35.075.475-.05.125-.125.55-.638.7-.863.15-.225.3-.188.5-.1.2.088 1.275.6 1.5.713.225.113.375.163.425.25.05.088.05.513-.175 1.15Z"
+        fill="#25D366"
+      />
+    </svg>
+  );
+}
+
+function GmailIcon({ size = 26, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11Z" stroke="#C5221F" strokeWidth="1.2" />
+      <path d="M2 7l10 6.5L22 7" stroke="#EA4335" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 13.5V4.5" stroke="#FBBC04" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PhoneIcon({ size = 26, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z"
+        fill="#2563EB"
+        stroke="#2563EB"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 function SizeChartModal({ onClose }: { onClose: () => void }) {
   return (
@@ -591,16 +629,15 @@ function ProductPage() {
             </p>
             <div className="mt-3 flex flex-wrap gap-5 text-[12px] font-bold tracking-[0.16em]" style={{ color: BROWN }}>
               <a href="tel:+918108938523" className="flex items-center gap-1.5 hover:opacity-70">
-                <Phone size={13} /> 8108938523
+                <PhoneIcon size={16} /> 8108938523
               </a>
               <a href="https://wa.me/918108938523" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:opacity-70">
-                <MessageCircle size={13} /> WHATSAPP
+                <WhatsAppIcon size={16} /> WHATSAPP
               </a>
               <a href="mailto:care.notionsinpattern@gmail.com" className="flex items-center gap-1.5 hover:opacity-70">
-                <Mail size={13} /> E-MAIL
+                <GmailIcon size={16} /> E-MAIL
               </a>
             </div>
-
           </div>
         </div>
       </section>
@@ -646,19 +683,19 @@ function ProductPage() {
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
             <div className="flex flex-col items-center gap-2">
-              <Phone size={26} color={BROWN} strokeWidth={1.5} />
+              <PhoneIcon size={28} />
               <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>CALL</h3>
               <a href="tel:+918108938523" className="text-[14px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <MessageCircle size={26} color={BROWN} strokeWidth={1.5} />
+              <WhatsAppIcon size={28} />
               <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>WHATSAPP CHAT</h3>
               <a href="https://wa.me/918108938523" target="_blank" rel="noreferrer" className="text-[14px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <Mail size={26} color={BROWN} strokeWidth={1.5} />
+              <GmailIcon size={28} />
               <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>E-MAIL</h3>
-              <p className="text-[14px]" style={{ color: DARK }}>See below</p>
+              <a href="mailto:care.notionsinpattern@gmail.com" className="text-[14px] hover:opacity-70" style={{ color: DARK }}>care.notionsinpattern@gmail.com</a>
             </div>
           </div>
 
