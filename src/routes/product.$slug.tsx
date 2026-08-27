@@ -630,7 +630,74 @@ function ProductPage() {
         </div>
       </section>
 
+      {/* Looking for a little help? */}
+      <section className="px-8 md:px-16 py-16 bg-background border-t" style={{ borderColor: "rgba(75,53,40,0.15)" }}>
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold" style={{ color: BROWN }}>
+            Looking for a little help?
+          </h2>
+          <p className="mt-3 text-[15px] md:text-base" style={{ color: DARK }}>
+            We&rsquo;re here.
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="flex flex-col items-center gap-2">
+              <Phone size={26} color={BROWN} strokeWidth={1.5} />
+              <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>CALL</h3>
+              <a href="tel:+918108938523" className="text-[14px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <MessageCircle size={26} color={BROWN} strokeWidth={1.5} />
+              <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>WHATSAPP CHAT</h3>
+              <a href="https://wa.me/918108938523" target="_blank" rel="noreferrer" className="text-[14px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Mail size={26} color={BROWN} strokeWidth={1.5} />
+              <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>E-MAIL</h3>
+              <p className="text-[14px]" style={{ color: DARK }}>See below</p>
+            </div>
+          </div>
+
+          <p className="mt-8 text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>
+            MON&ndash;SAT · 10:00 AM&ndash;6:00 PM (IST)
+          </p>
+        </div>
+
+        <div className="mt-14 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Customer Care / General Help",
+              text: "For orders, sizing, exchanges, returns, shipping, product questions, etc.",
+              email: "care.notionsinpattern@gmail.com",
+            },
+            {
+              title: "General / Brand Enquiries",
+              text: "For collaborations, press, partnerships, styling requests, wholesale-type questions, etc.",
+              email: "hello.notionsinpattern@gmail.com",
+            },
+            {
+              title: "Corporate / Bulk Enquiries",
+              text: "For corporate gifting, bulk orders, uniforms, events, custom requirements, etc.",
+              email: "corporate.notionsinpattern@gmail.com",
+            },
+          ].map((c) => (
+            <div key={c.title} className="border p-6" style={{ borderColor: "rgba(75,53,40,0.2)" }}>
+              <h3 className="text-[14px] font-bold" style={{ color: BROWN }}>{c.title}</h3>
+              <p className="mt-2 text-[13px] leading-[1.7]" style={{ color: DARK }}>{c.text}</p>
+              <a
+                href={`mailto:${c.email}`}
+                className="mt-4 inline-flex items-center gap-2 text-[13px] font-bold hover:opacity-70 break-all"
+                style={{ color: BROWN }}
+              >
+                <Mail size={14} /> {c.email}
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Newsletter + Trust */}
+
       <section className="px-8 md:px-16 py-16 bg-background border-t" style={{ borderColor: "rgba(75,53,40,0.15)" }}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold" style={{ color: BROWN }}>
