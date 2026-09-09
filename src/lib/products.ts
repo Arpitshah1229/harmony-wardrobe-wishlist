@@ -74,6 +74,12 @@ export const products: Product[] = [
     tagline: "A Secret Blooming Inward",
     price: "₹6,300",
     images: [gulraaz.url],
+    stylingImages: [
+      { src: gulraaz.url, label: "After Hours" },
+      { src: gulraaz.url, label: "Festive Gatherings" },
+      { src: gulraaz.url, label: "Day Out" },
+      { src: gulraaz.url, label: "Evening Edit" },
+    ],
     colorName: "Natural (undyed)",
     colorHex: "#EDE6D6",
     detailImg: stitchesStrip.url,
