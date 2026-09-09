@@ -27,6 +27,7 @@ export const Route = createFileRoute("/wishlist")({
 function WishlistPage() {
   const { slugs, remove } = useWishlist();
   const saved = products.filter((p) => slugs.includes(p.slug));
+  const [dialogProduct, setDialogProduct] = useState<typeof products[number] | null>(null);
 
   return (
     <div className="bg-background min-h-screen">
@@ -90,11 +91,37 @@ function WishlistPage() {
                     {p.price}
                   </p>
                 </div>
+                <div className="mt-4 flex flex-col gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setDialogProduct(p)}
+                    className="w-full py-3.5 text-[11px] font-bold tracking-[0.22em]"
+                    style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+                  >
+                    ADD TO CART
+                  </button>
+                  <Link
+                    to="/product/$slug"
+                    params={{ slug: p.slug }}
+                    className="w-full py-3.5 text-center text-[11px] font-bold tracking-[0.22em] border"
+                    style={{ borderColor: BROWN, color: BROWN }}
+                  >
+                    VIEW PRODUCT
+                  </Link>
+                </div>
               </article>
             ))}
           </section>
         )}
       </main>
+
+      {dialogProduct && (
+        <AddToCartDialog
+          product={dialogProduct}
+          open={!!dialogProduct}
+          onClose={() => setDialogProduct(null)}
+        />
+      )}
 
       <Footer />
     </div>
