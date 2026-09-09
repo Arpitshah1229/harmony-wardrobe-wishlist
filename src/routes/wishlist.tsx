@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, X } from "lucide-react";
-import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
+import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import { useWishlist } from "@/lib/wishlist";
 
@@ -29,7 +29,6 @@ function WishlistPage() {
   return (
     <div className="bg-background min-h-screen">
       <Header />
-      <AnnouncementBar bg="#7A8063" color="#F7F4EE" />
 
       <main className="px-8 md:px-16 py-14">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-center" style={{ color: BROWN }}>
@@ -39,7 +38,7 @@ function WishlistPage() {
 
         {saved.length === 0 ? (
           <div className="text-center py-16">
-            <Heart size={40} className="mx-auto mb-6" style={{ color: BROWN }} />
+            <Heart size={40} className="mx-auto mb-6" style={{ color: "#7B1113" }} />
             <p className="text-[15px] mb-8" style={{ color: DARK }}>
               You haven't saved any pieces yet.
             </p>
@@ -52,9 +51,9 @@ function WishlistPage() {
             </Link>
           </div>
         ) : (
-          <section className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
+          <section className="flex flex-wrap justify-center gap-x-6 gap-y-12">
             {saved.map((p) => (
-              <article key={p.slug} className="group flex flex-col">
+              <article key={p.slug} className="group flex flex-col w-[calc(50%-12px)] md:w-[calc(25%-18px)]">
                 <div className="relative overflow-hidden bg-cream/60">
                   <Link to="/product/$slug" params={{ slug: p.slug }} className="block">
                     <img
@@ -89,14 +88,6 @@ function WishlistPage() {
                     {p.price}
                   </p>
                 </div>
-                <Link
-                  to="/product/$slug"
-                  params={{ slug: p.slug }}
-                  className="mt-3 block w-full py-3 text-center text-[11px] font-bold tracking-[0.22em] transition-opacity hover:opacity-85"
-                  style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
-                >
-                  VIEW PRODUCT
-                </Link>
               </article>
             ))}
           </section>

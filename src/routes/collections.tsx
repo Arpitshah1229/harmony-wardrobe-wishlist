@@ -51,8 +51,8 @@ function ProductCard({ product }: { product: Product }) {
         >
           <Heart
             className="h-[18px] w-[18px] transition-colors"
-            style={{ color: wished ? "#C43D32" : BROWN }}
-            fill={wished ? "#C43D32" : "none"}
+            style={{ color: wished ? "#7B1113" : BROWN }}
+            fill={wished ? "#7B1113" : "none"}
           />
         </button>
 
