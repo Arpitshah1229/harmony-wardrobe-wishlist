@@ -24,6 +24,7 @@ export type Product = {
   tagline: string;
   price: string;
   images: string[];
+  stylingImages?: { src: string; label: string }[];
   colorName: string;
   colorHex: string;
   detailImg: string;
@@ -73,6 +74,12 @@ export const products: Product[] = [
     tagline: "A Secret Blooming Inward",
     price: "₹6,300",
     images: [gulraaz.url],
+    stylingImages: [
+      { src: gulraaz.url, label: "After Hours" },
+      { src: gulraaz.url, label: "Festive Gatherings" },
+      { src: gulraaz.url, label: "Day Out" },
+      { src: gulraaz.url, label: "Evening Edit" },
+    ],
     colorName: "Natural (undyed)",
     colorHex: "#EDE6D6",
     detailImg: stitchesStrip.url,
@@ -101,6 +108,12 @@ export const products: Product[] = [
     tagline: "Where Nature Moves, and Growth Remains Constant",
     price: "₹6,300",
     images: [bahaar.url],
+    stylingImages: [
+      { src: bahaar.url, label: "After Hours" },
+      { src: bahaar.url, label: "Festive Gatherings" },
+      { src: bahaar.url, label: "Day Out" },
+      { src: bahaar.url, label: "Evening Edit" },
+    ],
     colorName: "Green",
     colorHex: "#7A8063",
     detailImg: stitchesStrip.url,
@@ -131,6 +144,12 @@ export const products: Product[] = [
     tagline: "A Coastal Memory at the Edge of Light and Water",
     price: "₹6,300",
     images: [kinara.url],
+    stylingImages: [
+      { src: kinara.url, label: "After Hours" },
+      { src: kinara.url, label: "Festive Gatherings" },
+      { src: kinara.url, label: "Day Out" },
+      { src: kinara.url, label: "Evening Edit" },
+    ],
     colorName: "Hand-Dyed Summer Yellow",
     colorHex: "#D9B24C",
     detailImg: stitchesStrip.url,
@@ -159,6 +178,12 @@ export const products: Product[] = [
     tagline: "A Mark That Holds Memory",
     price: "₹6,300",
     images: [mohar1.url, mohar2.url, mohar3.url, mohar4.url, mohar5.url, mohar6.url, mohar7.url, mohar8.url],
+    stylingImages: [
+      { src: mohar6.url, label: "After Hours" },
+      { src: mohar7.url, label: "Festive Gatherings" },
+      { src: mohar8.url, label: "Day Out" },
+      { src: mohar1.url, label: "Evening Edit" },
+    ],
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
     detailImg: stitchesStrip.url,
@@ -188,6 +213,12 @@ export const products: Product[] = [
     tagline: "A Path That Moves Without Direction, Yet Always Arrives",
     price: "₹6,300",
     images: [raah.url],
+    stylingImages: [
+      { src: raah.url, label: "After Hours" },
+      { src: raah.url, label: "Festive Gatherings" },
+      { src: raah.url, label: "Day Out" },
+      { src: raah.url, label: "Evening Edit" },
+    ],
     colorName: "Hand-Dyed Sky Greyish-Blue",
     colorHex: "#B9CBD8",
     detailImg: stitchesStrip.url,
@@ -216,6 +247,12 @@ export const products: Product[] = [
     tagline: "Stillness Shaped Through Self Calm",
     price: "₹6,300",
     images: [sukoon.url],
+    stylingImages: [
+      { src: sukoon.url, label: "After Hours" },
+      { src: sukoon.url, label: "Festive Gatherings" },
+      { src: sukoon.url, label: "Day Out" },
+      { src: sukoon.url, label: "Evening Edit" },
+    ],
     colorName: "White",
     colorHex: "#F4F1EA",
     detailImg: stitchesStrip.url,
@@ -245,6 +282,12 @@ export const products: Product[] = [
     tagline: "Grounded in Presence",
     price: "₹6,300",
     images: [zameen.url],
+    stylingImages: [
+      { src: zameen.url, label: "After Hours" },
+      { src: zameen.url, label: "Festive Gatherings" },
+      { src: zameen.url, label: "Day Out" },
+      { src: zameen.url, label: "Evening Edit" },
+    ],
     colorName: "Hand-Dyed Taupe",
     colorHex: "#A8968F",
     detailImg: stitchesStrip.url,
