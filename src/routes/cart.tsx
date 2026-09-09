@@ -191,13 +191,69 @@ function CartPage() {
               </h2>
               <span className="block w-10 border-t mt-4 mb-6" style={{ borderColor: BROWN }} />
 
+              <div className="mb-6">
+                <label
+                  htmlFor="coupon"
+                  className="flex items-center gap-1.5 text-[11px] font-bold tracking-[0.18em]"
+                  style={{ color: BROWN }}
+                >
+                  <TicketPercent size={14} /> DISCOUNT COUPON
+                </label>
+                <div className="mt-3 flex">
+                  <input
+                    id="coupon"
+                    value={code}
+                    onChange={(e) => setCode(e.target.value)}
+                    placeholder="Enter coupon code"
+                    className="flex-1 h-11 px-3 bg-background border text-[13px] outline-none"
+                    style={{ borderColor: BROWN, color: DARK }}
+                  />
+                  <button
+                    type="button"
+                    onClick={applyCoupon}
+                    className="h-11 px-5 text-[11px] font-bold tracking-[0.18em]"
+                    style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+                  >
+                    APPLY
+                  </button>
+                </div>
+                {error && (
+                  <p className="mt-2 text-[11px]" style={{ color: "#7B1113" }}>
+                    {error}
+                  </p>
+                )}
+                {applied && (
+                  <p className="mt-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>
+                    {applied.code} APPLIED · {applied.label}
+                    <button
+                      type="button"
+                      onClick={() => setApplied(null)}
+                      className="inline-flex items-center gap-1 hover:opacity-70"
+                      style={{ color: DARK }}
+                    >
+                      <X size={11} /> REMOVE
+                    </button>
+                  </p>
+                )}
+              </div>
+
               <dl className="space-y-3 text-[14px]" style={{ color: DARK }}>
                 <div className="flex justify-between">
                   <dt>Subtotal ({count} {count === 1 ? "item" : "items"})</dt>
                   <dd className="font-bold">{formatPrice(subtotal)}</dd>
                 </div>
+                {discount > 0 && (
+                  <div className="flex justify-between">
+                    <dt>Discount ({applied?.code})</dt>
+                    <dd className="font-bold">&minus;{formatPrice(discount)}</dd>
+                  </div>
+                )}
                 <div className="flex justify-between">
-                  <dt>Shipping</dt>
+                  <dt>GST (12%)</dt>
+                  <dd className="font-bold">{formatPrice(gst)}</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>Shipping charges</dt>
                   <dd className="font-bold">{shipping === 0 ? "Free" : formatPrice(shipping)}</dd>
                 </div>
               </dl>
@@ -207,8 +263,11 @@ function CartPage() {
                 style={{ borderColor: BROWN, color: BROWN }}
               >
                 <span>Total</span>
-                <span>{formatPrice(subtotal + shipping)}</span>
+                <span>{formatPrice(total)}</span>
               </div>
+              <p className="mt-2 text-[11px]" style={{ color: DARK }}>
+                Free shipping pan India on orders above ₹1,000.
+              </p>
 
               <button
                 type="button"
