@@ -386,7 +386,7 @@ function ProductPage() {
   }
 
   const gallery = Array.from(new Set([...product.images, product.detailImg].filter(Boolean)));
-  const others = products.filter((p) => p.slug !== product.slug).slice(0, 4);
+  const others = products.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   const accordions = [
     {
@@ -627,8 +627,8 @@ function ProductPage() {
             <p className="mt-1 font-serif text-xl md:text-2xl" style={{ color: BROWN }}>
               Wear it your way
             </p>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              {(product.stylingImages || product.images.slice(0, 4).map((src) => ({ src, label: "" }))).map((item, i) => (
+            <div className="mt-4 grid grid-cols-3 gap-3">
+              {(product.stylingImages || product.images.slice(0, 3).map((src) => ({ src, label: "" }))).slice(0, 3).map((item, i) => (
                 <figure key={i} className="flex flex-col">
                   <img
                     src={item.src}
@@ -675,7 +675,7 @@ function ProductPage() {
           More from this Collection
         </h2>
         <span className="block w-16 border-t-2 mx-auto mt-5 mb-12" style={{ borderColor: BROWN }} />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10">
           {others.map((p) => (
             <Link key={p.slug} to="/product/$slug" params={{ slug: p.slug }} className="group flex flex-col">
               <img
