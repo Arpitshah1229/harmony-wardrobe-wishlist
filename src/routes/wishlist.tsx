@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, X } from "lucide-react";
 import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import { useWishlist } from "@/lib/wishlist";
+import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 
 export const Route = createFileRoute("/wishlist")({
   component: WishlistPage,
