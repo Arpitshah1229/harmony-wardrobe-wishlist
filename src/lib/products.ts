@@ -108,6 +108,12 @@ export const products: Product[] = [
     tagline: "Where Nature Moves, and Growth Remains Constant",
     price: "₹6,300",
     images: [bahaar.url],
+    stylingImages: [
+      { src: bahaar.url, label: "After Hours" },
+      { src: bahaar.url, label: "Festive Gatherings" },
+      { src: bahaar.url, label: "Day Out" },
+      { src: bahaar.url, label: "Evening Edit" },
+    ],
     colorName: "Green",
     colorHex: "#7A8063",
     detailImg: stitchesStrip.url,
