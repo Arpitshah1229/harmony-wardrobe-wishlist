@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Minus, Plus, X, ShoppingBag, Truck, RotateCcw, Lock } from "lucide-react";
+import { Minus, Plus, X, ShoppingBag, Truck, RotateCcw, Lock, TicketPercent } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { PRODUCT_SUBTITLE } from "@/lib/products";
 import { useCart, formatPrice } from "@/lib/cart";
@@ -25,9 +26,40 @@ export const Route = createFileRoute("/cart")({
   }),
 });
 
+const COUPONS: Record<string, { type: "percent" | "flat"; value: number; label: string }> = {
+  NIP10: { type: "percent", value: 10, label: "10% off" },
+  WELCOME500: { type: "flat", value: 500, label: "₹500 off" },
+  FREESHIP: { type: "flat", value: 0, label: "Free shipping" },
+};
+
+const GST_RATE = 0.12;
+
 function CartPage() {
   const { items, count, subtotal, setQty, removeItem } = useCart();
-  const shipping = subtotal > 1000 || subtotal === 0 ? 0 : 120;
+
+  const [code, setCode] = useState("");
+  const [applied, setApplied] = useState<{ code: string; label: string; amount: number; freeShip: boolean } | null>(null);
+  const [error, setError] = useState("");
+
+  const applyCoupon = () => {
+    const key = code.trim().toUpperCase();
+    const coupon = COUPONS[key];
+    if (!coupon) {
+      setApplied(null);
+      setError("This coupon code isn't valid.");
+      return;
+    }
+    const amount =
+      coupon.type === "percent" ? Math.round((subtotal * coupon.value) / 100) : Math.min(coupon.value, subtotal);
+    setApplied({ code: key, label: coupon.label, amount, freeShip: key === "FREESHIP" });
+    setError("");
+  };
+
+  const discount = applied ? Math.min(applied.amount, subtotal) : 0;
+  const taxable = subtotal - discount;
+  const shipping = applied?.freeShip || taxable > 1000 || subtotal === 0 ? 0 : 120;
+  const gst = Math.round(taxable * GST_RATE);
+  const total = taxable + gst + shipping;
 
   return (
     <div className="bg-background min-h-screen flex flex-col">
@@ -159,13 +191,69 @@ function CartPage() {
               </h2>
               <span className="block w-10 border-t mt-4 mb-6" style={{ borderColor: BROWN }} />
 
+              <div className="mb-6">
+                <label
+                  htmlFor="coupon"
+                  className="flex items-center gap-1.5 text-[11px] font-bold tracking-[0.18em]"
+                  style={{ color: BROWN }}
+                >
+                  <TicketPercent size={14} /> DISCOUNT COUPON
+                </label>
+                <div className="mt-3 flex">
+                  <input
+                    id="coupon"
+                    value={code}
+                    onChange={(e) => setCode(e.target.value)}
+                    placeholder="Enter coupon code"
+                    className="flex-1 h-11 px-3 bg-background border text-[13px] outline-none"
+                    style={{ borderColor: BROWN, color: DARK }}
+                  />
+                  <button
+                    type="button"
+                    onClick={applyCoupon}
+                    className="h-11 px-5 text-[11px] font-bold tracking-[0.18em]"
+                    style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+                  >
+                    APPLY
+                  </button>
+                </div>
+                {error && (
+                  <p className="mt-2 text-[11px]" style={{ color: "#7B1113" }}>
+                    {error}
+                  </p>
+                )}
+                {applied && (
+                  <p className="mt-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>
+                    {applied.code} APPLIED · {applied.label}
+                    <button
+                      type="button"
+                      onClick={() => setApplied(null)}
+                      className="inline-flex items-center gap-1 hover:opacity-70"
+                      style={{ color: DARK }}
+                    >
+                      <X size={11} /> REMOVE
+                    </button>
+                  </p>
+                )}
+              </div>
+
               <dl className="space-y-3 text-[14px]" style={{ color: DARK }}>
                 <div className="flex justify-between">
                   <dt>Subtotal ({count} {count === 1 ? "item" : "items"})</dt>
                   <dd className="font-bold">{formatPrice(subtotal)}</dd>
                 </div>
+                {discount > 0 && (
+                  <div className="flex justify-between">
+                    <dt>Discount ({applied?.code})</dt>
+                    <dd className="font-bold">&minus;{formatPrice(discount)}</dd>
+                  </div>
+                )}
                 <div className="flex justify-between">
-                  <dt>Shipping</dt>
+                  <dt>GST (12%)</dt>
+                  <dd className="font-bold">{formatPrice(gst)}</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>Shipping charges</dt>
                   <dd className="font-bold">{shipping === 0 ? "Free" : formatPrice(shipping)}</dd>
                 </div>
               </dl>
@@ -175,8 +263,11 @@ function CartPage() {
                 style={{ borderColor: BROWN, color: BROWN }}
               >
                 <span>Total</span>
-                <span>{formatPrice(subtotal + shipping)}</span>
+                <span>{formatPrice(total)}</span>
               </div>
+              <p className="mt-2 text-[11px]" style={{ color: DARK }}>
+                Free shipping pan India on orders above ₹1,000.
+              </p>
 
               <button
                 type="button"
