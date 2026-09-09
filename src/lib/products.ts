@@ -24,6 +24,7 @@ export type Product = {
   tagline: string;
   price: string;
   images: string[];
+  stylingImages?: { src: string; label: string }[];
   colorName: string;
   colorHex: string;
   detailImg: string;
