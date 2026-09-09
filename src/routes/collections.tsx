@@ -149,7 +149,35 @@ export const Route = createFileRoute("/collections")({
 });
 
 
+const SORT_OPTIONS = [
+  "Most Relevant",
+  "Best Selling",
+  "Alphabetically, A-Z",
+  "Alphabetically, Z-A",
+  "Price, Low to High",
+  "Price, High to Low",
+] as const;
+
+const priceValue = (p: Product) => Number(String(p.price).replace(/[^0-9.]/g, "")) || 0;
+
 function CollectionsPage() {
+  const [sort, setSort] = useState<string>(SORT_OPTIONS[0]);
+
+  const sorted = [...products].sort((a, b) => {
+    switch (sort) {
+      case "Alphabetically, A-Z":
+        return a.name.localeCompare(b.name);
+      case "Alphabetically, Z-A":
+        return b.name.localeCompare(a.name);
+      case "Price, Low to High":
+        return priceValue(a) - priceValue(b);
+      case "Price, High to Low":
+        return priceValue(b) - priceValue(a);
+      default:
+        return 0;
+    }
+  });
+
   return (
     <div className="bg-background min-h-screen">
       <Header overlay />
@@ -222,10 +250,16 @@ function CollectionsPage() {
               SORT BY
             </p>
             <select
-              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[140px]"
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[180px]"
               style={{ color: DARK, borderColor: BROWN }}
             >
-              <option>Featured</option>
+              {SORT_OPTIONS.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -233,7 +267,7 @@ function CollectionsPage() {
 
       {/* Product grid */}
       <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
-        {products.map((p) => (
+        {sorted.map((p) => (
           <ProductCard key={p.slug} product={p} />
         ))}
       </section>
