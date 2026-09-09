@@ -178,6 +178,12 @@ export const products: Product[] = [
     tagline: "A Mark That Holds Memory",
     price: "₹6,300",
     images: [mohar1.url, mohar2.url, mohar3.url, mohar4.url, mohar5.url, mohar6.url, mohar7.url, mohar8.url],
+    stylingImages: [
+      { src: mohar6.url, label: "After Hours" },
+      { src: mohar7.url, label: "Festive Gatherings" },
+      { src: mohar8.url, label: "Day Out" },
+      { src: mohar1.url, label: "Evening Edit" },
+    ],
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
     detailImg: stitchesStrip.url,
