@@ -619,8 +619,35 @@ function ProductPage() {
             ))}
           </div>
 
+          {/* Shop the Look */}
+          <div className="mt-8 pt-6 border-t" style={{ borderColor: BORDER }}>
+            <p className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
+              ONE SHIRT MANY NOTION
+            </p>
+            <p className="mt-1 font-serif text-xl md:text-2xl" style={{ color: BROWN }}>
+              Wear it your way
+            </p>
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              {(product.stylingImages || product.images.slice(0, 4).map((src) => ({ src, label: "" }))).map((item, i) => (
+                <figure key={i} className="flex flex-col">
+                  <img
+                    src={item.src}
+                    alt={`${product.name} styled ${item.label || "look"}`}
+                    loading="lazy"
+                    className="w-full aspect-[3/4] object-cover bg-cream/60"
+                  />
+                  {item.label && (
+                    <figcaption className="mt-2 text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>
+                      {item.label}
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </div>
+
           {/* Help */}
-          <div className="mt-8 p-5 border border-dashed" style={{ borderColor: BROWN }}>
+          <div className="mt-6 p-4 border border-dashed" style={{ borderColor: BROWN }}>
             <p className="font-serif text-xl font-bold" style={{ color: BROWN }}>
               Need any help?
             </p>
