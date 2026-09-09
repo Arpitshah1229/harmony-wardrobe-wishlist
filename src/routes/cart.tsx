@@ -32,7 +32,7 @@ function CartPage() {
   return (
     <div className="bg-background min-h-screen flex flex-col">
       <Header />
-      <AnnouncementBar bg="#7A8063" color="#F7F4EE" />
+      <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
 
       <main className="flex-1 px-8 md:px-16 py-12">
         <nav className="text-[11px] font-bold tracking-[0.2em] mb-8" style={{ color: DARK }}>

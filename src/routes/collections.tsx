@@ -51,8 +51,8 @@ function ProductCard({ product }: { product: Product }) {
         >
           <Heart
             className="h-[18px] w-[18px] transition-colors"
-            style={{ color: wished ? "#C43D32" : BROWN }}
-            fill={wished ? "#C43D32" : "none"}
+            style={{ color: wished ? "#7B1113" : BROWN }}
+            fill={wished ? "#7B1113" : "none"}
           />
         </button>
 
@@ -179,7 +179,7 @@ function CollectionsPage() {
         </div>
       </section>
 
-      <AnnouncementBar bg="#C43D32" color="#F7F4EE" />
+      <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
 
       {/* Trust strip */}
       <div className="px-8 md:px-16 py-6 border-b border-border/60">
