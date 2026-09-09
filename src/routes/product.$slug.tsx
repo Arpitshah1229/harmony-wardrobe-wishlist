@@ -699,39 +699,39 @@ function ProductPage() {
       </section>
 
       {/* Looking for a little help? */}
-      <section className="px-8 md:px-16 py-16 bg-background border-t" style={{ borderColor: "rgba(75,53,40,0.15)" }}>
+      <section className="px-8 md:px-16 py-10 bg-background border-t" style={{ borderColor: "rgba(75,53,40,0.15)" }}>
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold" style={{ color: BROWN }}>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold" style={{ color: BROWN }}>
             Looking for a little help?
           </h2>
-          <p className="mt-3 text-[15px] md:text-base" style={{ color: DARK }}>
+          <p className="mt-2 text-[14px]" style={{ color: DARK }}>
             We&rsquo;re here.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center gap-2">
-              <PhoneIcon size={28} />
-              <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>CALL</h3>
-              <a href="tel:+918108938523" className="text-[14px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="flex flex-col items-center gap-1.5">
+              <PhoneIcon size={24} />
+              <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>CALL</h3>
+              <a href="tel:+918108938523" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <WhatsAppIcon size={28} />
-              <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>WHATSAPP CHAT</h3>
-              <a href="https://wa.me/918108938523" target="_blank" rel="noreferrer" className="text-[14px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
+            <div className="flex flex-col items-center gap-1.5">
+              <WhatsAppIcon size={24} />
+              <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>WHATSAPP CHAT</h3>
+              <a href="https://wa.me/918108938523" target="_blank" rel="noreferrer" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <GmailIcon size={28} />
-              <h3 className="text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>E-MAIL</h3>
-              <a href="mailto:care.notionsinpattern@gmail.com" className="text-[14px] hover:opacity-70" style={{ color: DARK }}>care.notionsinpattern@gmail.com</a>
+            <div className="flex flex-col items-center gap-1.5">
+              <GmailIcon size={24} />
+              <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>E-MAIL</h3>
+              <a href="mailto:care.notionsinpattern@gmail.com" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>care.notionsinpattern@gmail.com</a>
             </div>
           </div>
 
-          <p className="mt-8 text-[13px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>
+          <p className="mt-5 text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>
             MON&ndash;SAT · 10:00 AM&ndash;6:00 PM (IST)
           </p>
         </div>
 
-        <div className="mt-14 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-8 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
             {
               title: "Customer Care / General Help",
@@ -749,15 +749,15 @@ function ProductPage() {
               email: "corporate.notionsinpattern@gmail.com",
             },
           ].map((c) => (
-            <div key={c.title} className="border p-6" style={{ borderColor: "rgba(75,53,40,0.2)" }}>
-              <h3 className="text-[14px] font-bold" style={{ color: BROWN }}>{c.title}</h3>
-              <p className="mt-2 text-[13px] leading-[1.7]" style={{ color: DARK }}>{c.text}</p>
+            <div key={c.title} className="border p-4" style={{ borderColor: "rgba(75,53,40,0.2)" }}>
+              <h3 className="text-[13px] font-bold" style={{ color: BROWN }}>{c.title}</h3>
+              <p className="mt-1.5 text-[12px] leading-[1.7]" style={{ color: DARK }}>{c.text}</p>
               <a
                 href={`mailto:${c.email}`}
-                className="mt-4 inline-flex items-center gap-2 text-[13px] font-bold hover:opacity-70 break-all"
+                className="mt-3 inline-flex items-center gap-2 text-[12px] font-bold hover:opacity-70 break-all"
                 style={{ color: BROWN }}
               >
-                <Mail size={14} /> {c.email}
+                <Mail size={13} /> {c.email}
               </a>
             </div>
           ))}
