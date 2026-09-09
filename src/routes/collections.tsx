@@ -250,10 +250,16 @@ function CollectionsPage() {
               SORT BY
             </p>
             <select
-              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[140px]"
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[180px]"
               style={{ color: DARK, borderColor: BROWN }}
             >
-              <option>Featured</option>
+              {SORT_OPTIONS.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
             </select>
           </div>
         </div>
