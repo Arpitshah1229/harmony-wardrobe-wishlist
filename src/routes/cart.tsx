@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Minus, Plus, X, ShoppingBag, Truck, RotateCcw, Lock } from "lucide-react";
+import { Minus, Plus, X, ShoppingBag, Truck, RotateCcw, Lock, TicketPercent } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { PRODUCT_SUBTITLE } from "@/lib/products";
 import { useCart, formatPrice } from "@/lib/cart";
@@ -25,9 +26,40 @@ export const Route = createFileRoute("/cart")({
   }),
 });
 
+const COUPONS: Record<string, { type: "percent" | "flat"; value: number; label: string }> = {
+  NIP10: { type: "percent", value: 10, label: "10% off" },
+  WELCOME500: { type: "flat", value: 500, label: "₹500 off" },
+  FREESHIP: { type: "flat", value: 0, label: "Free shipping" },
+};
+
+const GST_RATE = 0.12;
+
 function CartPage() {
   const { items, count, subtotal, setQty, removeItem } = useCart();
-  const shipping = subtotal > 1000 || subtotal === 0 ? 0 : 120;
+
+  const [code, setCode] = useState("");
+  const [applied, setApplied] = useState<{ code: string; label: string; amount: number; freeShip: boolean } | null>(null);
+  const [error, setError] = useState("");
+
+  const applyCoupon = () => {
+    const key = code.trim().toUpperCase();
+    const coupon = COUPONS[key];
+    if (!coupon) {
+      setApplied(null);
+      setError("This coupon code isn't valid.");
+      return;
+    }
+    const amount =
+      coupon.type === "percent" ? Math.round((subtotal * coupon.value) / 100) : Math.min(coupon.value, subtotal);
+    setApplied({ code: key, label: coupon.label, amount, freeShip: key === "FREESHIP" });
+    setError("");
+  };
+
+  const discount = applied ? Math.min(applied.amount, subtotal) : 0;
+  const taxable = subtotal - discount;
+  const shipping = applied?.freeShip || taxable > 1000 || subtotal === 0 ? 0 : 120;
+  const gst = Math.round(taxable * GST_RATE);
+  const total = taxable + gst + shipping;
 
   return (
     <div className="bg-background min-h-screen flex flex-col">
