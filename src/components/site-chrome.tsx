@@ -69,7 +69,7 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
   );
 }
 
-export function AnnouncementBar({ bg = "#7A8063", color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
+export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
   const items = [
     "Handcrafted in India · Made in limited quantities",
     "Naqsh-e-Nigāh · Patterns of the Vision · The inaugural collection by NIP",

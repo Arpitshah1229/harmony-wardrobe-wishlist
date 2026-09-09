@@ -179,7 +179,7 @@ function CollectionsPage() {
         </div>
       </section>
 
-      <AnnouncementBar bg="#C43D32" color="#F7F4EE" />
+      <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
 
       {/* Trust strip */}
       <div className="px-8 md:px-16 py-6 border-b border-border/60">
