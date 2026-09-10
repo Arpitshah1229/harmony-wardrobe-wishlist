@@ -16,14 +16,14 @@ function BrokenHeart({ className, color }: { className?: string; color?: string 
       aria-hidden="true"
     >
       <path
-        d="M32 55.5S9.5 40.5 9.5 23.75C9.5 15.06 16.56 8 25.25 8c4.56 0 8.65 2.03 11.44 5.23l-4.94 8.56L32 22.5l4.25-8.71C39.04 10.04 43.12 8 47.75 8 56.44 8 63.5 15.06 63.5 23.75c0 16.75-22.5 31.75-31.5 31.75Z"
+        d="M32 55.5S9.5 40.5 9.5 23.75C9.5 15.06 16.56 8 25.25 8c4.56 0 8.65 2.03 11.44 5.23C39.42 10.03 43.52 8 47.75 8 56.44 8 63.5 15.06 63.5 23.75c0 16.75-22.5 31.75-31.5 31.75Z"
         stroke={color || "currentColor"}
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M26 28L32 34.5L38 28M32 34.5V44"
+        d="M32 14L28 24L36 30L32 38"
         stroke={color || "currentColor"}
         strokeWidth="3"
         strokeLinecap="round"
@@ -32,6 +32,7 @@ function BrokenHeart({ className, color }: { className?: string; color?: string 
     </svg>
   );
 }
+
 
 
 export const Route = createFileRoute("/wishlist")({
