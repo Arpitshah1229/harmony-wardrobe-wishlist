@@ -368,6 +368,8 @@ function ProductPage() {
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const navigate = useNavigate();
+  const { has, toggle } = useWishlist();
+  const isWished = product ? has(product.slug) : false;
 
   if (!product) {
     return (
