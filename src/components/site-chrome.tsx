@@ -57,7 +57,19 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
       </nav>
       <div className="flex items-center gap-6 text-[12px] font-bold tracking-[0.22em]">
         <a href="#" className="flex items-center gap-1.5"><Search size={14} /> SEARCH</a>
-        <a href="#" className="flex items-center gap-1.5"><User size={14} /> ACCOUNT</a>
+        {isLoggedIn ? (
+          <button
+            type="button"
+            onClick={logout}
+            className="flex items-center gap-1.5 hover:opacity-70 transition-opacity uppercase"
+          >
+            <User size={14} /> {(user?.name || "Account").split(" ")[0]} · LOGOUT
+          </button>
+        ) : (
+          <Link to="/login" search={{ redirect: "/cart" }} className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+            <User size={14} /> ACCOUNT
+          </Link>
+        )}
         <Link to="/wishlist" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
           <Heart size={14} /> WISHLIST ({wishCount})
         </Link>
