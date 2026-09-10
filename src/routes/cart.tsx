@@ -344,7 +344,7 @@ function CartPage() {
                 </div>
                 <div className="flex justify-between">
                   <dt>Shipping charges</dt>
-                  <dd className="font-bold">{shipping === 0 ? "Free" : formatPrice(shipping)}</dd>
+                  <dd className="font-bold" style={{ color: DARK }}>Calculated at Checkout</dd>
                 </div>
               </dl>
 
@@ -352,11 +352,11 @@ function CartPage() {
                 className="flex justify-between mt-6 pt-4 border-t text-[16px] font-bold"
                 style={{ borderColor: BROWN, color: BROWN }}
               >
-                <span>Total</span>
-                <span>{formatPrice(total)}</span>
+                <span>Estimated Total</span>
+                <span>{formatPrice(taxable + gst)}</span>
               </div>
               <p className="mt-2 text-[11px]" style={{ color: DARK }}>
-                Free shipping pan India on orders above ₹1,000.
+                Shipping will be calculated at checkout. Free shipping pan India on orders above ₹1,000.
               </p>
 
               <button
