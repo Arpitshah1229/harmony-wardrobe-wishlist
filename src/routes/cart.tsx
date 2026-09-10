@@ -4,6 +4,7 @@ import { Minus, Plus, X, ShoppingBag, Truck, RotateCcw, Lock, TicketPercent } fr
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { PRODUCT_SUBTITLE } from "@/lib/products";
 import { useCart, formatPrice } from "@/lib/cart";
+import { useAuth } from "@/lib/auth";
 
 function VisaIcon() {
   return (
