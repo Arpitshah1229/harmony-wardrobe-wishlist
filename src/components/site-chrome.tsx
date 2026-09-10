@@ -20,6 +20,7 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
+  const { user, isLoggedIn, logout } = useAuth();
 
   useEffect(() => {
     if (!overlay) return;
