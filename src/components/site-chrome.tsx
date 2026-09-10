@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 import { useCart } from "@/lib/cart";
 import { useWishlist } from "@/lib/wishlist";
+import { useAuth } from "@/lib/auth";
 
 export const BROWN = "#4B3528";
 export const DARK = "#2C2119";
@@ -19,6 +20,7 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
+  const { user, isLoggedIn, logout } = useAuth();
 
   useEffect(() => {
     if (!overlay) return;
@@ -57,7 +59,19 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
       </nav>
       <div className="flex items-center gap-6 text-[12px] font-bold tracking-[0.22em]">
         <a href="#" className="flex items-center gap-1.5"><Search size={14} /> SEARCH</a>
-        <a href="#" className="flex items-center gap-1.5"><User size={14} /> ACCOUNT</a>
+        {isLoggedIn ? (
+          <button
+            type="button"
+            onClick={logout}
+            className="flex items-center gap-1.5 hover:opacity-70 transition-opacity uppercase"
+          >
+            <User size={14} /> {(user?.name || "Account").split(" ")[0]} · LOGOUT
+          </button>
+        ) : (
+          <Link to="/login" search={{ redirect: "/cart" }} className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+            <User size={14} /> ACCOUNT
+          </Link>
+        )}
         <Link to="/wishlist" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
           <Heart size={14} /> WISHLIST ({wishCount})
         </Link>
