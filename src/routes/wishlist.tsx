@@ -69,7 +69,7 @@ function WishlistPage() {
 
         {saved.length === 0 ? (
           <div className="text-center py-16">
-            <Heart size={40} className="mx-auto mb-6" style={{ color: "#7B1113" }} />
+            <BrokenHeart className="mx-auto mb-6 h-16 w-16" color="#7B1113" />
             <p className="text-[15px] mb-8" style={{ color: DARK }}>
               You haven't saved any pieces yet.
             </p>
