@@ -126,6 +126,8 @@ const GST_RATE = 0.12;
 
 function CartPage() {
   const { items, count, subtotal, setQty, removeItem } = useCart();
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
   const [code, setCode] = useState("");
   const [applied, setApplied] = useState<{ code: string; label: string; amount: number; freeShip: boolean } | null>(null);
