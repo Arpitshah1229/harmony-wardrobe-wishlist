@@ -361,6 +361,13 @@ function CartPage() {
 
               <button
                 type="button"
+                onClick={() => {
+                  if (!isLoggedIn) {
+                    navigate({ to: "/login", search: { redirect: "/cart" } });
+                    return;
+                  }
+                  navigate({ to: "/orders" });
+                }}
                 className="mt-8 w-full py-4 text-[12px] font-bold tracking-[0.24em]"
                 style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
               >
