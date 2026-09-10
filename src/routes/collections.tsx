@@ -5,7 +5,7 @@ import { useWishlist } from "@/lib/wishlist";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
-import heroImg from "@/assets/collection_hero_v2.jpeg.asset.json";
+import heroImg from "@/assets/collection_hero_v3.png.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
 
