@@ -103,7 +103,7 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
 export function Footer() {
   const cols = [
     { title: "SHOP", items: [{ label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
-    { title: "HELP", items: ["Orders", "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
+    { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/" }, { label: "Craft", to: "/" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },
 
