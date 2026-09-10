@@ -565,11 +565,12 @@ function ProductPage() {
           <div className="mt-8 flex items-stretch gap-3">
             <button
               type="button"
-              aria-label="Add to wishlist"
+              aria-label={isWished ? "Remove from wishlist" : "Add to wishlist"}
+              onClick={() => toggle(product.slug)}
               className="w-14 flex items-center justify-center border"
               style={{ borderColor: BROWN }}
             >
-              <Heart size={18} color={BROWN} />
+              <Heart size={18} color={isWished ? "#7B1113" : BROWN} fill={isWished ? "#7B1113" : "none"} />
             </button>
             <button
               type="button"
