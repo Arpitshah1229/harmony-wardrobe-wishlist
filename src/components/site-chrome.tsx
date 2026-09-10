@@ -73,7 +73,7 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
           </Link>
         )}
         <Link to="/wishlist" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-          <Heart size={14} /> WISHLIST ({wishCount})
+          <Heart size={14} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> WISHLIST ({wishCount})
         </Link>
         <Link to="/cart" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
           <ShoppingBag size={14} /> CART ({cartCount})
