@@ -13,6 +13,8 @@ import {
   SHIPPING_NOTE,
 } from "@/lib/products";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
+import { useWishlist } from "@/lib/wishlist";
+
 
 export const Route = createFileRoute("/product/$slug")({
   component: ProductPage,
@@ -366,6 +368,8 @@ function ProductPage() {
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const navigate = useNavigate();
+  const { has, toggle } = useWishlist();
+  const isWished = product ? has(product.slug) : false;
 
   if (!product) {
     return (
@@ -561,11 +565,12 @@ function ProductPage() {
           <div className="mt-8 flex items-stretch gap-3">
             <button
               type="button"
-              aria-label="Add to wishlist"
+              aria-label={isWished ? "Remove from wishlist" : "Add to wishlist"}
+              onClick={() => toggle(product.slug)}
               className="w-14 flex items-center justify-center border"
               style={{ borderColor: BROWN }}
             >
-              <Heart size={18} color={BROWN} />
+              <Heart size={18} color={isWished ? "#7B1113" : BROWN} fill={isWished ? "#7B1113" : "none"} />
             </button>
             <button
               type="button"
