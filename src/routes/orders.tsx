@@ -10,8 +10,8 @@ import {
   Truck,
 } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
-import { PRODUCTS, PRODUCT_SUBTITLE } from "@/lib/products";
-import { useCart, formatPrice } from "@/lib/cart";
+import { products, PRODUCT_SUBTITLE } from "@/lib/products";
+import { useCart, formatPrice, parsePrice } from "@/lib/cart";
 
 export const Route = createFileRoute("/orders")({
   component: OrdersPage,
