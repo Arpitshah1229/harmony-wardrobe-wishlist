@@ -13,6 +13,8 @@ import {
   SHIPPING_NOTE,
 } from "@/lib/products";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
+import { useWishlist } from "@/lib/wishlist";
+
 
 export const Route = createFileRoute("/product/$slug")({
   component: ProductPage,
