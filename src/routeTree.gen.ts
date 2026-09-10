@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as CartRouteImport } from './routes/cart'
@@ -31,6 +32,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const OrdersRoute = OrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FounderRoute = FounderRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
   '/privacy': typeof PrivacyRoute
   '/wishlist': typeof WishlistRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
   '/privacy': typeof PrivacyRoute
   '/wishlist': typeof WishlistRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/founder': typeof FounderRoute
+  '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
   '/privacy': typeof PrivacyRoute
   '/wishlist': typeof WishlistRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/founder'
+    | '/login'
     | '/orders'
     | '/privacy'
     | '/wishlist'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/founder'
+    | '/login'
     | '/orders'
     | '/privacy'
     | '/wishlist'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/founder'
+    | '/login'
     | '/orders'
     | '/privacy'
     | '/wishlist'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CollectionsRoute: typeof CollectionsRoute
   FounderRoute: typeof FounderRoute
+  LoginRoute: typeof LoginRoute
   OrdersRoute: typeof OrdersRoute
   PrivacyRoute: typeof PrivacyRoute
   WishlistRoute: typeof WishlistRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/orders'
       fullPath: '/orders'
       preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/founder': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CollectionsRoute: CollectionsRoute,
   FounderRoute: FounderRoute,
+  LoginRoute: LoginRoute,
   OrdersRoute: OrdersRoute,
   PrivacyRoute: PrivacyRoute,
   WishlistRoute: WishlistRoute,
