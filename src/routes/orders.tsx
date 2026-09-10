@@ -51,12 +51,12 @@ function OrdersPage() {
   const orderItems =
     items.length > 0
       ? items
-      : PRODUCTS.slice(0, 2).map((p) => ({
+      : products.slice(0, 2).map((p) => ({
           slug: p.slug,
           name: p.name,
           size: "M",
           qty: 1,
-          price: p.price,
+          price: parsePrice(p.price),
           image: p.images[0],
         }));
 
