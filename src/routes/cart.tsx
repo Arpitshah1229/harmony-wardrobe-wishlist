@@ -374,6 +374,8 @@ function CartPage() {
                 <li className="flex items-center gap-2"><Truck size={14} /> WE SHIP PAN INDIA</li>
                 <li className="flex items-center gap-2"><RotateCcw size={14} /> EASY 15 DAY RETURNS</li>
               </ul>
+
+              <PaymentIcons />
             </aside>
           </div>
         )}
