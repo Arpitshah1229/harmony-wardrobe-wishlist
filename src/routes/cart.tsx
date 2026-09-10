@@ -5,6 +5,96 @@ import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-
 import { PRODUCT_SUBTITLE } from "@/lib/products";
 import { useCart, formatPrice } from "@/lib/cart";
 
+function VisaIcon() {
+  return (
+    <svg viewBox="0 0 48 16" className="h-4 w-auto" aria-label="Visa">
+      <path fill="#1A1F71" d="M17.8 1.4l-3.6 9.8h1.9l.7-2h3.5l.7 2h2L19.2 1.4h-1.4zm.9 1.8l1.2 3.3h-2.4l1.2-3.3zM8.5 1.4L6 11.2h2.1l1.7-7.3 2.1 7.3h2.1l2.7-9.8h-2.1l-1.7 7.3-2-7.3H10l-1.5 7.3L6.8 1.4H8.5zM1.8 1.4L0 11.2h2.1l1.8-9.8H1.8zM42.5 1.4l-1.8 9.8h2.1l1.8-9.8h-2.1zM36.8 1.4c-1.2 0-2 .5-2.4 1.2l3.5 5.5c.1-.7.3-1.4.5-2.1.4-1.3.8-2.5 1.1-3.4-.7-.8-1.6-1.2-2.7-1.2zm-4.1 1.4c-.5-.2-1.2-.4-2-.4-2.3 0-3.9 1.3-3.9 3.1 0 1.3 1.1 2 2 2.4.9.4 1.2.7 1.2 1 0 .6-.7.8-1.4.8-1 0-2-.3-2.6-.6l-.4-.2-.5 1.6c.6.3 1.7.5 2.8.5 2.5 0 4.1-1.2 4.1-3.1 0-1.1-.7-1.8-1.9-2.3-.8-.4-1.3-.6-1.3-1.1 0-.4.4-.7 1.3-.7.8 0 1.5.2 2 .4l.3.1.5-1.5-.2-.1z" />
+    </svg>
+  );
+}
+
+function MastercardIcon() {
+  return (
+    <svg viewBox="0 0 32 20" className="h-5 w-auto" aria-label="Mastercard">
+      <circle cx="11" cy="10" r="8" fill="#EB001B" />
+      <circle cx="21" cy="10" r="8" fill="#F79E1B" />
+      <path d="M16 3.5a8 8 0 0 1 0 13 8 8 0 0 1 0-13z" fill="#FF5F00" />
+    </svg>
+  );
+}
+
+function RuPayIcon() {
+  return (
+    <svg viewBox="0 0 60 20" className="h-4 w-auto" aria-label="RuPay">
+      <text x="0" y="15" fontSize="13" fontFamily="Arial, sans-serif" fontWeight="bold" fill="#1A1F71">RuPay</text>
+      <circle cx="52" cy="10" r="5" fill="#F79E1B" />
+    </svg>
+  );
+}
+
+function UpiIcon() {
+  return (
+    <svg viewBox="0 0 42 20" className="h-4 w-auto" aria-label="UPI">
+      <text x="0" y="15" fontSize="13" fontFamily="Arial, sans-serif" fontWeight="bold" fill="#1A1F71">UPI</text>
+    </svg>
+  );
+}
+
+function GPayIcon() {
+  return (
+    <svg viewBox="0 0 48 20" className="h-4 w-auto" aria-label="Google Pay">
+      <text x="16" y="15" fontSize="12" fontFamily="Arial, sans-serif" fontWeight="500" fill="#5F6368">Pay</text>
+      <path d="M4.6 10c0-.8.1-1.6.3-2.3h4.6v2.2H7.3c.1.5.4 1 .8 1.3v1.8H6.2C5.2 11.9 4.6 11 4.6 10z" fill="#4285F4" />
+      <path d="M9.5 10c0 1.4-.7 2.6-1.8 3.3V11.5c.4-.3.7-.8.8-1.3H6.9V7.7h4.6c.2.7.3 1.5.3 2.3z" fill="#34A853" />
+      <path d="M4.9 13.1c-1.1-.7-1.8-1.9-1.8-3.1 0-1.2.7-2.4 1.8-3.1v1.8c-.4.3-.6.8-.6 1.3s.2 1 .6 1.3v1.8z" fill="#FBBC05" />
+      <path d="M6.2 4.9c1.2 0 2.3.6 2.9 1.5l1.5-1.5C9.6 3.3 8 2.5 6.2 2.5c-2.2 0-4.1 1.2-5.1 3l1.8 1.4c.5-1.4 1.8-2.4 3.3-2.4z" fill="#EA4335" />
+    </svg>
+  );
+}
+
+function PhonePeIcon() {
+  return (
+    <svg viewBox="0 0 80 20" className="h-4 w-auto" aria-label="PhonePe">
+      <circle cx="10" cy="10" r="8" fill="#5F259F" />
+      <path d="M10 4l4 4-4 4-4-4 4-4z" fill="#fff" />
+      <text x="22" y="14" fontSize="11" fontFamily="Arial, sans-serif" fontWeight="bold" fill="#5F259F">PhonePe</text>
+    </svg>
+  );
+}
+
+function PaytmIcon() {
+  return (
+    <svg viewBox="0 0 56 20" className="h-4 w-auto" aria-label="Paytm">
+      <text x="0" y="15" fontSize="14" fontFamily="Arial, sans-serif" fontWeight="bold" fill="#002970">pay</text>
+      <text x="26" y="15" fontSize="14" fontFamily="Arial, sans-serif" fontWeight="bold" fill="#00BAF2">tm</text>
+    </svg>
+  );
+}
+
+function PaymentIcons() {
+  const icons = [
+    { id: "visa", Icon: VisaIcon },
+    { id: "mastercard", Icon: MastercardIcon },
+    { id: "rupay", Icon: RuPayIcon },
+    { id: "upi", Icon: UpiIcon },
+    { id: "gpay", Icon: GPayIcon },
+    { id: "phonepe", Icon: PhonePeIcon },
+    { id: "paytm", Icon: PaytmIcon },
+  ];
+  return (
+    <div className="mt-6 pt-5 border-t" style={{ borderColor: BROWN }}>
+      <p className="text-[10px] font-bold tracking-[0.18em] mb-3" style={{ color: BROWN }}>WE ACCEPT</p>
+      <div className="flex flex-wrap items-center gap-4">
+        {icons.map(({ id, Icon }) => (
+          <div key={id} className="flex items-center justify-center h-8 px-2 rounded bg-background/80 border border-border/60">
+            <Icon />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export const Route = createFileRoute("/cart")({
   component: CartPage,
   head: () => ({
@@ -284,6 +374,8 @@ function CartPage() {
                 <li className="flex items-center gap-2"><Truck size={14} /> WE SHIP PAN INDIA</li>
                 <li className="flex items-center gap-2"><RotateCcw size={14} /> EASY 15 DAY RETURNS</li>
               </ul>
+
+              <PaymentIcons />
             </aside>
           </div>
         )}
