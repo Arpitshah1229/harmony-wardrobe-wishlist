@@ -148,9 +148,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [kinara.url],
     stylingImages: [
-      { src: kinaraLook1.url, label: "", tall: true },
-      { src: kinaraLook2.url, label: "", tall: true },
-      { src: kinaraLook3.url, label: "", tall: true },
+      { src: kinaraLook1.url, label: "After Hours", tall: true },
+      { src: kinaraLook2.url, label: "Festive Gatherings", tall: true },
+      { src: kinaraLook3.url, label: "Day Out", tall: true },
     ],
     colorName: "Hand-Dyed Summer Yellow",
     colorHex: "#D9B24C",
