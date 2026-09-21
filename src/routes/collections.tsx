@@ -184,11 +184,11 @@ function CollectionsPage() {
 
       {/* Hero */}
       <section
-        className="relative w-full bg-cover bg-top min-h-[620px] md:min-h-0 md:aspect-[3/2] flex items-center"
+        className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center"
         style={{ backgroundImage: `url(${heroImg.url})` }}
       >
         <div className="absolute inset-0 bg-background/10" />
-        <div className="relative px-8 md:px-16 py-24 md:pt-56 md:pb-24 max-w-xl md:max-w-lg text-left md:ml-auto md:mr-[8%]">
+        <div className="relative ml-auto px-8 md:px-16 py-24 max-w-xl text-left">
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
