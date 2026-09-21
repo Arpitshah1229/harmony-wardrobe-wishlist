@@ -184,7 +184,7 @@ function CollectionsPage() {
 
       {/* Hero */}
       <section
-        className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center"
+        className="relative w-full bg-cover bg-top min-h-[620px] md:min-h-0 md:aspect-[3/2] flex items-center"
         style={{ backgroundImage: `url(${heroImg.url})` }}
       >
         <div className="absolute inset-0 bg-background/10" />
