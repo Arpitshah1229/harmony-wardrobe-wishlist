@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Phone, ShieldCheck, ArrowLeft } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
-import { useAuth, normalizeMobile, DEMO_OTP } from "@/lib/auth";
+import { useAuth, normalizeMobile } from "@/lib/auth";
 import loginBackground from "@/assets/login-background.jpg.asset.json";
+import nipLogo from "@/assets/nip_logo.png.asset.json";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -16,10 +17,10 @@ export const Route = createFileRoute("/login")({
       {
         name: "description",
         content:
-          "Sign in with your mobile number and a one-time code to continue to checkout at Notions in Pattern.",
+          "Sign in with your mobile number to continue to checkout at Notions in Pattern.",
       },
       { property: "og:title", content: "Login | Notions in Pattern" },
-      { property: "og:description", content: "Sign in with your mobile number and OTP." },
+      { property: "og:description", content: "Sign in with your mobile number and password." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -33,23 +34,19 @@ function LoginPage() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const [step, setStep] = useState<"mobile" | "otp">("mobile");
   const [mobile, setMobile] = useState("");
-  const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [keepSignedIn, setKeepSignedIn] = useState(false);
   const [error, setError] = useState("");
 
-  const sendOtp = () => {
+  const submit = () => {
     if (normalizeMobile(mobile).length !== 10) {
       setError("Enter a valid 10 digit mobile number.");
       return;
     }
-    setError("");
-    setStep("otp");
-  };
-
-  const verify = () => {
-    if (otp.trim() !== DEMO_OTP) {
-      setError("Incorrect code. Please try again.");
+    if (password.trim().length < 4) {
+      setError("Enter your password.");
       return;
     }
     setError("");
@@ -62,7 +59,7 @@ function LoginPage() {
       <Header />
       <AnnouncementBar />
 
-      <main className="relative isolate flex min-h-[610px] flex-1 items-center justify-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7.5%] lg:py-6">
+      <main className="relative isolate flex min-h-[610px] flex-1 items-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
         <img
           src={loginBackground.url}
           alt="Man relaxing on an ornate bench wearing a green NIP shirt"
@@ -70,135 +67,185 @@ function LoginPage() {
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
-        <div className="w-full max-w-[440px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm">
-          <div className="border border-foreground/35 px-6 py-8 sm:px-9 sm:py-9">
-          <h1
-            className="font-serif text-[34px] md:text-[42px] font-bold leading-tight text-center"
-            style={{ color: BROWN }}
-          >
-            Login
-          </h1>
-          <p className="mt-3 text-center text-[13px] leading-relaxed" style={{ color: DARK }}>
-            Enter your mobile number and we'll send you a one-time code.
+        <section className="hidden w-[40%] max-w-[420px] text-background lg:block">
+          <p className="font-serif text-[33px] leading-[1.18]">
+            Join us<br />
+            and see us evolve.<br />
+            Understand yourself.<br />
+            Change <em>our</em> patterns.
           </p>
+          <div className="my-7 h-px w-9 bg-background/70" />
+          <p className="font-serif text-[19px] leading-tight">
+            Nothing is fixed.<br />
+            Not even us.
+          </p>
+          <div className="my-7 h-px w-9 bg-background/70" />
+          <p className="font-serif text-[19px] leading-tight">
+            Why not be a part<br />
+            of the community?
+          </p>
+          <div className="my-7 h-px w-9 bg-background/70" />
+          <p className="mt-10 text-[13px] font-medium tracking-[0.28em]">NOTIONS IN PATTERN</p>
+          <p className="mt-2 text-[10px] tracking-[0.22em]">
+            CLOTHING · LIFESTYLE · HANDCRAFTED IN INDIA
+          </p>
+        </section>
 
-          <div className="mt-10 border p-7 md:p-9" style={{ borderColor: BROWN }}>
-            {step === "mobile" ? (
-              <>
-                <label
-                  className="block text-[11px] font-bold tracking-[0.22em]"
-                  style={{ color: BROWN }}
-                  htmlFor="mobile"
-                >
-                  MOBILE NUMBER
-                </label>
-                <div className="mt-3 flex items-center border" style={{ borderColor: BROWN }}>
-                  <span
-                    className="px-3 py-3 text-[13px] font-bold border-r"
-                    style={{ borderColor: BROWN, color: BROWN }}
-                  >
-                    +91
-                  </span>
-                  <input
-                    id="mobile"
-                    type="tel"
-                    inputMode="numeric"
-                    maxLength={10}
-                    value={mobile}
-                    onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}
-                    onKeyDown={(e) => e.key === "Enter" && sendOtp()}
-                    placeholder="98765 43210"
-                    className="w-full bg-transparent px-3 py-3 text-[14px] outline-none"
-                    style={{ color: DARK }}
-                  />
-                </div>
+        <section className="mx-auto w-full max-w-[420px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm">
+          <div className="border border-foreground/35 px-7 py-7 sm:px-10 sm:py-8">
+            <div className="text-center">
+              <p className="font-serif text-[27px] tracking-[0.45em] text-foreground">NIP</p>
+              <p className="mt-1 text-[9px] font-bold tracking-[0.3em] text-foreground">
+                NOTIONS IN PATTERN
+              </p>
+            </div>
 
-                <button
-                  type="button"
-                  onClick={sendOtp}
-                  className="mt-7 w-full py-4 text-[12px] font-bold tracking-[0.24em] flex items-center justify-center gap-2"
-                  style={{ backgroundColor: BROWN, color: IVORY }}
-                >
-                  <Phone size={13} /> SEND OTP
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setStep("mobile");
-                    setOtp("");
-                    setError("");
-                  }}
-                  className="flex items-center gap-1.5 text-[11px] font-bold tracking-[0.2em]"
-                  style={{ color: BROWN }}
-                >
-                  <ArrowLeft size={13} /> CHANGE NUMBER
-                </button>
+            <h1 className="mt-6 text-center font-serif text-[32px] leading-tight text-foreground">
+              Login
+            </h1>
+            <p className="mt-1 text-center font-serif text-[17px]" style={{ color: DARK }}>
+              Let us know you.
+            </p>
 
-                <p className="mt-5 text-[13px]" style={{ color: DARK }}>
-                  We've sent a code to <span className="font-bold">+91 {normalizeMobile(mobile)}</span>
-                </p>
+            <div className="mt-6 flex items-center border" style={{ borderColor: BROWN }}>
+              <span
+                className="border-r px-3 py-3 text-[13px] font-bold"
+                style={{ borderColor: BROWN, color: BROWN }}
+              >
+                +91
+              </span>
+              <label className="sr-only" htmlFor="mobile">
+                Mobile number
+              </label>
+              <input
+                id="mobile"
+                type="tel"
+                inputMode="numeric"
+                maxLength={10}
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                onKeyDown={(e) => e.key === "Enter" && submit()}
+                placeholder="Mobile number"
+                className="w-full bg-transparent px-3 py-3 text-[13px] outline-none"
+                style={{ color: DARK }}
+              />
+            </div>
 
-                <label
-                  className="mt-6 block text-[11px] font-bold tracking-[0.22em]"
-                  style={{ color: BROWN }}
-                  htmlFor="otp"
-                >
-                  ENTER OTP
-                </label>
+            <div className="mt-3 flex items-center border" style={{ borderColor: BROWN }}>
+              <label className="sr-only" htmlFor="password">
+                Password
+              </label>
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && submit()}
+                placeholder="Password"
+                className="w-full bg-transparent px-3 py-3 text-[13px] outline-none"
+                style={{ color: DARK }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                className="px-3 py-3"
+                style={{ color: BROWN }}
+              >
+                {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
+              </button>
+            </div>
+
+            <div className="mt-3 flex items-center justify-between text-[12px]" style={{ color: DARK }}>
+              <label className="flex cursor-pointer items-center gap-2">
                 <input
-                  id="otp"
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={4}
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 4))}
-                  onKeyDown={(e) => e.key === "Enter" && verify()}
-                  placeholder="1234"
-                  className="mt-3 w-full border bg-transparent px-3 py-3 text-center text-[20px] tracking-[0.5em] outline-none"
-                  style={{ borderColor: BROWN, color: DARK }}
+                  type="checkbox"
+                  checked={keepSignedIn}
+                  onChange={(e) => setKeepSignedIn(e.target.checked)}
+                  className="h-3.5 w-3.5 accent-[#4B3528]"
                 />
+                Keep me signed in
+              </label>
+              <button type="button" className="hover:underline" style={{ color: DARK }}>
+                Forgot password?
+              </button>
+            </div>
 
-                <p
-                  className="mt-3 text-[11px] font-bold tracking-[0.12em] text-center"
-                  style={{ color: DARK }}
-                >
-                  Demo mode — use code {DEMO_OTP}
-                </p>
-
-                <button
-                  type="button"
-                  onClick={verify}
-                  className="mt-7 w-full py-4 text-[12px] font-bold tracking-[0.24em] flex items-center justify-center gap-2"
-                  style={{ backgroundColor: BROWN, color: IVORY }}
-                >
-                  <ShieldCheck size={13} /> VERIFY & LOGIN
-                </button>
-              </>
-            )}
+            <button
+              type="button"
+              onClick={submit}
+              className="mt-4 flex w-full items-center justify-center gap-2 py-4 text-[12px] font-bold tracking-[0.24em]"
+              style={{ backgroundColor: BROWN, color: IVORY }}
+            >
+              LOGIN <span aria-hidden="true">→</span>
+            </button>
 
             {error && (
-              <p className="mt-4 text-[12px] font-bold text-center" style={{ color: "#7B1113" }}>
+              <p className="mt-4 text-center text-[12px] font-bold" style={{ color: "#7B1113" }}>
                 {error}
               </p>
             )}
 
-            <p className="mt-8 pt-6 border-t text-center text-[12px]" style={{ borderColor: BROWN, color: DARK }}>
-              New to Notions in Pattern?{" "}
+            <div className="mt-6 flex items-center gap-3">
+              <div className="h-px flex-1 bg-border" />
+              <span className="text-[12px]" style={{ color: DARK }}>
+                or continue with
+              </span>
+              <div className="h-px flex-1 bg-border" />
+            </div>
+
+            <div className="mt-4 flex items-center justify-center gap-4">
+              <button
+                type="button"
+                aria-label="Continue with Google"
+                className="flex h-11 w-11 items-center justify-center rounded-full border"
+                style={{ borderColor: BROWN }}
+              >
+                <svg viewBox="0 0 24 24" className="h-5 w-5">
+                  <path
+                    fill="#4B3528"
+                    d="M12 11v2.6h6.1c-.3 1.7-2 5-6.1 5A6.6 6.6 0 0 1 12 5.4c1.7 0 3 .7 3.8 1.5l2-1.9A9.2 9.2 0 0 0 12 2.4 9.6 9.6 0 1 0 12 21.6c5.5 0 9.2-3.9 9.2-9.3 0-.6-.1-1-.1-1.3H12Z"
+                  />
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label="Continue with Apple"
+                className="flex h-11 w-11 items-center justify-center rounded-full border"
+                style={{ borderColor: BROWN }}
+              >
+                <svg viewBox="0 0 24 24" className="h-5 w-5">
+                  <path
+                    fill="#2C2110"
+                    d="M16.4 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.8-1.4-.1-2.6.8-3.3.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.2 1.1 0 1.6-.7 3-.7s1.8.7 3 .7c1.2 0 2-1.1 2.8-2.2.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.5ZM14.3 5.8c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.7-1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2Z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <p className="mt-6 text-center text-[12px]" style={{ color: DARK }}>
+              New to NIP?{" "}
               <Link
                 to="/register"
                 search={{ redirect }}
-                className="font-bold underline"
+                className="underline"
                 style={{ color: BROWN }}
               >
                 Create an account
               </Link>
             </p>
+
+            <div className="mt-6 flex flex-col items-center">
+              <img src={nipLogo.url} alt="Notions in Pattern" className="h-12 w-auto object-contain" />
+              <p
+                className="mt-2 text-[10px] font-medium tracking-[0.26em]"
+                style={{ color: BROWN }}
+              >
+                YOU ARE YOUR PATTERNS.
+              </p>
+            </div>
           </div>
-          </div>
-        </div>
+        </section>
       </main>
 
       <Footer />
