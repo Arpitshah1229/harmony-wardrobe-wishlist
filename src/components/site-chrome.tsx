@@ -39,44 +39,44 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
                 ? "bg-background/95 backdrop-blur-md shadow-sm"
                 : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
             }`
-          : "w-full px-8 md:px-12 py-5 flex items-center justify-between"
+          : "w-full px-4 md:px-8 xl:px-12 py-4 md:py-5 flex items-center justify-between"
       }
       style={{ color: BROWN }}
     >
-      <div className="flex min-w-0 items-center gap-4">
-        <img src={nipLogo.url} alt="Notions in Pattern" className="h-14 w-auto shrink-0" />
-        <div className="hidden sm:flex items-center font-serif font-bold text-lg md:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
+      <div className="flex min-w-0 items-center gap-3 xl:gap-4">
+        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto shrink-0 md:h-12 xl:h-14" />
+        <div className="hidden lg:flex items-center font-serif font-bold text-base xl:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>NOTIONS</span>
           <span className="px-1">IN</span>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>PATTERN</span>
         </div>
       </div>
 
-      <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em]">
+      <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[10px] xl:text-[11px] font-bold tracking-[0.2em]">
         {navLinks.map((l) => (
           <Link key={l.label} to={l.to} className="hover:opacity-70 transition-opacity">{l.label}</Link>
         ))}
       </nav>
-      <div className="flex items-center gap-6 text-[12px] font-bold tracking-[0.22em]">
-        <a href="#" className="flex items-center gap-1.5"><Search size={14} /> SEARCH</a>
+      <div className="flex items-center gap-4 xl:gap-5 text-[11px] font-bold tracking-[0.18em]">
+        <a href="#" aria-label="Search" className="flex items-center gap-1.5"><Search size={16} /> <span className="hidden 2xl:inline">SEARCH</span></a>
         {isLoggedIn ? (
           <button
             type="button"
             onClick={logout}
             className="flex items-center gap-1.5 hover:opacity-70 transition-opacity uppercase"
           >
-            <User size={14} /> {(user?.name || "Account").split(" ")[0]} · LOGOUT
+            <User size={16} /> <span className="hidden 2xl:inline">{(user?.name || "Account").split(" ")[0]} · LOGOUT</span>
           </button>
         ) : (
           <Link to="/login" search={{ redirect: "/cart" }} className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-            <User size={14} /> ACCOUNT
+            <User size={16} /> <span className="hidden 2xl:inline">ACCOUNT</span>
           </Link>
         )}
         <Link to="/wishlist" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-          <Heart size={14} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> WISHLIST ({wishCount})
+          <Heart size={16} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> <span className="hidden 2xl:inline">WISHLIST </span>({wishCount})
         </Link>
         <Link to="/cart" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-          <ShoppingBag size={14} /> CART ({cartCount})
+          <ShoppingBag size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
         </Link>
       </div>
     </header>
