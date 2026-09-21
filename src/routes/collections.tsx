@@ -266,9 +266,11 @@ function CollectionsPage() {
       </div>
 
       {/* Product grid */}
-      <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
-        {sorted.map((p) => (
-          <ProductCard key={p.slug} product={p} />
+      <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
+        {sorted.map((p, i) => (
+          <div key={p.slug} className={i === 6 ? "md:col-start-2" : undefined}>
+            <ProductCard product={p} />
+          </div>
         ))}
       </section>
 
