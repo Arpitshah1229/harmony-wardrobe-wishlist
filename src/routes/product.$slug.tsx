@@ -633,13 +633,13 @@ function ProductPage() {
               Wear it your way
             </p>
             <div className="mt-4 grid grid-cols-3 gap-3">
-              {(product.stylingImages || product.images.slice(0, 3).map((src) => ({ src, label: "" }))).slice(0, 3).map((item, i) => (
+              {(product.stylingImages || product.images.slice(0, 3).map((src) => ({ src, label: "", tall: false }))).slice(0, 3).map((item, i) => (
                 <figure key={i} className="flex flex-col">
                   <img
                     src={item.src}
                     alt={`${product.name} styled ${item.label || "look"}`}
                     loading="lazy"
-                    className="w-full h-[150px] md:h-[190px] object-cover object-top bg-cream/60"
+                    className={`w-full object-cover object-top bg-cream/60 ${item.tall ? "aspect-[2/3]" : "h-[150px] md:h-[190px]"}`}
                   />
                   {item.label && (
                     <figcaption className="mt-2 text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>

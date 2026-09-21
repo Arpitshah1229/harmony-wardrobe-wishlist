@@ -1,6 +1,9 @@
 import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
 import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
 import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
+import kinaraLook1 from "@/assets/kinara-look-pic_1.png.asset.json";
+import kinaraLook2 from "@/assets/kinara-look-pic2.png.asset.json";
+import kinaraLook3 from "@/assets/kinara-look-pic3.png.asset.json";
 import mohar1 from "@/assets/mohar_image_one.png.asset.json";
 import mohar2 from "@/assets/mohar_image_two.png.asset.json";
 import mohar3 from "@/assets/mohar_image_3.png.asset.json";
@@ -24,7 +27,7 @@ export type Product = {
   tagline: string;
   price: string;
   images: string[];
-  stylingImages?: { src: string; label: string }[];
+  stylingImages?: { src: string; label: string; tall?: boolean }[];
   colorName: string;
   colorHex: string;
   detailImg: string;
@@ -145,10 +148,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [kinara.url],
     stylingImages: [
-      { src: kinara.url, label: "After Hours" },
-      { src: kinara.url, label: "Festive Gatherings" },
-      { src: kinara.url, label: "Day Out" },
-      { src: kinara.url, label: "Evening Edit" },
+      { src: kinaraLook1.url, label: "", tall: true },
+      { src: kinaraLook2.url, label: "", tall: true },
+      { src: kinaraLook3.url, label: "", tall: true },
     ],
     colorName: "Hand-Dyed Summer Yellow",
     colorHex: "#D9B24C",
