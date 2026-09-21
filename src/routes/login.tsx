@@ -91,7 +91,7 @@ function LoginPage() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-[420px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm lg:-translate-x-72">
+        <section className="mx-auto w-full max-w-[420px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm lg:-translate-x-70">
           <div className="border border-foreground/35 px-7 py-7 sm:px-10 sm:py-8">
             <div className="text-center">
               <p className="font-serif text-[27px] tracking-[0.45em] text-foreground">NIP</p>
