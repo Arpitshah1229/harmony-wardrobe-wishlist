@@ -68,7 +68,7 @@ function LoginPage() {
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
         <section className="hidden w-[40%] max-w-[420px] text-background lg:block">
-          <p className="font-serif text-[33px] font-semibold leading-[1.18]">
+          <p className="font-serif text-[33px] font-bold leading-[1.18]">
             Join us<br />
             and see us evolve.<br />
             Understand yourself.<br />
