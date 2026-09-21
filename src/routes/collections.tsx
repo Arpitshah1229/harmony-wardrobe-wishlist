@@ -188,7 +188,7 @@ function CollectionsPage() {
         style={{ backgroundImage: `url(${heroImg.url})` }}
       >
         <div className="absolute inset-0 bg-background/10" />
-        <div className="relative px-8 md:px-16 py-24 md:pt-56 md:pb-24 max-w-xl md:max-w-lg md:mr-auto md:ml-[8%] text-left">
+        <div className="relative px-8 md:px-16 py-24 md:pt-56 md:pb-24 max-w-xl md:max-w-lg text-left md:ml-auto md:mr-[8%]">
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
