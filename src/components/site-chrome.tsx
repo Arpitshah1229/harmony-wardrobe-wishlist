@@ -16,7 +16,10 @@ const navLinks = [
   { label: "CONTACT", to: "/" },
 ];
 
-export function Header({ overlay = false }: { overlay?: boolean } = {}) {
+export function Header({
+  overlay = false,
+  subtleOverlay = false,
+}: { overlay?: boolean; subtleOverlay?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
