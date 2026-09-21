@@ -16,7 +16,10 @@ const navLinks = [
   { label: "CONTACT", to: "/" },
 ];
 
-export function Header({ overlay = false }: { overlay?: boolean } = {}) {
+export function Header({
+  overlay = false,
+  subtleOverlay = false,
+}: { overlay?: boolean; subtleOverlay?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
@@ -37,7 +40,9 @@ export function Header({ overlay = false }: { overlay?: boolean } = {}) {
           ? `fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500 ${
               scrolled
                 ? "bg-background/95 backdrop-blur-md shadow-sm"
-                : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
+                : subtleOverlay
+                  ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
+                  : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
             }`
           : "w-full px-4 md:px-8 xl:px-12 py-4 md:py-5 flex items-center justify-between"
       }

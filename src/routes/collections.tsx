@@ -180,7 +180,7 @@ function CollectionsPage() {
 
   return (
     <div className="bg-background min-h-screen">
-      <Header overlay />
+      <Header overlay subtleOverlay />
 
       {/* Hero */}
       <section
