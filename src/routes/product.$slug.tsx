@@ -633,7 +633,7 @@ function ProductPage() {
               Wear it your way
             </p>
             <div className="mt-4 grid grid-cols-3 gap-3">
-              {(product.stylingImages || product.images.slice(0, 3).map((src) => ({ src, label: "" }))).slice(0, 3).map((item, i) => (
+              {(product.stylingImages || product.images.slice(0, 3).map((src) => ({ src, label: "", tall: false }))).slice(0, 3).map((item, i) => (
                 <figure key={i} className="flex flex-col">
                   <img
                     src={item.src}
