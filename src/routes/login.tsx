@@ -68,25 +68,25 @@ function LoginPage() {
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
         <section className="hidden w-[40%] max-w-[420px] text-background lg:block">
-          <p className="font-serif text-[33px] leading-[1.18]">
+          <p className="font-serif text-[33px] font-semibold leading-[1.18]">
             Join us<br />
             and see us evolve.<br />
             Understand yourself.<br />
             Change <em>our</em> patterns.
           </p>
           <div className="my-7 h-px w-9 bg-background/70" />
-          <p className="font-serif text-[19px] leading-tight">
+          <p className="font-serif text-[19px] font-semibold leading-tight">
             Nothing is fixed.<br />
             Not even us.
           </p>
           <div className="my-7 h-px w-9 bg-background/70" />
-          <p className="font-serif text-[19px] leading-tight">
+          <p className="font-serif text-[19px] font-semibold leading-tight">
             Why not be a part<br />
             of the community?
           </p>
           <div className="my-7 h-px w-9 bg-background/70" />
-          <p className="mt-10 text-[13px] font-medium tracking-[0.28em]">NOTIONS IN PATTERN</p>
-          <p className="mt-2 text-[10px] tracking-[0.22em]">
+          <p className="mt-10 text-[13px] font-semibold tracking-[0.28em]">NOTIONS IN PATTERN</p>
+          <p className="mt-2 text-[10px] font-semibold tracking-[0.22em]">
             CLOTHING · LIFESTYLE · HANDCRAFTED IN INDIA
           </p>
         </section>
