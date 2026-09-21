@@ -2,7 +2,10 @@ import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ShieldCheck, ArrowLeft, UserPlus } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
+import { Button } from "@/components/ui/button";
 import { useAuth, normalizeMobile, DEMO_OTP } from "@/lib/auth";
+import accountBackground from "@/assets/create-account-background.jpg.asset.json";
+import nipLogo from "@/assets/nip_logo.png.asset.json";
 
 export const Route = createFileRoute("/register")({
   component: RegisterPage,
@@ -33,13 +36,13 @@ function Field({
   ...props
 }: { id: string; label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <div className="mt-6 first:mt-0">
-      <label className="block text-[11px] font-bold tracking-[0.22em]" style={{ color: BROWN }} htmlFor={id}>
+    <div className="mt-3 first:mt-0">
+      <label className="sr-only" htmlFor={id}>
         {label}
       </label>
       <input
         id={id}
-        className="mt-3 w-full border bg-transparent px-3 py-3 text-[14px] outline-none"
+        className="w-full border bg-transparent px-3 py-3 text-[13px] outline-none transition-colors focus:border-foreground"
         style={{ borderColor: BROWN, color: DARK }}
         {...props}
       />
@@ -82,19 +85,54 @@ function RegisterPage() {
       <Header />
       <AnnouncementBar />
 
-      <main className="flex-1 px-6 md:px-16 py-14 flex justify-center">
-        <div className="w-full max-w-[460px]">
-          <h1
-            className="font-serif text-[34px] md:text-[42px] font-bold leading-tight text-center"
-            style={{ color: BROWN }}
-          >
-            Create Account
-          </h1>
-          <p className="mt-3 text-center text-[13px] leading-relaxed" style={{ color: DARK }}>
-            A few details and you're ready to check out.
-          </p>
+      <main className="relative isolate flex min-h-[610px] flex-1 items-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7.5%] lg:py-6">
+        <img
+          src={accountBackground.url}
+          alt="Man wearing a white NIP shirt and holding a teacup"
+          className="absolute inset-[-1px] -z-20 h-[calc(100%+2px)] w-[calc(100%+2px)] object-cover object-[50%_48%] blur-[0.8px]"
+        />
+        <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
-          <div className="mt-10 border p-7 md:p-9" style={{ borderColor: BROWN }}>
+        <section className="hidden w-[39%] max-w-[410px] text-background lg:block">
+          <h2 className="font-serif text-[48px] leading-[0.98]">
+            Why wait!<br />
+            <em className="font-normal">C’mon.</em>
+          </h2>
+          <div className="my-6 h-px w-8 bg-background/70" />
+          <p className="font-serif text-[31px] leading-[1.02]">
+            Join us<br />
+            and see us evolve.<br />
+            Understand yourself.<br />
+            Change <em>our</em> patterns.
+          </p>
+          <div className="my-6 h-px w-8 bg-background/70" />
+          <p className="font-serif text-[19px] leading-tight">
+            Nothing is fixed.<br />
+            Not even us.
+          </p>
+          <div className="my-6 h-px w-8 bg-background/70" />
+          <p className="font-serif text-[19px] leading-tight">
+            Why not be a part<br />
+            of the community?
+          </p>
+        </section>
+
+        <section className="ml-auto w-full max-w-[410px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm">
+          <div className="border border-foreground/35 px-7 py-6 sm:px-10 sm:py-7">
+            <div className="text-center">
+              <p className="font-serif text-[27px] tracking-[0.45em] text-foreground">NIP</p>
+              <p className="mt-1 text-[9px] font-bold tracking-[0.3em] text-foreground">NOTIONS IN PATTERN</p>
+              <div className="mx-auto mt-4 h-px w-7 bg-border" />
+            </div>
+
+            <h1 className="mt-4 text-center font-serif text-[30px] font-medium leading-tight text-foreground">
+              Create Account
+            </h1>
+            <p className="mx-auto mt-2 max-w-[280px] text-center text-[12px] leading-[1.45] text-foreground">
+              A few details and you're ready to check out.
+            </p>
+
+            <div className="mt-5">
             {step === "details" ? (
               <>
                 <Field
@@ -126,29 +164,30 @@ function RegisterPage() {
                   autoComplete="email"
                 />
 
-                <button
+                <Button
                   type="button"
                   onClick={submitDetails}
-                  className="mt-7 w-full py-4 text-[12px] font-bold tracking-[0.24em] flex items-center justify-center gap-2"
+                  className="mt-4 h-11 w-full rounded-none text-[11px] font-bold tracking-[0.24em]"
                   style={{ backgroundColor: BROWN, color: IVORY }}
                 >
                   <UserPlus size={13} /> SEND OTP
-                </button>
+                </Button>
               </>
             ) : (
               <>
-                <button
+                <Button
                   type="button"
+                  variant="ghost"
                   onClick={() => {
                     setStep("details");
                     setOtp("");
                     setError("");
                   }}
-                  className="flex items-center gap-1.5 text-[11px] font-bold tracking-[0.2em]"
+                  className="h-auto rounded-none p-0 text-[10px] font-bold tracking-[0.2em] hover:bg-transparent"
                   style={{ color: BROWN }}
                 >
                   <ArrowLeft size={13} /> EDIT DETAILS
-                </button>
+                </Button>
 
                 <p className="mt-5 text-[13px]" style={{ color: DARK }}>
                   We've sent a code to <span className="font-bold">+91 {normalizeMobile(mobile)}</span>
@@ -180,14 +219,14 @@ function RegisterPage() {
                   Demo mode — use code {DEMO_OTP}
                 </p>
 
-                <button
+                <Button
                   type="button"
                   onClick={verify}
-                  className="mt-7 w-full py-4 text-[12px] font-bold tracking-[0.24em] flex items-center justify-center gap-2"
+                  className="mt-5 h-11 w-full rounded-none text-[11px] font-bold tracking-[0.24em]"
                   style={{ backgroundColor: BROWN, color: IVORY }}
                 >
                   <ShieldCheck size={13} /> VERIFY & CREATE ACCOUNT
-                </button>
+                </Button>
               </>
             )}
 
@@ -197,14 +236,19 @@ function RegisterPage() {
               </p>
             )}
 
-            <p className="mt-8 pt-6 border-t text-center text-[12px]" style={{ borderColor: BROWN, color: DARK }}>
+            <p className="mt-5 text-center text-[12px]" style={{ color: DARK }}>
               Already have an account?{" "}
               <Link to="/login" search={{ redirect }} className="font-bold underline" style={{ color: BROWN }}>
                 Login
               </Link>
             </p>
+
+            <div className="mt-5 flex justify-center border-t border-border/70 pt-4">
+              <img src={nipLogo.url} alt="Notions in Pattern" className="h-12 w-auto object-contain" />
+            </div>
+            </div>
           </div>
-        </div>
+        </section>
       </main>
 
       <Footer />
