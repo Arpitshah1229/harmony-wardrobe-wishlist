@@ -3,6 +3,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Phone, ShieldCheck, ArrowLeft } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { useAuth, normalizeMobile, DEMO_OTP } from "@/lib/auth";
+import loginBackground from "@/assets/login-background.jpg.asset.json";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
