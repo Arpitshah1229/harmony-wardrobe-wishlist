@@ -62,8 +62,16 @@ function LoginPage() {
       <Header />
       <AnnouncementBar />
 
-      <main className="flex-1 px-6 md:px-16 py-14 flex justify-center">
-        <div className="w-full max-w-[440px]">
+      <main className="relative isolate flex min-h-[610px] flex-1 items-center justify-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7.5%] lg:py-6">
+        <img
+          src={loginBackground.url}
+          alt="Man relaxing on an ornate bench wearing a green NIP shirt"
+          className="absolute inset-[-1px] -z-20 h-[calc(100%+2px)] w-[calc(100%+2px)] object-cover object-[50%_48%] blur-[0.8px]"
+        />
+        <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
+
+        <div className="w-full max-w-[440px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm">
+          <div className="border border-foreground/35 px-6 py-8 sm:px-9 sm:py-9">
           <h1
             className="font-serif text-[34px] md:text-[42px] font-bold leading-tight text-center"
             style={{ color: BROWN }}
