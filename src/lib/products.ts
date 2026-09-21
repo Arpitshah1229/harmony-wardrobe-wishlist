@@ -27,7 +27,7 @@ export type Product = {
   tagline: string;
   price: string;
   images: string[];
-  stylingImages?: { src: string; label: string }[];
+  stylingImages?: { src: string; label: string; tall?: boolean }[];
   colorName: string;
   colorHex: string;
   detailImg: string;
@@ -148,9 +148,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [kinara.url],
     stylingImages: [
-      { src: kinaraLook1.url, label: "" },
-      { src: kinaraLook2.url, label: "" },
-      { src: kinaraLook3.url, label: "" },
+      { src: kinaraLook1.url, label: "", tall: true },
+      { src: kinaraLook2.url, label: "", tall: true },
+      { src: kinaraLook3.url, label: "", tall: true },
     ],
     colorName: "Hand-Dyed Summer Yellow",
     colorHex: "#D9B24C",

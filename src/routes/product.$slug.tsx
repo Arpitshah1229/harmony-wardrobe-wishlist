@@ -639,7 +639,7 @@ function ProductPage() {
                     src={item.src}
                     alt={`${product.name} styled ${item.label || "look"}`}
                     loading="lazy"
-                    className="w-full aspect-[2/3] object-cover object-top bg-cream/60"
+                    className={`w-full object-cover object-top bg-cream/60 ${item.tall ? "aspect-[2/3]" : "h-[150px] md:h-[190px]"}`}
                   />
                   {item.label && (
                     <figcaption className="mt-2 text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>
