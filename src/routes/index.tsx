@@ -57,7 +57,7 @@ const featured = [
 function HomePage() {
   return (
     <main className="m-[5px] min-h-screen overflow-hidden bg-background text-foreground">
-      <section className="relative min-h-[760px] overflow-hidden md:min-h-screen">
+      <section className="relative min-h-[760px] overflow-hidden md:h-[66.5vw] md:min-h-[620px] md:max-h-[1080px]">
         <img
           src={hero.url}
           alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
@@ -66,19 +66,19 @@ function HomePage() {
         <div className="absolute inset-0 bg-background/10" />
         <Header overlay subtleOverlay />
 
-        <div className="relative z-10 mx-auto flex min-h-[760px] max-w-[1536px] items-start px-7 pb-32 pt-40 md:min-h-screen md:px-[4.2%] md:pt-[13vh]">
-          <div className="max-w-[430px] text-foreground md:max-w-[470px]">
-            <h1 className="font-serif text-[40px] font-medium leading-[1.08] md:text-[52px]">
+        <div className="relative z-10 mx-auto flex min-h-[760px] max-w-[1536px] items-start px-7 pb-32 pt-40 md:min-h-[620px] md:h-full md:px-[4.2%] md:pt-[13vh]">
+          <div className="max-w-[430px] text-espresso md:max-w-[470px]">
+            <h1 className="font-serif text-[40px] font-medium leading-[1.12] md:text-[57px]">
               Understanding life<br className="hidden md:block" /> begins with<br className="hidden md:block" /> understanding of<br className="hidden md:block" /> patterns
             </h1>
-            <div className="my-7 max-w-[440px] space-y-3 text-[13px] leading-[1.65] text-foreground md:text-[14px]">
+            <div className="my-7 max-w-[440px] space-y-3 text-[13px] leading-[1.75] text-muted-foreground md:text-[16px]">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
             </div>
             <Link
               to="/collections"
-              className="inline-flex items-center gap-4 border-b border-foreground pb-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-foreground transition-opacity hover:opacity-65"
+              className="inline-flex items-center gap-4 border-b border-espresso pb-1.5 text-[12px] font-bold uppercase tracking-[0.16em] text-espresso transition-opacity hover:opacity-65"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
