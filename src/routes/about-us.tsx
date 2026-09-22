@@ -9,18 +9,24 @@ import nipLogo from "@/assets/nip_logo.png.asset.json";
 
 export const Route = createFileRoute("/about-us")({
   component: AboutPage,
-  head: () => [
-    { title: "About Us — Notions in Pattern" },
-    {
-      meta: [
-        { name: "description", content: "A thinking label using craft as expression. Our story, what we do, and the patterns behind Notions in Pattern." },
-        { property: "og:title", content: "About Us — Notions in Pattern" },
-        { property: "og:description", content: "A thinking label using craft as expression. Our story, what we do, and the patterns behind Notions in Pattern." },
-        { property: "og:type", content: "website" },
-        { name: "twitter:card", content: "summary_large_image" },
-      ],
-    },
-  ],
+  head: () => ({
+    meta: [
+      { title: "About Us — Notions in Pattern" },
+      {
+        name: "description",
+        content:
+          "A thinking label using craft as expression. Our story, what we do, and the patterns behind Notions in Pattern.",
+      },
+      { property: "og:title", content: "About Us — Notions in Pattern" },
+      {
+        property: "og:description",
+        content:
+          "A thinking label using craft as expression. Our story, what we do, and the patterns behind Notions in Pattern.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
 
 const navLinks = ["COLLECTION", "ABOUT", "FOUNDER", "CONTACT"];
