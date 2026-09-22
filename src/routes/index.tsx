@@ -9,6 +9,7 @@ import kinara from "@/assets/homepage-kinara.jpeg.asset.json";
 import sepia from "@/assets/homepage-sepia.png.asset.json";
 import motif from "@/assets/homepage-icon.png.asset.json";
 import processVideo from "@/assets/homepage-process.mp4.asset.json";
+import processVideoWebm from "@/assets/homepage-process.webm.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -157,6 +158,7 @@ function HomePage() {
         <div className="relative flex min-h-[680px] flex-col items-stretch justify-center gap-6 p-6 md:flex-row md:gap-10 md:p-10">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-[320px] overflow-hidden border-[10px] border-background md:mx-0 md:aspect-auto">
             <video className="h-full w-full object-cover" autoPlay loop muted playsInline preload="metadata" poster={sepia.url}>
+              <source src={processVideoWebm.url} type="video/webm" />
               <source src={processVideo.url} type="video/mp4" />
             </video>
           </div>
