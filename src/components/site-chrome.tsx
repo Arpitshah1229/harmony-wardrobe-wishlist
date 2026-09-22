@@ -10,10 +10,10 @@ export const BROWN = "#4B3528";
 export const DARK = "#2C2119";
 
 const navLinks = [
+  { label: "HOME", to: "/" },
   { label: "COLLECTION", to: "/collections" },
   { label: "ABOUT", to: "/about-us" },
   { label: "FOUNDER", to: "/founder" },
-  { label: "CONTACT", to: "/" },
 ];
 
 export function Header({
@@ -121,7 +121,7 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
 
 export function Footer() {
   const cols = [
-    { title: "SHOP", items: [{ label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
+    { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
     { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Craft", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },
