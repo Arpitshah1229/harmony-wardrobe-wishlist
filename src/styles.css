@@ -48,3 +48,15 @@
   -ms-overflow-style: none;
   &::-webkit-scrollbar { display: none; }
 }
+
+.home-philosophy-text {
+  background: linear-gradient(100deg, #3B2418 40%, #FFFDF6 60%);
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
