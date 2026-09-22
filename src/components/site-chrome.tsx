@@ -19,7 +19,8 @@ const navLinks = [
 export function Header({
   overlay = false,
   subtleOverlay = false,
-}: { overlay?: boolean; subtleOverlay?: boolean } = {}) {
+  solid = false,
+}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
@@ -32,6 +33,8 @@ export function Header({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [overlay]);
+
+  const ink = solid ? "#F7F4EE" : BROWN;
 
   return (
     <header
@@ -46,16 +49,17 @@ export function Header({
             }`
           : "w-full px-4 md:px-8 xl:px-12 py-4 md:py-5 flex items-center justify-between"
       }
-      style={{ color: BROWN }}
+      style={{ color: ink, ...(solid ? { backgroundColor: "#4B3528" } : null) }}
     >
       <div className="flex min-w-0 items-center gap-3 xl:gap-4">
         <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto shrink-0 md:h-12 xl:h-14" />
-        <div className="hidden lg:flex items-center font-serif font-bold text-base xl:text-xl tracking-[0.18em] leading-none" style={{ color: BROWN }}>
-          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>NOTIONS</span>
+        <div className="hidden lg:flex items-center font-serif font-bold text-base xl:text-xl tracking-[0.18em] leading-none" style={{ color: ink }}>
+          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: ink }}>NOTIONS</span>
           <span className="px-1">IN</span>
-          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: BROWN }}>PATTERN</span>
+          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: ink }}>PATTERN</span>
         </div>
       </div>
+
 
       <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[10px] xl:text-[11px] font-bold tracking-[0.2em]">
         {navLinks.map((l) => (
