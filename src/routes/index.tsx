@@ -68,7 +68,7 @@ function HomePage() {
 
         <div className="absolute inset-0 z-10 mx-auto flex max-w-[1536px] items-start px-7 pt-10 md:px-[4.2%] md:pt-[9%]">
 
-          <div className="max-w-[430px] text-espresso md:max-w-[470px]">
+          <div className="max-w-[430px] text-accent md:max-w-[470px]">
             <h1 className="font-serif text-[40px] font-medium leading-[1.12] md:text-[57px]">
               Understanding life<br className="hidden md:block" /> begins with<br className="hidden md:block" /> understanding of<br className="hidden md:block" /> patterns
             </h1>
@@ -79,18 +79,18 @@ function HomePage() {
             </div>
             <Link
               to="/collections"
-              className="inline-flex items-center gap-4 border-b border-espresso pb-1.5 text-[12px] font-bold uppercase tracking-[0.16em] text-espresso transition-opacity hover:opacity-65"
+              className="inline-flex items-center gap-4 border-b border-accent pb-1.5 text-[12px] font-bold uppercase tracking-[0.16em] text-accent transition-opacity hover:opacity-65"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-7 left-7 z-10 flex flex-col items-center gap-1 text-foreground md:left-[4.2%]">
+        <div className="absolute bottom-7 left-7 z-10 flex flex-col items-center gap-1 text-accent md:left-[4.2%]">
           <span className="text-[12px] font-bold uppercase tracking-[0.16em]">Scroll</span>
           <ArrowDown className="h-4 w-4" />
         </div>
-        <div className="absolute bottom-8 right-7 z-10 text-right text-foreground md:right-[4.2%]">
+        <div className="absolute bottom-8 right-7 z-10 text-right text-beige md:right-[4.2%]">
           <p className="text-[11px] uppercase tracking-[0.12em]">Inaugural Collection</p>
           <p className="my-2 font-serif text-[35px] leading-none">Naqsh-E-Nigāh</p>
           <p className="text-[11px] uppercase tracking-[0.12em]">Patterns of the vision</p>
@@ -133,10 +133,10 @@ function HomePage() {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-contain"
               />
-              <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-foreground/75 via-foreground/20 to-transparent px-4 pb-8 text-center text-background">
+              <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-foreground/75 via-foreground/20 to-transparent px-4 pb-8 text-center text-beige">
                 <div>
                   <h2 className="font-serif text-2xl uppercase">{item.name}</h2>
-                  <span className="mx-auto my-2 block h-px w-2/3 bg-background" />
+                  <span className="mx-auto my-2 block h-px w-2/3 bg-beige" />
                   <p className="mb-4 text-xs font-light leading-relaxed">{item.copy}</p>
                   <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em]">
                     Explore <ArrowRight className="h-3 w-3" />
