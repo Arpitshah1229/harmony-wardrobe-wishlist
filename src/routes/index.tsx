@@ -57,16 +57,17 @@ const featured = [
 function HomePage() {
   return (
     <main className="m-[5px] min-h-screen overflow-hidden bg-background text-foreground">
-      <section className="relative min-h-[760px] overflow-hidden md:h-[66.5vw] md:min-h-[620px] md:max-h-[1080px]">
+      <Header solid />
+      <section className="relative w-full">
         <img
           src={hero.url}
           alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
-          className="absolute inset-0 h-full w-full object-cover object-[64%_center] md:object-center"
+          className="block h-auto w-full"
         />
         <div className="absolute inset-0 bg-background/10" />
-        <Header overlay subtleOverlay />
 
-        <div className="relative z-10 mx-auto flex min-h-[760px] max-w-[1536px] items-start px-7 pb-32 pt-40 md:min-h-[620px] md:h-full md:px-[4.2%] md:pt-[13vh]">
+        <div className="absolute inset-0 z-10 mx-auto flex max-w-[1536px] items-start px-7 pt-10 md:px-[4.2%] md:pt-[9%]">
+
           <div className="max-w-[430px] text-espresso md:max-w-[470px]">
             <h1 className="font-serif text-[40px] font-medium leading-[1.12] md:text-[57px]">
               Understanding life<br className="hidden md:block" /> begins with<br className="hidden md:block" /> understanding of<br className="hidden md:block" /> patterns
