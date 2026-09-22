@@ -34,7 +34,7 @@ export function Header({
     return () => window.removeEventListener("scroll", onScroll);
   }, [overlay]);
 
-  const ink = solid ? "#F7F4EE" : BROWN;
+  const ink = solid ? "#E5D9C5" : BROWN;
 
   return (
     <header
@@ -47,12 +47,12 @@ export function Header({
                   ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
                   : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
             }`
-          : "w-full px-4 md:px-8 xl:px-12 py-4 md:py-5 flex items-center justify-between"
+          : "w-full px-4 md:px-8 xl:px-12 py-2 md:py-2.5 flex items-center justify-between"
       }
       style={{ color: ink, ...(solid ? { backgroundColor: "#4B3528" } : null) }}
     >
       <div className="flex min-w-0 items-center gap-3 xl:gap-4">
-        <img src={nipLogo.url} alt="Notions in Pattern" className="h-10 w-auto shrink-0 md:h-12 xl:h-14" />
+        <img src={nipLogo.url} alt="Notions in Pattern" className="h-8 w-auto shrink-0 md:h-9 xl:h-10" />
         <div className="hidden lg:flex items-center font-serif font-bold text-base xl:text-xl tracking-[0.18em] leading-none" style={{ color: ink }}>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: ink }}>NOTIONS</span>
           <span className="px-1">IN</span>
