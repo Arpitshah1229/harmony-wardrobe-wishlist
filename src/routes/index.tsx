@@ -125,7 +125,7 @@ function HomePage() {
               key={item.slug}
               to="/product/$slug"
               params={{ slug: item.slug }}
-              className="group relative flex min-h-[420px] items-center justify-center overflow-hidden bg-cream md:aspect-[2/3] md:min-h-0"
+              className="group relative flex min-h-[420px] items-center justify-center overflow-hidden bg-cream md:h-[50vh] md:min-h-0"
             >
               <img
                 src={item.image}
