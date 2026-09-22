@@ -3,9 +3,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnnouncementBar, Footer, Header } from "@/components/site-chrome";
 import hero from "@/assets/homepage-hero-window.jpeg.asset.json";
 import philosophy from "@/assets/homepage-philosophy.jpeg.asset.json";
-import bahaar from "@/assets/homepage-bahaar.jpeg.asset.json";
-import gulraaz from "@/assets/homepage-gulraaz.jpeg.asset.json";
-import kinara from "@/assets/homepage-kinara.jpeg.asset.json";
+import bahaar from "@/assets/bahaar-collection.jpeg.asset.json";
+import gulraaz from "@/assets/gulraaz-collection.jpeg.asset.json";
+import kinara from "@/assets/kinara-collection.jpeg.asset.json";
 import sepia from "@/assets/homepage-sepia.png.asset.json";
 import motif from "@/assets/homepage-icon.png.asset.json";
 import processVideo from "@/assets/homepage-process.mp4.asset.json";
@@ -119,19 +119,19 @@ function HomePage() {
       </section>
 
       <section className="bg-background p-3 md:p-5">
-        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:h-[50vh] md:grid-cols-3">
+        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:grid-cols-3">
           {featured.map((item) => (
             <Link
               key={item.slug}
               to="/product/$slug"
               params={{ slug: item.slug }}
-              className="group relative min-h-[420px] overflow-hidden md:min-h-0"
+              className="group relative flex min-h-[420px] items-center justify-center overflow-hidden bg-cream md:aspect-[2/3] md:min-h-0"
             >
               <img
                 src={item.image}
                 alt={`${item.name} shirt`}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover object-[center_10%] transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-contain"
               />
               <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-foreground/75 via-foreground/20 to-transparent px-4 pb-8 text-center text-background">
                 <div>
