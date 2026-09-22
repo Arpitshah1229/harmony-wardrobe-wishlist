@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnnouncementBar, Footer, Header } from "@/components/site-chrome";
-import hero from "@/assets/homepage-hero.jpeg.asset.json";
+import hero from "@/assets/homepage-hero-window.jpeg.asset.json";
 import philosophy from "@/assets/homepage-philosophy.jpeg.asset.json";
 import bahaar from "@/assets/homepage-bahaar.jpeg.asset.json";
 import gulraaz from "@/assets/homepage-gulraaz.jpeg.asset.json";
@@ -57,39 +57,39 @@ const featured = [
 function HomePage() {
   return (
     <main className="m-[5px] min-h-screen overflow-hidden bg-background text-foreground">
-      <section className="relative min-h-[720px] overflow-hidden md:min-h-screen">
+      <section className="relative min-h-[760px] overflow-hidden md:min-h-screen">
         <img
           src={hero.url}
-          alt="Notions in Pattern inaugural collection"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
+          className="absolute inset-0 h-full w-full object-cover object-[64%_center] md:object-center"
         />
-        <div className="absolute inset-0 bg-foreground/20" />
+        <div className="absolute inset-0 bg-background/10" />
         <Header overlay subtleOverlay />
 
-        <div className="relative z-10 mx-auto flex min-h-[720px] max-w-[1400px] items-center px-7 pb-28 pt-36 md:min-h-screen md:px-20 md:py-32">
-          <div className="max-w-[450px] text-accent">
-            <h1 className="font-serif text-[40px] font-medium leading-none md:text-[58px]">
-              Understanding life begins with understanding of <span className="text-background">patterns</span>
+        <div className="relative z-10 mx-auto flex min-h-[760px] max-w-[1536px] items-start px-7 pb-32 pt-40 md:min-h-screen md:px-[4.2%] md:pt-[13vh]">
+          <div className="max-w-[430px] text-foreground md:max-w-[470px]">
+            <h1 className="font-serif text-[40px] font-medium leading-[1.08] md:text-[52px]">
+              Understanding life<br className="hidden md:block" /> begins with<br className="hidden md:block" /> understanding of<br className="hidden md:block" /> patterns
             </h1>
-            <div className="my-8 space-y-4 text-[14px] leading-[1.9] text-foreground">
+            <div className="my-7 max-w-[440px] space-y-3 text-[13px] leading-[1.65] text-foreground md:text-[14px]">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
             </div>
             <Link
               to="/collections"
-              className="inline-flex items-center gap-4 border-b border-background pb-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-background transition-opacity hover:opacity-65"
+              className="inline-flex items-center gap-4 border-b border-foreground pb-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-foreground transition-opacity hover:opacity-65"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-7 left-7 z-10 flex flex-col items-center gap-1 text-accent md:left-[140px]">
+        <div className="absolute bottom-7 left-7 z-10 flex flex-col items-center gap-1 text-foreground md:left-[4.2%]">
           <span className="text-[12px] font-bold uppercase tracking-[0.16em]">Scroll</span>
           <ArrowDown className="h-4 w-4" />
         </div>
-        <div className="absolute bottom-8 right-7 z-10 text-center text-background md:right-[60px]">
+        <div className="absolute bottom-8 right-7 z-10 text-right text-foreground md:right-[4.2%]">
           <p className="text-[11px] uppercase tracking-[0.12em]">Inaugural Collection</p>
           <p className="my-2 font-serif text-[35px] leading-none">Naqsh-E-Nigāh</p>
           <p className="text-[11px] uppercase tracking-[0.12em]">Patterns of the vision</p>
