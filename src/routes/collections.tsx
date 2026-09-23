@@ -162,8 +162,13 @@ const priceValue = (p: Product) => Number(String(p.price).replace(/[^0-9.]/g, ""
 
 function CollectionsPage() {
   const [sort, setSort] = useState<string>(SORT_OPTIONS[0]);
+  const [query, setQuery] = useState("");
 
-  const sorted = [...products].sort((a, b) => {
+  const filtered = products.filter((p) =>
+    p.name.toLowerCase().includes(query.trim().toLowerCase())
+  );
+
+  const sorted = [...filtered].sort((a, b) => {
     switch (sort) {
       case "Alphabetically, A-Z":
         return a.name.localeCompare(b.name);
