@@ -20,7 +20,8 @@ export function Header({
   overlay = false,
   subtleOverlay = false,
   solid = false,
-}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean } = {}) {
+  solidAfter = 0.5,
+}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
@@ -28,11 +29,11 @@ export function Header({
 
   useEffect(() => {
     if (!overlay) return;
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.5);
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * solidAfter);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [overlay]);
+  }, [overlay, solidAfter]);
 
   const ink = solid ? "#E5D9C5" : BROWN;
 
