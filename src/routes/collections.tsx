@@ -268,15 +268,40 @@ function CollectionsPage() {
             </select>
           </div>
         </div>
+        <div>
+          <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
+            SEARCH
+          </p>
+          <div
+            className="flex items-center gap-2 border-b pb-1 min-w-[180px]"
+            style={{ borderColor: BROWN }}
+          >
+            <Search size={16} style={{ color: BROWN }} />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search shirts..."
+              aria-label="Search products"
+              className="w-full bg-transparent text-[14px] outline-none placeholder:text-muted-foreground/60"
+              style={{ color: DARK }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Product grid */}
       <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
         {sorted.map((p, i) => (
-          <div key={p.slug} className={i === 6 ? "md:col-start-2" : undefined}>
+          <div key={p.slug} className={!query && i === 6 ? "md:col-start-2" : undefined}>
             <ProductCard product={p} />
           </div>
         ))}
+        {sorted.length === 0 && (
+          <p className="col-span-full py-16 text-center text-[15px]" style={{ color: DARK }}>
+            No products match "{query}".
+          </p>
+        )}
       </section>
 
 
