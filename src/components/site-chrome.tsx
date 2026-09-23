@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Search, User, ShoppingBag, Heart } from "lucide-react";
+import { User, ShoppingBag, Heart } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 import { useCart } from "@/lib/cart";
@@ -67,7 +67,6 @@ export function Header({
         ))}
       </nav>
       <div className="flex items-center gap-4 xl:gap-5 text-[11px] font-bold tracking-[0.18em]">
-        <a href="#" aria-label="Search" className="flex items-center gap-1.5"><Search size={16} /> <span className="hidden 2xl:inline">SEARCH</span></a>
         {isLoggedIn ? (
           <button
             type="button"
