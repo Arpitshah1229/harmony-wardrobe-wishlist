@@ -191,9 +191,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [mohar1.url, mohar2.url, mohar3.url, mohar4.url, mohar5.url, mohar6.url, mohar7.url, mohar8.url],
     stylingImages: [
-      { src: moharLook1.url, label: "Brunch, Then Whatever", tall: true },
-      { src: moharLook2.url, label: "Weekend Golfer", tall: true },
-      { src: moharLook3.url, label: "Around Town", tall: true },
+      { src: onionPinkLook1.url, label: "Young Notion", tall: true },
+      { src: onionPinkLook2.url, label: "Mature Notion", tall: true },
+      { src: onionPinkLook3.url, label: "Timeless Notion", tall: true },
     ],
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
