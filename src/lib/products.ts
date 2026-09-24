@@ -1,3 +1,6 @@
+import gulraazLook1 from "@/assets/gulraaz-look-1.jpg.asset.json";
+import gulraazLook2 from "@/assets/gulraaz-look-2.jpg.asset.json";
+import gulraazLook3 from "@/assets/gulraaz-look-3.jpg.asset.json";
 import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
 import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
 import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
@@ -78,10 +81,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [gulraaz.url],
     stylingImages: [
-      { src: gulraaz.url, label: "After Hours" },
-      { src: gulraaz.url, label: "Festive Gatherings" },
-      { src: gulraaz.url, label: "Day Out" },
-      { src: gulraaz.url, label: "Evening Edit" },
+      { src: gulraazLook1.url, label: "The On-The-Go", tall: true },
+      { src: gulraazLook2.url, label: "Unwinding at Home", tall: true },
+      { src: gulraazLook3.url, label: "Dinner Plans", tall: true },
     ],
     colorName: "Natural (undyed)",
     colorHex: "#EDE6D6",
