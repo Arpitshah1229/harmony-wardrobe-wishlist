@@ -3,6 +3,9 @@ import gulraazLook2 from "@/assets/gulraaz-look-2.jpg.asset.json";
 import gulraazLook3 from "@/assets/gulraaz-look-3.jpg.asset.json";
 import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
 import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
+import bahaarLook1 from "@/assets/bahaar-look-1.jpg.asset.json";
+import bahaarLook2 from "@/assets/bahaar-look-2.jpg.asset.json";
+import bahaarLook3 from "@/assets/bahaar-look-3.jpg.asset.json";
 import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
 import kinaraLook1 from "@/assets/kinara-look-pic_1-white.png";
 import kinaraLook2 from "@/assets/kinara-look-pic2.png.asset.json";
@@ -114,10 +117,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [bahaar.url],
     stylingImages: [
-      { src: bahaar.url, label: "After Hours" },
-      { src: bahaar.url, label: "Festive Gatherings" },
-      { src: bahaar.url, label: "Day Out" },
-      { src: bahaar.url, label: "Evening Edit" },
+      { src: bahaarLook1.url, label: "Cruise Away", tall: true },
+      { src: bahaarLook2.url, label: "The Everyday", tall: true },
+      { src: bahaarLook3.url, label: "New Age Old School", tall: true },
     ],
     colorName: "Green",
     colorHex: "#7A8063",
