@@ -10,9 +10,9 @@ import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
 import kinaraLook1 from "@/assets/kinara-look-pic_1-white.png";
 import kinaraLook2 from "@/assets/kinara-look-pic2.png.asset.json";
 import kinaraLook3 from "@/assets/kinara-look-pic3.png.asset.json";
-import moharLook1 from "@/assets/mohar-look-1.jpg.asset.json";
-import moharLook2 from "@/assets/mohar-look-2.jpg.asset.json";
-import moharLook3 from "@/assets/mohar-look-3.jpg.asset.json";
+import onionPinkLook1 from "@/assets/onion-pink-look-1.jpg.asset.json";
+import onionPinkLook2 from "@/assets/onion-pink-look-2.jpg.asset.json";
+import onionPinkLook3 from "@/assets/onion-pink-look-3.jpg.asset.json";
 import mohar1 from "@/assets/mohar_image_one.png.asset.json";
 import mohar2 from "@/assets/mohar_image_two.png.asset.json";
 import mohar3 from "@/assets/mohar_image_3.png.asset.json";
@@ -191,9 +191,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [mohar1.url, mohar2.url, mohar3.url, mohar4.url, mohar5.url, mohar6.url, mohar7.url, mohar8.url],
     stylingImages: [
-      { src: moharLook1.url, label: "Brunch, Then Whatever", tall: true },
-      { src: moharLook2.url, label: "Weekend Golfer", tall: true },
-      { src: moharLook3.url, label: "Around Town", tall: true },
+      { src: onionPinkLook1.url, label: "Young Notion", tall: true },
+      { src: onionPinkLook2.url, label: "Mature Notion", tall: true },
+      { src: onionPinkLook3.url, label: "Timeless Notion", tall: true },
     ],
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
