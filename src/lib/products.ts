@@ -26,6 +26,9 @@ import raahLook2 from "@/assets/raah-look-2.jpg.asset.json";
 import raahLook3 from "@/assets/raah-look-3.jpg.asset.json";
 import raah from "@/assets/raah_shirt.jpeg.asset.json";
 import sukoon from "@/assets/sukoon_shirt.jpeg.asset.json";
+import sukoonLook1 from "@/assets/sukoon-look-1.jpg.asset.json";
+import sukoonLook2 from "@/assets/sukoon-look-2.jpg.asset.json";
+import sukoonLook3 from "@/assets/sukoon-look-3.jpg.asset.json";
 import zameen from "@/assets/zameen_shirt.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
@@ -258,10 +261,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [sukoon.url],
     stylingImages: [
-      { src: sukoon.url, label: "After Hours" },
-      { src: sukoon.url, label: "Festive Gatherings" },
-      { src: sukoon.url, label: "Day Out" },
-      { src: sukoon.url, label: "Evening Edit" },
+      { src: sukoonLook1.url, label: "Young Notion", tall: true },
+      { src: sukoonLook2.url, label: "Mature Notion", tall: true },
+      { src: sukoonLook3.url, label: "Timeless Notion", tall: true },
     ],
     colorName: "White",
     colorHex: "#F4F1EA",
