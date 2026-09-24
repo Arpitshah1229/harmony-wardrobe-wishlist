@@ -21,6 +21,9 @@ import mohar5 from "@/assets/mohar_image_5.png.asset.json";
 import mohar6 from "@/assets/mohar_image_6_styling.png.asset.json";
 import mohar7 from "@/assets/mohar_image_7_styling.png.asset.json";
 import mohar8 from "@/assets/mohar_image_8_styling.png.asset.json";
+import moharLook1 from "@/assets/mohar-look-1.jpg.asset.json";
+import moharLook2 from "@/assets/mohar-look-2.jpg.asset.json";
+import moharLook3 from "@/assets/mohar-look-3.jpg.asset.json";
 import raahLook1 from "@/assets/raah-look-1.jpg.asset.json";
 import raahLook2 from "@/assets/raah-look-2.jpg.asset.json";
 import raahLook3 from "@/assets/raah-look-3.jpg.asset.json";
@@ -194,9 +197,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [mohar1.url, mohar2.url, mohar3.url, mohar4.url, mohar5.url, mohar6.url, mohar7.url, mohar8.url],
     stylingImages: [
-      { src: onionPinkLook1.url, label: "Young Notion", tall: true },
-      { src: onionPinkLook2.url, label: "Mature Notion", tall: true },
-      { src: onionPinkLook3.url, label: "Timeless Notion", tall: true },
+      { src: moharLook1.url, label: "Brunch, Then Whatever", tall: true },
+      { src: moharLook2.url, label: "Weekend Golfer", tall: true },
+      { src: moharLook3.url, label: "Around Town", tall: true },
     ],
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
@@ -295,10 +298,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [zameen.url],
     stylingImages: [
-      { src: zameen.url, label: "After Hours" },
-      { src: zameen.url, label: "Festive Gatherings" },
-      { src: zameen.url, label: "Day Out" },
-      { src: zameen.url, label: "Evening Edit" },
+      { src: onionPinkLook1.url, label: "Young Notion", tall: true },
+      { src: onionPinkLook2.url, label: "Mature Notion", tall: true },
+      { src: onionPinkLook3.url, label: "Timeless Notion", tall: true },
     ],
     colorName: "Hand-Dyed Taupe",
     colorHex: "#A8968F",
