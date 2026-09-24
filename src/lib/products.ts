@@ -225,10 +225,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [raah.url],
     stylingImages: [
-      { src: raah.url, label: "After Hours" },
-      { src: raah.url, label: "Festive Gatherings" },
-      { src: raah.url, label: "Day Out" },
-      { src: raah.url, label: "Evening Edit" },
+      { src: raahLook1.url, label: "Young Notion", tall: true },
+      { src: raahLook2.url, label: "Mature Notion", tall: true },
+      { src: raahLook3.url, label: "Timeless Notion", tall: true },
     ],
     colorName: "Hand-Dyed Sky Greyish-Blue",
     colorHex: "#B9CBD8",
