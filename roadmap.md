@@ -1,8 +1,4 @@
-# Homepage clone
+# Roadmap
 
-- [x] Add supplied homepage images and video
-- [x] Recreate hero, philosophy, featured shirts, and closing feature
-- [x] Use the existing header, announcement bar, and footer
-- [x] Add Home links and connect homepage calls-to-action
-- [x] Add homepage sharing and search metadata
-- [x] Verify desktop and mobile layouts, links, images, and video delivery
+- [ ] Raah shirt — add 3 styling photos with titles: Young notion / Mature notion / Timeless Notion
+- [ ] Pending: Bahaar/Kinara remaining styling images from user (some already added); real SMS OTP backend; order page details; Shopify conversion (awaiting confirmation)
