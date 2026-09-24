@@ -85,6 +85,7 @@ export const products: Product[] = [
       { src: gulraazLook2.url, label: "Unwinding at Home", tall: true },
       { src: gulraazLook3.url, label: "Dinner Plans", tall: true },
     ],
+    colorName: "Natural (undyed)",
     colorHex: "#EDE6D6",
     detailImg: stitchesStrip.url,
     description: [
