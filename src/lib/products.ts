@@ -1,7 +1,7 @@
 import gulraaz from "@/assets/gulraaz_shirt.jpeg.asset.json";
 import bahaar from "@/assets/bahaar_shirt.jpeg.asset.json";
 import kinara from "@/assets/kinara_shirt.jpeg.asset.json";
-import kinaraLook1 from "@/assets/kinara-look-pic_1.png.asset.json";
+import kinaraLook1 from "@/assets/kinara-look-pic_1-white.png";
 import kinaraLook2 from "@/assets/kinara-look-pic2.png.asset.json";
 import kinaraLook3 from "@/assets/kinara-look-pic3.png.asset.json";
 import mohar1 from "@/assets/mohar_image_one.png.asset.json";
@@ -148,7 +148,7 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [kinara.url],
     stylingImages: [
-      { src: kinaraLook1.url, label: "Cocktail Catch-Up", tall: true },
+      { src: kinaraLook1, label: "Cocktail Catch-Up", tall: true },
       { src: kinaraLook2.url, label: "Vacation Mode", tall: true },
       { src: kinaraLook3.url, label: "Slow Days", tall: true },
     ],
