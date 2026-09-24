@@ -26,6 +26,9 @@ import raahLook2 from "@/assets/raah-look-2.jpg.asset.json";
 import raahLook3 from "@/assets/raah-look-3.jpg.asset.json";
 import raah from "@/assets/raah_shirt.jpeg.asset.json";
 import sukoon from "@/assets/sukoon_shirt.jpeg.asset.json";
+import sukoonLook1 from "@/assets/sukoon-look-1.jpg.asset.json";
+import sukoonLook2 from "@/assets/sukoon-look-2.jpg.asset.json";
+import sukoonLook3 from "@/assets/sukoon-look-3.jpg.asset.json";
 import zameen from "@/assets/zameen_shirt.jpeg.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 
