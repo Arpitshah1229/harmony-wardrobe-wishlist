@@ -117,10 +117,9 @@ export const products: Product[] = [
     price: "₹6,300",
     images: [bahaar.url],
     stylingImages: [
-      { src: bahaar.url, label: "After Hours" },
-      { src: bahaar.url, label: "Festive Gatherings" },
-      { src: bahaar.url, label: "Day Out" },
-      { src: bahaar.url, label: "Evening Edit" },
+      { src: bahaarLook1.url, label: "Cruise Away", tall: true },
+      { src: bahaarLook2.url, label: "The Everyday", tall: true },
+      { src: bahaarLook3.url, label: "New Age Old School", tall: true },
     ],
     colorName: "Green",
     colorHex: "#7A8063",
