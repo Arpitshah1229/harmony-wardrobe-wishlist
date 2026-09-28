@@ -13,6 +13,11 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-accent: var(--accent);
+  --color-home-linen: var(--home-linen);
+  --color-home-light: var(--home-light);
+  --color-home-espresso: var(--home-espresso);
+  --color-home-frame: var(--home-frame);
+  --color-home-panel: var(--home-panel);
 }
 
 :root {
@@ -24,6 +29,11 @@
   --muted-foreground: #4B3528;
   --border: #D7CEC3;
   --accent: #4B3528;
+  --home-linen: #F5F1E8;
+  --home-light: #FFFDF6;
+  --home-espresso: #3B2418;
+  --home-frame: #EFE8DC;
+  --home-panel: #F0EDE4;
 }
 
 @layer base {
@@ -53,10 +63,23 @@
   &::-webkit-scrollbar { display: none; }
 }
 
-.home-philosophy-text {
-  background: linear-gradient(100deg, #3B2418 40%, #FFFDF6 60%);
+.home-philosophy-line-1,
+.home-philosophy-line-2,
+.home-philosophy-line-3 {
   background-clip: text;
   color: transparent;
+}
+
+.home-philosophy-line-1 {
+  background-image: linear-gradient(100deg, var(--home-espresso) 61%, var(--home-light) 64.8%);
+}
+
+.home-philosophy-line-2 {
+  background-image: linear-gradient(100deg, var(--home-espresso) 44%, var(--home-light) 49%);
+}
+
+.home-philosophy-line-3 {
+  background-image: linear-gradient(100deg, var(--home-espresso) 52.5%, var(--home-light) 52%);
 }
 
 @media (prefers-reduced-motion: reduce) {
