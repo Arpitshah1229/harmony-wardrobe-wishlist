@@ -132,15 +132,15 @@ export function Footer() {
 
   ];
   return (
-    <footer className="px-8 md:px-16 py-8 border-t border-border/60" style={{ color: BROWN }}>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-start">
+    <footer className="px-5 md:px-10 py-4 border-t border-border/60" style={{ color: BROWN }}>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 items-start">
         <div className="self-start">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-36 h-auto" />
+          <img src={nipLogo.url} alt="Notions in Pattern" className="w-28 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title}>
-            <h4 className="text-[12px] font-bold tracking-[0.22em] mb-3" style={{ color: BROWN }}>{c.title}</h4>
-            <ul className="space-y-1.5 text-[13px] font-bold" style={{ color: BROWN }}>
+            <h4 className="text-[12px] font-bold tracking-[0.22em] mb-2" style={{ color: BROWN }}>{c.title}</h4>
+            <ul className="space-y-1 text-[13px] font-bold" style={{ color: BROWN }}>
               {c.items.map((i) => {
                 const label = typeof i === "string" ? i : i.label;
                 const to = typeof i === "string" ? undefined : i.to;
@@ -158,7 +158,7 @@ export function Footer() {
           </div>
         ))}
       </div>
-      <div className="mt-8 pt-4 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
+      <div className="mt-3 pt-2 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
         © Notions in Pattern. All rights reserved.
       </div>
     </footer>
