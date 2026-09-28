@@ -1,15 +1,14 @@
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnnouncementBar, Footer, Header } from "@/components/site-chrome";
-import hero from "@/assets/homepage-hero-window.jpeg.asset.json";
-import philosophy from "@/assets/homepage-philosophy.jpeg.asset.json";
-import bahaar from "@/assets/bahaar-collection.jpeg.asset.json";
-import gulraaz from "@/assets/gulraaz-collection.jpeg.asset.json";
-import kinara from "@/assets/kinara-collection.jpeg.asset.json";
-import sepia from "@/assets/homepage-sepia.png.asset.json";
-import motif from "@/assets/homepage-icon.png.asset.json";
-import processVideo from "@/assets/homepage-process.mp4.asset.json";
-import processVideoWebm from "@/assets/homepage-process.webm.asset.json";
+import hero from "@/assets/homepage-clone-hero.jpeg.asset.json";
+import philosophy from "@/assets/homepage-clone-philosophy.jpeg.asset.json";
+import bahaar from "@/assets/homepage-clone-bahaar.jpeg.asset.json";
+import gulraaz from "@/assets/homepage-clone-gulraaz.jpg.asset.json";
+import kinara from "@/assets/homepage-clone-kinara.jpg.asset.json";
+import sepia from "@/assets/homepage-clone-sepia.png.asset.json";
+import motif from "@/assets/homepage-clone-icon.png.asset.json";
+import processVideo from "@/assets/homepage-clone-process.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,8 +22,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Notions in Pattern — Craft, Thought & Evolving Patterns" },
       {
         property: "og:description",
-        content:
-          "A thinking label using craft as expression, reimagining patterns one piece at a time.",
+        content: "A thinking label using craft as expression, reimagining patterns one piece at a time.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -56,88 +54,89 @@ const featured = [
 
 function HomePage() {
   return (
-    <main className="m-[5px] min-h-screen overflow-hidden bg-background text-foreground">
-      <Header solid />
-      <section className="relative w-full">
+    <main className="m-[5px] min-h-screen overflow-hidden bg-home-linen text-foreground">
+      <Header overlay subtleOverlay solidAfter={0.08} />
+
+      <section className="relative flex min-h-[100svh] w-full bg-cream">
         <img
           src={hero.url}
           alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
-          className="block h-auto w-full"
+          className="absolute inset-0 h-full w-full object-cover object-bottom"
         />
-        <div className="absolute inset-0 bg-background/10" />
-
-        <div className="absolute inset-0 z-10 mx-auto flex max-w-[1536px] items-start px-7 pt-10 md:px-[4.2%] md:pt-[9%]">
-
-          <div className="max-w-[430px] text-accent md:max-w-[470px]">
-            <h1 className="font-serif text-[40px] font-medium leading-[1.12] md:text-[57px]">
-              Understanding life<br className="hidden md:block" /> begins with<br className="hidden md:block" /> understanding of<br className="hidden md:block" /> patterns
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-between gap-8 px-5 pb-7 pt-24 sm:px-[6vw] sm:pb-10 sm:pt-[14vh]">
+          <div className="w-full max-w-[450px]">
+            <h1 className="font-serif text-[38px] font-medium leading-[1.05] text-accent sm:text-[48px] lg:text-[58px]">
+              Understanding life begins with understanding of patterns
             </h1>
-            <div className="my-7 max-w-[440px] space-y-3 text-[13px] leading-[1.75] text-muted-foreground md:text-[16px]">
+            <div className="my-6 max-w-[440px] space-y-2 text-[13px] leading-[1.9] text-home-light sm:my-8 sm:text-sm">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
             </div>
             <Link
               to="/collections"
-              className="inline-flex items-center gap-4 border-b border-accent pb-1.5 text-[12px] font-bold uppercase tracking-[0.16em] text-accent transition-opacity hover:opacity-65"
+              className="inline-flex items-center gap-4 border-b border-accent pb-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-accent transition-opacity hover:opacity-60"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
 
-        <div className="absolute bottom-7 left-7 z-10 flex flex-col items-center gap-1 text-accent md:left-[4.2%]">
-          <span className="text-[12px] font-bold uppercase tracking-[0.16em]">Scroll</span>
-          <ArrowDown className="h-4 w-4" />
-        </div>
-        <div className="absolute bottom-8 right-7 z-10 text-right text-beige md:right-[4.2%]">
-          <p className="text-[11px] uppercase tracking-[0.12em]">Inaugural Collection</p>
-          <p className="my-2 font-serif text-[35px] leading-none">Naqsh-E-Nigāh</p>
-          <p className="text-[11px] uppercase tracking-[0.12em]">Patterns of the vision</p>
+          <div className="flex w-full flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
+            <div className="mb-4 flex flex-col items-start gap-1 text-accent sm:mb-6">
+              <span className="text-[12px] font-bold uppercase tracking-[0.16em]">Scroll</span>
+              <ArrowDown className="h-4 w-4" />
+            </div>
+            <div className="text-left text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:text-right">
+              <p>Inaugural Collection</p>
+              <p className="my-2 font-serif text-[30px] normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
+              <p>Patterns of the vision</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="relative flex min-h-[700px] items-center justify-center overflow-hidden">
+      <section className="relative mt-2.5 flex min-h-[700px] items-center justify-center overflow-hidden bg-home-linen">
         <img
           src={philosophy.url}
-          alt="Embroidered textile representing evolving patterns"
+          alt="Embroidered textiles illustrating evolving patterns"
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="relative z-10 px-6 text-center">
-          {[
-            <>Where making remains<br />but patterns evolve,</>,
-            <>Where process<br />becomes perception,</>,
-            <>Where nothing is fixed,<br />not even us.</>,
-          ].map((line, index) => (
-            <div key={index}>
-              <h2 className="home-philosophy-text font-serif text-[32px] italic leading-[1.6] md:text-[38px]">{line}</h2>
-              {index < 2 && <span className="mx-auto my-6 block h-px w-9 bg-background" />}
-            </div>
-          ))}
+          <h2 className="home-philosophy-line-1 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
+            Where making remains<br />but patterns evolve,
+          </h2>
+          <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
+          <h2 className="home-philosophy-line-2 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
+            Where process<br />becomes perception,
+          </h2>
+          <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
+          <h2 className="home-philosophy-line-3 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
+            Where nothing is fixed,<br />not even us.
+          </h2>
         </div>
       </section>
 
-      <section className="bg-background p-3 md:p-5">
-        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:grid-cols-3">
+      <section className="bg-home-linen p-3 sm:p-5">
+        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:h-[50vh] md:grid-cols-3">
           {featured.map((item) => (
             <Link
               key={item.slug}
               to="/product/$slug"
               params={{ slug: item.slug }}
-              className="group relative flex min-h-[420px] items-center justify-center overflow-hidden bg-cream md:h-[50vh] md:min-h-0"
+              className="group relative grid min-h-[420px] overflow-hidden bg-cream md:min-h-0"
             >
               <img
                 src={item.image}
                 alt={`${item.name} shirt`}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-contain"
+                className="col-start-1 row-start-1 h-full w-full object-cover object-[center_5%] transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-foreground/75 via-foreground/20 to-transparent px-4 pb-8 text-center text-beige">
+              <div className="col-start-1 row-start-1 z-10 flex items-end justify-center bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent px-4 pb-8 text-center text-home-light">
                 <div>
-                  <h2 className="font-serif text-2xl uppercase">{item.name}</h2>
-                  <span className="mx-auto my-2 block h-px w-2/3 bg-beige" />
-                  <p className="mb-4 text-xs font-light leading-relaxed">{item.copy}</p>
+                  <h2 className="font-serif text-2xl uppercase tracking-wide">{item.name}</h2>
+                  <span className="mx-auto my-2 block h-px w-2/3 bg-home-light" />
+                  <p className="mb-4 text-xs font-light leading-relaxed tracking-wide">{item.copy}</p>
                   <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em]">
                     Explore <ArrowRight className="h-3 w-3" />
                   </span>
@@ -154,25 +153,28 @@ function HomePage() {
         </Link>
       </section>
 
-      <section aria-label="Visit our store" className="relative min-h-[680px] overflow-hidden md:min-h-0">
-        <img src={sepia.url} alt="Warm sepia view of the store" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="relative flex min-h-[680px] flex-col items-stretch justify-center gap-6 p-6 md:flex-row md:gap-10 md:p-10">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-[320px] overflow-hidden border-[10px] border-background md:mx-0 md:aspect-auto">
+      <section aria-label="Crafted by hand" className="relative min-h-[760px] overflow-hidden md:min-h-[110vh]">
+        <img src={sepia.url} alt="Sepia-toned studio setting" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="relative flex min-h-[760px] flex-col items-center justify-center gap-10 p-6 md:min-h-[110vh] md:flex-row md:gap-[16vw] md:p-10">
+          <Link
+            to="/collections"
+            aria-label="Explore the collection"
+            className="relative aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame shadow-sm md:border-[25px]"
+          >
             <video className="h-full w-full object-cover" autoPlay loop muted playsInline preload="metadata" poster={sepia.url}>
-              <source src={processVideoWebm.url} type="video/webm" />
               <source src={processVideo.url} type="video/mp4" />
             </video>
-          </div>
-          <div className="mx-auto flex w-full max-w-[420px] items-center justify-center border-[10px] border-background bg-cream px-8 py-10 text-center md:mx-0 md:px-12 md:py-12">
-            <div className="flex flex-col items-center gap-5">
-              <h2 className="text-2xl font-bold uppercase leading-tight md:text-[26px]">Walk in and<br />wander a little</h2>
-              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="h-7 w-7 object-contain" />
-              <p className="max-w-[38ch] text-sm leading-relaxed md:text-[15px]">
-                The doors open and some things stay with you. A scent that lingers long after you've left. A shaft of sunlight catching a shelf just right. A feeling you can't quite put your finger on. Experience it in person, only at the Nicobar store.
+          </Link>
+          <div className="aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame bg-home-panel md:border-[25px]">
+            <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center md:p-12">
+              <h2 className="font-serif text-2xl font-bold uppercase tracking-wide text-accent">
+                Crafted by hand<br />Honest in every detail
+              </h2>
+              <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
+              <p className="font-serif uppercase tracking-wide text-foreground">
+                Perfect was never the point<br />We learn. We evolve. We return.<br />Always.
               </p>
-              <Link to="/about-us" className="border-b border-foreground pb-1 text-xs font-semibold uppercase tracking-[0.14em] transition-opacity hover:opacity-70 md:text-sm">
-                Find your nearest store
-              </Link>
+              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-6 h-[130px] w-[130px] object-contain" />
             </div>
           </div>
         </div>
