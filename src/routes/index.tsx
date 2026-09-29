@@ -86,7 +86,7 @@ function HomePage() {
               <span className="text-[12px] font-bold uppercase tracking-[0.16em]">Scroll</span>
               <ArrowDown className="h-4 w-4" />
             </div>
-            <div className="text-left text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:text-right">
+            <div className="relative z-20 self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent">
               <p>Inaugural Collection</p>
               <p className="my-2 font-serif text-[30px] normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
               <p>Patterns of the vision</p>
