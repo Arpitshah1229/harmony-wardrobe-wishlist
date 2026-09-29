@@ -86,7 +86,7 @@
   .home-hero-content { padding-top: 48px; }
   .home-hero-title { font-size: 40px; }
   .home-hero-copy { margin-top: 12px; margin-bottom: 12px; line-height: 1.5; }
-  .home-hero-link { margin-top: 26px; }
+  .home-hero-link { margin-top: 40px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

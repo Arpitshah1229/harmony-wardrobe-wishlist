@@ -75,7 +75,7 @@ function HomePage() {
             </div>
             <Link
               to="/collections"
-              className="home-hero-link mt-20 inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60"
+              className="home-hero-link mt-24 inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
