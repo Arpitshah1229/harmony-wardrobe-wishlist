@@ -3,7 +3,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Eye, EyeOff } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { useAuth, normalizeMobile } from "@/lib/auth";
-import loginBackground from "@/assets/login-background.jpg.asset.json";
+import loginBackground from "@/assets/login-bench.jpg.asset.json";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 import motif from "@/assets/homepage-clone-icon.png.asset.json";
 
@@ -64,7 +64,7 @@ function LoginPage() {
         <img
           src={loginBackground.url}
           alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-          className="absolute inset-[-1px] -z-20 h-[calc(100%+2px)] w-[calc(100%+2px)] object-cover object-[50%_48%] blur-[0.8px]"
+          className="absolute inset-0 -z-20 h-full w-full object-contain"
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
