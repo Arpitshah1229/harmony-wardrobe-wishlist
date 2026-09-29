@@ -63,19 +63,19 @@ function HomePage() {
           alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
           className="absolute inset-0 h-full w-full object-cover object-bottom"
         />
-        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-between gap-8 px-5 pb-7 pt-24 sm:px-[6vw] sm:pb-10 sm:pt-[14vh]">
+        <div className="home-hero-content relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-between gap-8 px-5 pb-7 pt-24 sm:px-[6vw] sm:pb-10 sm:pt-[14vh]">
           <div className="w-full max-w-[450px]">
-            <h1 className="font-serif text-[38px] font-medium leading-[1.05] text-accent sm:text-[48px] lg:text-[58px]">
+            <h1 className="home-hero-title font-serif text-[38px] font-medium leading-[1.05] text-accent sm:text-[48px] lg:text-[58px]">
               Understanding life begins with understanding of patterns
             </h1>
-            <div className="my-6 max-w-[440px] space-y-2 text-[13px] leading-[1.9] text-home-light sm:my-8 sm:text-sm">
+            <div className="home-hero-copy my-6 max-w-[440px] space-y-2 text-[13px] leading-[1.9] text-home-light sm:my-8 sm:text-sm">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
             </div>
             <Link
               to="/collections"
-              className="mt-10 inline-flex items-center gap-4 border-b-2 border-foreground pb-1.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-foreground transition-opacity hover:opacity-60"
+              className="home-hero-link mt-10 inline-flex items-center gap-4 border-b-2 border-foreground pb-1.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-foreground transition-opacity hover:opacity-60"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
