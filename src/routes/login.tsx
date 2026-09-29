@@ -5,6 +5,7 @@ import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-
 import { useAuth, normalizeMobile } from "@/lib/auth";
 import loginBackground from "@/assets/login-background.jpg.asset.json";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
+import motif from "@/assets/homepage-clone-icon.png.asset.json";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -233,7 +234,7 @@ function LoginPage() {
             </p>
 
             <div className="mt-6 flex flex-col items-center">
-              <img src={nipLogo.url} alt="Notions in Pattern" className="h-12 w-auto object-contain" />
+              <img src={motif.url} alt="" aria-hidden="true" className="h-14 w-14 object-contain" />
               <p
                 className="mt-2 text-[10px] font-medium tracking-[0.26em]"
                 style={{ color: BROWN }}
