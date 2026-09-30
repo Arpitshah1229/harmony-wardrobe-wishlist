@@ -129,10 +129,11 @@ function RegisterPage() {
             </div>
 
             <h1 className="mt-4 text-center font-serif text-[30px] font-medium leading-tight text-foreground">
-              Create Account
+              Create an account
             </h1>
-            <p className="mx-auto mt-2 max-w-[280px] text-center text-[12px] leading-[1.45] text-foreground">
-              A few details and you're ready to check out.
+            <p className="mx-auto mt-2 max-w-[300px] text-center text-[12px] leading-[1.45] text-foreground">
+              Create an account to track your orders, save your wishlists, get exclusive
+              discounts and everything else you love.
             </p>
 
             <div className="mt-5">
