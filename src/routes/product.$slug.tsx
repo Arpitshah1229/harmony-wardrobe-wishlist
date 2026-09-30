@@ -777,7 +777,7 @@ function ProductPage() {
             Get on the list
           </h2>
           <p className="mt-4 text-[14px] leading-[1.8]" style={{ color: DARK }}>
-            Perks include 10% off your first online order. Be the first to know about new collections, store launches, sales, and much more!
+            Be the first to know about new collections, store launches, sales, and much more!
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
             <input
