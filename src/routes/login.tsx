@@ -92,10 +92,10 @@ function LoginPage() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-[420px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:-translate-x-6 lg:-translate-x-40">
-          <div className="border border-foreground/35 px-6 py-5 sm:px-8 sm:py-6">
+        <section className="mx-auto w-full max-w-[350px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:-translate-x-6 lg:-translate-x-40">
+          <div className="border border-foreground/35 px-6 py-5 sm:px-7 sm:py-6">
             <div className="flex flex-col items-center">
-              <img src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
+              <img src={nipLogo.url} alt="Notions in Pattern" className="h-20 w-auto object-contain md:h-24" />
             </div>
 
             <h1 className="mt-4 text-center font-serif text-[32px] leading-tight text-foreground">
