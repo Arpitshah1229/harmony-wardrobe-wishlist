@@ -4,7 +4,7 @@ import { ShieldCheck, ArrowLeft, UserPlus } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { Button } from "@/components/ui/button";
 import { useAuth, normalizeMobile, DEMO_OTP } from "@/lib/auth";
-import accountBackground from "@/assets/create-account-background.jpg.asset.json";
+import accountBackground from "@/assets/register-wallpaper.jpg.asset.json";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
 export const Route = createFileRoute("/register")({
@@ -88,8 +88,8 @@ function RegisterPage() {
       <main className="relative isolate flex min-h-[610px] flex-1 items-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7.5%] lg:py-6">
         <img
           src={accountBackground.url}
-          alt="Man wearing a white NIP shirt and holding a teacup"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-top"
+          alt="Man wearing a white NIP shirt drinking tea against a tropical wallpaper"
+          className="absolute inset-0 -z-20 h-full w-full object-contain"
         />
         <div
           className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/60 via-foreground/15 to-transparent"
