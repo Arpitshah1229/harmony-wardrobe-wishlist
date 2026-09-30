@@ -89,7 +89,7 @@ function RegisterPage() {
         <img
           src={accountBackground.url}
           alt="Man wearing a white NIP shirt and holding a teacup"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-top"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[100%_0%]"
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
@@ -117,7 +117,7 @@ function RegisterPage() {
           </p>
         </section>
 
-        <section className="ml-auto w-full max-w-[410px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm">
+        <section className="ml-auto w-full max-w-[370px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:max-w-[410px]">
           <div className="border border-foreground/35 px-7 py-6 sm:px-10 sm:py-7">
             <div className="text-center">
               <p className="font-serif text-[27px] tracking-[0.45em] text-foreground">NIP</p>
