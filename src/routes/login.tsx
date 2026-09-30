@@ -98,14 +98,14 @@ function LoginPage() {
               <img src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
             </div>
 
-            <h1 className="mt-6 text-center font-serif text-[32px] leading-tight text-foreground">
+            <h1 className="mt-4 text-center font-serif text-[32px] leading-tight text-foreground">
               Login
             </h1>
             <p className="mt-1 text-center font-serif text-[17px]" style={{ color: DARK }}>
               Let us know you.
             </p>
 
-            <div className="mt-6 flex items-center border" style={{ borderColor: BROWN }}>
+            <div className="mt-4 flex items-center border" style={{ borderColor: BROWN }}>
               <span
                 className="border-r px-3 py-3 text-[13px] font-bold"
                 style={{ borderColor: BROWN, color: BROWN }}
@@ -184,7 +184,7 @@ function LoginPage() {
               </p>
             )}
 
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-4 flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
               <span className="text-[12px]" style={{ color: DARK }}>
                 or continue with
