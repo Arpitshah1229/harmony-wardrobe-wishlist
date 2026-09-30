@@ -89,35 +89,35 @@ function RegisterPage() {
         <img
           src={accountBackground.url}
           alt="Man wearing a white NIP shirt and holding a teacup"
-          className="absolute inset-0 -z-20 h-full w-full object-cover"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[100%_0%]"
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
-        <section className="hidden w-[39%] max-w-[410px] text-background lg:block">
-          <h2 className="font-serif text-[48px] leading-[0.98]">
+        <section className="w-[39%] max-w-[410px] text-background sm:block">
+          <h2 className="font-serif text-[26px] leading-[0.98] md:text-[34px] lg:text-[48px]">
             Why wait!<br />
             <em className="font-normal">C’mon.</em>
           </h2>
-          <div className="my-6 h-px w-8 bg-background/70" />
-          <p className="font-serif text-[31px] leading-[1.02]">
+          <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
+          <p className="font-serif text-[17px] leading-[1.05] md:text-[23px] lg:text-[31px]">
             Join us<br />
             and see us evolve.<br />
             Understand yourself.<br />
             Change <em>our</em> patterns.
           </p>
-          <div className="my-6 h-px w-8 bg-background/70" />
-          <p className="font-serif text-[19px] leading-tight">
+          <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
+          <p className="font-serif text-[12px] leading-tight md:text-[15px] lg:text-[19px]">
             Nothing is fixed.<br />
             Not even us.
           </p>
-          <div className="my-6 h-px w-8 bg-background/70" />
-          <p className="font-serif text-[19px] leading-tight">
+          <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
+          <p className="font-serif text-[12px] leading-tight md:text-[15px] lg:text-[19px]">
             Why not be a part<br />
             of the community?
           </p>
         </section>
 
-        <section className="ml-auto w-full max-w-[410px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm">
+        <section className="ml-auto w-full max-w-[370px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:max-w-[410px]">
           <div className="border border-foreground/35 px-7 py-6 sm:px-10 sm:py-7">
             <div className="text-center">
               <p className="font-serif text-[27px] tracking-[0.45em] text-foreground">NIP</p>
