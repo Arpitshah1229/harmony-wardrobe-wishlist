@@ -64,7 +64,7 @@ function LoginPage() {
         <img
           src={loginBackground.url}
           alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-          className="absolute inset-0 -z-20 h-full w-full object-contain"
+          className="absolute inset-0 -z-20 h-full w-full object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
@@ -92,20 +92,20 @@ function LoginPage() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-[420px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm lg:-translate-x-70">
-          <div className="border border-foreground/35 px-7 py-7 sm:px-10 sm:py-8">
+        <section className="mx-auto w-full max-w-[420px] translate-x-4 border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:translate-x-10 lg:-translate-x-40">
+          <div className="border border-foreground/35 px-6 py-5 sm:px-8 sm:py-6">
             <div className="flex flex-col items-center">
               <img src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
             </div>
 
-            <h1 className="mt-6 text-center font-serif text-[32px] leading-tight text-foreground">
+            <h1 className="mt-4 text-center font-serif text-[32px] leading-tight text-foreground">
               Login
             </h1>
             <p className="mt-1 text-center font-serif text-[17px]" style={{ color: DARK }}>
               Let us know you.
             </p>
 
-            <div className="mt-6 flex items-center border" style={{ borderColor: BROWN }}>
+            <div className="mt-4 flex items-center border" style={{ borderColor: BROWN }}>
               <span
                 className="border-r px-3 py-3 text-[13px] font-bold"
                 style={{ borderColor: BROWN, color: BROWN }}
@@ -184,7 +184,7 @@ function LoginPage() {
               </p>
             )}
 
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-4 flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
               <span className="text-[12px]" style={{ color: DARK }}>
                 or continue with
@@ -221,7 +221,7 @@ function LoginPage() {
               </button>
             </div>
 
-            <p className="mt-6 text-center text-[12px]" style={{ color: DARK }}>
+            <p className="mt-4 text-center text-[12px]" style={{ color: DARK }}>
               New to NIP?{" "}
               <Link
                 to="/register"
@@ -233,7 +233,7 @@ function LoginPage() {
               </Link>
             </p>
 
-            <div className="mt-6 flex flex-col items-center">
+            <div className="mt-4 flex flex-col items-center">
               <img src={motif.url} alt="" aria-hidden="true" className="h-14 w-14 object-contain" />
               <p
                 className="mt-2 text-[10px] font-medium tracking-[0.26em]"
