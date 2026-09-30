@@ -89,7 +89,7 @@ function RegisterPage() {
         <img
           src={accountBackground.url}
           alt="Man wearing a white NIP shirt and holding a teacup"
-          className="absolute right-0 top-0 -z-20 h-[calc(100svh-5.8rem)] min-h-[400px] w-[130%] max-w-none object-fill sm:min-h-0"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-top"
         />
         <div
           className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/60 via-foreground/15 to-transparent"
