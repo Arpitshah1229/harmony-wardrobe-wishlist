@@ -64,7 +64,7 @@ function LoginPage() {
         <img
           src={loginBackground.url}
           alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-          className="absolute inset-0 -z-20 h-full w-full -scale-x-100 object-cover object-[100%_top]"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[100%_top]"
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
