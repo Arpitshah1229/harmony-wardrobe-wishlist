@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnnouncementBar, Footer, Header } from "@/components/site-chrome";
 import hero from "@/assets/homepage-clone-hero.jpeg.asset.json";
