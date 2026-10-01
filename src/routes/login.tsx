@@ -3,7 +3,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Eye, EyeOff } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { useAuth, normalizeMobile } from "@/lib/auth";
-import loginBackground from "@/assets/login-bench.jpg.asset.json";
+import loginBackground from "@/assets/login-background.jpg.asset.json";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 import motif from "@/assets/homepage-clone-icon.png.asset.json";
 
