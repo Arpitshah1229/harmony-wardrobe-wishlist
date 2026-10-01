@@ -10,7 +10,6 @@ export const BROWN = "#4B3528";
 export const DARK = "#2C2119";
 
 const navLinks = [
-  { label: "HOME", to: "/" },
   { label: "COLLECTION", to: "/collections" },
   { label: "ABOUT", to: "/about-us" },
   { label: "FOUNDER", to: "/founder" },
@@ -61,11 +60,11 @@ export function Header({
         {!hideLogo && (
           <img src={nipLogo.url} alt="Notions in Pattern" className="h-8 w-auto shrink-0 md:h-9 xl:h-10" />
         )}
-        <div className="hidden lg:flex items-center font-serif font-bold text-base xl:text-xl tracking-[0.18em] leading-none" style={{ color: ink }}>
+        <Link to="/" className="hidden lg:flex items-center font-serif font-bold text-base xl:text-xl tracking-[0.18em] leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: ink }}>NOTIONS</span>
           <span className="px-1">IN</span>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: ink }}>PATTERN</span>
-        </div>
+        </Link>
       </div>
 
 
