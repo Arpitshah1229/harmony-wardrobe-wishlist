@@ -55,7 +55,7 @@ const featured = [
 function HomePage() {
   return (
     <main className="m-[5px] min-h-screen overflow-hidden bg-home-linen text-foreground">
-      <Header overlay subtleOverlay solidAfter={0.08} />
+      <Header overlay subtleOverlay solidAfter={0.08} hideLogo scrolledBrown />
 
       <section className="relative flex min-h-[100svh] w-full bg-cream">
         <img

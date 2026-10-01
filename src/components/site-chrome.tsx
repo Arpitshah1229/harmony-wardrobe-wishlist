@@ -21,7 +21,9 @@ export function Header({
   subtleOverlay = false,
   solid = false,
   solidAfter = 0.5,
-}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number } = {}) {
+  hideLogo = false,
+  scrolledBrown = false,
+}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number; hideLogo?: boolean; scrolledBrown?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
