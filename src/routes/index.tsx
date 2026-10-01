@@ -63,7 +63,7 @@ function HomePage() {
           alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
           className="absolute inset-0 h-full w-full object-cover object-bottom"
         />
-        <div className="home-hero-content relative z-10 flex min-h-[100svh] w-full flex-col justify-between gap-8 px-5 pb-7 pt-[29vh] sm:pb-10 sm:pl-[15.5vw] sm:pr-[6vw]">
+        <div className="home-hero-content relative z-10 flex min-h-[100svh] w-full flex-col justify-between gap-8 px-5 pb-7 pt-[29vh] sm:pb-10 sm:pl-[15.5vw] sm:pr-[6vw] lg:pl-[142px] xl:pl-[165px]">
           <div className="w-full max-w-[450px]">
             <h1 className="home-hero-title font-serif text-[38px] font-medium leading-[1.05] text-accent sm:text-[48px] lg:text-[58px]">
               Understanding life begins with understanding of patterns
