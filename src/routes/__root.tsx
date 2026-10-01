@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorRouteComponent,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -75,8 +76,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-// The updated router expects error components to carry a preload marker.
-ErrorComponent.preload = async () => undefined;
+// The updated router types errorComponent as a lazy component; cast to satisfy it.
+const rootErrorComponent = ErrorComponent as unknown as ErrorRouteComponent;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
