@@ -68,7 +68,7 @@ function HomePage() {
             <h1 className="home-hero-title font-serif text-[38px] font-medium leading-[1.05] text-accent sm:text-[48px] lg:text-[58px]">
               Understanding life begins with understanding of patterns
             </h1>
-            <div className="home-hero-copy my-6 max-w-[440px] space-y-2 text-[13px] leading-[1.9] text-home-light sm:my-8 sm:text-sm">
+            <div className="home-hero-copy mt-9 mb-6 max-w-[440px] space-y-2 text-[15px] leading-[1.9] text-home-light sm:mt-11 sm:mb-8 sm:text-base">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
@@ -79,7 +79,7 @@ function HomePage() {
             <div className="hidden" />
             <Link
               to="/collections"
-              className="home-hero-link inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60 sm:absolute sm:bottom-[116px] sm:left-0"
+              className="home-hero-link inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-black uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60 sm:absolute sm:bottom-[116px] sm:left-0"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
