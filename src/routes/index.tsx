@@ -76,17 +76,14 @@ function HomePage() {
           </div>
 
           <div className="relative flex w-full flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
-            <div className="mb-4 flex flex-col items-start gap-1 text-accent sm:mb-6">
-              <span className="text-[12px] font-bold uppercase tracking-[0.16em]">Scroll</span>
-              <ArrowDown className="h-4 w-4" />
-            </div>
+            <div className="hidden" />
             <Link
               to="/collections"
               className="home-hero-link inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60 sm:absolute sm:bottom-[116px] sm:left-0"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
-            <div className="relative z-20 -mr-4 mb-14 self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:-mr-[4.5vw] sm:mb-20">
+            <div className="relative z-20 -mr-4 mb-14 self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:-mr-[6vw] sm:mb-20">
               <p>Inaugural Collection</p>
               <p className="my-2 font-serif text-[30px] normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
               <p>Patterns of the vision</p>
