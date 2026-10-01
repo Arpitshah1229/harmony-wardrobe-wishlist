@@ -64,7 +64,7 @@ function LoginPage() {
         <img
           src={loginBackground.url}
           alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[100%_top]"
+          className="absolute bottom-0 left-0 top-0 -z-20 -ml-[40%] h-full w-[140%] max-w-none object-cover object-[50%_45%]"
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
@@ -92,7 +92,7 @@ function LoginPage() {
           </p>
         </section>
 
-        <section className="ml-auto w-full max-w-[350px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:translate-x-6 lg:mr-[2%]">
+        <section className="ml-auto w-full max-w-[350px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:translate-x-6 lg:mr-0">
           <div className="border border-foreground/35 px-6 py-5 sm:px-7 sm:py-6">
             <div className="flex flex-col items-center">
               <img src={nipLogo.url} alt="Notions in Pattern" className="h-20 w-auto object-contain md:h-24" />
