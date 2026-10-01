@@ -21,7 +21,9 @@ export function Header({
   subtleOverlay = false,
   solid = false,
   solidAfter = 0.5,
-}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number } = {}) {
+  hideLogo = false,
+  scrolledBrown = false,
+}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number; hideLogo?: boolean; scrolledBrown?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
@@ -35,7 +37,8 @@ export function Header({
     return () => window.removeEventListener("scroll", onScroll);
   }, [overlay, solidAfter]);
 
-  const ink = solid ? "#E5D9C5" : BROWN;
+  const solidBg = solid || (scrolled && scrolledBrown);
+  const ink = solidBg ? "#E5D9C5" : BROWN;
 
   return (
     <header
@@ -43,17 +46,21 @@ export function Header({
         overlay
           ? `fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500 ${
               scrolled
-                ? "bg-background/95 backdrop-blur-md shadow-sm"
+                ? scrolledBrown
+                  ? "shadow-sm"
+                  : "bg-background/95 backdrop-blur-md shadow-sm"
                 : subtleOverlay
                   ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
                   : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
             }`
           : "w-full px-4 md:px-8 xl:px-12 py-2 md:py-2.5 flex items-center justify-between"
       }
-      style={{ color: ink, ...(solid ? { backgroundColor: "#4B3528" } : null) }}
+      style={{ color: ink, ...(solidBg ? { backgroundColor: "#4B3528" } : null) }}
     >
       <div className="flex min-w-0 items-center gap-3 xl:gap-4">
-        <img src={nipLogo.url} alt="Notions in Pattern" className="h-8 w-auto shrink-0 md:h-9 xl:h-10" />
+        {!hideLogo && (
+          <img src={nipLogo.url} alt="Notions in Pattern" className="h-8 w-auto shrink-0 md:h-9 xl:h-10" />
+        )}
         <div className="hidden lg:flex items-center font-serif font-bold text-base xl:text-xl tracking-[0.18em] leading-none" style={{ color: ink }}>
           <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: ink }}>NOTIONS</span>
           <span className="px-1">IN</span>
