@@ -120,8 +120,8 @@ function RegisterPage() {
           </p>
         </section>
 
-        <section className="ml-auto w-full max-w-[370px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:max-w-[410px] sm:translate-x-6 lg:translate-x-12">
-          <div className="border border-foreground/35 px-7 py-6 sm:px-10 sm:py-7">
+        <section className="ml-auto w-full max-w-[340px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:max-w-[380px] sm:translate-x-12 lg:translate-x-24">
+          <div className="border border-foreground/35 px-5 py-5 sm:px-7 sm:py-6">
             <div className="text-center">
               <p className="font-serif text-[27px] tracking-[0.45em] text-foreground">NIP</p>
               <p className="mt-1 text-[9px] font-bold tracking-[0.3em] text-foreground">NOTIONS IN PATTERN</p>
