@@ -83,7 +83,7 @@ function HomePage() {
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
-            <div className="relative z-20 -mr-4 mb-14 self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:-mr-[6vw] sm:mb-20">
+            <div className="relative z-20 -mr-4 mb-14 ml-auto self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:-mr-[6vw] sm:mb-20">
               <p>Inaugural Collection</p>
               <p className="my-2 font-serif text-[30px] normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
               <p>Patterns of the vision</p>
