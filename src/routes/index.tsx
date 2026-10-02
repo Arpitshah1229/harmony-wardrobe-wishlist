@@ -73,21 +73,18 @@ function HomePage() {
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
             </div>
-          </div>
-
-          <div className="relative flex w-full flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
-            <div className="hidden" />
             <Link
               to="/collections"
-              className="home-hero-link inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-black uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60 sm:absolute sm:bottom-[72px] sm:left-0"
+              className="home-hero-link mt-10 inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-black uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60 sm:mt-14"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
-            <div className="relative z-20 -mr-4 mb-2 ml-auto self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:-mr-[6vw] sm:mb-0">
-              <p>Inaugural Collection</p>
-              <p className="my-2 font-serif text-[30px] normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
-              <p>Patterns of the vision</p>
-            </div>
+          </div>
+
+          <div className="relative z-20 -mr-4 mb-2 ml-auto self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:-mr-[6vw] sm:mb-0">
+            <p>Inaugural Collection</p>
+            <p className="my-2 font-serif text-[30px] normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
+            <p>Patterns of the vision</p>
           </div>
         </div>
       </section>
