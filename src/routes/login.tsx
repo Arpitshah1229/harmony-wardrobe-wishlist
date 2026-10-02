@@ -124,7 +124,7 @@ function LoginPage() {
                 onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}
                 onKeyDown={(e) => e.key === "Enter" && submit()}
                 placeholder="Mobile number"
-                className="w-full bg-transparent px-3 py-3 text-[13px] outline-none"
+                className="w-full bg-transparent px-3 py-2.5 text-[13px] outline-none"
                 style={{ color: DARK }}
               />
             </div>
