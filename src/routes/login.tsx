@@ -147,14 +147,14 @@ function LoginPage() {
                 type="button"
                 onClick={() => setShowPassword((v) => !v)}
                 aria-label={showPassword ? "Hide password" : "Show password"}
-                className="px-3 py-3"
+                className="px-3 py-2.5"
                 style={{ color: BROWN }}
               >
                 {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
               </button>
             </div>
 
-            <div className="mt-3 flex items-center justify-between text-[12px]" style={{ color: DARK }}>
+            <div className="mt-2.5 flex items-center justify-between text-[12px]" style={{ color: DARK }}>
               <label className="flex cursor-pointer items-center gap-2">
                 <input
                   type="checkbox"
