@@ -129,9 +129,9 @@ function HomePage() {
                 loading="lazy"
                 className="col-start-1 row-start-1 h-full w-full object-cover object-[center_5%] transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="col-start-1 row-start-1 z-10 flex items-end justify-center bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent px-4 pb-8 text-center text-home-light">
-                <div>
-                  <h2 className="font-serif text-2xl uppercase tracking-wide">{item.name}</h2>
+              <div className="absolute inset-0 z-10 flex items-end justify-center bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent px-4 pb-8 text-center text-home-light">
+                <div className="w-full">
+                  <h2 className="flex h-8 items-center justify-center font-serif text-2xl uppercase tracking-wide">{item.name}</h2>
                   <span className="mx-auto my-2 block h-px w-2/3 bg-home-light" />
                   <p className="mb-4 flex min-h-[42px] items-start justify-center text-center text-xs font-light leading-relaxed tracking-wide">{item.copy}</p>
                   <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em]">
