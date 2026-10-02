@@ -129,7 +129,7 @@ function LoginPage() {
               />
             </div>
 
-            <div className="mt-3 flex items-center border" style={{ borderColor: BROWN }}>
+            <div className="mt-2.5 flex items-center border" style={{ borderColor: BROWN }}>
               <label className="sr-only" htmlFor="password">
                 Password
               </label>
@@ -140,7 +140,7 @@ function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && submit()}
                 placeholder="Password"
-                className="w-full bg-transparent px-3 py-3 text-[13px] outline-none"
+                className="w-full bg-transparent px-3 py-2.5 text-[13px] outline-none"
                 style={{ color: DARK }}
               />
               <button
