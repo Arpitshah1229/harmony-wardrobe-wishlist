@@ -184,7 +184,7 @@ function LoginPage() {
               </p>
             )}
 
-            <div className="mt-4 flex items-center gap-3">
+            <div className="mt-3 flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
               <span className="text-[12px]" style={{ color: DARK }}>
                 or continue with
@@ -192,7 +192,7 @@ function LoginPage() {
               <div className="h-px flex-1 bg-border" />
             </div>
 
-            <div className="mt-4 flex items-center justify-center gap-4">
+            <div className="mt-3 flex items-center justify-center gap-4">
               <button
                 type="button"
                 aria-label="Continue with Google"
