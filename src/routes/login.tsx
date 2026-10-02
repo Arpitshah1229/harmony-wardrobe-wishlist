@@ -246,7 +246,7 @@ function LoginPage() {
             </p>
 
             <div className="mt-3 flex flex-col items-center">
-              <img src={motif.url} alt="" aria-hidden="true" className="h-12 w-12 object-contain" />
+              <img src={nipLogoWide.url} alt="Notions in Pattern" className="h-12 w-auto object-contain" />
               <p
                 className="mt-2 text-[10px] font-medium tracking-[0.26em]"
                 style={{ color: BROWN }}
