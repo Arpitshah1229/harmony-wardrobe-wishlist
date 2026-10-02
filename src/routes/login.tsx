@@ -105,9 +105,9 @@ function LoginPage() {
               Let us know you.
             </p>
 
-            <div className="mt-4 flex items-center border" style={{ borderColor: BROWN }}>
+            <div className="mt-3 flex items-center border" style={{ borderColor: BROWN }}>
               <span
-                className="border-r px-3 py-3 text-[13px] font-bold"
+                className="border-r px-3 py-2.5 text-[13px] font-bold"
                 style={{ borderColor: BROWN, color: BROWN }}
               >
                 +91
