@@ -67,6 +67,18 @@ function LoginPage() {
           className="absolute inset-0 -z-20 h-full w-full object-cover object-right"
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-y-0 left-0 -z-10 w-[45%] backdrop-blur-md [mask-image:linear-gradient(to_right,black_0%,transparent_100%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 -z-10 h-[45%] backdrop-blur-md"
+          style={{
+            maskImage: "radial-gradient(120% 100% at 0% 100%, black 38%, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(120% 100% at 0% 100%, black 38%, transparent 70%)",
+          }}
+        />
 
         <section className="hidden w-[40%] max-w-[420px] text-background lg:block">
           <p className="font-serif text-[33px] font-bold leading-[1.18]">
@@ -93,21 +105,21 @@ function LoginPage() {
         </section>
 
         <section className="mx-auto w-full max-w-[355px] -translate-x-14 border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:-translate-x-32">
-          <div className="border border-foreground/35 px-6 py-3 sm:px-7 sm:py-4">
+          <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
             <div className="flex flex-col items-center">
-              <img src={nipLogo.url} alt="Notions in Pattern" className="h-16 w-auto object-contain md:h-20" />
+              <img src={nipLogo.url} alt="Notions in Pattern" className="h-14 w-auto object-contain md:h-16" />
             </div>
 
-            <h1 className="mt-4 text-center font-serif text-[32px] leading-tight text-foreground">
+            <h1 className="mt-2.5 text-center font-serif text-[30px] leading-tight text-foreground">
               Login
             </h1>
             <p className="mt-1 text-center font-serif text-[17px]" style={{ color: DARK }}>
               Let us know you.
             </p>
 
-            <div className="mt-4 flex items-center border" style={{ borderColor: BROWN }}>
+            <div className="mt-3 flex items-center border" style={{ borderColor: BROWN }}>
               <span
-                className="border-r px-3 py-3 text-[13px] font-bold"
+                className="border-r px-3 py-2.5 text-[13px] font-bold"
                 style={{ borderColor: BROWN, color: BROWN }}
               >
                 +91
@@ -124,12 +136,12 @@ function LoginPage() {
                 onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}
                 onKeyDown={(e) => e.key === "Enter" && submit()}
                 placeholder="Mobile number"
-                className="w-full bg-transparent px-3 py-3 text-[13px] outline-none"
+                className="w-full bg-transparent px-3 py-2.5 text-[13px] outline-none"
                 style={{ color: DARK }}
               />
             </div>
 
-            <div className="mt-3 flex items-center border" style={{ borderColor: BROWN }}>
+            <div className="mt-2.5 flex items-center border" style={{ borderColor: BROWN }}>
               <label className="sr-only" htmlFor="password">
                 Password
               </label>
@@ -140,21 +152,21 @@ function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && submit()}
                 placeholder="Password"
-                className="w-full bg-transparent px-3 py-3 text-[13px] outline-none"
+                className="w-full bg-transparent px-3 py-2.5 text-[13px] outline-none"
                 style={{ color: DARK }}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword((v) => !v)}
                 aria-label={showPassword ? "Hide password" : "Show password"}
-                className="px-3 py-3"
+                className="px-3 py-2.5"
                 style={{ color: BROWN }}
               >
                 {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
               </button>
             </div>
 
-            <div className="mt-3 flex items-center justify-between text-[12px]" style={{ color: DARK }}>
+            <div className="mt-2.5 flex items-center justify-between text-[12px]" style={{ color: DARK }}>
               <label className="flex cursor-pointer items-center gap-2">
                 <input
                   type="checkbox"
@@ -172,7 +184,7 @@ function LoginPage() {
             <button
               type="button"
               onClick={submit}
-              className="mt-4 flex w-full items-center justify-center gap-2 py-4 text-[12px] font-bold tracking-[0.24em]"
+              className="mt-3 flex w-full items-center justify-center gap-2 py-3 text-[12px] font-bold tracking-[0.24em]"
               style={{ backgroundColor: BROWN, color: IVORY }}
             >
               LOGIN <span aria-hidden="true">→</span>
@@ -184,7 +196,7 @@ function LoginPage() {
               </p>
             )}
 
-            <div className="mt-4 flex items-center gap-3">
+            <div className="mt-3 flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
               <span className="text-[12px]" style={{ color: DARK }}>
                 or continue with
@@ -192,11 +204,11 @@ function LoginPage() {
               <div className="h-px flex-1 bg-border" />
             </div>
 
-            <div className="mt-4 flex items-center justify-center gap-4">
+            <div className="mt-3 flex items-center justify-center gap-4">
               <button
                 type="button"
                 aria-label="Continue with Google"
-                className="flex h-11 w-11 items-center justify-center rounded-full border"
+                className="flex h-10 w-10 items-center justify-center rounded-full border"
                 style={{ borderColor: BROWN }}
               >
                 <svg viewBox="0 0 24 24" className="h-5 w-5">
@@ -209,7 +221,7 @@ function LoginPage() {
               <button
                 type="button"
                 aria-label="Continue with Apple"
-                className="flex h-11 w-11 items-center justify-center rounded-full border"
+                className="flex h-10 w-10 items-center justify-center rounded-full border"
                 style={{ borderColor: BROWN }}
               >
                 <svg viewBox="0 0 24 24" className="h-5 w-5">
@@ -221,7 +233,7 @@ function LoginPage() {
               </button>
             </div>
 
-            <p className="mt-4 text-center text-[12px]" style={{ color: DARK }}>
+            <p className="mt-3 text-center text-[12px]" style={{ color: DARK }}>
               New to NIP?{" "}
               <Link
                 to="/register"
@@ -233,8 +245,8 @@ function LoginPage() {
               </Link>
             </p>
 
-            <div className="mt-4 flex flex-col items-center">
-              <img src={motif.url} alt="" aria-hidden="true" className="h-14 w-14 object-contain" />
+            <div className="mt-3 flex flex-col items-center">
+              <img src={motif.url} alt="" aria-hidden="true" className="h-12 w-12 object-contain" />
               <p
                 className="mt-2 text-[10px] font-medium tracking-[0.26em]"
                 style={{ color: BROWN }}
