@@ -92,8 +92,8 @@ function LoginPage() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-[315px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm">
-          <div className="border border-foreground/35 px-6 py-5 sm:px-7 sm:py-6">
+        <section className="mx-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm">
+          <div className="border border-foreground/35 px-6 py-3 sm:px-7 sm:py-4">
             <div className="flex flex-col items-center">
               <img src={nipLogo.url} alt="Notions in Pattern" className="h-16 w-auto object-contain md:h-20" />
             </div>
