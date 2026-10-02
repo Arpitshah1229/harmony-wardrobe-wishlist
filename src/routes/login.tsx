@@ -172,7 +172,7 @@ function LoginPage() {
             <button
               type="button"
               onClick={submit}
-              className="mt-4 flex w-full items-center justify-center gap-2 py-4 text-[12px] font-bold tracking-[0.24em]"
+              className="mt-3 flex w-full items-center justify-center gap-2 py-3 text-[12px] font-bold tracking-[0.24em]"
               style={{ backgroundColor: BROWN, color: IVORY }}
             >
               LOGIN <span aria-hidden="true">→</span>
