@@ -62,7 +62,7 @@ function LoginPage() {
 
       <main className="relative isolate flex min-h-[610px] flex-1 items-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
         <img
-          src={loginBackground.url}
+          src={loginBackground}
           alt="Man relaxing on an ornate bench wearing a green NIP shirt"
           className="absolute inset-0 -z-20 h-full w-full object-cover object-right"
         />
