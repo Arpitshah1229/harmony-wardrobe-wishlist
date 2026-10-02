@@ -196,7 +196,7 @@ function LoginPage() {
               <button
                 type="button"
                 aria-label="Continue with Google"
-                className="flex h-11 w-11 items-center justify-center rounded-full border"
+                className="flex h-10 w-10 items-center justify-center rounded-full border"
                 style={{ borderColor: BROWN }}
               >
                 <svg viewBox="0 0 24 24" className="h-5 w-5">
@@ -209,7 +209,7 @@ function LoginPage() {
               <button
                 type="button"
                 aria-label="Continue with Apple"
-                className="flex h-11 w-11 items-center justify-center rounded-full border"
+                className="flex h-10 w-10 items-center justify-center rounded-full border"
                 style={{ borderColor: BROWN }}
               >
                 <svg viewBox="0 0 24 24" className="h-5 w-5">
