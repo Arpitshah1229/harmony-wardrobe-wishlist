@@ -5,7 +5,7 @@ import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-
 import { useAuth, normalizeMobile } from "@/lib/auth";
 import loginBackground from "@/assets/login-background-right.jpg";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
-import motif from "@/assets/homepage-clone-icon.png.asset.json";
+import nipLogoWide from "@/assets/nip-logo-wide.png.asset.json";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
