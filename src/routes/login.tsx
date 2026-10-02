@@ -221,7 +221,7 @@ function LoginPage() {
               </button>
             </div>
 
-            <p className="mt-4 text-center text-[12px]" style={{ color: DARK }}>
+            <p className="mt-3 text-center text-[12px]" style={{ color: DARK }}>
               New to NIP?{" "}
               <Link
                 to="/register"
@@ -233,8 +233,8 @@ function LoginPage() {
               </Link>
             </p>
 
-            <div className="mt-4 flex flex-col items-center">
-              <img src={motif.url} alt="" aria-hidden="true" className="h-14 w-14 object-contain" />
+            <div className="mt-3 flex flex-col items-center">
+              <img src={motif.url} alt="" aria-hidden="true" className="h-12 w-12 object-contain" />
               <p
                 className="mt-2 text-[10px] font-medium tracking-[0.26em]"
                 style={{ color: BROWN }}
