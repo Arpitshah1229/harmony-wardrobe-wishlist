@@ -268,6 +268,8 @@ function RegisterPage() {
             </div>
           </div>
         </section>
+          </div>
+        </div>
       </main>
 
       <Footer />
