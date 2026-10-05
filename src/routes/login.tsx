@@ -67,14 +67,6 @@ function LoginPage() {
           className="absolute inset-0 -z-20 h-full w-full object-cover object-right"
         />
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
-        <div
-          aria-hidden="true"
-          className="absolute inset-y-0 left-0 -z-10 w-[10%] backdrop-blur-[3px] [mask-image:linear-gradient(to_right,black_10%,transparent_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-y-0 right-0 -z-10 w-[10%] backdrop-blur-[3px] [mask-image:linear-gradient(to_left,black_10%,transparent_100%)]"
-        />
 
 
         <section className="hidden w-[40%] max-w-[420px] text-background lg:block">
