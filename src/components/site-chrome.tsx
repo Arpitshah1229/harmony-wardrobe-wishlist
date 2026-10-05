@@ -22,7 +22,8 @@ export function Header({
   solidAfter = 0.5,
   hideLogo = false,
   scrolledBrown = false,
-}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number; hideLogo?: boolean; scrolledBrown?: boolean } = {}) {
+  solidInk = "#E5D9C5",
+}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number; hideLogo?: boolean; scrolledBrown?: boolean; solidInk?: string } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
