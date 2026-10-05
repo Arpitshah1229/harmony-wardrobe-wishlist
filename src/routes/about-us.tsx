@@ -66,7 +66,7 @@ function AboutPage() {
   const titleClass = "font-serif font-black text-[22px] md:text-[26px] tracking-[0.25em] mb-8";
   return (
     <div className="min-h-[calc(100vh-10px)] m-[5px]" style={{ color: DARK }}>
-      <Header overlay solid hideLogo scrolledBrown />
+      <Header />
 
       {/* Hero */}
       <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-2 md:gap-4 items-stretch">
