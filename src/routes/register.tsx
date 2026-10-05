@@ -85,16 +85,22 @@ function RegisterPage() {
       <Header />
       <AnnouncementBar />
 
-      <main className="relative isolate flex min-h-[610px] flex-1 items-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7.5%] lg:py-6">
-        <img
-          src={accountBackground.url}
-          alt="Man wearing a white NIP shirt drinking tea against a tropical wallpaper"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_50%]"
-        />
+      <main className="relative isolate flex-1 overflow-hidden">
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/60 via-foreground/15 to-transparent"
-          aria-hidden="true"
-        />
+          className="relative w-full min-h-[740px]"
+          style={{ aspectRatio: "1920 / 1262" }}
+        >
+          <img
+            src={accountBackground.url}
+            alt="Man wearing a white NIP shirt drinking tea against a tropical wallpaper"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_50%]"
+          />
+          <div
+            className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/60 via-foreground/15 to-transparent"
+            aria-hidden="true"
+          />
+
+          <div className="absolute inset-0 flex items-center px-5 py-10 sm:px-10 lg:px-[7.5%] lg:py-6">
 
         <section className="w-[39%] max-w-[410px] text-background sm:block">
           <h2 className="font-serif text-[26px] leading-[0.98] md:text-[34px] lg:text-[48px]">
