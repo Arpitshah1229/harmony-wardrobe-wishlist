@@ -134,7 +134,7 @@ export function Footer() {
   const cols = [
     { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
     { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
-    { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Craft", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
+    { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", items: ["Instagram", "Email"] },
 
   ];
