@@ -185,7 +185,7 @@ function CollectionsPage() {
 
   return (
     <div className="bg-background min-h-screen">
-      <Header overlay subtleOverlay solidAfter={0.08} />
+      <Header overlay subtleOverlay solidAfter={0.08} hideLogo={false} />
 
       {/* Hero */}
       <section

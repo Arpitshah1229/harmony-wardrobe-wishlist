@@ -20,7 +20,7 @@ export function Header({
   subtleOverlay = false,
   solid = false,
   solidAfter = 0.5,
-  hideLogo = false,
+  hideLogo = true,
   scrolledBrown = false,
   solidInk = "#E5D9C5",
 }: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number; hideLogo?: boolean; scrolledBrown?: boolean; solidInk?: string } = {}) {
