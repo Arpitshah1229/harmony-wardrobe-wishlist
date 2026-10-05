@@ -38,7 +38,7 @@ export function Header({
   }, [overlay, solidAfter]);
 
   const solidBg = solid || (scrolled && scrolledBrown);
-  const ink = solidBg ? "#E5D9C5" : BROWN;
+  const ink = solidBg ? solidInk : BROWN;
 
   return (
     <header
