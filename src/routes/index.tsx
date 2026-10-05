@@ -91,6 +91,8 @@ function HomePage() {
         </div>
       </section>
 
+      <AnnouncementBar />
+
       <section className="relative mt-2.5 flex min-h-[700px] items-center justify-center overflow-hidden bg-home-linen">
         <img
           src={philosophy.url}
@@ -176,7 +178,6 @@ function HomePage() {
         </div>
       </section>
 
-      <AnnouncementBar />
       <Footer />
     </main>
   );
