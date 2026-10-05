@@ -122,13 +122,11 @@ function RegisterPage() {
 
         <section className="ml-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:translate-x-4 lg:translate-x-10">
           <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
-            <div className="text-center">
-              <p className="font-serif text-[27px] tracking-[0.45em] text-foreground">NIP</p>
-              <p className="mt-1 text-[9px] font-bold tracking-[0.3em] text-foreground">NOTIONS IN PATTERN</p>
-              <div className="mx-auto mt-4 h-px w-7 bg-border" />
+            <div className="flex flex-col items-center">
+              <img src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
             </div>
 
-            <h1 className="mt-4 text-center font-serif text-[30px] font-medium leading-tight text-foreground">
+            <h1 className="mt-2.5 text-center font-serif text-[30px] leading-tight text-foreground">
               Create an account
             </h1>
             <p className="mx-auto mt-2 max-w-[300px] text-center text-[12px] leading-[1.45] text-foreground">
@@ -247,8 +245,19 @@ function RegisterPage() {
               </Link>
             </p>
 
-            <div className="mt-5 flex justify-center border-t border-border/70 pt-4">
-              <img src={nipLogo.url} alt="Notions in Pattern" className="h-12 w-auto object-contain" />
+            <div className="mt-3 flex flex-col items-center">
+              <p className="font-serif text-[24px] font-semibold tracking-[0.35em]" style={{ color: BROWN }}>
+                NIP
+              </p>
+              <p className="mt-1 text-[9px] font-semibold tracking-[0.32em]" style={{ color: BROWN }}>
+                NOTIONS IN PATTERN
+              </p>
+              <p
+                className="mt-2 text-[10px] font-medium tracking-[0.26em]"
+                style={{ color: BROWN }}
+              >
+                YOU ARE YOUR PATTERNS.
+              </p>
             </div>
             </div>
           </div>
