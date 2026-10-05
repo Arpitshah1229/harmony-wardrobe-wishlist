@@ -109,7 +109,7 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
   return (
     <div className="w-full overflow-hidden border-t border-b border-border/60 py-2" style={{ backgroundColor: bg }}>
 
-      <div className="flex w-max animate-marquee">
+      <div className="announcement-marquee-track flex w-max">
         {[0, 1].map((k) => (
           <div key={k} className="flex shrink-0 items-center">
             {strip.map((t, i) => (

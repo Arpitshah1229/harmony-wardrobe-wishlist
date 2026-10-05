@@ -57,6 +57,11 @@
   animation: marquee-x 28s linear infinite;
 }
 
+.announcement-marquee-track {
+  animation: marquee-x 28s linear infinite;
+  will-change: transform;
+}
+
 @utility no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -89,8 +94,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
+  .announcement-marquee-track {
+    animation-duration: 45s;
   }
 }
 
