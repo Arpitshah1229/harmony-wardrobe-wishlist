@@ -9,4 +9,6 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep the shared `site-chrome` Header and Footer on the homepage so navigation and store state remain consistent across all routes.
+# Project Architecture Rules
+
+- Use the shared `site-chrome` Header, Footer, and AnnouncementBar across content pages so navigation, store state, and branding remain consistent.

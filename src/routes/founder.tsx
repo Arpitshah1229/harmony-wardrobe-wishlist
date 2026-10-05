@@ -47,7 +47,7 @@ function ImgBlock({ src, alt }: { src: string; alt: string }) {
 function FounderPage() {
   return (
     <div className="min-h-[calc(100vh-10px)] m-[5px]" style={{ color: DARK }}>
-      <Header />
+      <Header overlay subtleOverlay solidAfter={0.08} hideLogo scrolledBrown />
 
       {/* Story grid: hero + chapters share a single connected grid */}
       <section className="px-8 md:px-16 pt-4 pb-20">
