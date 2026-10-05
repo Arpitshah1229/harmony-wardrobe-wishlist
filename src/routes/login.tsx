@@ -69,16 +69,13 @@ function LoginPage() {
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-0 -z-10 w-[45%] backdrop-blur-md [mask-image:linear-gradient(to_right,black_0%,transparent_100%)]"
+          className="absolute inset-y-0 left-0 -z-10 w-[30%] backdrop-blur-[3px] [mask-image:linear-gradient(to_right,black_20%,transparent_100%)]"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 -z-10 h-[45%] backdrop-blur-md"
-          style={{
-            maskImage: "radial-gradient(120% 100% at 0% 100%, black 38%, transparent 70%)",
-            WebkitMaskImage: "radial-gradient(120% 100% at 0% 100%, black 38%, transparent 70%)",
-          }}
+          className="absolute inset-y-0 right-0 -z-10 w-[30%] backdrop-blur-[3px] [mask-image:linear-gradient(to_left,black_20%,transparent_100%)]"
         />
+
 
         <section className="hidden w-[40%] max-w-[420px] text-background lg:block">
           <p className="font-serif text-[33px] font-bold leading-[1.18]">
