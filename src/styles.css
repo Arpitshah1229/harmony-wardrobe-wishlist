@@ -93,3 +93,24 @@
     animation: none;
   }
 }
+
+.login-edge-blur {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -5;
+  pointer-events: none;
+  backdrop-filter: blur(9px);
+}
+
+.login-edge-blur-left {
+  left: 0;
+  width: 11%;
+  mask-image: linear-gradient(to right, black 40%, transparent 100%);
+}
+
+.login-edge-blur-right {
+  right: 0;
+  width: 7%;
+  mask-image: linear-gradient(to left, black 40%, transparent 100%);
+}
