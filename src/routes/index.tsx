@@ -75,7 +75,7 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-20 -mr-3 flex w-full flex-col items-start gap-6 pb-2 sm:-mr-[1vw] sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pb-0">
+          <div className="relative z-20 -mr-1 flex w-full flex-col items-start gap-6 pb-2 sm:-mr-[3.5vw] sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pb-0">
             <Link
               to="/collections"
               className="home-hero-link inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-black uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60"
