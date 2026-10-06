@@ -28,6 +28,7 @@ export function Header({
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
   const { user, isLoggedIn, logout } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!overlay) return;
