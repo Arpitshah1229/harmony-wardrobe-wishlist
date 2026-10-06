@@ -105,6 +105,28 @@ export function Header({
           <ShoppingBag size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
         </Link>
       </div>
+
+      {menuOpen && (
+        <nav
+          aria-label="Main navigation"
+          className="absolute top-full left-0 right-0 border-t border-border/40 shadow-md lg:hidden"
+          style={{ backgroundColor: solidBg ? "#4B3528" : "#F7F4EE" }}
+        >
+          <div className="flex flex-col px-6 py-3">
+            {navLinks.map((l) => (
+              <Link
+                key={l.label}
+                to={l.to}
+                onClick={() => setMenuOpen(false)}
+                className="border-b border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em] last:border-b-0 hover:opacity-70 transition-opacity"
+                style={{ color: ink }}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
