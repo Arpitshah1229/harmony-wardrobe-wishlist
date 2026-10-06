@@ -153,7 +153,7 @@ function HomePage() {
 
       <section aria-label="Crafted by hand" className="relative min-h-[760px] overflow-hidden md:min-h-[110vh]">
         <img src={sepia.url} alt="Sepia-toned studio setting" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="relative flex min-h-[760px] flex-col items-center justify-center gap-10 p-6 md:min-h-[110vh] md:flex-row md:gap-[16vw] md:p-10">
+        <div className="relative flex min-h-[760px] flex-col items-center justify-center gap-10 p-6 md:min-h-[110vh] md:flex-row md:gap-[4vw] md:p-8 lg:gap-[16vw] lg:p-10">
           <Link
             to="/collections"
             aria-label="Explore the collection"
