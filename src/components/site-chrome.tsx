@@ -48,13 +48,13 @@ export function Header({
           ? "fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500"
           : "relative z-50 w-full px-4 md:px-8 xl:px-12 py-2 md:py-2.5 flex items-center justify-between"
       } ${
-        scrolled
-          ? scrolledBrown
-            ? "shadow-sm"
-            : "bg-background/95 backdrop-blur-md shadow-sm"
-          : subtleOverlay
-            ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
-            : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
+        solidBg
+          ? "shadow-sm"
+          : scrolled
+            ? "bg-background/95 backdrop-blur-md shadow-sm"
+            : subtleOverlay
+              ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
+              : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
       }`}
       style={{ color: ink, ...(solidBg ? { backgroundColor: "#4B3528" } : null) }}
     >
@@ -62,10 +62,22 @@ export function Header({
         {!hideLogo && (
           <img src={nipLogo.url} alt="Notions in Pattern" className="h-8 w-auto shrink-0 md:h-9 xl:h-10" />
         )}
-        <Link to="/" className="flex items-center font-serif font-bold text-[11px] sm:text-sm lg:text-base xl:text-xl tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
-          <span className="border-t-2 border-b-2 py-1.5 lg:py-2.5 px-1" style={{ borderColor: ink }}>NOTIONS</span>
-          <span className="px-1">IN</span>
-          <span className="border-t-2 border-b-2 py-1.5 lg:py-2.5 px-1" style={{ borderColor: ink }}>PATTERN</span>
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2 font-serif font-bold text-[11px] sm:text-sm lg:text-base xl:text-xl tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
+          <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+            <span className="px-0.5">NOTIONS</span>
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+          </span>
+          <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+            <span className="px-0.5">IN</span>
+            <span className="h-px w-[calc(100%+8px)] -mx-1 opacity-0" style={{ backgroundColor: ink }} />
+          </span>
+          <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
+            <span className="h-px w-[calc(100%+8px)] -mx-1 opacity-0" style={{ backgroundColor: ink }} />
+            <span className="px-0.5">PATTERN</span>
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+          </span>
         </Link>
       </div>
 
