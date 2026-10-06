@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AnnouncementBar, Footer, Header } from "@/components/site-chrome";
+import { Footer, Header } from "@/components/site-chrome";
 import hero from "@/assets/homepage-clone-hero.jpeg.asset.json";
 import philosophy from "@/assets/homepage-clone-philosophy.jpeg.asset.json";
 import bahaar from "@/assets/homepage-clone-bahaar.jpeg.asset.json";
@@ -90,8 +90,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      <AnnouncementBar />
 
       <section className="relative mt-2.5 flex min-h-[700px] items-center justify-center overflow-hidden bg-home-linen">
         <img
