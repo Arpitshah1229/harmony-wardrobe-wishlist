@@ -45,8 +45,8 @@ export function Header({
     <header
       className={`relative z-50 ${
         overlay
-          ? "fixed top-0 left-0 right-0 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500"
-          : "w-full px-4 md:px-8 xl:px-12 py-2 md:py-2.5 flex items-center justify-between"
+          ? "fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500"
+          : "relative z-50 w-full px-4 md:px-8 xl:px-12 py-2 md:py-2.5 flex items-center justify-between"
       } ${
         scrolled
           ? scrolledBrown
