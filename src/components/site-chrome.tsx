@@ -62,10 +62,10 @@ export function Header({
         {!hideLogo && (
           <img src={nipLogo.url} alt="Notions in Pattern" className="h-8 w-auto shrink-0 md:h-9 xl:h-10" />
         )}
-        <Link to="/" className="hidden lg:flex items-center font-serif font-bold text-base xl:text-xl tracking-[0.18em] leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
-          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: ink }}>NOTIONS</span>
+        <Link to="/" className="flex items-center font-serif font-bold text-[11px] sm:text-sm lg:text-base xl:text-xl tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
+          <span className="border-t-2 border-b-2 py-1.5 lg:py-2.5 px-1" style={{ borderColor: ink }}>NOTIONS</span>
           <span className="px-1">IN</span>
-          <span className="border-t-2 border-b-2 py-2.5 px-1" style={{ borderColor: ink }}>PATTERN</span>
+          <span className="border-t-2 border-b-2 py-1.5 lg:py-2.5 px-1" style={{ borderColor: ink }}>PATTERN</span>
         </Link>
       </div>
 
@@ -89,19 +89,19 @@ export function Header({
           <button
             type="button"
             onClick={logout}
-            className="flex items-center gap-1.5 hover:opacity-70 transition-opacity uppercase"
+            className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity uppercase"
           >
             <User size={16} /> <span className="hidden 2xl:inline">{(user?.name || "Account").split(" ")[0]} · LOGOUT</span>
           </button>
         ) : (
-          <Link to="/login" search={{ redirect: "/cart" }} className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+          <Link to="/login" search={{ redirect: "/cart" }} className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
             <User size={16} /> <span className="hidden 2xl:inline">ACCOUNT</span>
           </Link>
         )}
-        <Link to="/wishlist" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+        <Link to="/wishlist" className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
           <Heart size={16} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> <span className="hidden 2xl:inline">WISHLIST </span>({wishCount})
         </Link>
-        <Link to="/cart" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+        <Link to="/cart" className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
           <ShoppingBag size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
         </Link>
       </div>
@@ -124,6 +124,21 @@ export function Header({
                 {l.label}
               </Link>
             ))}
+            {isLoggedIn ? (
+              <button type="button" onClick={() => { setMenuOpen(false); logout(); }} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-left text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: ink }}>
+                <User size={15} /> {(user?.name || "Account").split(" ")[0]} · LOGOUT
+              </button>
+            ) : (
+              <Link to="/login" search={{ redirect: "/cart" }} onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
+                <User size={15} /> ACCOUNT
+              </Link>
+            )}
+            <Link to="/wishlist" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
+              <Heart size={15} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> WISHLIST ({wishCount})
+            </Link>
+            <Link to="/cart" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
+              <ShoppingBag size={15} /> CART ({cartCount})
+            </Link>
           </div>
         </nav>
       )}
@@ -148,11 +163,11 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
             {strip.map((t, i) => (
               <span
                 key={`${k}-${i}`}
-                className="px-6 text-[11px] font-bold tracking-[0.24em] whitespace-nowrap"
+                className="px-3 text-[10px] font-bold tracking-[0.16em] whitespace-nowrap sm:px-6 sm:text-[11px] sm:tracking-[0.24em]"
                 style={{ color }}
               >
 
-                {t} <span className="px-3">✦</span>
+                {t} <span className="px-2 sm:px-3">✦</span>
               </span>
             ))}
           </div>
