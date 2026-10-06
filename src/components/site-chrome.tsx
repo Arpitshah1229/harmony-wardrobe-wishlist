@@ -62,10 +62,22 @@ export function Header({
         {!hideLogo && (
           <img src={nipLogo.url} alt="Notions in Pattern" className="h-8 w-auto shrink-0 md:h-9 xl:h-10" />
         )}
-        <Link to="/" className="flex items-center font-serif font-bold text-[11px] sm:text-sm lg:text-base xl:text-xl tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
-          <span className="border-t-2 border-b-2 py-1.5 lg:py-2.5 px-1" style={{ borderColor: ink }}>NOTIONS</span>
-          <span className="px-1">IN</span>
-          <span className="border-t-2 border-b-2 py-1.5 lg:py-2.5 px-1" style={{ borderColor: ink }}>PATTERN</span>
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2 font-serif font-bold text-[11px] sm:text-sm lg:text-base xl:text-xl tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
+          <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+            <span className="px-0.5">NOTIONS</span>
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+          </span>
+          <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+            <span className="px-0.5">IN</span>
+            <span className="h-px w-[calc(100%+8px)] -mx-1 opacity-0" style={{ backgroundColor: ink }} />
+          </span>
+          <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
+            <span className="h-px w-[calc(100%+8px)] -mx-1 opacity-0" style={{ backgroundColor: ink }} />
+            <span className="px-0.5">PATTERN</span>
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+          </span>
         </Link>
       </div>
 
