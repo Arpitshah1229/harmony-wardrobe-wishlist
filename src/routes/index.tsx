@@ -65,10 +65,10 @@ function HomePage() {
         />
         <div className="home-hero-content relative z-10 flex min-h-[100svh] w-full flex-col justify-between gap-8 px-5 pb-4 pt-[29vh] sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] lg:pl-[142px] xl:pl-[165px]">
           <div className="w-full max-w-[450px]">
-            <h1 className="home-hero-title font-serif text-[38px] font-medium leading-[1.05] text-accent sm:text-[48px] lg:text-[58px]">
+            <h1 className="home-hero-title font-serif text-[34px] font-medium leading-[1.08] text-accent sm:text-[48px] lg:text-[58px]">
               Understanding life begins with understanding of patterns
             </h1>
-            <div className="home-hero-copy mt-16 mb-6 max-w-[440px] space-y-2 text-[15px] leading-[1.9] text-home-light sm:mt-20 sm:mb-8 sm:text-base">
+            <div className="home-hero-copy mt-10 mb-6 max-w-[440px] space-y-2 text-[15px] leading-[1.9] text-home-light sm:mt-20 sm:mb-8 sm:text-base">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
