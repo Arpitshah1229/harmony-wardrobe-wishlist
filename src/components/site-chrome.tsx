@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { User, ShoppingBag, Heart } from "lucide-react";
+import { User, ShoppingBag, Heart, Menu, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 import { useCart } from "@/lib/cart";
@@ -28,6 +28,7 @@ export function Header({
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
   const { user, isLoggedIn, logout } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!overlay) return;
@@ -42,19 +43,19 @@ export function Header({
 
   return (
     <header
-      className={
+      className={`${
         overlay
-          ? `fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500 ${
-              scrolled
-                ? scrolledBrown
-                  ? "shadow-sm"
-                  : "bg-background/95 backdrop-blur-md shadow-sm"
-                : subtleOverlay
-                  ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
-                  : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
-            }`
-          : "w-full px-4 md:px-8 xl:px-12 py-2 md:py-2.5 flex items-center justify-between"
-      }
+          ? "fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500"
+          : "relative z-50 w-full px-4 md:px-8 xl:px-12 py-2 md:py-2.5 flex items-center justify-between"
+      } ${
+        scrolled
+          ? scrolledBrown
+            ? "shadow-sm"
+            : "bg-background/95 backdrop-blur-md shadow-sm"
+          : subtleOverlay
+            ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
+            : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
+      }`}
       style={{ color: ink, ...(solidBg ? { backgroundColor: "#4B3528" } : null) }}
     >
       <div className="flex min-w-0 items-center gap-3 xl:gap-4">
@@ -75,6 +76,15 @@ export function Header({
         ))}
       </nav>
       <div className="flex items-center gap-4 xl:gap-5 text-[11px] font-bold tracking-[0.18em]">
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+          className="lg:hidden hover:opacity-70 transition-opacity"
+        >
+          {menuOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
         {isLoggedIn ? (
           <button
             type="button"
@@ -95,6 +105,28 @@ export function Header({
           <ShoppingBag size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
         </Link>
       </div>
+
+      {menuOpen && (
+        <nav
+          aria-label="Main navigation"
+          className="absolute top-full left-0 right-0 border-t border-border/40 shadow-md lg:hidden"
+          style={{ backgroundColor: solidBg ? "#4B3528" : "#F7F4EE" }}
+        >
+          <div className="flex flex-col px-6 py-3">
+            {navLinks.map((l) => (
+              <Link
+                key={l.label}
+                to={l.to}
+                onClick={() => setMenuOpen(false)}
+                className="border-b border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em] last:border-b-0 hover:opacity-70 transition-opacity"
+                style={{ color: ink }}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
