@@ -168,11 +168,11 @@ function HomePage() {
               <h2 className="font-serif text-2xl font-bold uppercase tracking-wide text-accent md:text-xl lg:text-2xl">
                 Crafted by hand<br />Honest in every detail
               </h2>
-              <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
+              <span className="mx-auto my-4 block h-0.5 w-9 bg-home-espresso lg:my-7" />
               <p className="font-serif uppercase tracking-wide text-foreground">
                 Perfect was never the point<br />We learn. We evolve. We return.<br />Always.
               </p>
-              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-6 h-[130px] w-[130px] object-contain" />
+              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-4 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]" />
             </div>
           </div>
         </div>
