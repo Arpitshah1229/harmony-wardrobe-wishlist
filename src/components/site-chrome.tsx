@@ -76,6 +76,15 @@ export function Header({
         ))}
       </nav>
       <div className="flex items-center gap-4 xl:gap-5 text-[11px] font-bold tracking-[0.18em]">
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+          className="lg:hidden hover:opacity-70 transition-opacity"
+        >
+          {menuOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
         {isLoggedIn ? (
           <button
             type="button"
