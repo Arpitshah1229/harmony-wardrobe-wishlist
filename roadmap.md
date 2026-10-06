@@ -4,7 +4,7 @@
 
 Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose changes → wait for user approval → implement → verify at all widths.
 
-- [ ] 1. Shared header, announcement bar, footer — **auditing now**
+- [x] 1. Shared header, announcement bar, footer — done: added hamburger menu (phones/tablets); footer & announcement bar needed no changes
 - [ ] 2. Homepage
 - [ ] 3. Collection page
 - [ ] 4. Product page
