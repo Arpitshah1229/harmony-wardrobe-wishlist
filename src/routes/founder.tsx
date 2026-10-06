@@ -8,7 +8,7 @@ import founder4 from "@/assets/founder_new_4.png.asset.json";
 import founder5 from "@/assets/founder_new_5.jpg.asset.json";
 import founder6 from "@/assets/founder_new_6.jpeg.asset.json";
 import founder7 from "@/assets/founder_new_7b.jpeg.asset.json";
-import founder8 from "@/assets/founder_new_8b.jpeg.asset.json";
+import founder9 from "@/assets/founder_new_9.jpg.asset.json";
 
 export const Route = createFileRoute("/founder")({
   component: FounderPage,
@@ -132,7 +132,9 @@ function FounderPage() {
             <p>If there is one thing this journey has given me, it is the privilege of sitting beside the people I love working with most. Learning from them. Moving with them. Creating together, of something that didn't exist before, according to us.</p>
             <p>That, more than anything, is where Notions in Pattern lives.</p>
           </TextBlock>
-          <ImgBlock src={founder8.url} alt="Team gathered around a table" />
+          <div className="w-full h-full min-h-[520px] md:min-h-[620px] bg-[#F7F4EE] flex items-center justify-center overflow-hidden">
+            <img src={founder9.url} alt="Packing shirts and hand-marked NIP pouches in the studio" className="w-full h-full object-contain block" />
+          </div>
         </div>
       </section>
 
