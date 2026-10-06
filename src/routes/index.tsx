@@ -163,9 +163,9 @@ function HomePage() {
               <source src={processVideo.url} type="video/mp4" />
             </video>
           </Link>
-          <div className="aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame bg-home-panel md:border-[25px]">
-            <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center md:p-12">
-              <h2 className="font-serif text-2xl font-bold uppercase tracking-wide text-accent">
+          <div className="aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame bg-home-panel md:max-w-[320px] md:border-[20px] lg:max-w-[460px] lg:border-[25px]">
+            <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center md:p-8 lg:p-12">
+              <h2 className="font-serif text-2xl font-bold uppercase tracking-wide text-accent md:text-xl lg:text-2xl">
                 Crafted by hand<br />Honest in every detail
               </h2>
               <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
