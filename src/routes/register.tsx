@@ -4,7 +4,7 @@ import { ShieldCheck, ArrowLeft, UserPlus } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { Button } from "@/components/ui/button";
 import { useAuth, normalizeMobile, DEMO_OTP } from "@/lib/auth";
-import accountBackground from "@/assets/register-wallpaper.jpg.asset.json";
+import accountBackground from "@/assets/register-wallpaper.jpg";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
 export const Route = createFileRoute("/register")({
