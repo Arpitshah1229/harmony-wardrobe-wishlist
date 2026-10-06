@@ -157,7 +157,7 @@ function HomePage() {
           <Link
             to="/collections"
             aria-label="Explore the collection"
-            className="relative aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame shadow-sm md:border-[25px]"
+            className="relative aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame shadow-sm md:max-w-[320px] md:border-[20px] lg:max-w-[460px] lg:border-[25px]"
           >
             <video className="h-full w-full object-cover" autoPlay loop muted playsInline preload="metadata" poster={sepia.url}>
               <source src={processVideo.url} type="video/mp4" />
