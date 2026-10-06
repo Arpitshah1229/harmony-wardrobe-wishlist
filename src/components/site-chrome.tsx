@@ -43,19 +43,19 @@ export function Header({
 
   return (
     <header
-      className={
+      className={`relative z-50 ${
         overlay
-          ? `fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500 ${
-              scrolled
-                ? scrolledBrown
-                  ? "shadow-sm"
-                  : "bg-background/95 backdrop-blur-md shadow-sm"
-                : subtleOverlay
-                  ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
-                  : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
-            }`
+          ? "fixed top-0 left-0 right-0 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500"
           : "w-full px-4 md:px-8 xl:px-12 py-2 md:py-2.5 flex items-center justify-between"
-      }
+      } ${
+        scrolled
+          ? scrolledBrown
+            ? "shadow-sm"
+            : "bg-background/95 backdrop-blur-md shadow-sm"
+          : subtleOverlay
+            ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
+            : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
+      }`}
       style={{ color: ink, ...(solidBg ? { backgroundColor: "#4B3528" } : null) }}
     >
       <div className="flex min-w-0 items-center gap-3 xl:gap-4">
