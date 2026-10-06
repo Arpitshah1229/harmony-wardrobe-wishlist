@@ -4,7 +4,6 @@ import { Minus, Plus, X, ShoppingBag, Truck, RotateCcw, Lock, TicketPercent } fr
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { PRODUCT_SUBTITLE } from "@/lib/products";
 import { useCart, formatPrice } from "@/lib/cart";
-import { useAuth } from "@/lib/auth";
 
 function VisaIcon() {
   return (
@@ -127,7 +126,6 @@ const GST_RATE = 0.12;
 
 function CartPage() {
   const { items, count, subtotal, setQty, removeItem } = useCart();
-  const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   const [code, setCode] = useState("");
@@ -364,13 +362,7 @@ function CartPage() {
 
               <button
                 type="button"
-                onClick={() => {
-                  if (!isLoggedIn) {
-                    navigate({ to: "/login", search: { redirect: "/cart" } });
-                    return;
-                  }
-                  navigate({ to: "/orders" });
-                }}
+                onClick={() => navigate({ to: "/orders" })}
                 className="mt-8 w-full py-4 text-[12px] font-bold tracking-[0.24em]"
                 style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
               >
