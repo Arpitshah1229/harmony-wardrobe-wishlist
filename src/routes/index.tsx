@@ -153,26 +153,26 @@ function HomePage() {
 
       <section aria-label="Crafted by hand" className="relative min-h-[760px] overflow-hidden md:min-h-[110vh]">
         <img src={sepia.url} alt="Sepia-toned studio setting" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="relative flex min-h-[760px] flex-col items-center justify-center gap-10 p-6 md:min-h-[110vh] md:flex-row md:gap-[16vw] md:p-10">
+        <div className="relative flex min-h-[760px] flex-col items-center justify-center gap-10 p-6 md:min-h-[110vh] md:flex-row md:gap-[4vw] md:p-8 lg:gap-[16vw] lg:p-10">
           <Link
             to="/collections"
             aria-label="Explore the collection"
-            className="relative aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame shadow-sm md:border-[25px]"
+            className="relative aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame shadow-sm md:max-w-[320px] md:border-[20px] lg:max-w-[460px] lg:border-[25px]"
           >
             <video className="h-full w-full object-cover" autoPlay loop muted playsInline preload="metadata" poster={sepia.url}>
               <source src={processVideo.url} type="video/mp4" />
             </video>
           </Link>
-          <div className="aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame bg-home-panel md:border-[25px]">
-            <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center md:p-12">
-              <h2 className="font-serif text-2xl font-bold uppercase tracking-wide text-accent">
+          <div className="aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame bg-home-panel md:max-w-[320px] md:border-[20px] lg:max-w-[460px] lg:border-[25px]">
+            <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center md:p-8 lg:p-12">
+              <h2 className="font-serif text-2xl font-bold uppercase tracking-wide text-accent md:text-xl lg:text-2xl">
                 Crafted by hand<br />Honest in every detail
               </h2>
-              <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
+              <span className="mx-auto my-4 block h-0.5 w-9 bg-home-espresso lg:my-7" />
               <p className="font-serif uppercase tracking-wide text-foreground">
                 Perfect was never the point<br />We learn. We evolve. We return.<br />Always.
               </p>
-              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-6 h-[130px] w-[130px] object-contain" />
+              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-3 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]" />
             </div>
           </div>
         </div>

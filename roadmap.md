@@ -5,7 +5,7 @@
 Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose changes → wait for user approval → implement → verify at all widths.
 
 - [x] 1. Shared header, announcement bar, footer — done: added hamburger menu (phones/tablets); footer & announcement bar needed no changes
-- [ ] 2. Homepage
+- [x] 2. Homepage — done: "Crafted by hand" panels now shrink to fit on tablets (were cut off at the right edge); verified at phone/tablet/laptop/desktop/landscape, no overflow anywhere
 - [ ] 3. Collection page
 - [ ] 4. Product page
 - [ ] 5. Cart
