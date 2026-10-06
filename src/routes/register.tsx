@@ -91,7 +91,7 @@ function RegisterPage() {
           style={{ aspectRatio: "1920 / 1262" }}
         >
           <img
-            src={accountBackground.url}
+            src={accountBackground}
             alt="Man wearing a white NIP shirt drinking tea against a tropical wallpaper"
             className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_50%]"
           />
