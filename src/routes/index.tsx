@@ -172,7 +172,7 @@ function HomePage() {
               <p className="font-serif uppercase tracking-wide text-foreground">
                 Perfect was never the point<br />We learn. We evolve. We return.<br />Always.
               </p>
-              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-4 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]" />
+              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-3 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]" />
             </div>
           </div>
         </div>
