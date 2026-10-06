@@ -69,12 +69,12 @@ export function Header({
             <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
           </span>
           <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
-            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
+            <span className="h-px w-[calc(100%+8px)] -mx-1 opacity-0" style={{ backgroundColor: ink }} />
             <span className="px-0.5">IN</span>
             <span className="h-px w-[calc(100%+8px)] -mx-1 opacity-0" style={{ backgroundColor: ink }} />
           </span>
           <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
-            <span className="h-px w-[calc(100%+8px)] -mx-1 opacity-0" style={{ backgroundColor: ink }} />
+            <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
             <span className="px-0.5">PATTERN</span>
             <span className="h-px w-[calc(100%+8px)] -mx-1" style={{ backgroundColor: ink }} />
           </span>
