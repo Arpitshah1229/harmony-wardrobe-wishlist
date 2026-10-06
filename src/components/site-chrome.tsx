@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { User, ShoppingBag, Heart } from "lucide-react";
+import { User, ShoppingBag, Heart, Menu, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 import { useCart } from "@/lib/cart";
