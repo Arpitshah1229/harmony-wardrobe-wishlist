@@ -116,7 +116,7 @@ function HomePage() {
       </section>
 
       <section className="bg-home-linen p-3 sm:p-5">
-        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:h-[max(50vh,380px)] md:grid-cols-3">
+        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:h-[50vh] md:min-h-[380px] md:grid-cols-3">
           {featured.map((item) => (
             <Link
               key={item.slug}
