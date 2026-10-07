@@ -53,7 +53,7 @@ function Field({
 function RegisterPage() {
   const { redirect } = Route.useSearch();
   const navigate = useNavigate();
-  const { register } = useAuth();
+  const { register, emailExists } = useAuth();
 
   const [step, setStep] = useState<"details" | "otp">("details");
   const [name, setName] = useState("");
@@ -79,7 +79,17 @@ function RegisterPage() {
       return;
     }
     setError("");
-    register({ name: name.trim(), mobile, email: email.trim() });
+    const result = register({
+      name: name.trim(),
+      mobile,
+      email: email.trim(),
+      password,
+    });
+    if (!result.ok) {
+      setError(result.error);
+      setStep("details");
+      return;
+    }
     navigate({ to: redirect as never });
   };
 
@@ -245,7 +255,7 @@ function RegisterPage() {
                   className="mt-5 h-11 w-full rounded-none text-[11px] font-bold tracking-[0.24em]"
                   style={{ backgroundColor: BROWN, color: IVORY }}
                 >
-                  <ShieldCheck size={13} /> VERIFY & CREATE ACCOUNT
+                  <ShieldCheck size={13} /> VERIFY &amp; SIGN IN
                 </Button>
               </>
             )}
