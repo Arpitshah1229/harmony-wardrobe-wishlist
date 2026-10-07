@@ -88,12 +88,12 @@ function RegisterPage() {
       <main className="relative isolate flex-1 overflow-hidden">
         <div
           className="relative w-full min-h-[740px]"
-          style={{ aspectRatio: "1920 / 1262" }}
+          style={{ aspectRatio: "1920 / 1212" }}
         >
           <img
             src={accountBackground.url}
             alt="Man wearing a white NIP shirt drinking tea against a tropical wallpaper"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_50%]"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_100%]"
           />
           <div
             className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/60 via-foreground/15 to-transparent"
