@@ -239,9 +239,6 @@ function LoginPage() {
               <p className="font-serif text-[24px] font-semibold tracking-[0.35em]" style={{ color: BROWN }}>
                 NIP
               </p>
-              <p className="mt-1 text-[9px] font-semibold tracking-[0.32em]" style={{ color: BROWN }}>
-                NOTIONS IN PATTERN
-              </p>
               <p
                 className="mt-2 text-[10px] font-medium tracking-[0.26em]"
                 style={{ color: BROWN }}
