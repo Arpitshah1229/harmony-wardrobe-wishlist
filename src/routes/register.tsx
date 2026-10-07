@@ -59,6 +59,7 @@ function RegisterPage() {
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
 
@@ -66,6 +67,7 @@ function RegisterPage() {
     if (name.trim().length < 2) return setError("Please enter your full name.");
     if (normalizeMobile(mobile).length !== 10) return setError("Enter a valid 10 digit mobile number.");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) return setError("Enter a valid email address.");
+    if (password.length < 6) return setError("Create a password with at least 6 characters.");
     setError("");
     setStep("otp");
   };
@@ -170,6 +172,15 @@ function RegisterPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@email.com"
                   autoComplete="email"
+                />
+                <Field
+                  id="password"
+                  label="CREATE PASSWORD"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="At least 6 characters"
+                  autoComplete="new-password"
                 />
 
                 <Button
