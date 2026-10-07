@@ -105,19 +105,19 @@
   bottom: 0;
   z-index: -5;
   pointer-events: none;
-  backdrop-filter: blur(9px);
+  backdrop-filter: blur(4px);
 }
 
 .login-edge-blur-left {
   left: 0;
-  width: 11%;
-  mask-image: linear-gradient(to right, black 40%, transparent 100%);
+  width: 6%;
+  mask-image: linear-gradient(to right, black 30%, transparent 100%);
 }
 
 .login-edge-blur-right {
   right: 0;
-  width: 7%;
-  mask-image: linear-gradient(to left, black 40%, transparent 100%);
+  width: 6%;
+  mask-image: linear-gradient(to left, black 30%, transparent 100%);
 }
 
 .register-edge-blur {
