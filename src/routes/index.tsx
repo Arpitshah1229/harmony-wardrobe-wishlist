@@ -116,7 +116,7 @@ function HomePage() {
       </section>
 
       <section className="bg-home-linen p-3 sm:p-5">
-        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:h-[50vh] md:grid-cols-3">
+        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:h-[max(50vh,380px)] md:grid-cols-3">
           {featured.map((item) => (
             <Link
               key={item.slug}
@@ -134,7 +134,7 @@ function HomePage() {
                 <div className="w-full">
                   <h2 className="flex h-8 items-center justify-center font-serif text-2xl uppercase tracking-wide">{item.name}</h2>
                   <span className="mx-auto my-2 block h-px w-2/3 bg-home-light" />
-                  <p className="mb-1 flex min-h-[42px] items-start justify-center text-center text-xs font-light leading-relaxed tracking-wide">{item.copy}</p>
+                  <p className="mb-4 flex min-h-[42px] items-start justify-center text-center text-xs font-light leading-relaxed tracking-wide">{item.copy}</p>
                   <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em]">
                     Explore <ArrowRight className="h-3 w-3" />
                   </span>
