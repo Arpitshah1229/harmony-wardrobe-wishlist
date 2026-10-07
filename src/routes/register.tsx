@@ -67,6 +67,7 @@ function RegisterPage() {
     if (name.trim().length < 2) return setError("Please enter your full name.");
     if (normalizeMobile(mobile).length !== 10) return setError("Enter a valid 10 digit mobile number.");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) return setError("Enter a valid email address.");
+    if (emailExists(email)) return setError("An account with this email already exists. Please login.");
     if (password.length < 6) return setError("Create a password with at least 6 characters.");
     setError("");
     setStep("otp");

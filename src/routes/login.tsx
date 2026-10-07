@@ -45,12 +45,15 @@ function LoginPage() {
       setError("Enter a valid 10 digit mobile number.");
       return;
     }
-    if (password.trim().length < 4) {
+    if (password.length < 6) {
       setError("Enter your password.");
       return;
     }
-    setError("");
-    login(mobile);
+    const result = login(mobile, password);
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
     navigate({ to: redirect as never });
   };
 
