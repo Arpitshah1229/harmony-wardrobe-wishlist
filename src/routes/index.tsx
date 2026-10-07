@@ -116,13 +116,13 @@ function HomePage() {
       </section>
 
       <section className="bg-home-linen p-3 sm:p-5">
-        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:h-[50vh] md:min-h-[470px] md:grid-cols-3">
+        <div className="grid min-h-[280px] grid-cols-1 gap-1 md:grid-cols-3">
           {featured.map((item) => (
             <Link
               key={item.slug}
               to="/product/$slug"
               params={{ slug: item.slug }}
-              className="group relative grid min-h-[420px] overflow-hidden bg-cream md:min-h-0"
+              className="group relative grid min-h-[420px] overflow-hidden bg-cream md:aspect-square md:min-h-0"
             >
               <img
                 src={item.image}
