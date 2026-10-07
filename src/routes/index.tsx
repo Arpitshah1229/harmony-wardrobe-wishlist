@@ -135,7 +135,7 @@ function HomePage() {
                   <h2 className="flex h-7 items-center justify-center font-serif text-2xl uppercase tracking-wide">{item.name}</h2>
                   <span className="mx-auto my-1.5 block h-px w-2/3 bg-home-light" />
                   <p className="mb-4 flex min-h-[42px] items-start justify-center text-center text-xs font-light leading-relaxed tracking-wide">{item.copy}</p>
-                  <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em]">
+                  <span className="inline-flex -translate-y-[22px] items-center gap-2 text-[10px] uppercase tracking-[0.12em]">
                     Explore <ArrowRight className="h-3 w-3" />
                   </span>
                 </div>
