@@ -9,7 +9,7 @@ import {
 } from "react";
 
 const STORAGE_KEY = "nip-auth-v1";
-const USERS_KEY = "nip-users-v1";
+const USERS_KEY = "nip-users-v2";
 
 /** Demo build: any mobile number logs in with this code. */
 export const DEMO_OTP = "1234";
@@ -20,27 +20,33 @@ export type AppUser = {
   email: string;
 };
 
+/** What we keep on file for a registered account, including the password. */
+type StoredUser = AppUser & { password: string };
+
+export type AuthResult = { ok: true } | { ok: false; error: string };
+
 type AuthContextValue = {
   user: AppUser | null;
   isLoggedIn: boolean;
   findUser: (mobile: string) => AppUser | null;
-  register: (user: AppUser) => void;
-  login: (mobile: string) => void;
+  emailExists: (email: string) => boolean;
+  register: (user: AppUser & { password: string }) => AuthResult;
+  login: (mobile: string, password: string) => AuthResult;
   logout: () => void;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
-function readUsers(): AppUser[] {
+function readUsers(): StoredUser[] {
   try {
     const raw = window.localStorage.getItem(USERS_KEY);
-    return raw ? (JSON.parse(raw) as AppUser[]) : [];
+    return raw ? (JSON.parse(raw) as StoredUser[]) : [];
   } catch {
     return [];
   }
 }
 
-function writeUsers(users: AppUser[]) {
+function writeUsers(users: StoredUser[]) {
   try {
     window.localStorage.setItem(USERS_KEY, JSON.stringify(users));
   } catch {
@@ -76,25 +82,59 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const findUser = useCallback((mobile: string) => {
     const m = normalizeMobile(mobile);
-    return readUsers().find((u) => normalizeMobile(u.mobile) === m) ?? null;
+    const found = readUsers().find((u) => normalizeMobile(u.mobile) === m);
+    return found ? { name: found.name, mobile: found.mobile, email: found.email } : null;
+  }, []);
+
+  const emailExists = useCallback((email: string) => {
+    const e = email.trim().toLowerCase();
+    return readUsers().some((u) => u.email.toLowerCase() === e);
   }, []);
 
   const register = useCallback(
-    (next: AppUser) => {
+    (next: AppUser & { password: string }): AuthResult => {
       const m = normalizeMobile(next.mobile);
-      const record: AppUser = { ...next, mobile: m };
-      const users = readUsers().filter((u) => normalizeMobile(u.mobile) !== m);
+      const email = next.email.trim().toLowerCase();
+
+      if (m.length !== 10) return { ok: false, error: "Enter a valid 10 digit mobile number." };
+      if (next.password.length < 6)
+        return { ok: false, error: "Create a password with at least 6 characters." };
+
+      const users = readUsers();
+      if (users.some((u) => normalizeMobile(u.mobile) === m))
+        return { ok: false, error: "An account with this mobile number already exists. Please login." };
+      if (users.some((u) => u.email.toLowerCase() === email))
+        return { ok: false, error: "An account with this email already exists. Please login." };
+
+      const record: StoredUser = {
+        name: next.name.trim(),
+        mobile: m,
+        email,
+        password: next.password,
+      };
       writeUsers([...users, record]);
-      persist(record);
+      persist({ name: record.name, mobile: record.mobile, email: record.email });
+      return { ok: true };
     },
     [persist],
   );
 
   const login = useCallback(
-    (mobile: string) => {
+    (mobile: string, password: string): AuthResult => {
       const m = normalizeMobile(mobile);
-      const existing = readUsers().find((u) => normalizeMobile(u.mobile) === m);
-      persist(existing ?? { name: "Guest", mobile: m, email: "" });
+      if (m.length !== 10) return { ok: false, error: "Enter a valid 10 digit mobile number." };
+
+      const found = readUsers().find((u) => normalizeMobile(u.mobile) === m);
+      if (!found)
+        return {
+          ok: false,
+          error: "No account found for this mobile number. Please create an account.",
+        };
+      if (found.password !== password)
+        return { ok: false, error: "Incorrect password. Please try again." };
+
+      persist({ name: found.name, mobile: found.mobile, email: found.email });
+      return { ok: true };
     },
     [persist],
   );
@@ -102,8 +142,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = useCallback(() => persist(null), [persist]);
 
   const value = useMemo(
-    () => ({ user, isLoggedIn: !!user, findUser, register, login, logout }),
-    [user, findUser, register, login, logout],
+    () => ({
+      user,
+      isLoggedIn: !!user,
+      findUser,
+      emailExists,
+      register,
+      login,
+      logout,
+    }),
+    [user, findUser, emailExists, register, login, logout],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
