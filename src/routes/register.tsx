@@ -200,7 +200,7 @@ function RegisterPage() {
                   className="mt-4 h-11 w-full rounded-none text-[11px] font-bold tracking-[0.24em]"
                   style={{ backgroundColor: BROWN, color: IVORY }}
                 >
-                  <UserPlus size={13} /> SEND OTP
+                  <UserPlus size={13} /> CREATE ACCOUNT
                 </Button>
               </>
             ) : (
