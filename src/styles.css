@@ -119,3 +119,24 @@
   width: 7%;
   mask-image: linear-gradient(to left, black 40%, transparent 100%);
 }
+
+.register-edge-blur {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -5;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.register-edge-blur-left {
+  left: 0;
+  width: 6%;
+  mask-image: linear-gradient(to right, black 30%, transparent 100%);
+}
+
+.register-edge-blur-right {
+  right: 0;
+  width: 6%;
+  mask-image: linear-gradient(to left, black 30%, transparent 100%);
+}
