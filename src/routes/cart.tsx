@@ -154,7 +154,7 @@ function CartPage() {
 
   return (
     <div className="bg-background min-h-screen flex flex-col">
-      <Header />
+      <Header solid solidInk="#E5D9C5" />
       <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
 
       <main className="flex-1 px-8 md:px-16 py-12">

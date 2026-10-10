@@ -60,7 +60,7 @@ function WishlistPage() {
 
   return (
     <div className="bg-background min-h-screen">
-      <Header />
+      <Header solid solidInk="#E5D9C5" />
 
       <main className="px-8 md:px-16 py-14">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-center flex items-center justify-center gap-3" style={{ color: BROWN }}>
