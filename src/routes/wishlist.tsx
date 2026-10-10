@@ -1,37 +1,11 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { X } from "lucide-react";
+import { X, HeartCrack } from "lucide-react";
 import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import { useWishlist } from "@/lib/wishlist";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 
-function BrokenHeart({ className, color }: { className?: string; color?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M32 55.5S9.5 40.5 9.5 23.75C9.5 15.06 16.56 8 25.25 8c4.56 0 8.65 2.03 11.44 5.23C39.42 10.03 43.52 8 47.75 8 56.44 8 63.5 15.06 63.5 23.75c0 16.75-22.5 31.75-31.5 31.75Z"
-        stroke={color || "currentColor"}
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M32 14L28 24L36 30L32 38"
-        stroke={color || "currentColor"}
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 
 
@@ -73,7 +47,7 @@ function WishlistPage() {
 
         {saved.length === 0 ? (
           <div className="text-center py-16">
-            <BrokenHeart className="mx-auto mb-6 h-20 w-20" color="#7B1113" />
+            <HeartCrack className="mx-auto mb-6 h-20 w-20" color="#7B1113" strokeWidth={1.5} />
             <p className="text-[15px] mb-8" style={{ color: DARK }}>
               You haven't saved any pieces yet.
             </p>
