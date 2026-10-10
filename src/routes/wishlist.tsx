@@ -43,7 +43,7 @@ function WishlistPage() {
           aria-hidden="true"
           className="h-full w-full scale-105 object-cover blur-[5px]"
         />
-        <div className="absolute inset-0 bg-background/55" />
+        <div className="absolute inset-0 bg-background/25" />
       </div>
 
       <Header solid solidInk="#E5D9C5" />
