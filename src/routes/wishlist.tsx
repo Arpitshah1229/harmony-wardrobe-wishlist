@@ -5,6 +5,7 @@ import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import { useWishlist } from "@/lib/wishlist";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
+import wishlistBackground from "@/assets/wishlist-background.jpg.asset.json";
 
 
 
@@ -33,7 +34,18 @@ function WishlistPage() {
   const [dialogProduct, setDialogProduct] = useState<typeof products[number] | null>(null);
 
   return (
-    <div className="bg-background min-h-screen">
+    <div className="relative min-h-screen">
+      {/* Softened photo backdrop */}
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <img
+          src={wishlistBackground.url}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full scale-105 object-cover blur-[5px]"
+        />
+        <div className="absolute inset-0 bg-background/25" />
+      </div>
+
       <Header solid solidInk="#E5D9C5" />
 
       <main className="px-8 md:px-16 py-14">
