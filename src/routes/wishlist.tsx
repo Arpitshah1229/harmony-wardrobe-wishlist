@@ -5,6 +5,7 @@ import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import { useWishlist } from "@/lib/wishlist";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
+import wishlistBackground from "@/assets/wishlist-background.jpg.asset.json";
 
 
 
