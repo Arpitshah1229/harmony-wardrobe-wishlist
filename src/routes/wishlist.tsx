@@ -48,8 +48,10 @@ function WishlistPage() {
         {saved.length === 0 ? (
           <div className="text-center py-16">
             <HeartCrack className="mx-auto mb-6 h-20 w-20" color="#7B1113" strokeWidth={1.5} />
-            <p className="text-[15px] mb-8" style={{ color: DARK }}>
-              You haven't saved any pieces yet.
+            <p className="text-[15px] mb-8 leading-relaxed" style={{ color: DARK }}>
+              Nothing saved here just yet.
+              <br />
+              Why not take another look around?
             </p>
             <Link
               to="/collections"
