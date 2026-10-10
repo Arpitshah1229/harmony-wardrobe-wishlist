@@ -35,20 +35,20 @@ function WishlistPage() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Softened photo backdrop */}
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <img
-          src={wishlistBackground.url}
-          alt=""
-          aria-hidden="true"
-          className="h-full w-full scale-105 object-cover blur-[5px]"
-        />
-        <div className="absolute inset-0 bg-background/25" />
-      </div>
-
       <Header solid solidInk="#E5D9C5" />
 
-      <main className="px-8 md:px-16 py-14">
+      <main className="relative isolate overflow-hidden px-8 md:px-16 py-14">
+        {/* Softened photo backdrop — main section only */}
+        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <img
+            src={wishlistBackground.url}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full scale-105 object-cover blur-[5px]"
+          />
+          <div className="absolute inset-0 bg-background/25" />
+        </div>
+
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-center flex items-center justify-center gap-3" style={{ color: BROWN }}>
           Your Wishlist
           <svg viewBox="0 0 24 24" fill="#7B1113" className="h-6 w-6 md:h-8 md:w-8 mt-1" aria-hidden="true">
