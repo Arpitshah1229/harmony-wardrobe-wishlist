@@ -111,7 +111,7 @@ function FounderPage() {
           <ImgBlock src={founder6.url} alt="Chikankari embroidery close-up" />
 
           {/* Row 6 : complete rectangular photo, connected to the preceding row */}
-          <ImgBlock src={founder7.url} alt="Man carving a wooden block, and the studio at work" />
+          <img src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="w-full h-full min-h-[520px] md:min-h-[620px] object-cover object-[20%_50%] block" />
           <div className="flex flex-col gap-0">
           <TextBlock num="7" title="A day at Notions in Pattern." vCenter>
             <p>My typical day looks like swatches. Colours for dyes. Thread combinations. Sitting with my team, figuring things out together. The path is not always clear, but the destination always is. There are too many swatches in my bag. Too many threads. Random things everywhere.</p>
