@@ -101,7 +101,7 @@ export const products: Product[] = [
       { src: gulraazLook3.url, label: "Dinner Plans", tall: true },
     ],
     colorName: "Natural (undyed)",
-    colorHex: "#EDE6D6",
+    colorHex: "#A8A28C",
     detailImg: stitchesStrip.url,
     description: [
       "Like a flower quietly unfolding from within, shaping the soul as it blooms, and leaving its traces along the way. GulRaaz shirt is crafted in breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
