@@ -303,7 +303,7 @@ export const products: Product[] = [
       { src: onionPinkLook3.url, label: "Timeless Notion", tall: true },
     ],
     colorName: "Hand-Dyed Taupe",
-    colorHex: "#A8968F",
+    colorHex: "#C6B5AD",
     detailImg: stitchesStrip.url,
     description: [
       "Zameen is grounded in where it comes from, soft, earthy, and always close to its roots. Tonal yet with a personality. It doesn't ask to be noticed, but holds a quiet presence effortlessly. Mulmul, in its finest form. Bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
