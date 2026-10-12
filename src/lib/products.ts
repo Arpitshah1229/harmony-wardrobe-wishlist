@@ -134,7 +134,7 @@ export const products: Product[] = [
       { src: bahaarLook3.url, label: "New Age Old School", tall: true },
     ],
     colorName: "Green",
-    colorHex: "#7A8063",
+    colorHex: "#465740",
     detailImg: stitchesStrip.url,
     description: [
       "Inspired by the quiet rhythm of nature, Bahaar is about growth that keeps unfolding, even with a little uncertainty, we keep moving forward. Bahaar shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
