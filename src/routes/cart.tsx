@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Minus, Plus, X, ShoppingBag, Truck, RotateCcw, Lock, TicketPercent } from "lucide-react";
+import { Minus, Plus, X, Truck, RotateCcw, Lock, TicketPercent } from "lucide-react";
+import { BagIcon } from "@/components/bag-icon";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { PRODUCT_SUBTITLE } from "@/lib/products";
 import { useCart, formatPrice } from "@/lib/cart";
@@ -173,7 +174,7 @@ function CartPage() {
 
         {count === 0 ? (
           <div className="max-w-md mx-auto text-center py-16">
-            <ShoppingBag size={40} strokeWidth={1.2} color={BROWN} className="mx-auto" />
+            <div className="flex justify-center"><BagIcon size={64} color={BROWN} detail="fine" /></div>
             <p className="font-serif text-2xl mt-6" style={{ color: BROWN }}>
               Your cart is empty
             </p>

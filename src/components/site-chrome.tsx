@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { User, ShoppingBag, Heart, Menu, X } from "lucide-react";
+import { User, Heart, Menu, X } from "lucide-react";
+import { BagIcon } from "@/components/bag-icon";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 import { useCart } from "@/lib/cart";
@@ -114,7 +115,7 @@ export function Header({
           <Heart size={16} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> <span className="hidden 2xl:inline">WISHLIST </span>({wishCount})
         </Link>
         <Link to="/cart" className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-          <ShoppingBag size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
+          <BagIcon size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
         </Link>
       </div>
 
@@ -149,7 +150,7 @@ export function Header({
               <Heart size={15} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> WISHLIST ({wishCount})
             </Link>
             <Link to="/cart" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
-              <ShoppingBag size={15} /> CART ({cartCount})
+              <BagIcon size={15} /> CART ({cartCount})
             </Link>
           </div>
         </nav>
