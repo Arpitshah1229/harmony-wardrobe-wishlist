@@ -111,8 +111,8 @@ function FounderPage() {
           <ImgBlock src={founder6.url} alt="Chikankari embroidery close-up" />
 
           {/* Row 6 : image | two stacked text */}
-          <div className="w-full h-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden">
-            <img src={founder7.url} alt="Man working with threads, swatches and tools" className="w-full h-full object-contain block" />
+          <div className="w-full h-full min-h-[520px] md:min-h-[620px] p-6 md:p-8 flex items-center justify-center overflow-hidden">
+            <img src={founder7.url} alt="Man working with threads, swatches and tools" className="max-w-full max-h-full object-contain block" />
           </div>
           <div className="flex flex-col gap-0">
             <TextBlock num="7" title="A day at Notions in Pattern.">
@@ -134,8 +134,8 @@ function FounderPage() {
             <p>If there is one thing this journey has given me, it is the privilege of sitting beside the people I love working with most. Learning from them. Moving with them. Creating together, of something that didn't exist before, according to us.</p>
             <p>That, more than anything, is where Notions in Pattern lives.</p>
           </TextBlock>
-          <div className="w-full h-full min-h-[520px] md:min-h-[620px] bg-[#F7F4EE] flex items-center justify-center overflow-hidden">
-            <img src={founder9.url} alt="Packing shirts and hand-marked NIP pouches in the studio" className="w-full h-full object-contain block" />
+          <div className="w-full h-full min-h-[520px] md:min-h-[620px] bg-[#F7F4EE] p-6 md:p-8 flex items-center justify-center overflow-hidden">
+            <img src={founder9.url} alt="Packing shirts and hand-marked NIP pouches in the studio" className="max-w-full max-h-full object-contain block" />
           </div>
         </div>
       </section>
