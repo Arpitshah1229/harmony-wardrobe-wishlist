@@ -67,7 +67,7 @@ function FounderPage() {
           </div>
 
           {/* Ch 1 + Ch 2 stacked */}
-          <div className="flex flex-col gap-0 md:[&>div]:p-4 md:[&>div_h3]:text-[22px] md:[&>div_div.text-\[13px\]]:leading-[1.6]">
+          <div className="flex flex-col gap-0">
             <TextBlock num="1" title="I grew up moving.">
               <p>Army family.</p>
               <p>Sometimes the most metropolitan cities. Sometimes the most remote postings. Places most people never reach.</p>
@@ -114,7 +114,7 @@ function FounderPage() {
           <div className="w-full self-start overflow-hidden">
             <img src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="w-full h-auto block" />
           </div>
-          <div className="flex flex-col gap-0">
+          <div className="flex flex-col gap-0 md:[&>div]:p-4 md:[&_h3]:text-[22px] md:[&_h3]:mb-3 md:[&_p]:leading-[1.6]">
           <TextBlock num="7" title="A day at Notions in Pattern." vCenter>
             <p>My typical day looks like swatches. Colours for dyes. Thread combinations. Sitting with my team, figuring things out together. The path is not always clear, but the destination always is. There are too many swatches in my bag. Too many threads. Random things everywhere.</p>
             <p>But a very clear vision.</p>
