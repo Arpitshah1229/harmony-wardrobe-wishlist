@@ -169,7 +169,7 @@ export const products: Product[] = [
       { src: kinaraLook3.url, label: "Slow Days", tall: true },
     ],
     colorName: "Hand-Dyed Summer Yellow",
-    colorHex: "#D9B24C",
+    colorHex: "#AD9567",
     detailImg: stitchesStrip.url,
     description: [
       "Kinara captures the quiet joy of sunset skies, slow afternoons, and memories that linger long after the journey ends. Inspired by the simple happiness of coastal escapes, it is made to bring a feeling of ease, warmth, and lightness. Kinara shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
