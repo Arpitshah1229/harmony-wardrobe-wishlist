@@ -5,7 +5,7 @@ import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-
 import { Button } from "@/components/ui/button";
 import { useAuth, normalizeMobile, DEMO_OTP } from "@/lib/auth";
 import accountBackground from "@/assets/register-wallpaper.jpg.asset.json";
-import nipLogo from "@/assets/nip_logo.png.asset.json";
+import nipMonogram from "@/assets/nip-monogram.png.asset.json";
 
 export const Route = createFileRoute("/register")({
   component: RegisterPage,
@@ -144,7 +144,7 @@ function RegisterPage() {
         <section className="ml-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:translate-x-4 lg:translate-x-10">
           <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
             <div className="flex flex-col items-center">
-              <img src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
+              <img src={nipMonogram.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
             </div>
 
             <h1 className="mt-2.5 text-center font-serif text-[30px] leading-tight text-foreground">

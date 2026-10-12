@@ -3,6 +3,7 @@ import { User, Heart, Menu, X } from "lucide-react";
 import { BagIcon } from "@/components/bag-icon";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
+import nipMonogram from "@/assets/nip-monogram.png.asset.json";
 import { useCart } from "@/lib/cart";
 import { useWishlist } from "@/lib/wishlist";
 import { useAuth } from "@/lib/auth";
@@ -61,7 +62,7 @@ export function Header({
     >
       <div className="flex min-w-0 items-center gap-3 xl:gap-4">
         {!hideLogo && (
-          <img src={nipLogo.url} alt="Notions in Pattern" className="h-8 w-auto shrink-0 md:h-9 xl:h-10" />
+          <img src={nipMonogram.url} alt="Notions in Pattern" className="h-[19px] w-auto shrink-0 sm:h-[24px] lg:h-[27px] xl:h-[34px]" />
         )}
         <Link to="/" className="flex items-center gap-1.5 sm:gap-2 font-serif font-bold text-[11px] sm:text-sm lg:text-base xl:text-xl tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
           <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
