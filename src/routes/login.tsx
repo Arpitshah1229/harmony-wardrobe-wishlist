@@ -100,7 +100,7 @@ function LoginPage() {
         <section className="mx-auto w-full max-w-[355px] -translate-x-20 border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:-translate-x-40">
           <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
             <div className="flex flex-col items-center">
-              <img src={nipMonogram.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
+              <img src={nipMonogram.url} alt="Notions in Pattern" className="h-20 w-auto object-contain md:h-24" style={{ transform: "translateX(9.5%)" }} />
             </div>
 
             <h1 className="mt-2.5 text-center font-serif text-[30px] leading-tight text-foreground">
