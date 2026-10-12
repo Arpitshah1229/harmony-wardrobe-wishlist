@@ -67,7 +67,7 @@ function FounderPage() {
           </div>
 
           {/* Ch 1 + Ch 2 stacked */}
-          <div className="flex flex-col gap-0">
+          <div className="flex flex-col gap-0 md:[&>div]:p-4 md:[&>div_h3]:text-[22px] md:[&>div_div.text-\[13px\]]:leading-[1.6]">
             <TextBlock num="1" title="I grew up moving.">
               <p>Army family.</p>
               <p>Sometimes the most metropolitan cities. Sometimes the most remote postings. Places most people never reach.</p>
@@ -119,12 +119,13 @@ function FounderPage() {
             <p>My typical day looks like swatches. Colours for dyes. Thread combinations. Sitting with my team, figuring things out together. The path is not always clear, but the destination always is. There are too many swatches in my bag. Too many threads. Random things everywhere.</p>
             <p>But a very clear vision.</p>
           </TextBlock>
+          </div>
+          <div className="flex flex-col gap-0">
           <TextBlock num="8" title="My people." vCenter>
             <p>My mother is a starist, a traveller, a doctor of Hindi literature. My father, a retired Army officer, art enthusiast, someone who writes beautifully, plays guitar, and loves to read. Craft and creativity have always run quietly through my family.</p>
             <p>I am what I am because of them.</p>
             <p>And I love to dance. That too.</p>
           </TextBlock>
-          </div>
 
           {/* Row 7 : text | image */}
           <TextBlock num="9" title="With Gratitude." footer={<p className="font-serif text-center text-[22px] md:text-[26px] mt-8" style={{ color: BROWN }}>Here's to many more chapters...</p>}>
@@ -134,6 +135,7 @@ function FounderPage() {
             <p>If there is one thing this journey has given me, it is the privilege of sitting beside the people I love working with most. Learning from them. Moving with them. Creating together, of something that didn't exist before, according to us.</p>
             <p>That, more than anything, is where Notions in Pattern lives.</p>
           </TextBlock>
+          </div>
           <div className="w-full h-full min-h-[520px] md:min-h-[620px] overflow-hidden">
             <img src={founder9.url} alt="Packing shirts and hand-marked NIP pouches in the studio" className="w-full h-full object-cover object-left block" />
           </div>
