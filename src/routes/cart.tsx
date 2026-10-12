@@ -174,7 +174,7 @@ function CartPage() {
 
         {count === 0 ? (
           <div className="max-w-md mx-auto text-center py-16">
-            <div className="flex justify-center"><BagIcon size={44} color={BROWN} /></div>
+            <div className="flex justify-center"><BagIcon size={44} color={BROWN} detail="fine" /></div>
             <p className="font-serif text-2xl mt-6" style={{ color: BROWN }}>
               Your cart is empty
             </p>
