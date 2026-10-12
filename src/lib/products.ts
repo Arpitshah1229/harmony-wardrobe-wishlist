@@ -236,7 +236,7 @@ export const products: Product[] = [
       { src: raahLook3.url, label: "Timeless Notion", tall: true },
     ],
     colorName: "Hand-Dyed Sky Greyish-Blue",
-    colorHex: "#B9CBD8",
+    colorHex: "#DEECF7",
     detailImg: stitchesStrip.url,
     description: [
       "It doesn't matter which path you take. Every path leads somewhere. It is the journey that is meant to be lived, the stories, the moments, and everything we become along the way. There is no particular destination, and no urgency to get there. Enjoy the ride, and let it take you where you're meant to be. Raah shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
