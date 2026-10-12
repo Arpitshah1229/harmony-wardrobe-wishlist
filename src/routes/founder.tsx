@@ -110,10 +110,11 @@ function FounderPage() {
           </TextBlock>
           <ImgBlock src={founder6.url} alt="Chikankari embroidery close-up" />
 
-          {/* Row 6 : full-width photo band — whole photo, no crop, touches every corner */}
-          <div className="w-full md:col-span-2 overflow-hidden">
+          {/* Row 6 : complete rectangular photo, connected to the preceding row */}
+          <div className="w-full self-start overflow-hidden">
             <img src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="w-full h-auto block" />
           </div>
+          <div className="flex flex-col gap-0">
           <TextBlock num="7" title="A day at Notions in Pattern." vCenter>
             <p>My typical day looks like swatches. Colours for dyes. Thread combinations. Sitting with my team, figuring things out together. The path is not always clear, but the destination always is. There are too many swatches in my bag. Too many threads. Random things everywhere.</p>
             <p>But a very clear vision.</p>
@@ -123,6 +124,7 @@ function FounderPage() {
             <p>I am what I am because of them.</p>
             <p>And I love to dance. That too.</p>
           </TextBlock>
+          </div>
 
           {/* Row 7 : text | image */}
           <TextBlock num="9" title="With Gratitude." footer={<p className="font-serif text-center text-[22px] md:text-[26px] mt-8" style={{ color: BROWN }}>Here's to many more chapters...</p>}>
