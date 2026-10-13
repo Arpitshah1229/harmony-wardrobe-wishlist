@@ -498,13 +498,9 @@ function ProductPage() {
           </div>
 
           <div className="mt-5">
-            <p className="text-[14px]" style={{ color: DARK }}>
-              <span className="font-bold">Colour:</span> {product.colorName}
+            <p className="text-[14px] leading-[1.7]" style={{ color: DARK }}>
+              <span className="font-bold">Colour:</span> {product.colorStory}
             </p>
-            <span
-              className="mt-2 inline-block h-9 w-9 border"
-              style={{ backgroundColor: product.colorHex, borderColor: BROWN }}
-            />
           </div>
 
           {/* Size */}

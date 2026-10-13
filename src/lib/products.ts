@@ -48,6 +48,7 @@ export type Product = {
   stylingImages?: { src: string; label: string; tall?: boolean }[];
   colorName: string;
   colorHex: string;
+  colorStory: string;
   detailImg: string;
   description: string[];
   details: [string, string][];
@@ -102,6 +103,7 @@ export const products: Product[] = [
     ],
     colorName: "Natural (undyed)",
     colorHex: "#A8A28C",
+    colorStory: "Warm Oatmeal Beige fabric with Muted Chestnut Brown embroidery.",
     detailImg: stitchesStrip.url,
     description: [
       "Like a flower quietly unfolding from within, shaping the soul as it blooms, and leaving its traces along the way. GulRaaz shirt is crafted in breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -135,6 +137,7 @@ export const products: Product[] = [
     ],
     colorName: "Green",
     colorHex: "#465740",
+    colorStory: "Muted Moss Green fabric with Warm Camel Brown embroidery.",
     detailImg: stitchesStrip.url,
     description: [
       "Inspired by the quiet rhythm of nature, Bahaar is about growth that keeps unfolding, even with a little uncertainty, we keep moving forward. Bahaar shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -170,6 +173,7 @@ export const products: Product[] = [
     ],
     colorName: "Hand-Dyed Summer Yellow",
     colorHex: "#AD9567",
+    colorStory: "Butter Yellow fabric with Muted Slate Blue embroidery.",
     detailImg: stitchesStrip.url,
     description: [
       "Kinara captures the quiet joy of sunset skies, slow afternoons, and memories that linger long after the journey ends. Inspired by the simple happiness of coastal escapes, it is made to bring a feeling of ease, warmth, and lightness. Kinara shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -203,6 +207,7 @@ export const products: Product[] = [
     ],
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
+    colorStory: "Dusty Rose fabric with Deep Maroon Red embroidery.",
     detailImg: stitchesStrip.url,
     description: [
       "Some marks are made to be seen immediately, but felt more deeply over time. Like the stamp on a letter, they quietly carry a story from one hand to another. A mark of identity, belonging, and the beauty of something made to be received and cherished. Mohar shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -237,6 +242,7 @@ export const products: Product[] = [
     ],
     colorName: "Hand-Dyed Sky Greyish-Blue",
     colorHex: "#DEECF7",
+    colorStory: "Greyish Powder Blue fabric with Dusty Blue embroidery.",
     detailImg: stitchesStrip.url,
     description: [
       "It doesn't matter which path you take. Every path leads somewhere. It is the journey that is meant to be lived, the stories, the moments, and everything we become along the way. There is no particular destination, and no urgency to get there. Enjoy the ride, and let it take you where you're meant to be. Raah shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -270,6 +276,7 @@ export const products: Product[] = [
     ],
     colorName: "White",
     colorHex: "#F4F1EA",
+    colorStory: "White fabric with white embroidery.",
     detailImg: stitchesStrip.url,
     description: [
       "It doesn't matter what the outside holds. One should be at ease with the lightest thing they reach for most. Mulmul, in its finest form, asks nothing of the body. Sukoon honours a tradition that has long carried this legacy, with a quiet touch of our own on, WHITE ON WHITE.",
@@ -304,6 +311,7 @@ export const products: Product[] = [
     ],
     colorName: "Hand-Dyed Taupe",
     colorHex: "#C1B3AA",
+    colorStory: "Warm Taupe fabric with Dusty Rose Pink and Muted light Grey embroidery.",
     detailImg: stitchesStrip.url,
     description: [
       "Zameen is grounded in where it comes from, soft, earthy, and always close to its roots. Tonal yet with a personality. It doesn't ask to be noticed, but holds a quiet presence effortlessly. Mulmul, in its finest form. Bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
