@@ -40,6 +40,10 @@ export const Route = createFileRoute("/product/$slug")({
 
 const BORDER = "rgba(75,53,40,0.25)";
 
+const PHONE_DISPLAY = "+91 75218 02791";
+const PHONE_TEL = "tel:+917521802791";
+const WHATSAPP_CHAT_URL = "https://wa.me/message/TDGR6XEQOHDJJ1";
+
 function WhatsAppIcon({ size = 26, className = "" }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -656,10 +660,10 @@ function ProductPage() {
               Get in touch. Mon to Sat, 10:00 AM to 6:00 PM IST.
             </p>
             <div className="mt-3 flex flex-wrap gap-5 text-[12px] font-bold tracking-[0.16em]" style={{ color: BROWN }}>
-              <a href="tel:+918108938523" className="flex items-center gap-1.5 hover:opacity-70">
-                <PhoneIcon size={16} /> 8108938523
+              <a href={PHONE_TEL} className="flex items-center gap-1.5 hover:opacity-70">
+                <PhoneIcon size={16} /> {PHONE_DISPLAY}
               </a>
-              <a href="https://wa.me/918108938523" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:opacity-70">
+              <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:opacity-70">
                 <WhatsAppIcon size={16} /> WHATSAPP
               </a>
               <a href="mailto:care.notionsinpattern@gmail.com" className="flex items-center gap-1.5 hover:opacity-70">
@@ -713,12 +717,12 @@ function ProductPage() {
             <div className="flex flex-col items-center gap-1.5">
               <PhoneIcon size={24} />
               <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>CALL</h3>
-              <a href="tel:+918108938523" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
+              <a href={PHONE_TEL} className="text-[13px] hover:opacity-70" style={{ color: DARK }}>{PHONE_DISPLAY}</a>
             </div>
             <div className="flex flex-col items-center gap-1.5">
               <WhatsAppIcon size={24} />
               <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>WHATSAPP CHAT</h3>
-              <a href="https://wa.me/918108938523" target="_blank" rel="noreferrer" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>8108938523</a>
+              <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noreferrer" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>{PHONE_DISPLAY}</a>
             </div>
             <div className="flex flex-col items-center gap-1.5">
               <GmailIcon size={24} />
