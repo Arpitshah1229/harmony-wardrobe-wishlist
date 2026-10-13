@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { User, Heart, Menu, X } from "lucide-react";
+import { User, Heart, Menu, X, Instagram } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { BagIcon } from "@/components/bag-icon";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
@@ -191,12 +192,19 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
   );
 }
 
+const INSTAGRAM_URL =
+  "https://instagram.com/notionsinpattern.nipstories?utm_source=qr&cplk=OG1hNDlpNThjYWl4";
+
+type FooterItem =
+  | string
+  | { label: string; to?: string; href?: string; icon?: LucideIcon };
+
 export function Footer() {
-  const cols = [
+  const cols: { title: string; items: FooterItem[] }[] = [
     { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
     { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
-    { title: "CONNECT", items: ["Instagram", "Email"] },
+    { title: "CONNECT", items: [{ label: "Instagram", href: INSTAGRAM_URL, icon: Instagram }, "Email"] },
 
   ];
   return (
@@ -212,10 +220,22 @@ export function Footer() {
               {c.items.map((i) => {
                 const label = typeof i === "string" ? i : i.label;
                 const to = typeof i === "string" ? undefined : i.to;
+                const href = typeof i === "string" ? undefined : i.href;
+                const ItemIcon = typeof i === "string" ? undefined : i.icon;
                 return (
                   <li key={label}>
                     {to ? (
                       <Link to={to} className="hover:opacity-70">{label}</Link>
+                    ) : href ? (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 hover:opacity-70"
+                      >
+                        {ItemIcon && <ItemIcon size={14} className="shrink-0" />}
+                        {label}
+                      </a>
                     ) : (
                       <a href="#" className="hover:opacity-70">{label}</a>
                     )}
