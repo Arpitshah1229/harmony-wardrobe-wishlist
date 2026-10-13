@@ -70,17 +70,17 @@ function AboutPage() {
 
       <div className="max-w-[1440px] mx-auto">
       {/* Hero */}
-      <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-2 md:gap-4 items-stretch">
+      <section className="px-8 md:px-16 pt-8 pb-20 grid lg:grid-cols-2 gap-2 lg:gap-4 items-stretch">
         <div className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
-          <h1 className="font-serif text-7xl md:text-8xl leading-[1.05] tracking-tight">
-            A thinking label<br />using craft as<br />expression.
+          <h1 className="font-serif text-6xl sm:text-7xl lg:text-8xl leading-[1.05] tracking-tight">
+            A thinking label<br className="hidden lg:block" /> using craft as<br className="hidden lg:block" /> expression.
           </h1>
           <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
           <p className="text-[17px] md:text-[18px] leading-[1.85] max-w-md">
             Exploring textiles and handicrafts as a way of understanding life, through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
-        <div className="h-full">
+        <div className="h-full aspect-[4/3] lg:aspect-auto overflow-hidden">
           <img src={aboutus1.url} alt="Artisans working on textile" className="w-full h-full object-cover" />
         </div>
       </section>
@@ -88,16 +88,16 @@ function AboutPage() {
       {/* Our Story */}
       <section className="px-8 md:px-16 pb-24">
         <h3 className={titleClass} style={{ color: BROWN }}>OUR STORY</h3>
-        <div className="grid md:grid-cols-4 gap-8 text-[13px] leading-[1.9] relative" style={{ color: DARK }}>
-          <div className="md:pr-6 md:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-[13px] leading-[1.9] relative" style={{ color: DARK }}>
+          <div className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>Notions in Pattern began at home.<br />With my mother.</p>
             <p>It did not begin as a brand,<br />but as something quieter. Repetition.</p>
           </div>
-          <div className="md:pr-6 md:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+          <div className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>The same sentences. The same advice. The same words heard so often, they fade into the background.</p>
             <p>Over time, they begin to structure how you think, respond, and move through the world.</p>
           </div>
-          <div className="md:pr-6 md:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+          <div className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>They were patterns.</p>
             <p>Notions in Pattern comes from that realisation.</p>
             <p>That nothing in us is fixed.<br />Not thought. Not behaviour.<br />Not meaning.</p>
@@ -152,7 +152,7 @@ function AboutPage() {
         style={{ backgroundImage: `url(${aboutus3.url})`, minHeight: "480px" }}
       >
         <div className="max-w-6xl relative z-10">
-          <div className="max-w-md" style={{ color: DARK }}>
+          <div className="max-w-md p-5 -mx-5 bg-background/85 backdrop-blur-[2px] lg:p-0 lg:mx-0 lg:bg-transparent lg:backdrop-blur-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="w-14 h-px mb-6" style={{ backgroundColor: `${BROWN}66` }} />
             <div className="space-y-2 text-[14px] leading-[1.9]">
