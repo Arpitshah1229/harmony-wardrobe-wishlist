@@ -38,7 +38,7 @@ const GST_RATE = 0.12;
 
 const DELIVERY_ADDRESS = {
   name: "Neha Prasad",
-  phone: "+91 81089 38523",
+  phone: "+91 75218 02791",
   address:
     "Rita Sharma, Locksley Hall, near Laxmi Kuti, Mallital, Nainital, Uttarakhand — 263002",
   email: "care@notionsinpattern.com",

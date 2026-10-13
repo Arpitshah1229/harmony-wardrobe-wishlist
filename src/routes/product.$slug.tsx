@@ -42,7 +42,8 @@ const BORDER = "rgba(75,53,40,0.25)";
 
 const PHONE_DISPLAY = "+91 75218 02791";
 const PHONE_TEL = "tel:+917521802791";
-const WHATSAPP_CHAT_URL = "https://wa.me/message/TDGR6XEQOHDJJ1";
+const WHATSAPP_CHAT_URL =
+  "https://wa.me/917521802791?text=Hi%20NIP%2C%20I%27d%20like%20to%20know%20more%20about%20this%20shirt.";
 
 function WhatsAppIcon({ size = 26, className = "" }: { size?: number; className?: string }) {
   return (
