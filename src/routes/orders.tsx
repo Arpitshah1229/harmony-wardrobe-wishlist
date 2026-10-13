@@ -41,7 +41,7 @@ const DELIVERY_ADDRESS = {
   phone: "+91 75218 02791",
   address:
     "Rita Sharma, Locksley Hall, near Laxmi Kuti, Mallital, Nainital, Uttarakhand — 263002",
-  email: "care@notionsinpattern.com",
+  email: "hello@notionsinpattern.com",
 };
 
 function OrdersPage() {
@@ -251,7 +251,7 @@ function OrdersPage() {
             </div>
             <div>
               <p className="text-[10px] font-bold tracking-[0.16em]" style={{ color: BROWN }}>EMAIL</p>
-              <p className="mt-1">{DELIVERY_ADDRESS.email}</p>
+              <a href={`mailto:${DELIVERY_ADDRESS.email}`} className="mt-1 inline-block hover:opacity-70">{DELIVERY_ADDRESS.email}</a>
             </div>
           </div>
         </section>
