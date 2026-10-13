@@ -63,8 +63,11 @@ function FounderPage() {
 
           {/* Hero text */}
           <div className="p-8 md:p-10 h-full flex flex-col justify-center" style={{ color: BROWN }}>
-            <img src={logo.url} alt="Notions in Pattern" className="w-16 h-auto mb-4" />
-            <p className="text-[12px] font-bold tracking-[0.28em] mb-4">FOUNDER &amp; DESIGNER</p>
+            <div className="flex w-fit flex-col items-center">
+              <img src={logo.url} alt="Notions in Pattern" className="w-16 h-auto mb-4 -translate-x-[8.5px]" />
+              <p className="text-[12px] font-bold tracking-[0.28em] mb-4">FOUNDER &amp; DESIGNER</p>
+            </div>
+
             <div className="w-16 h-px mb-6" style={{ backgroundColor: `${BROWN}66` }} />
             <h1 className="font-serif text-6xl md:text-7xl leading-[1.05] tracking-tight mb-3">Neha Prasad</h1>
             <div className="w-16 h-px mt-6" style={{ backgroundColor: `${BROWN}66` }} />
