@@ -68,6 +68,7 @@ function AboutPage() {
     <div className="min-h-[calc(100vh-10px)] m-[5px]" style={{ color: DARK }}>
       <Header solid solidInk="#E5D9C5" />
 
+      <div className="max-w-[1440px] mx-auto">
       {/* Hero */}
       <section className="px-8 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-2 md:gap-4 items-stretch">
         <div className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
@@ -163,6 +164,8 @@ function AboutPage() {
           </div>
         </div>
       </section>
+      </div>
+
 
       <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
       <Footer />
