@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, Package, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import { Heart, Minus, Plus, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import {
   products,
@@ -799,27 +799,25 @@ function ProductPage() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
             {
               icon: <RotateCcw size={28} color={BROWN} strokeWidth={1.5} />,
-              title: "Easy returns",
-              text: "Return within 15 days of order delivery.",
+              title: "Easy Exchange",
+              text: "Exchange within 15 days of order delivery.",
+              terms: "*Terms and condition apply.",
             },
             {
               icon: <Truck size={28} color={BROWN} strokeWidth={1.5} />,
               title: "We ship pan India",
               text: "Delivery across India.",
-            },
-            {
-              icon: <Package size={28} color={BROWN} strokeWidth={1.5} />,
-              title: "Free shipping",
-              text: "Free shipping on orders above ₹1,000.",
+              terms: "",
             },
             {
               icon: <Banknote size={28} color={BROWN} strokeWidth={1.5} />,
               title: "Cash on delivery",
               text: "COD available.",
+              terms: "",
             },
           ].map((item) => (
             <div key={item.title} className="flex items-start gap-4">
@@ -830,6 +828,9 @@ function ProductPage() {
                 </h3>
                 <p className="mt-1 text-[13px] leading-[1.7]" style={{ color: DARK }}>
                   {item.text}
+                  {item.terms && (
+                    <span className="mt-1 block text-[11px] leading-[1.6]">{item.terms}</span>
+                  )}
                 </p>
               </div>
             </div>
