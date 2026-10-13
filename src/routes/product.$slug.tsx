@@ -667,7 +667,7 @@ function ProductPage() {
               <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:opacity-70">
                 <WhatsAppIcon size={16} /> WHATSAPP
               </a>
-              <a href="mailto:care.notionsinpattern@gmail.com" className="flex items-center gap-1.5 hover:opacity-70">
+              <a href="mailto:hello@notionsinpattern.com" className="flex items-center gap-1.5 hover:opacity-70">
                 <GmailIcon size={16} /> E-MAIL
               </a>
             </div>
@@ -728,7 +728,7 @@ function ProductPage() {
             <div className="flex flex-col items-center gap-1.5">
               <GmailIcon size={24} />
               <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>E-MAIL</h3>
-              <a href="mailto:care.notionsinpattern@gmail.com" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>care.notionsinpattern@gmail.com</a>
+              <a href="mailto:hello@notionsinpattern.com" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>hello@notionsinpattern.com</a>
             </div>
           </div>
 
