@@ -41,7 +41,7 @@ function TextBlock({ num, title, center, vCenter, footer, children }: { num: str
 }
 
 function ImgBlock({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} className="w-full h-full min-h-[520px] md:min-h-[620px] object-cover block" />;
+  return <img src={src} alt={alt} className="w-full h-full min-h-[520px] md:min-h-0 md:h-auto md:aspect-[10/9] object-cover block" />;
 }
 
 function FounderPage() {
@@ -77,7 +77,7 @@ function FounderPage() {
               <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
             </TextBlock>
           </div>
-          <div className="w-full h-full min-h-[520px] md:min-h-[620px] overflow-hidden">
+          <div className="w-full h-full min-h-[520px] md:min-h-0 md:h-auto md:aspect-[10/9] overflow-hidden">
             <img src={founder2.url} alt="Ripples in water at sunset" className="w-full h-full object-cover object-bottom block" />
           </div>
 
@@ -111,7 +111,7 @@ function FounderPage() {
           <ImgBlock src={founder6.url} alt="Chikankari embroidery close-up" />
 
           {/* Row 6 : complete rectangular photo, connected to the preceding row */}
-          <img src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="w-full h-full min-h-[520px] md:min-h-[620px] object-cover object-[20%_50%] block" />
+          <img src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="w-full h-full min-h-[520px] md:min-h-0 md:h-auto md:aspect-[10/9] object-cover object-[20%_50%] block" />
           <div className="flex flex-col gap-0">
           <TextBlock num="7" title="A day at Notions in Pattern." vCenter>
             <p>My typical day looks like swatches. Colours for dyes. Thread combinations. Sitting with my team, figuring things out together. The path is not always clear, but the destination always is. There are too many swatches in my bag. Too many threads. Random things everywhere.</p>
