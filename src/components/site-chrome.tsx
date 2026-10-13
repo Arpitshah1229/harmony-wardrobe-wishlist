@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { User, Heart, Menu, X, Instagram } from "lucide-react";
+import { User, Heart, Menu, X, Instagram, Mail } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { BagIcon } from "@/components/bag-icon";
 import { Link } from "@tanstack/react-router";
@@ -204,7 +204,7 @@ export function Footer() {
     { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
     { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
-    { title: "CONNECT", items: [{ label: "Instagram", href: INSTAGRAM_URL, icon: Instagram }, "Email"] },
+    { title: "CONNECT", items: [{ label: "Instagram", href: INSTAGRAM_URL, icon: Instagram }, { label: "hello@notionsinpattern.com", href: "mailto:hello@notionsinpattern.com", icon: Mail }] },
 
   ];
   return (
@@ -229,9 +229,9 @@ export function Footer() {
                     ) : href ? (
                       <a
                         href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 hover:opacity-70"
+                        target={href.startsWith("mailto:") ? undefined : "_blank"}
+                        rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                        className="inline-flex items-center gap-2 hover:opacity-70 break-all"
                       >
                         {ItemIcon && <ItemIcon size={14} className="shrink-0" />}
                         {label}
