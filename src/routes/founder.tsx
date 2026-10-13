@@ -42,7 +42,7 @@ function TextBlock({ num, title, center, vCenter, footer, children }: { num: str
 
 function ImgBlock({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative w-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
+    <div className="relative w-full h-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
       <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover block" />
     </div>
   );
@@ -81,7 +81,7 @@ function FounderPage() {
               <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
             </TextBlock>
           </div>
-          <div className="relative w-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
+          <div className="relative w-full h-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
             <img src={founder2.url} alt="Ripples in water at sunset" className="absolute inset-0 w-full h-full object-cover object-bottom block" />
           </div>
 
@@ -115,7 +115,7 @@ function FounderPage() {
           <ImgBlock src={founder6.url} alt="Chikankari embroidery close-up" />
 
           {/* Row 6 : complete rectangular photo, connected to the preceding row */}
-          <div className="relative w-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
+          <div className="relative w-full h-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
             <img src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="absolute inset-0 w-full h-full object-cover object-[20%_50%] block" />
           </div>
           <div className="flex flex-col gap-0">
