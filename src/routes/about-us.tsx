@@ -70,17 +70,17 @@ function AboutPage() {
 
       <div className="max-w-[1440px] mx-auto">
       {/* Hero */}
-      <section className="px-8 md:px-16 pt-8 pb-20 grid min-[1200px]:grid-cols-[minmax(0,520px)_minmax(0,1fr)] gap-2 min-[1200px]:gap-4 items-center">
+      <section className="px-8 md:px-16 pt-8 pb-20 grid xl:grid-cols-[minmax(0,520px)_minmax(0,1fr)] gap-2 xl:gap-4 items-center">
         <div className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
-          <h1 className="font-serif text-6xl min-[640px]:text-7xl leading-[1.05] tracking-tight">
-            A thinking label<br className="hidden min-[1200px]:block" /> using craft as<br className="hidden min-[1200px]:block" /> expression.
+          <h1 className="font-serif text-6xl sm:text-7xl leading-[1.05] tracking-tight">
+            A thinking label<br className="hidden xl:block" /> using craft as<br className="hidden xl:block" /> expression.
           </h1>
           <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
           <p className="text-[17px] md:text-[18px] leading-[1.85] max-w-md">
             Exploring textiles and handicrafts as a way of understanding life, through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
-        <div className="w-full aspect-[1600/1066] overflow-hidden md:-mx-16 md:w-[calc(100%_+_8rem)] min-[1200px]:mx-0 min-[1200px]:w-full">
+        <div className="w-full aspect-[1600/1066] overflow-hidden md:-mx-16 md:w-[calc(100%_+_8rem)] xl:mx-0 xl:w-full">
           <img src={aboutus1.url} alt="Artisans working on textile" className="w-full h-full object-contain block" />
         </div>
       </section>
