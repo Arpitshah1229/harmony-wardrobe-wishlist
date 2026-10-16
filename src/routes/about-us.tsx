@@ -80,7 +80,7 @@ function AboutPage() {
             Exploring textiles and handicrafts as a way of understanding life, through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
-        <div className="w-full aspect-[1600/1066] overflow-hidden md:-mx-16 lg:mx-0">
+        <div className="w-full aspect-[1600/1066] overflow-hidden md:-mx-16 md:w-[calc(100%_+_8rem)] lg:mx-0 lg:w-full">
           <img src={aboutus1.url} alt="Artisans working on textile" className="w-full h-full object-contain block" />
         </div>
       </section>
