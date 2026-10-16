@@ -72,7 +72,7 @@ function AboutPage() {
       {/* Hero */}
       <section className="px-8 md:px-16 lg:pr-0 pt-8 pb-20 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] gap-2 lg:gap-4 items-center">
         <div className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
-          <h1 className="font-serif text-6xl sm:text-7xl lg:text-8xl leading-[1.05] tracking-tight">
+          <h1 className="font-serif text-6xl sm:text-7xl min-[1424px]:text-8xl leading-[1.05] tracking-tight">
             A thinking label<br className="hidden lg:block" /> using craft as<br className="hidden lg:block" /> expression.
           </h1>
           <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
