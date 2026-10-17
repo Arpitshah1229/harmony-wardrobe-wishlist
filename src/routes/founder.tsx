@@ -141,8 +141,8 @@ function FounderPage() {
             <p>If there is one thing this journey has given me, it is the privilege of sitting beside the people I love working with most. Learning from them. Moving with them. Creating together, of something that didn't exist before, according to us.</p>
             <p>That, more than anything, is where Notions in Pattern lives.</p>
           </TextBlock>
-          <div className="w-full h-full min-h-[520px] md:min-h-[620px] overflow-hidden">
-            <img src={founder9.url} alt="Packing shirts and hand-marked NIP pouches in the studio" className="w-full h-full object-cover object-left block" />
+          <div className="w-full aspect-square overflow-hidden">
+            <img src={founder9.url} alt="Packing shirts and hand-marked NIP pouches in the studio" className="w-full h-auto object-cover block" />
           </div>
         </div>
       </section>
