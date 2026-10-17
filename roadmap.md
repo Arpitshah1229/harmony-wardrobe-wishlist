@@ -21,3 +21,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] Product page perks row: "Store Credits" settled inside the first card's title ("Easy Exchange / Store Credits", no separate card), and the three cards centred as a group with equal gaps — verified 320/393/768/1280 (2026-10-17)
 
 - [x] Product signup refinement: larger centred heading and three larger, centre-aligned benefits in equally spaced columns — verified at 393/768/867/1280/1920 with no overflow.
+- [x] Product "Get on the list" heading: matched to the "Looking for a little help?" title size (24px on phones, 30px on larger screens) — verified 393/867/1280.
