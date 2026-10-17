@@ -147,7 +147,7 @@ function RegisterPage() {
               <img src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
             </div>
 
-            <h1 className="mt-2.5 text-center font-serif text-[30px] leading-tight text-foreground">
+            <h1 className="-mt-3 text-center font-serif text-[30px] leading-tight text-foreground">
               Create an account
             </h1>
             <p className="mx-auto mt-2 max-w-[300px] text-center text-[12px] leading-[1.45] text-foreground">
