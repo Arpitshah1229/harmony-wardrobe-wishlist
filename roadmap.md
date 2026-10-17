@@ -18,4 +18,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [ ] 12. Privacy
 - [x] Footer logo: make it a little smaller — done (144px wide)
 - [x] Login & Register: visible gap between logo wordmark and heading, same on both pages — done
-- [x] Product page "Store credit" card: removed again at the user's request (2026-10-17) — the strip is back to three cards
+- [x] Product page "Store Credit" card: removed, then re-added as the 2nd card right after Easy Exchange at the user's request (2026-10-17); body wording still to confirm
