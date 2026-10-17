@@ -777,7 +777,7 @@ function ProductPage() {
           </div>
         </div>
 
-        <div className="mt-16 mx-auto grid w-fit grid-cols-1 justify-items-center gap-x-16 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 flex flex-col items-center gap-8 sm:flex-row sm:flex-wrap sm:items-start sm:justify-center sm:gap-x-16 sm:gap-y-8">
           {[
             {
               icon: <RotateCcw size={28} color={BROWN} strokeWidth={1.5} />,
