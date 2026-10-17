@@ -787,7 +787,7 @@ function ProductPage() {
             },
             {
               icon: <Store size={28} color={BROWN} strokeWidth={1.5} />,
-              title: "Store credit",
+              title: "Store Credit",
               text: "Credit available.",
               terms: "",
             },
