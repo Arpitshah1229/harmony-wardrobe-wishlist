@@ -781,7 +781,7 @@ function ProductPage() {
           {[
             {
               icon: <RotateCcw size={28} color={BROWN} strokeWidth={1.5} />,
-              title: "Easy Exchange",
+              title: "Easy Exchange / Store Credit",
               text: "Exchange within 15 days of order delivery.",
               terms: "*Terms and condition apply.",
             },
