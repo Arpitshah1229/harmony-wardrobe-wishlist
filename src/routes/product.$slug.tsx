@@ -729,36 +729,22 @@ function ProductPage() {
           </p>
         </div>
 
-        <div className="mt-8 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-          {[
-            {
-              title: "Customer Care / General Help",
-              text: "For orders, sizing, exchanges, returns, shipping, product questions, etc.",
-              email: "care.notionsinpattern@gmail.com",
-            },
-            {
-              title: "General / Brand Enquiries",
-              text: "For collaborations, press, partnerships, styling requests, wholesale-type questions, etc.",
-              email: "hello.notionsinpattern@gmail.com",
-            },
-            {
-              title: "Corporate / Bulk Enquiries",
-              text: "For corporate gifting, bulk orders, uniforms, events, custom requirements, etc.",
-              email: "corporate.notionsinpattern@gmail.com",
-            },
-          ].map((c) => (
-            <div key={c.title} className="border p-4" style={{ borderColor: "rgba(75,53,40,0.2)" }}>
-              <h3 className="text-[13px] font-bold" style={{ color: BROWN }}>{c.title}</h3>
-              <p className="mt-1.5 text-[12px] leading-[1.7]" style={{ color: DARK }}>{c.text}</p>
-              <a
-                href={`mailto:${c.email}`}
-                className="mt-3 inline-flex items-center gap-2 text-[12px] font-bold hover:opacity-70 break-all"
-                style={{ color: BROWN }}
-              >
-                <Mail size={13} /> {c.email}
-              </a>
-            </div>
-          ))}
+        <div className="mt-8 max-w-5xl mx-auto border p-6 md:p-8 text-center" style={{ borderColor: "rgba(75,53,40,0.2)" }}>
+          <h3 className="font-serif text-[18px] md:text-[20px] font-bold" style={{ color: BROWN }}>A note from founder</h3>
+          <p className="mt-3 text-[13px] leading-[1.9] max-w-2xl mx-auto" style={{ color: DARK }}>
+            We are here to personally help you with everything from orders, sizing, exchanges and returns to collaborations, creative partnerships and corporate enquiries.
+          </p>
+          <p className="mt-3 text-[13px] leading-[1.9] max-w-2xl mx-auto" style={{ color: DARK }}>
+            We&rsquo;d love to hear from you and help in any way we can.
+          </p>
+          <a
+            href="mailto:hello@notionsinpattern.com"
+            className="mt-4 inline-flex items-center gap-2 text-[13px] font-bold hover:opacity-70"
+            style={{ color: BROWN }}
+          >
+            <Mail size={14} /> hello@notionsinpattern.com
+          </a>
+          <p className="mt-4 font-serif text-[15px] font-bold" style={{ color: BROWN }}>&mdash; Notions in Pattern</p>
         </div>
       </section>
 
