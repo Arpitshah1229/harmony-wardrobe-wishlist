@@ -16,3 +16,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] 10. About Us — done (done early at user request): hero stacks below laptop width (was clipping behind the photo on tablets/landscape phones), Our Story 2 columns at tablet (was 4 cramped columns), Gratitude text sits on a soft ivory panel on phones (was unreadable over the photo); desktop unchanged, verified at phone/tablet/laptop/desktop/landscape, no overflow anywhere
 - [ ] 11. Founder
 - [ ] 12. Privacy
+- Footer logo: make it a little smaller
