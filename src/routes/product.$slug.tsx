@@ -14,6 +14,7 @@ import {
   SHIPPING_NOTE,
 } from "@/lib/products";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
+import { Button } from "@/components/ui/button";
 import { useWishlist } from "@/lib/wishlist";
 
 
@@ -750,64 +751,62 @@ function ProductPage() {
 
       {/* Newsletter + Trust */}
 
-      <section className="px-8 md:px-16 py-16 bg-background border-t" style={{ borderColor: "rgba(75,53,40,0.15)" }}>
+      <section className="px-6 py-12 sm:px-8 md:px-16 md:py-16 bg-background border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold" style={{ color: BROWN }}>
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-[64px] leading-[1.1] font-bold text-accent">
             Get on the list
           </h2>
-          <p className="mt-4 text-[14px] leading-[1.8]" style={{ color: DARK }}>
+          <p className="mt-5 text-[15px] sm:text-base leading-[1.8] text-foreground">
             Be the first to know about new collections, store launches, sales, and much more!
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+          <div className="mt-7 grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] gap-3 max-w-2xl mx-auto">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address here"
-              className="flex-1 px-4 py-3 bg-background border text-[13px] outline-none"
-              style={{ borderColor: "rgba(75,53,40,0.35)", color: DARK }}
+              className="min-w-0 h-14 px-4 bg-background border border-accent/35 text-[15px] text-foreground outline-none focus:border-accent"
             />
-            <button
+            <Button
               type="button"
-              className="px-8 py-3 text-[12px] font-bold tracking-[0.18em]"
-              style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
+              className="h-14 rounded-none px-8 text-[13px] font-bold tracking-normal bg-accent text-background hover:bg-accent/90"
             >
               SIGN ME UP
-            </button>
+            </Button>
           </div>
         </div>
 
-        <div className="mt-16 mx-auto flex w-fit max-w-full flex-col items-start gap-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-12 sm:gap-y-8">
+        <div className="mt-12 mx-auto grid max-w-6xl grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8 lg:gap-16">
           {[
             {
-              icon: <RotateCcw size={28} color={BROWN} strokeWidth={1.5} />,
+              icon: <RotateCcw size={40} strokeWidth={1.5} />,
               title: "Easy Exchange / Store Credits",
               text: "Exchange within 15 days of order delivery.",
               terms: "*Terms and condition apply.",
             },
             {
-              icon: <Truck size={28} color={BROWN} strokeWidth={1.5} />,
+              icon: <Truck size={40} strokeWidth={1.5} />,
               title: "We ship pan India",
               text: "Delivery across India.",
               terms: "",
             },
             {
-              icon: <Banknote size={28} color={BROWN} strokeWidth={1.5} />,
+              icon: <Banknote size={40} strokeWidth={1.5} />,
               title: "Cash on delivery",
               text: "COD available.",
               terms: "",
             },
           ].map((item) => (
-            <div key={item.title} className="flex items-start gap-4">
-              <div className="shrink-0">{item.icon}</div>
-              <div>
-                <h3 className="text-[14px] font-bold" style={{ color: BROWN }}>
+            <div key={item.title} className="min-w-0 flex flex-col items-center text-center">
+              <div className="h-10 w-10 shrink-0 text-accent">{item.icon}</div>
+              <div className="mt-4 w-full min-w-0">
+                <h3 className="font-serif text-[24px] leading-[1.2] font-bold text-accent sm:min-h-[58px] sm:flex sm:items-center sm:justify-center">
                   {item.title}
                 </h3>
-                <p className="mt-1 text-[13px] leading-[1.7]" style={{ color: DARK }}>
+                <p className="mt-2 text-[15px] leading-[1.7] text-foreground">
                   {item.text}
                   {item.terms && (
-                    <span className="mt-1 block text-[11px] leading-[1.6]">{item.terms}</span>
+                    <span className="mt-1 block text-[12px] leading-[1.6]">{item.terms}</span>
                   )}
                 </p>
               </div>
