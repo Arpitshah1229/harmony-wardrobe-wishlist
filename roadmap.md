@@ -20,4 +20,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] Login & Register: visible gap between logo wordmark and heading, same on both pages — done
 - [x] Product page perks row: "Store Credits" settled inside the first card's title ("Easy Exchange / Store Credits", no separate card), and the three cards centred as a group with equal gaps — verified 320/393/768/1280 (2026-10-17)
 
-- [ ] Product signup refinement: larger centred heading and three larger, centre-aligned benefits in equally spaced columns.
+- [x] Product signup refinement: larger centred heading and three larger, centre-aligned benefits in equally spaced columns — verified at 393/768/867/1280/1920 with no overflow.
