@@ -73,19 +73,19 @@ function FounderPage() {
             <div className="w-16 h-px mt-6" style={{ backgroundColor: `${BROWN}66` }} />
           </div>
 
-          {/* Ch 1 | Ch 2 */}
-          <TextBlock num="1" title="I grew up moving." vCenter>
-            <p>Army family.</p>
-            <p>Sometimes the most metropolitan cities. Sometimes the most remote postings. Places most people never reach.</p>
-            <p>It was in those places that I discovered craft that the world simply didn't know existed.</p>
-          </TextBlock>
-          <TextBlock num="2" title="Beautiful things in unexpected places." vCenter>
-            <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
-          </TextBlock>
-
-          {/* Shore scene at sunset: full-width band, shown complete */}
-          <div className="relative w-full md:col-span-2 overflow-hidden aspect-[1672/941] max-h-[620px]">
-            <img src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover block" />
+          {/* Ch 1 + Ch 2 stacked */}
+          <div className="flex flex-col gap-0">
+            <TextBlock num="1" title="I grew up moving.">
+              <p>Army family.</p>
+              <p>Sometimes the most metropolitan cities. Sometimes the most remote postings. Places most people never reach.</p>
+              <p>It was in those places that I discovered craft that the world simply didn't know existed.</p>
+            </TextBlock>
+            <TextBlock num="2" title="Beautiful things in unexpected places.">
+              <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
+            </TextBlock>
+          </div>
+          <div className="relative w-full h-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
+            <img src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover object-[54%_100%] block" />
           </div>
 
           {/* Row 2 : image | text */}
