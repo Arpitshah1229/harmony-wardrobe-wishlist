@@ -74,12 +74,12 @@ function FounderPage() {
           </div>
 
           {/* Ch 1 | Ch 2 */}
-          <TextBlock num="1" title="I grew up moving.">
+          <TextBlock num="1" title="I grew up moving." vCenter>
             <p>Army family.</p>
             <p>Sometimes the most metropolitan cities. Sometimes the most remote postings. Places most people never reach.</p>
             <p>It was in those places that I discovered craft that the world simply didn't know existed.</p>
           </TextBlock>
-          <TextBlock num="2" title="Beautiful things in unexpected places.">
+          <TextBlock num="2" title="Beautiful things in unexpected places." vCenter>
             <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
           </TextBlock>
 
