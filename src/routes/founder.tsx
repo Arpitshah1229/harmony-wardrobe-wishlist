@@ -85,7 +85,7 @@ function FounderPage() {
             </TextBlock>
           </div>
           <div className="relative w-full h-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
-            <img src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover object-[47%_100%] block" />
+            <img src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover object-[54%_100%] block" />
           </div>
 
           {/* Row 2 : image | text */}
