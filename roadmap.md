@@ -18,4 +18,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [ ] 12. Privacy
 - [x] Footer logo: make it a little smaller — done (144px wide)
 - [x] Login & Register: visible gap between logo wordmark and heading, same on both pages — done
-- [ ] Product page: find out what "after easy exchange add / Store Credit" meant — a separate Store Credit card in the strip was rejected twice (2026-10-17), so it must go somewhere else
+- [x] Product page "Store Credit": settled as part of the first card's title — "Easy Exchange / Store Credit"; no separate card (2026-10-17)
