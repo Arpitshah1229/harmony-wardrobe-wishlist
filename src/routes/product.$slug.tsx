@@ -753,7 +753,7 @@ function ProductPage() {
 
       <section className="px-6 py-12 sm:px-8 md:px-16 md:py-16 bg-background border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-5xl sm:text-6xl md:text-[64px] leading-[1.1] font-bold text-accent">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-[52px] leading-[1.1] font-bold text-accent">
             Get on the list
           </h2>
           <p className="mt-5 text-[15px] sm:text-base leading-[1.8] text-foreground">
