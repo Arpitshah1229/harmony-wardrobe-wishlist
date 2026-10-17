@@ -103,7 +103,7 @@ function LoginPage() {
               <img
                 src={nipLogo.url}
                 alt="Notions in Pattern"
-                className="absolute bottom-full left-2 h-24 w-auto max-w-none object-contain -translate-x-[22.97%] translate-y-[19%] md:h-28"
+                className="absolute bottom-full left-1 h-24 w-auto max-w-none object-contain -translate-x-[22.97%] translate-y-[19%] md:h-28"
               />
               Login
             </h1>
