@@ -777,19 +777,13 @@ function ProductPage() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
               icon: <RotateCcw size={28} color={BROWN} strokeWidth={1.5} />,
               title: "Easy Exchange",
               text: "Exchange within 15 days of order delivery.",
               terms: "*Terms and condition apply.",
-            },
-            {
-              icon: <Store size={28} color={BROWN} strokeWidth={1.5} />,
-              title: "Store credit",
-              text: "Credit available.",
-              terms: "",
             },
             {
               icon: <Truck size={28} color={BROWN} strokeWidth={1.5} />,
