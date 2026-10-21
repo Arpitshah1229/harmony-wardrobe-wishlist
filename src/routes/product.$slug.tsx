@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand, Instagram } from "lucide-react";
+import { Heart, Minus, Plus, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { GmailIcon } from "@/components/gmail-icon";
+import { InstagramIcon } from "@/components/instagram-icon";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import {
   products,
@@ -729,7 +730,7 @@ function ProductPage() {
               <a href="mailto:hello@notionsinpattern.com" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>hello@notionsinpattern.com</a>
             </div>
             <div className="flex flex-col items-center gap-1.5">
-              <Instagram size={24} />
+              <InstagramIcon size={24} />
               <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>INSTAGRAM</h3>
               <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>@notionsinpattern.nipstories</a>
             </div>
@@ -740,7 +741,7 @@ function ProductPage() {
           </p>
         </div>
 
-        <div className="mt-8 max-w-5xl mx-auto border p-6 md:p-8 text-center" style={{ borderColor: "rgba(75,53,40,0.2)" }}>
+        <div className="mt-8 max-w-5xl mx-auto border bg-cream p-6 md:p-8 text-center" style={{ borderColor: "rgba(75,53,40,0.2)" }}>
           <h3 className="font-serif text-[18px] md:text-[20px] font-bold" style={{ color: BROWN }}>A note from founder</h3>
           <p className="mt-3 text-[13px] leading-[1.9] max-w-2xl mx-auto" style={{ color: DARK }}>
             We are here to personally help you with everything from orders, sizing, exchanges and returns to collaborations, creative partnerships and corporate enquiries.

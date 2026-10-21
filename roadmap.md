@@ -25,3 +25,5 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] Product FABRIC & DETAILS: removed "Thread" and "Colour" rows on every shirt; each now ends with "Fabric Colour" and "Embroidery colour" rows — done 2026-10-21.
 - [x] Product "Looking for a little help?": added Instagram as a fourth contact card (@notionsinpattern.nipstories, same footer URL) — done 2026-10-21.
 - [x] Product colour lines: "Fabric Colour" / "Embroidery colour" moved out of FABRIC & DETAILS and placed directly above "Size:"; the "Colour: … fabric with … embroidery." sentence removed — verified on every shirt, build OK 2026-10-21.
+- [x] Instagram icon: replaced the plain outline camera with the colourful brand gradient mark (product help card + footer CONNECT) — verified 2026-10-21.
+- [x] Product "A note from founder": box background changed to the warm cream used above it (#ECE4DB) — verified 2026-10-21.
