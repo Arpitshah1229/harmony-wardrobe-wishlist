@@ -118,14 +118,6 @@ function SizeChartModal({ onClose }: { onClose: () => void }) {
           Note: As pieces are handmade, measurements may vary slightly (see tolerance column) — this is natural to the
           craft.
         </p>
-        <div className="mt-5 pt-5 border-t" style={{ borderColor: BORDER }}>
-          <p className="text-[12px] font-bold tracking-[0.16em] uppercase" style={{ color: BROWN }}>
-            Sizing Note
-          </p>
-          <p className="mt-1.5 text-[13px] leading-[1.8]" style={{ color: DARK }}>
-            {SIZING_NOTE}
-          </p>
-        </div>
       </div>
     </div>
   );
