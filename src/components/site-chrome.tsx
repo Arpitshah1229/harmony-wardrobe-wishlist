@@ -2,6 +2,8 @@ import { useEffect, useState, type ComponentType } from "react";
 import { User, Heart, Menu, X } from "lucide-react";
 import { GmailIcon } from "@/components/gmail-icon";
 import { InstagramIcon } from "@/components/instagram-icon";
+import { PhoneIcon } from "@/components/phone-icon";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { BagIcon } from "@/components/bag-icon";
 import { Link } from "@tanstack/react-router";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
@@ -195,6 +197,10 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
 
 const INSTAGRAM_URL =
   "https://instagram.com/notionsinpattern.nipstories?utm_source=qr&cplk=OG1hNDlpNThjYWl4";
+const PHONE_DISPLAY = "+91 75218 02791";
+const PHONE_TEL = "tel:+917521802791";
+const WHATSAPP_CHAT_URL =
+  "https://wa.me/917521802791?text=Hi%20NIP%2C%20I%27d%20like%20to%20know%20more%20about%20this%20shirt.";
 
 type FooterItem =
   | string
@@ -205,7 +211,7 @@ export function Footer() {
     { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
     { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
-    { title: "CONNECT", items: [{ label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@\u200bnotionsinpattern\u200b.com", href: "mailto:hello@notionsinpattern.com", icon: GmailIcon }] },
+    { title: "CONNECT", items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@\u200bnotionsinpattern\u200b.com", href: "mailto:hello@notionsinpattern.com", icon: GmailIcon }] },
 
   ];
   return (
