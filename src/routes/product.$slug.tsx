@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import { PhoneIcon } from "@/components/phone-icon";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { GmailIcon } from "@/components/gmail-icon";
 import { InstagramIcon } from "@/components/instagram-icon";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
