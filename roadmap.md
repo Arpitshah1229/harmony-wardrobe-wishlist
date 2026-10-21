@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Size chart: added both full model photos and reference captions (M, 5’11”; S, 5’8”); checked photo loading, captions, closing, and mobile overflow.
+
 ## Responsive design for every screen size (plan approved 2026-10-05)
 
 Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose changes → wait for user approval → implement → verify at all widths.
