@@ -497,9 +497,12 @@ function ProductPage() {
             ))}
           </div>
 
-          <div className="mt-5">
-            <p className="text-[14px] leading-[1.7]" style={{ color: DARK }}>
-              <span className="font-bold">Colour:</span> {product.colorStory}
+          <div className="mt-5 space-y-1.5 text-[14px] leading-[1.7]" style={{ color: DARK }}>
+            <p>
+              <span className="font-bold">Fabric Colour :</span> {product.fabricColour}
+            </p>
+            <p>
+              <span className="font-bold">Embroidery colour :</span> {product.embroideryColour}
             </p>
           </div>
 

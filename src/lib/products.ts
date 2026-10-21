@@ -49,6 +49,8 @@ export type Product = {
   colorName: string;
   colorHex: string;
   colorStory: string;
+  fabricColour: string;
+  embroideryColour: string;
   detailImg: string;
   description: string[];
   details: [string, string][];
@@ -104,6 +106,8 @@ export const products: Product[] = [
     colorName: "Natural (undyed)",
     colorHex: "#A8A28C",
     colorStory: "Warm Oatmeal Beige fabric with Muted Chestnut Brown embroidery.",
+    fabricColour: "Warm Oatmeal Beige",
+    embroideryColour: "Muted Chestnut Brown",
     detailImg: stitchesStrip.url,
     description: [
       "Like a flower quietly unfolding from within, shaping the soul as it blooms, and leaving its traces along the way. GulRaaz shirt is crafted in breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -114,8 +118,6 @@ export const products: Product[] = [
       ["Handwork", "Orma, Tepchi, Ghaspatti"],
       ["Buttons", "Natural Wood"],
       ["Fit", "Relaxed"],
-      ["Fabric Colour", "Warm Oatmeal Beige"],
-      ["Embroidery colour", "Muted Chestnut Brown"],
     ],
     handmadeNote: DYED_NOTE,
     altText: "GulRaaz hand embroidered relaxed fit men's chikankari shirt in cotton flex with wooden buttons.",
@@ -139,6 +141,8 @@ export const products: Product[] = [
     colorName: "Green",
     colorHex: "#465740",
     colorStory: "Muted Moss Green fabric with Warm Camel Brown embroidery.",
+    fabricColour: "Muted Moss Green",
+    embroideryColour: "Warm Camel Brown",
     detailImg: stitchesStrip.url,
     description: [
       "Inspired by the quiet rhythm of nature, Bahaar is about growth that keeps unfolding, even with a little uncertainty, we keep moving forward. Bahaar shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -149,8 +153,6 @@ export const products: Product[] = [
       ["Handwork", "Ulta Bakhiya, Ghaspatti, Olma"],
       ["Buttons", "Natural Wood"],
       ["Fit", "Relaxed"],
-      ["Fabric Colour", "Muted Moss Green"],
-      ["Embroidery colour", "Warm Camel Brown"],
     ],
     handmadeNote: DYED_NOTE,
     badge: "Hand Dyed & Embroidered",
@@ -175,6 +177,8 @@ export const products: Product[] = [
     colorName: "Hand-Dyed Summer Yellow",
     colorHex: "#AD9567",
     colorStory: "Butter Yellow fabric with Muted Slate Blue embroidery.",
+    fabricColour: "Butter Yellow",
+    embroideryColour: "Muted Slate Blue",
     detailImg: stitchesStrip.url,
     description: [
       "Kinara captures the quiet joy of sunset skies, slow afternoons, and memories that linger long after the journey ends. Inspired by the simple happiness of coastal escapes, it is made to bring a feeling of ease, warmth, and lightness. Kinara shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -185,8 +189,6 @@ export const products: Product[] = [
       ["Handwork", "Phool, Orma, Tepchi, Phanda, Bakhiya, Keel Kangan, Hool"],
       ["Buttons", "Natural Wood"],
       ["Fit", "Relaxed"],
-      ["Fabric Colour", "Butter Yellow"],
-      ["Embroidery colour", "Muted Slate Blue"],
     ],
     handmadeNote: DYED_NOTE,
     altText: "Kinara hand embroidered yellow men's chikankari shirt in cotton flex with wooden buttons.",
@@ -210,6 +212,8 @@ export const products: Product[] = [
     colorName: "Hand-Dyed Onion Pink",
     colorHex: "#E3B6B4",
     colorStory: "Dusty Rose fabric with Deep Maroon Red embroidery.",
+    fabricColour: "Dusty Rose",
+    embroideryColour: "Deep Maroon Red",
     detailImg: stitchesStrip.url,
     description: [
       "Some marks are made to be seen immediately, but felt more deeply over time. Like the stamp on a letter, they quietly carry a story from one hand to another. A mark of identity, belonging, and the beauty of something made to be received and cherished. Mohar shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -220,8 +224,6 @@ export const products: Product[] = [
       ["Handwork", "Bakhiya (Shadow Work) with appliqué detailing"],
       ["Buttons", "Natural Wood"],
       ["Fit", "Relaxed"],
-      ["Fabric Colour", "Dusty Rose"],
-      ["Embroidery colour", "Deep Maroon Red"],
     ],
     handmadeNote:
       "Each piece is one of a kind. Slight variation in colour is natural to hand-dyed, hand-embroidered products, and colour may bleed slightly in the first wash. Dry cleaning is always recommended; if washing at home, wash separately with like colours in the first few washes.",
@@ -246,6 +248,8 @@ export const products: Product[] = [
     colorName: "Hand-Dyed Sky Greyish-Blue",
     colorHex: "#DEECF7",
     colorStory: "Greyish Powder Blue fabric with Dusty Blue embroidery.",
+    fabricColour: "Greyish Powder Blue",
+    embroideryColour: "Dusty Blue",
     detailImg: stitchesStrip.url,
     description: [
       "It doesn't matter which path you take. Every path leads somewhere. It is the journey that is meant to be lived, the stories, the moments, and everything we become along the way. There is no particular destination, and no urgency to get there. Enjoy the ride, and let it take you where you're meant to be. Raah shirt is crafted in a breathable cotton with a relaxed fit. The designs are thoughtfully developed by the designer and brought to life with her team, exploring hand-dyeing and hand embroidery beyond traditional chikankari blocks, bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -256,8 +260,6 @@ export const products: Product[] = [
       ["Handwork", "Chain Stitch & Hathkatti"],
       ["Buttons", "Natural Wood"],
       ["Fit", "Relaxed"],
-      ["Fabric Colour", "Greyish Powder Blue"],
-      ["Embroidery colour", "Dusty Blue"],
     ],
     handmadeNote: DYED_NOTE,
     altText: "Raah hand embroidered men's shirt in sky blue cotton slub with chain stitch and wooden buttons.",
@@ -281,6 +283,8 @@ export const products: Product[] = [
     colorName: "White",
     colorHex: "#F4F1EA",
     colorStory: "White fabric with white embroidery.",
+    fabricColour: "White",
+    embroideryColour: "White",
     detailImg: stitchesStrip.url,
     description: [
       "It doesn't matter what the outside holds. One should be at ease with the lightest thing they reach for most. Mulmul, in its finest form, asks nothing of the body. Sukoon honours a tradition that has long carried this legacy, with a quiet touch of our own on, WHITE ON WHITE.",
@@ -291,8 +295,6 @@ export const products: Product[] = [
       ["Handwork", "Jaali, Orma, Channa Patti, Hathkatti (White-on-White Chikankari)"],
       ["Buttons", "Natural Shell"],
       ["Fit", "Relaxed"],
-      ["Fabric Colour", "White"],
-      ["Embroidery colour", "White"],
     ],
     handmadeNote:
       "Each piece is one of a kind. As this fabric is undyed and left in its natural white, slight variation in shade or texture between pieces is part of its handmade character. Dry cleaning is always recommended for the embroidery's longevity; if washing at home, wash separately from other colours.",
@@ -317,6 +319,8 @@ export const products: Product[] = [
     colorName: "Hand-Dyed Taupe",
     colorHex: "#C1B3AA",
     colorStory: "Warm Taupe fabric with Dusty Rose Pink and Muted light Grey embroidery.",
+    fabricColour: "Warm Taupe",
+    embroideryColour: "Dusty Rose Pink and Muted light Grey",
     detailImg: stitchesStrip.url,
     description: [
       "Zameen is grounded in where it comes from, soft, earthy, and always close to its roots. Tonal yet with a personality. It doesn't ask to be noticed, but holds a quiet presence effortlessly. Mulmul, in its finest form. Bringing the timeless into today in a way that feels distinctly our own, made in small batches.",
@@ -327,8 +331,6 @@ export const products: Product[] = [
       ["Handwork", "Jaali, Hathkatti, Channa Patti, Orma"],
       ["Buttons", "Dark Wood"],
       ["Fit", "Relaxed"],
-      ["Fabric Colour", "Warm Taupe"],
-      ["Embroidery colour", "Dusty Rose Pink and Muted light Grey"],
     ],
     handmadeNote: DYED_NOTE,
     altText: "Zameen hand embroidered taupe men's chikankari shirt in mul mul cotton with dark wooden buttons.",
