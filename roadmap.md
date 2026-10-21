@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Size chart: add the two model photos and reference captions, first model height 5’11”.
+- [x] Size chart: added both full model photos and reference captions (M, 5’11”; S, 5’8”); checked photo loading, captions, closing, and mobile overflow.
 
 ## Responsive design for every screen size (plan approved 2026-10-05)
 
