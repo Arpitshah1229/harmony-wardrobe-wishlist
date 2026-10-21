@@ -24,3 +24,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] Product "Get on the list" heading: matched to the "Looking for a little help?" title size (24px on phones, 30px on larger screens) — verified 393/867/1280.
 - [x] Product FABRIC & DETAILS: removed "Thread" and "Colour" rows on every shirt; each now ends with "Fabric Colour" and "Embroidery colour" rows — done 2026-10-21.
 - [x] Product "Looking for a little help?": added Instagram as a fourth contact card (@notionsinpattern.nipstories, same footer URL) — done 2026-10-21.
+- [x] Product colour lines: "Fabric Colour" / "Embroidery colour" moved out of FABRIC & DETAILS and placed directly above "Size:"; the "Colour: … fabric with … embroidery." sentence removed — verified on every shirt, build OK 2026-10-21.
