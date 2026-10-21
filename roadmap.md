@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Size chart: add the two model photos and reference captions, first model height 5’11”.
+
 ## Responsive design for every screen size (plan approved 2026-10-05)
 
 Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose changes → wait for user approval → implement → verify at all widths.
