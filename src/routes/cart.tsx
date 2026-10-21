@@ -17,7 +17,7 @@ import paytmLogo from "@/assets/pay-paytm.svg.asset.json";
 const PAYMENT_LOGOS = [
   { id: "visa", name: "Visa", src: visaLogo.url, h: "h-4" },
   { id: "mastercard", name: "Mastercard", src: mastercardLogo.url, h: "h-6" },
-  { id: "rupay", name: "RuPay", src: rupayLogo.url, h: "h-7" },
+  { id: "rupay", name: "RuPay", src: rupayLogo.url, h: "h-5" },
   { id: "upi", name: "UPI", src: upiLogo.url, h: "h-5" },
   { id: "gpay", name: "Google Pay", src: gpayLogo.url, h: "h-5" },
   { id: "phonepe", name: "PhonePe", src: phonepeLogo.url, h: "h-5" },
