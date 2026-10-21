@@ -8,7 +8,7 @@ import { useCart, formatPrice } from "@/lib/cart";
 
 import visaLogo from "@/assets/pay-visa.svg.asset.json";
 import mastercardLogo from "@/assets/pay-mastercard.svg.asset.json";
-import rupayLogo from "@/assets/pay-rupay.png.asset.json";
+import rupayLogo from "@/assets/pay-rupay-trim.png.asset.json";
 import upiLogo from "@/assets/pay-upi.svg.asset.json";
 import gpayLogo from "@/assets/pay-gpay.svg.asset.json";
 import phonepeLogo from "@/assets/pay-phonepe.svg.asset.json";
