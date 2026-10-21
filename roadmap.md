@@ -22,3 +22,5 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 
 - [x] Product signup refinement: larger centred heading and three larger, centre-aligned benefits in equally spaced columns — verified at 393/768/867/1280/1920 with no overflow.
 - [x] Product "Get on the list" heading: matched to the "Looking for a little help?" title size (24px on phones, 30px on larger screens) — verified 393/867/1280.
+- [x] Product FABRIC & DETAILS: removed "Thread" and "Colour" rows on every shirt; each now ends with "Fabric Colour" and "Embroidery colour" rows — done 2026-10-21.
+- [x] Product "Looking for a little help?": added Instagram as a fourth contact card (@notionsinpattern.nipstories, same footer URL) — done 2026-10-21.

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import { Heart, Minus, Plus, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand, Instagram } from "lucide-react";
 import { GmailIcon } from "@/components/gmail-icon";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import {
@@ -46,6 +46,8 @@ const PHONE_DISPLAY = "+91 75218 02791";
 const PHONE_TEL = "tel:+917521802791";
 const WHATSAPP_CHAT_URL =
   "https://wa.me/917521802791?text=Hi%20NIP%2C%20I%27d%20like%20to%20know%20more%20about%20this%20shirt.";
+const INSTAGRAM_URL =
+  "https://instagram.com/notionsinpattern.nipstories?utm_source=qr&cplk=OG1hNDlpNThjYWl4";
 
 function WhatsAppIcon({ size = 26, className = "" }: { size?: number; className?: string }) {
   return (
@@ -707,7 +709,7 @@ function ProductPage() {
             We&rsquo;re here.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="flex flex-col items-center gap-1.5">
               <PhoneIcon size={24} />
               <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>CALL</h3>
@@ -722,6 +724,11 @@ function ProductPage() {
               <GmailIcon size={24} />
               <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>E-MAIL</h3>
               <a href="mailto:hello@notionsinpattern.com" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>hello@notionsinpattern.com</a>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <Instagram size={24} />
+              <h3 className="text-[12px] font-bold tracking-[0.14em]" style={{ color: BROWN }}>INSTAGRAM</h3>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="text-[13px] hover:opacity-70" style={{ color: DARK }}>@notionsinpattern.nipstories</a>
             </div>
           </div>
 
