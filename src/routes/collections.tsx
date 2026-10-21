@@ -234,7 +234,7 @@ function CollectionsPage() {
 
 
       {/* Filters */}
-      <div id="shop" className="px-8 md:px-16 pt-12 pb-8 flex flex-wrap items-end justify-between gap-8">
+      <div id="shop" className="mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-wrap items-end justify-between gap-8">
         <div className="flex flex-wrap items-end gap-10">
           <span className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
             FILTER:
@@ -291,7 +291,7 @@ function CollectionsPage() {
       </div>
 
       {/* Product grid */}
-      <section className="px-8 md:px-16 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
+      <section className="mx-auto w-full max-w-[1440px] px-8 md:px-16 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
         {sorted.map((p, i) => (
           <div key={p.slug} className={!query && i === 6 ? "md:col-start-2" : undefined}>
             <ProductCard product={p} />
@@ -377,7 +377,7 @@ function CollectionsPage() {
             </p>
           </div>
         </div>
-        <figure className="mt-14 overflow-hidden">
+        <figure className="mt-14 mx-auto max-w-[1440px] overflow-hidden">
           <img
             src={stitchesStrip.url}
             alt="Chikankari stitch details on hand-dyed fabric"

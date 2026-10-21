@@ -158,7 +158,7 @@ function CartPage() {
       <Header solid solidInk="#E5D9C5" />
       <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
 
-      <main className="flex-1 px-8 md:px-16 py-12">
+      <main className="mx-auto w-full max-w-[1440px] flex-1 px-8 md:px-16 py-12">
         <nav className="text-[11px] font-bold tracking-[0.2em] mb-8" style={{ color: DARK }}>
           <Link to="/" className="hover:opacity-70">HOME</Link>
           <span className="px-2">/</span>

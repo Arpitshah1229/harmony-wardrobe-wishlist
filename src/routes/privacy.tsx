@@ -164,7 +164,7 @@ function PrivacyPage() {
         </p>
       </section>
 
-      <main className="px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ color: DARK }}>
+      <main className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ color: DARK }}>
         <div className="max-w-3xl mx-auto">
           <p className="font-serif text-xl md:text-2xl leading-relaxed mb-6">
             At Notions in Pattern (“NIP”, “we”, “us” or “our”), we value your trust and respect your privacy. This
