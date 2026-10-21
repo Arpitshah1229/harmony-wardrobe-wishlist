@@ -98,7 +98,7 @@ function RegisterPage() {
       <Header />
       <AnnouncementBar />
 
-      <main className="relative isolate flex-1 overflow-hidden">
+      <main className="relative isolate mx-auto w-full max-w-[1440px] flex-1 overflow-hidden">
         <div
           className="relative w-full min-h-[740px]"
           style={{ aspectRatio: "1920 / 1212" }}

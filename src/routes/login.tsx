@@ -62,7 +62,7 @@ function LoginPage() {
       <Header />
       <AnnouncementBar />
 
-      <main className="relative isolate flex min-h-[610px] flex-1 items-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
+      <main className="relative isolate mx-auto flex min-h-[610px] w-full max-w-[1440px] flex-1 items-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
         <img
           src={loginBackground}
           alt="Man relaxing on an ornate bench wearing a green NIP shirt"
