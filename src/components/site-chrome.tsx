@@ -211,7 +211,7 @@ export function Footer() {
     { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
     { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
-    { title: "CONNECT", items: [{ label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@\u200bnotionsinpattern\u200b.com", href: "mailto:hello@notionsinpattern.com", icon: GmailIcon }] },
+    { title: "CONNECT", items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@\u200bnotionsinpattern\u200b.com", href: "mailto:hello@notionsinpattern.com", icon: GmailIcon }] },
 
   ];
   return (
