@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Mail, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { GmailIcon } from "@/components/gmail-icon";
 import { InstagramIcon } from "@/components/instagram-icon";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
@@ -749,13 +749,6 @@ function ProductPage() {
           <p className="mt-3 text-[13px] leading-[1.9] max-w-2xl mx-auto" style={{ color: DARK }}>
             We&rsquo;d love to hear from you and help in any way we can.
           </p>
-          <a
-            href="mailto:hello@notionsinpattern.com"
-            className="mt-4 inline-flex items-center gap-2 text-[13px] font-bold hover:opacity-70"
-            style={{ color: BROWN }}
-          >
-            <Mail size={14} /> hello@notionsinpattern.com
-          </a>
           <p className="mt-4 font-serif text-[15px] font-bold" style={{ color: BROWN }}>&mdash; Notions in Pattern</p>
         </div>
       </section>
