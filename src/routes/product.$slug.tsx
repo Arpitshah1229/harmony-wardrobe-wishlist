@@ -19,6 +19,7 @@ import {
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import { Button } from "@/components/ui/button";
 import { useWishlist } from "@/lib/wishlist";
+import { SIZE_CHART_MODELS } from "@/lib/size-chart-models";
 
 
 export const Route = createFileRoute("/product/$slug")({
@@ -67,14 +68,16 @@ function SizeChartModal({ onClose }: { onClose: () => void }) {
         className="bg-background w-full max-w-2xl max-h-[85vh] overflow-y-auto p-6 md:p-8 relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
+        <Button
           type="button"
+          variant="ghost"
+          size="icon"
           aria-label="Close size chart"
           onClick={onClose}
           className="absolute top-4 right-4"
         >
           <X size={20} color={BROWN} />
-        </button>
+        </Button>
         <h2 className="font-serif text-2xl md:text-3xl font-bold" style={{ color: BROWN }}>
           Size Chart
         </h2>
@@ -118,6 +121,30 @@ function SizeChartModal({ onClose }: { onClose: () => void }) {
           Note: As pieces are handmade, measurements may vary slightly (see tolerance column) — this is natural to the
           craft.
         </p>
+        <section className="mt-8 text-center text-foreground" aria-label="Model sizing reference">
+          <p className="mb-4 text-lg font-bold text-primary">N I P</p>
+          <div className="grid grid-cols-2 items-start gap-3 md:gap-4">
+            {SIZE_CHART_MODELS.map((model) => (
+              <figure key={model.size} className="min-w-0">
+                <div className="aspect-[3/4] w-full">
+                  <img
+                    src={model.image}
+                    alt={model.alt}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <figcaption className="mt-3 text-sm leading-relaxed text-primary md:text-base">
+                  <p>Wearing size {model.size}</p>
+                  <p>Height : {model.height}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <p className="mt-6 text-sm leading-relaxed md:text-base">
+            Our models are shown for fit and sizing reference. Please refer to the garment measurements above
+            to choose the size that best suits you and your preferred fit.
+          </p>
+        </section>
       </div>
     </div>
   );

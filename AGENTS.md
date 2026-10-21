@@ -14,3 +14,4 @@
 - Use the shared `site-chrome` Header, Footer, and AnnouncementBar across content pages so navigation, store state, and branding remain consistent.
 - Keep shared header sizing consistent between overlay and in-flow presentations, while preserving the Collections header exception, so page navigation retains consistent dimensions.
 - Founder story photos use stretching grid-cell wrappers with positioned images so taller chapter text cannot leave gaps between adjacent photo corners.
+- Keep model fit-reference data in the shared size-chart-models module so all product size charts use the same tested sizing facts and uploaded photo pointers.
