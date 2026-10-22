@@ -47,7 +47,7 @@ export const Route = createFileRoute("/cart")({
       {
         name: "description",
         content:
-          "Review the hand-embroidered chikankari pieces in your cart and continue to checkout. Free shipping pan India on orders above ₹1,000.",
+          "Review the hand-embroidered chikankari pieces in your cart and continue to checkout. Prices include all taxes; we ship pan India.",
       },
       { property: "og:title", content: "Your Cart | Notions in Pattern" },
       {
@@ -284,8 +284,8 @@ function CartPage() {
                   </div>
                 )}
                 <div className="flex justify-between">
-                  <dt>GST (12%)</dt>
-                  <dd className="font-bold">{formatPrice(gst)}</dd>
+                  <dt>Taxes</dt>
+                  <dd className="font-bold">Included</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt>Shipping charges</dt>
@@ -298,10 +298,10 @@ function CartPage() {
                 style={{ borderColor: BROWN, color: BROWN }}
               >
                 <span>Estimated Total</span>
-                <span>{formatPrice(taxable + gst)}</span>
+                <span>{formatPrice(taxable)}</span>
               </div>
               <p className="mt-2 text-[11px]" style={{ color: DARK }}>
-                Shipping will be calculated at checkout. Free shipping pan India on orders above ₹1,000.
+                Inclusive of all taxes. Shipping calculated at checkout.
               </p>
 
               <button
@@ -318,7 +318,7 @@ function CartPage() {
 
               <ul className="mt-8 space-y-3 text-[11px] font-bold tracking-[0.16em]" style={{ color: BROWN }}>
                 <li className="flex items-center gap-2"><Truck size={14} /> WE SHIP PAN INDIA</li>
-                <li className="flex items-center gap-2"><RotateCcw size={14} /> EASY 15 DAY RETURNS</li>
+                <li className="flex items-center gap-2"><RotateCcw size={14} /> EASY 15-DAY EXCHANGE / STORE CREDITS</li>
               </ul>
 
               <PaymentIcons />
