@@ -207,11 +207,11 @@ type FooterItem =
   | { label: string; to?: string; href?: string; icon?: ComponentType<{ size?: number; className?: string }> };
 
 export function Footer() {
-  const cols: { title: string; items: FooterItem[] }[] = [
+  const cols: { title: string; items: FooterItem[]; wide?: boolean }[] = [
     { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
     { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
-    { title: "CONNECT", items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@\u200bnotionsinpattern\u200b.com", href: "mailto:hello@notionsinpattern.com", icon: GmailIcon }] },
+    { title: "CONNECT", wide: true, items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@notionsinpattern.com", href: "mailto:hello@notionsinpattern.com", icon: GmailIcon }] },
 
   ];
   return (
@@ -221,7 +221,7 @@ export function Footer() {
           <img src={nipLogo.url} alt="Notions in Pattern" className="w-36 h-auto" />
         </div>
         {cols.map((c) => (
-          <div key={c.title}>
+          <div key={c.title} className={c.wide ? "col-span-2 md:col-span-1" : undefined}>
             <h4 className="text-[12px] font-bold tracking-[0.22em] mb-2" style={{ color: BROWN }}>{c.title}</h4>
             <ul className="space-y-1 text-[13px] font-bold" style={{ color: BROWN }}>
               {c.items.map((i) => {
@@ -238,7 +238,7 @@ export function Footer() {
                         href={href}
                         target={href.startsWith("mailto:") ? undefined : "_blank"}
                         rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                        className="inline-flex items-start gap-2 hover:opacity-70"
+                        className="inline-flex items-start gap-2 whitespace-nowrap hover:opacity-70"
                       >
                         {ItemIcon && <ItemIcon size={14} className="mt-[3px] shrink-0" />}
                         {label}
