@@ -1,3 +1,4 @@
+import { useLivePrices } from "@/lib/shopify";
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { X, HeartCrack } from "lucide-react";
@@ -30,6 +31,7 @@ export const Route = createFileRoute("/wishlist")({
 
 function WishlistPage() {
   const { slugs, remove } = useWishlist();
+  const livePrice = useLivePrices();
   const saved = products.filter((p) => slugs.includes(p.slug));
   const [dialogProduct, setDialogProduct] = useState<typeof products[number] | null>(null);
 
@@ -108,7 +110,7 @@ function WishlistPage() {
                     </p>
                   </div>
                   <p className="shrink-0 text-[15px] font-bold" style={{ color: DARK }}>
-                    {p.price}
+                    {livePrice(p)}
                   </p>
                 </div>
                 <div className="mt-4 flex flex-col gap-2">

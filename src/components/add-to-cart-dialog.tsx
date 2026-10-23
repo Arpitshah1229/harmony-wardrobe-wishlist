@@ -3,6 +3,7 @@ import { X, Minus, Plus } from "lucide-react";
 import { BROWN, DARK } from "@/components/site-chrome";
 import { SIZES, type Product } from "@/lib/products";
 import { useCart, parsePrice, formatPrice } from "@/lib/cart";
+import { useLiveProduct } from "@/lib/shopify";
 
 type Props = {
   product: Product;
@@ -36,6 +37,8 @@ export function AddToCartDialog({
     }
   }, [open, initialSize, initialQty]);
 
+  const { priceText, isSoldOut } = useLiveProduct(product);
+
   if (!open) return null;
 
   const existing = (s: string) => items.find((i) => i.slug === product.slug && i.size === s);
@@ -47,7 +50,7 @@ export function AddToCartDialog({
       addItem({
         slug: product.slug,
         name: product.name,
-        price: parsePrice(product.price),
+        price: parsePrice(priceText),
         image: product.images[0],
         size: s,
         qty: q,
@@ -100,7 +103,7 @@ export function AddToCartDialog({
               {product.name}
             </h2>
             <p className="text-[13px] font-bold" style={{ color: DARK }}>
-              {product.price}
+              {priceText}
             </p>
           </div>
         </div>
@@ -143,11 +146,13 @@ export function AddToCartDialog({
                     <button
                       key={s}
                       type="button"
+                      disabled={isSoldOut(s)}
+                      title={isSoldOut(s) ? "Sold out" : undefined}
                       onClick={() => {
                         setSize(s);
                         setError(null);
                       }}
-                      className="relative py-3 text-[13px] font-bold border transition-colors"
+                      className="relative py-3 text-[13px] font-bold border transition-colors disabled:opacity-35 disabled:line-through disabled:cursor-not-allowed"
                       style={
                         size === s
                           ? { backgroundColor: BROWN, color: "#F7F4EE", borderColor: BROWN }
@@ -187,7 +192,7 @@ export function AddToCartDialog({
                 </button>
               </div>
               <span className="ml-auto text-[13px] font-bold" style={{ color: DARK }}>
-                {formatPrice(parsePrice(product.price) * qty)}
+                {formatPrice(parsePrice(priceText) * qty)}
               </span>
             </div>
 
