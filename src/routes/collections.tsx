@@ -101,7 +101,7 @@ function ProductCard({ product }: { product: Product }) {
           </p>
         </div>
         <p className="shrink-0 text-[15px] font-bold" style={{ color: DARK }}>
-          {product.price}
+          {livePrice(product)}
         </p>
       </div>
 

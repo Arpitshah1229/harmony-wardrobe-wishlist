@@ -108,7 +108,7 @@ function WishlistPage() {
                     </p>
                   </div>
                   <p className="shrink-0 text-[15px] font-bold" style={{ color: DARK }}>
-                    {p.price}
+                    {livePrice(p)}
                   </p>
                 </div>
                 <div className="mt-4 flex flex-col gap-2">

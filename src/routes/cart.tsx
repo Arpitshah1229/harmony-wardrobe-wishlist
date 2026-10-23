@@ -5,6 +5,7 @@ import { BagIcon } from "@/components/bag-icon";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { PRODUCT_SUBTITLE } from "@/lib/products";
 import { useCart, formatPrice } from "@/lib/cart";
+import { createCheckout } from "@/lib/shopify";
 
 import visaLogo from "@/assets/pay-visa.svg.asset.json";
 import mastercardLogo from "@/assets/pay-mastercard.svg.asset.json";
@@ -75,6 +76,24 @@ function CartPage() {
   const [code, setCode] = useState("");
   const [applied, setApplied] = useState<{ code: string; label: string; amount: number; freeShip: boolean } | null>(null);
   const [error, setError] = useState("");
+  const [checkingOut, setCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState("");
+
+  const goToCheckout = async () => {
+    setCheckoutError("");
+    setCheckingOut(true);
+    const win = window.open("", "_blank");
+    try {
+      const url = await createCheckout(items, applied ? [applied.code] : []);
+      if (win) win.location.href = url;
+      else window.location.href = url;
+    } catch (e) {
+      win?.close();
+      setCheckoutError(e instanceof Error ? e.message : "Checkout is unavailable right now. Please try again.");
+    } finally {
+      setCheckingOut(false);
+    }
+  };
 
   const applyCoupon = () => {
     const key = code.trim().toUpperCase();
@@ -306,12 +325,16 @@ function CartPage() {
 
               <button
                 type="button"
-                onClick={() => navigate({ to: "/orders" })}
-                className="mt-8 w-full py-4 text-[12px] font-bold tracking-[0.24em]"
+                onClick={goToCheckout}
+                disabled={checkingOut || items.length === 0}
+                className="mt-8 w-full py-4 text-[12px] font-bold tracking-[0.24em] disabled:opacity-60"
                 style={{ backgroundColor: BROWN, color: "#F7F4EE" }}
               >
-                PROCEED TO CHECKOUT
+                {checkingOut ? "OPENING CHECKOUT…" : "PROCEED TO CHECKOUT"}
               </button>
+              {checkoutError && (
+                <p className="mt-2 text-[12px] font-bold" style={{ color: "#C43D32" }}>{checkoutError}</p>
+              )}
               <p className="mt-3 flex items-center justify-center gap-1.5 text-[10px] font-bold tracking-[0.18em]" style={{ color: DARK }}>
                 <Lock size={12} /> SECURE CHECKOUT
               </p>

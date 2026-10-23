@@ -111,6 +111,7 @@ const CART_CREATE = `
 /** Creates a Shopify cart with every bag line and returns its hosted checkout link. */
 export async function createCheckout(
   lines: { slug: string; size: string; qty: number }[],
+  discountCodes: string[] = [],
 ): Promise<string> {
   const catalog = await fetchCatalog();
   const cartLines = lines.map((l) => {
@@ -118,7 +119,7 @@ export async function createCheckout(
     if (!v) throw new Error(`${l.slug} size ${l.size} is not available`);
     return { merchandiseId: v.id, quantity: l.qty };
   });
-  const data = await storefrontApiRequest(CART_CREATE, { input: { lines: cartLines } });
+  const data = await storefrontApiRequest(CART_CREATE, { input: { lines: cartLines, discountCodes } });
   const errs = data?.data?.cartCreate?.userErrors ?? [];
   if (errs.length) throw new Error(errs.map((e: { message: string }) => e.message).join(", "));
   const url = data?.data?.cartCreate?.cart?.checkoutUrl;
