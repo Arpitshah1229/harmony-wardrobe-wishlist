@@ -1,3 +1,4 @@
+import { useLiveProduct, useLivePrices } from "@/lib/shopify";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
@@ -354,6 +355,8 @@ function Lightbox({
 function ProductPage() {
   const { slug } = Route.useParams();
   const product = getProduct(slug);
+  const { priceText, isSoldOut } = useLiveProduct(product);
+  const livePrice = useLivePrices();
   const [size, setSize] = useState<string | null>(null);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [qty, setQty] = useState(1);
@@ -477,7 +480,7 @@ function ProductPage() {
           </p>
 
           <p className="mt-5 text-[18px] font-bold" style={{ color: BROWN }}>
-            MRP {product.price}{" "}
+            MRP {priceText}{" "}
             <span className="text-[12px] font-normal" style={{ color: DARK }}>
               inclusive of all taxes
             </span>
@@ -521,8 +524,10 @@ function ProductPage() {
                 <button
                   key={s}
                   type="button"
+                  disabled={isSoldOut(s)}
+                  title={isSoldOut(s) ? "Sold out" : undefined}
                   onClick={() => setSize(s)}
-                  className="py-3 text-[13px] font-bold border transition-colors"
+                  className="py-3 text-[13px] font-bold border transition-colors disabled:opacity-35 disabled:line-through disabled:cursor-not-allowed"
                   style={
                     size === s
                       ? { backgroundColor: BROWN, color: "#F7F4EE", borderColor: BROWN }
@@ -690,7 +695,7 @@ function ProductPage() {
                 {PRODUCT_SUBTITLE}
               </p>
               <p className="mt-1.5 text-[14px] font-bold" style={{ color: DARK }}>
-                {p.price}
+                {livePrice(p)}
               </p>
             </Link>
           ))}

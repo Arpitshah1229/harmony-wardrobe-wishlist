@@ -1,3 +1,4 @@
+import { useLivePrices } from "@/lib/shopify";
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Heart, Search } from "lucide-react";
@@ -14,6 +15,7 @@ function ProductCard({ product }: { product: Product }) {
   const [pickerOpen, setPickerOpen] = useState(false);
   const navigate = useNavigate();
   const { has, toggle } = useWishlist();
+  const livePrice = useLivePrices();
   const wished = has(product.slug);
   const hasMultiple = product.images.length > 1;
   const move = (d: number) =>
