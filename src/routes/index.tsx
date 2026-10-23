@@ -64,13 +64,13 @@ function HomePage() {
           className="absolute inset-0 h-full w-full object-cover object-[100%_50%] sm:object-bottom"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream/85 via-cream/70 to-cream/85 sm:hidden" />
-        <div className="home-hero-content relative z-10 flex w-full min-h-[100svh] flex-col justify-between gap-8 px-5 pb-4 pt-8 sm:min-h-[100svh] sm:justify-between sm:gap-8 sm:bg-transparent sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] sm:pt-[29vh] lg:pl-[142px] xl:pl-[165px]">
+        <div className="home-hero-content relative z-10 flex w-full min-h-[100svh] flex-col justify-between gap-6 px-5 pb-4 pt-20 sm:min-h-[100svh] sm:justify-between sm:gap-8 sm:bg-transparent sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] sm:pt-[29vh] lg:pl-[142px] xl:pl-[165px]">
 
           <div className="w-full max-w-[450px]">
             <h1 className="home-hero-title font-serif text-[34px] font-medium leading-[1.08] text-accent sm:text-[48px] lg:text-[58px]">
               Understanding life begins with understanding of patterns
             </h1>
-            <div className="home-hero-copy mt-6 mb-2 max-w-[440px] space-y-2 text-[15px] leading-[1.9] text-accent sm:mt-20 sm:mb-8 sm:text-home-light sm:text-base">
+            <div className="home-hero-copy mt-4 mb-1 max-w-[440px] space-y-2 text-[15px] leading-[1.7] text-accent sm:mt-20 sm:mb-8 sm:text-home-light sm:text-base">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
@@ -86,7 +86,7 @@ function HomePage() {
             </Link>
             <div className="-mr-1 self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:self-auto">
               <p>Inaugural Collection</p>
-              <p className="my-2 font-serif text-[30px] font-bold normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
+              <p className="my-1 font-serif text-[30px] font-bold normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
               <p>Patterns of the vision</p>
             </div>
           </div>
