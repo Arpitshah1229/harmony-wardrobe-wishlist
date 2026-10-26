@@ -4,6 +4,7 @@ import processWebm from "@/assets/homepage-process-optimized.webm.asset.json";
 
 export function DeferredVideo({ src, poster, className }: { src: string; poster: string; className?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const loaded = useRef(false);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const video = ref.current;
@@ -16,12 +17,17 @@ export function DeferredVideo({ src, poster, className }: { src: string; poster:
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (visible) ref.current?.play().catch(() => undefined);
+    if (!visible || !ref.current) return;
+    if (!loaded.current) {
+      ref.current.load();
+      loaded.current = true;
+    }
+    ref.current.play().catch(() => undefined);
   }, [visible]);
   return (
     <video ref={ref} className={className} autoPlay={visible} loop muted playsInline preload="none"
       poster={visible ? imageDelivery(poster).src : undefined}>
-      {visible && <>
+      {(visible || loaded.current) && <>
         <source src={processWebm.url} type="video/webm" />
         <source src={src} type="video/mp4" />
       </>}
