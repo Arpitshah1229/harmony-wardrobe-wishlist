@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Image loading performance
+- [ ] Collections filter dropdown: brown background and beige text on hovered options.
 - [ ] Measure current photo payloads and initial page requests.
 - [ ] Compress existing photos without changing framing; defer off-screen photos and video.
 - [ ] Verify Home, Collections, Founder and product photos after optimization.
