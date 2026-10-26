@@ -648,7 +648,7 @@ function ProductPage() {
           </div>
 
           {/* Shop the Look */}
-          <div className="mt-8 pt-6 border-t" style={{ borderColor: BORDER }}>
+          <div className="mt-12">
             <p className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
               ONE SHIRT MANY NOTION
             </p>
