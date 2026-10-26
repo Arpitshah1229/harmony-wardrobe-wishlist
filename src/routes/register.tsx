@@ -101,7 +101,7 @@ function RegisterPage() {
 
       <main className="relative isolate w-full flex-1 overflow-hidden">
         <div
-          className="relative w-full min-h-[740px] min-[1440px]:h-[909px]"
+          className="relative w-full min-h-[740px]"
           style={{ aspectRatio: "1920 / 1212" }}
         >
           <StoreImage
