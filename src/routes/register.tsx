@@ -99,7 +99,7 @@ function RegisterPage() {
       <Header />
       <AnnouncementBar />
 
-      <main className="relative isolate mx-auto w-full max-w-[1440px] flex-1 overflow-hidden">
+      <main className="relative isolate w-full flex-1 overflow-hidden">
         <div
           className="relative w-full min-h-[740px]"
           style={{ aspectRatio: "1920 / 1212" }}
@@ -109,16 +109,14 @@ function RegisterPage() {
             loading="eager"
             fetchPriority="high"
             alt="Man wearing a white NIP shirt drinking tea against a tropical wallpaper"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_100%]"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_100%] min-[1440px]:object-[35%_0%]"
           />
           <div
             className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/60 via-foreground/15 to-transparent"
             aria-hidden="true"
           />
-          <div aria-hidden="true" className="register-edge-blur register-edge-blur-left" />
-          <div aria-hidden="true" className="register-edge-blur register-edge-blur-right" />
 
-          <div className="absolute inset-0 flex items-center px-5 py-10 sm:px-10 lg:px-[7.5%] lg:py-6">
+          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center px-5 py-10 sm:px-10 lg:px-[7.5%] min-[1440px]:px-[108px] lg:py-6">
 
         <section className="w-[39%] max-w-[410px] text-background sm:block">
           <h2 className="font-serif text-[26px] leading-[0.98] md:text-[34px] lg:text-[48px]">
