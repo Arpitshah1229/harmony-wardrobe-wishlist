@@ -65,7 +65,7 @@ function FounderPage() {
           <div className="p-3 sm:p-8 md:p-10 h-full min-w-0 flex flex-col justify-center" style={{ color: BROWN }}>
             <div className="w-fit">
               <div className="flex w-full flex-col items-center">
-                <img src={logo.url} alt="Notions in Pattern" className="w-8 sm:w-16 h-auto mb-2 sm:mb-4" />
+                <img src={logo.url} alt="Notions in Pattern" className="w-10 sm:w-20 h-auto mb-2 sm:mb-4" />
                 <p className="text-[7px] sm:text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.28em] mb-2 sm:mb-4 whitespace-nowrap">FOUNDER &amp; DESIGNER</p>
               </div>
               <div className="w-16 h-px mb-6 mx-auto" style={{ backgroundColor: `${BROWN}66` }} />
