@@ -1,5 +1,10 @@
 # Roadmap
 
+## Image loading performance
+- [ ] Measure current photo payloads and initial page requests.
+- [ ] Compress existing photos without changing framing; defer off-screen photos and video.
+- [ ] Verify Home, Collections, Founder and product photos after optimization.
+
 - [x] Size chart: added both full model photos and reference captions (M, 5’11”; S, 5’8”); checked photo loading, captions, closing, and mobile overflow.
 
 ## Responsive design for every screen size (plan approved 2026-10-05)
