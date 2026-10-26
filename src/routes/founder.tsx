@@ -26,12 +26,12 @@ export const Route = createFileRoute("/founder")({
 
 function TextBlock({ num, title, center, vCenter, footer, children }: { num: string; title: string; center?: boolean; vCenter?: boolean; footer?: React.ReactNode; children: React.ReactNode }) {
   return (
-    <div className={`p-8 md:p-10 h-full flex flex-col ${center ? "justify-center text-center" : vCenter ? "justify-center text-left" : footer ? "justify-between" : "justify-start"}`}>
+    <div className={`p-3 sm:p-6 md:p-10 h-full min-w-0 flex flex-col ${center ? "justify-center text-center" : vCenter ? "justify-center text-left" : footer ? "justify-between" : "justify-start"}`}>
       <div className={footer ? "flex-1 flex flex-col justify-center" : ""}>
-        <h3 className="font-serif text-[22px] md:text-[26px] mb-4" style={{ color: BROWN }}>
+        <h3 className="font-serif text-[14px] sm:text-[20px] md:text-[26px] leading-tight mb-2 md:mb-4" style={{ color: BROWN }}>
           <span className="mr-2">Ch {num} :</span>{title}
         </h3>
-        <div className="text-[13px] leading-[1.9] space-y-3" style={{ color: DARK }}>
+        <div className="text-[9px] sm:text-[12px] md:text-[13px] leading-[1.6] md:leading-[1.9] space-y-1.5 md:space-y-3" style={{ color: DARK }}>
           {children}
         </div>
       </div>
@@ -42,7 +42,7 @@ function TextBlock({ num, title, center, vCenter, footer, children }: { num: str
 
 function ImgBlock({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative w-full h-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
+    <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
       <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover block" />
     </div>
   );
@@ -54,22 +54,22 @@ function FounderPage() {
       <Header solid solidInk="#E5D9C5" />
 
       {/* Story grid: hero + chapters share a single connected grid */}
-      <section className="max-w-[1440px] mx-auto px-8 md:px-16 pt-4 pb-20">
-        <div className="grid md:grid-cols-2 gap-0">
+      <section className="max-w-[1440px] mx-auto px-2 sm:px-8 md:px-16 pt-4 pb-20">
+        <div className="grid grid-cols-2 gap-0">
           {/* Hero image */}
           <div className="h-full">
             <img src={founder1.url} alt="Neha Prasad" className="w-full h-full object-cover block" />
           </div>
 
           {/* Hero text */}
-          <div className="p-8 md:p-10 h-full flex flex-col justify-center" style={{ color: BROWN }}>
+          <div className="p-3 sm:p-8 md:p-10 h-full min-w-0 flex flex-col justify-center" style={{ color: BROWN }}>
             <div className="w-fit">
               <div className="flex w-full flex-col items-center">
-                <img src={logo.url} alt="Notions in Pattern" className="w-16 h-auto mb-4" />
-                <p className="text-[12px] font-bold tracking-[0.28em] mb-4">FOUNDER &amp; DESIGNER</p>
+                <img src={logo.url} alt="Notions in Pattern" className="w-8 sm:w-16 h-auto mb-2 sm:mb-4" />
+                <p className="text-[7px] sm:text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.28em] mb-2 sm:mb-4 whitespace-nowrap">FOUNDER &amp; DESIGNER</p>
               </div>
               <div className="w-16 h-px mb-6" style={{ backgroundColor: `${BROWN}66` }} />
-              <h1 className="font-serif text-6xl md:text-7xl leading-[1.05] tracking-tight mb-3">Neha Prasad</h1>
+              <h1 className="font-serif text-[26px] sm:text-6xl md:text-7xl leading-[1.05] tracking-tight mb-3">Neha Prasad</h1>
               <div className="w-16 h-px mt-6" style={{ backgroundColor: `${BROWN}66` }} />
             </div>
           </div>
@@ -85,7 +85,7 @@ function FounderPage() {
               <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
             </TextBlock>
           </div>
-          <div className="relative w-full h-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
+          <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
             <img src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover object-[54%_100%] block" />
           </div>
 
@@ -119,7 +119,7 @@ function FounderPage() {
           <ImgBlock src={founder6.url} alt="Chikankari embroidery close-up" />
 
           {/* Row 6 : complete rectangular photo, connected to the preceding row */}
-          <div className="relative w-full h-full min-h-[520px] md:min-h-0 md:aspect-[10/9] overflow-hidden">
+          <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
             <img src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="absolute inset-0 w-full h-full object-cover object-[20%_50%] block" />
           </div>
           <div className="flex flex-col gap-0">
@@ -135,7 +135,7 @@ function FounderPage() {
           </div>
 
           {/* Row 7 : text | image */}
-          <TextBlock num="9" title="With Gratitude." footer={<p className="font-serif text-center text-[22px] md:text-[26px] mt-8" style={{ color: BROWN }}>Here's to many more chapters...</p>}>
+          <TextBlock num="9" title="With Gratitude." footer={<p className="font-serif text-center text-[13px] sm:text-[22px] md:text-[26px] mt-3 md:mt-8" style={{ color: BROWN }}>Here's to many more chapters...</p>}>
             <p>The concepts, the designs, the vision, those are mine. But the patterns that came to life, the craft that gave them form, that could only have come from people who truly know what they were doing.</p>
             <p>My artisans. My team.</p>
             <p>I do not take that lightly. I never will.</p>
