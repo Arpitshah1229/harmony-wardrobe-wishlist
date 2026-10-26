@@ -197,7 +197,11 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
 
 const INSTAGRAM_URL =
   "https://instagram.com/notionsinpattern.nipstories?utm_source=qr&cplk=OG1hNDlpNThjYWl4";
+const CONTACT_EMAIL = "hello@notionsinpattern.com";
+// Opens the Gmail app on phones, and the Gmail web compose window on a desktop browser.
+export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
 const PHONE_DISPLAY = "+91 75218 02791";
+
 const PHONE_TEL = "tel:+917521802791";
 const WHATSAPP_CHAT_URL =
   "https://wa.me/917521802791?text=Hi%20NIP%2C%20I%27d%20like%20to%20know%20more%20about%20this%20shirt.";
@@ -211,7 +215,7 @@ export function Footer() {
     { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
     { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
-    { title: "CONNECT", wide: true, items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@notionsinpattern.com", href: "mailto:hello@notionsinpattern.com", icon: GmailIcon }] },
+    { title: "CONNECT", wide: true, items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@notionsinpattern.com", href: GMAIL_COMPOSE_URL, icon: GmailIcon }] },
 
   ];
   return (
