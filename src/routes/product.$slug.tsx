@@ -305,9 +305,12 @@ function Lightbox({
         onPointerMove={(e) => {
           const d = dragRef.current;
           if (!d) return;
-          setOffset({ x: d.ox + (e.clientX - d.x), y: d.oy + (e.clientY - d.y) });
+          setOffset(bound({ x: d.ox + (e.clientX - d.x), y: d.oy + (e.clientY - d.y) }, zoom));
         }}
         onPointerUp={() => {
+          dragRef.current = null;
+        }}
+        onPointerCancel={() => {
           dragRef.current = null;
         }}
         onDoubleClick={(e) => {
@@ -316,6 +319,7 @@ function Lightbox({
         }}
       >
         <img
+          ref={imgRef}
           src={images[index]}
           alt={alt}
           draggable={false}
