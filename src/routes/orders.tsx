@@ -251,7 +251,7 @@ function OrdersPage() {
             </div>
             <div>
               <p className="text-[10px] font-bold tracking-[0.16em]" style={{ color: BROWN }}>EMAIL</p>
-              <a href={`mailto:${DELIVERY_ADDRESS.email}`} className="mt-1 inline-block hover:opacity-70">{DELIVERY_ADDRESS.email}</a>
+              <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer" className="mt-1 inline-block hover:opacity-70">{DELIVERY_ADDRESS.email}</a>
             </div>
           </div>
         </section>
