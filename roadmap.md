@@ -1,11 +1,11 @@
 # Roadmap
 
 ## Image loading performance
-- [ ] Founder logo: shift slightly right so the needle aligns directly above the label's ampersand.
-- [ ] Collections filter dropdown: brown background and beige text on hovered options.
-- [ ] Measure current photo payloads and initial page requests.
-- [ ] Compress existing photos without changing framing; defer off-screen photos and video.
-- [ ] Verify Home, Collections, Founder and product photos after optimization.
+- [x] Founder logo: needle aligned above the ampersand; verified at 393px and 1280px.
+- [x] Collections filter dropdown: brown/beige hover and sorting verified.
+- [x] Measured oversized photo payloads and early video download.
+- [x] Responsive WebP photos across the storefront; original-detail zoom retained; off-screen video deferred with WebM/MP4 fallback.
+- [x] Verified photos on Home, Collections, Founder, About, product, Login, Register and Wishlist at phone/desktop widths; tests pass.
 
 - [x] Size chart: added both full model photos and reference captions (M, 5’11”; S, 5’8”); checked photo loading, captions, closing, and mobile overflow.
 

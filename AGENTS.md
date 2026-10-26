@@ -13,6 +13,7 @@
 
 - Render storefront photos through StoreImage and the image-delivery registry; keep original asset pointers for full-detail zoom so responsive WebP delivery never changes uploaded artwork or framing.
 - Defer the homepage process video until its section approaches the viewport so off-screen playback does not compete with first-screen images.
+- Use the shared Select controls for Collections filters so dropdown highlights follow brand tokens rather than browser-owned menu colours.
 
 - Use the shared `site-chrome` Header, Footer, and AnnouncementBar across content pages so navigation, store state, and branding remain consistent.
 - Keep shared header sizing consistent between overlay and in-flow presentations, while preserving the Collections header exception, so page navigation retains consistent dimensions.
