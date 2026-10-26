@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Image loading performance
+- [ ] Founder logo: shift slightly right so the needle aligns directly above the label's ampersand.
 - [ ] Collections filter dropdown: brown background and beige text on hovered options.
 - [ ] Measure current photo payloads and initial page requests.
 - [ ] Compress existing photos without changing framing; defer off-screen photos and video.
