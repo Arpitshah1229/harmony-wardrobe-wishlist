@@ -255,15 +255,15 @@ function Lightbox({
           >
             <ZoomIn size={18} />
           </button>
-          <button
-            type="button"
-            onClick={reset}
-            className="h-10 px-4 text-[11px] font-bold tracking-[0.18em] border"
-            style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
-          >
-            RESET
-          </button>
         </div>
+        <button
+          type="button"
+          onClick={reset}
+          className="h-10 px-4 text-[11px] font-bold tracking-[0.18em] border"
+          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
+        >
+          RESET
+        </button>
         <button
           type="button"
           aria-label="Close viewer"
@@ -274,6 +274,7 @@ function Lightbox({
           <X size={18} />
         </button>
       </div>
+
 
 
       <div
