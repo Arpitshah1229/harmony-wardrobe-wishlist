@@ -171,6 +171,7 @@ function Lightbox({
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
   const dragRef = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
   const stateRef = useRef({ zoom, offset });
   stateRef.current = { zoom, offset };
@@ -185,19 +186,34 @@ function Lightbox({
     reset();
   };
 
+  // Keep the zoomed photo covering the frame: it can never slide off to one side.
+  const bound = useCallback((o: { x: number; y: number }, z: number) => {
+    const c = containerRef.current;
+    const img = imgRef.current;
+    if (!c || !img) return o;
+    const maxX = Math.max(0, (img.offsetWidth * z - c.clientWidth) / 2);
+    const maxY = Math.max(0, (img.offsetHeight * z - c.clientHeight) / 2);
+    return { x: clamp(o.x, -maxX, maxX), y: clamp(o.y, -maxY, maxY) };
+  }, []);
+
+  // px/py are relative to the frame's top-left; the photo scales from its centre,
+  // so convert to centre-relative coordinates before keeping that point fixed.
   const zoomAt = useCallback((next: number, px: number, py: number) => {
     const { zoom: z, offset: o } = stateRef.current;
     const target = clamp(next, MIN_ZOOM, MAX_ZOOM);
+    const c = containerRef.current;
+    const cx = px - (c?.clientWidth ?? 0) / 2;
+    const cy = py - (c?.clientHeight ?? 0) / 2;
     const k = target / z;
-    const nx = px - (px - o.x) * k;
-    const ny = py - (py - o.y) * k;
+    const nx = cx - (cx - o.x) * k;
+    const ny = cy - (cy - o.y) * k;
     setZoom(target);
-    setOffset(target === 1 ? { x: 0, y: 0 } : { x: nx, y: ny });
-  }, []);
+    setOffset(target === 1 ? { x: 0, y: 0 } : bound({ x: nx, y: ny }, target));
+  }, [bound]);
 
   const zoomCenter = (factor: number) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    zoomAt(stateRef.current.zoom * factor, (rect?.width ?? 0) / 2, (rect?.height ?? 0) / 2);
+    const c = containerRef.current;
+    zoomAt(stateRef.current.zoom * factor, (c?.clientWidth ?? 0) / 2, (c?.clientHeight ?? 0) / 2);
   };
 
   useEffect(() => {
