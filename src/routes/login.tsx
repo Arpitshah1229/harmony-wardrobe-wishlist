@@ -260,7 +260,10 @@ function LoginPage() {
             </div>
           </div>
         </section>
+          </div>
+        </div>
       </main>
+
 
       <Footer />
     </div>
