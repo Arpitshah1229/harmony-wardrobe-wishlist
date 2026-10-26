@@ -66,8 +66,8 @@ function FounderPage() {
           <div className="p-3 sm:p-8 md:p-10 h-full min-w-0 flex flex-col justify-center" style={{ color: BROWN }}>
             <div className="w-fit">
               <div className="flex w-full flex-col items-center">
-                <StoreImage src={logo.url} sizes="(min-width: 640px) 96px, 56px" alt="Notions in Pattern" className="w-14 sm:w-24 h-auto mb-2 sm:mb-4" />
-                <p className="text-[7px] sm:text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.28em] mb-2 sm:mb-4 whitespace-nowrap">FOUNDER &amp; DESIGNER</p>
+                <div aria-hidden="true" className="w-14 sm:w-24 aspect-[1483/1132] mb-2 sm:mb-4" />
+                <p className="text-[7px] sm:text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.28em] mb-2 sm:mb-4 whitespace-nowrap">FOUNDER <span className="relative inline-block"><StoreImage src={logo.url} sizes="(min-width: 640px) 96px, 56px" alt="Notions in Pattern" className="absolute bottom-[calc(100%+8px)] sm:bottom-[calc(100%+16px)] left-1/2 -translate-x-[36.7%] w-14 sm:w-24 max-w-none h-auto" />&amp;</span> DESIGNER</p>
               </div>
               <div className="w-16 h-px mb-6 mx-auto" style={{ backgroundColor: `${BROWN}66` }} />
               <h1 className="font-serif text-[26px] sm:text-6xl md:text-7xl leading-[1.05] tracking-tight mb-3">Neha Prasad</h1>
