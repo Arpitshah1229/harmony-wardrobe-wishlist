@@ -105,7 +105,7 @@ function LoginPage() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-[355px] -translate-x-20 border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:-translate-x-40">
+        <section className="mx-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:-translate-x-40">
           <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
             <h1 className="relative mx-auto mt-[78px] w-fit text-center font-serif text-[30px] leading-tight text-foreground md:mt-[91px]">
               <StoreImage
