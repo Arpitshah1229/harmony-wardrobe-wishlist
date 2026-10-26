@@ -63,17 +63,22 @@ function LoginPage() {
       <Header />
       <AnnouncementBar />
 
-      <main className="relative isolate mx-auto flex min-h-[610px] w-full max-w-[1440px] flex-1 items-center overflow-hidden px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
-        <StoreImage
-          src={loginBackground}
-          loading="eager"
-          fetchPriority="high"
-          alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-right"
-        />
-        <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
-        <div aria-hidden="true" className="login-edge-blur login-edge-blur-left" />
-        <div aria-hidden="true" className="login-edge-blur login-edge-blur-right" />
+      <main className="relative isolate flex w-full flex-1 overflow-hidden">
+        <div className="relative min-h-[610px] w-full flex-1">
+          <StoreImage
+            src={loginBackground}
+            loading="eager"
+            fetchPriority="high"
+            alt="Man relaxing on an ornate bench wearing a green NIP shirt"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right"
+          />
+          <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
+          <div aria-hidden="true" className="login-edge-blur login-edge-blur-left" />
+          <div aria-hidden="true" className="login-edge-blur login-edge-blur-right" />
+
+          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
+
+
 
 
         <section className="hidden w-[40%] max-w-[420px] text-background lg:block">
