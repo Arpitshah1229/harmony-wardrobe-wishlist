@@ -235,33 +235,35 @@ function Lightbox({
       aria-modal="true"
       aria-label="Product image viewer"
     >
-      <div className="flex items-center justify-end gap-2 p-4">
-        <button
-          type="button"
-          aria-label="Zoom out"
-          onClick={() => zoomCenter(1 / 1.4)}
-          className="h-10 w-10 grid place-items-center border"
-          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
-        >
-          <ZoomOut size={18} />
-        </button>
-        <button
-          type="button"
-          aria-label="Zoom in"
-          onClick={() => zoomCenter(1.4)}
-          className="h-10 w-10 grid place-items-center border"
-          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
-        >
-          <ZoomIn size={18} />
-        </button>
-        <button
-          type="button"
-          onClick={reset}
-          className="h-10 px-4 text-[11px] font-bold tracking-[0.18em] border"
-          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
-        >
-          RESET
-        </button>
+      <div className="relative flex items-center justify-end gap-2 p-4">
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Zoom out"
+            onClick={() => zoomCenter(1 / 1.4)}
+            className="h-10 w-10 grid place-items-center border"
+            style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
+          >
+            <ZoomOut size={18} />
+          </button>
+          <button
+            type="button"
+            aria-label="Zoom in"
+            onClick={() => zoomCenter(1.4)}
+            className="h-10 w-10 grid place-items-center border"
+            style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
+          >
+            <ZoomIn size={18} />
+          </button>
+          <button
+            type="button"
+            onClick={reset}
+            className="h-10 px-4 text-[11px] font-bold tracking-[0.18em] border"
+            style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
+          >
+            RESET
+          </button>
+        </div>
         <button
           type="button"
           aria-label="Close viewer"
@@ -272,6 +274,7 @@ function Lightbox({
           <X size={18} />
         </button>
       </div>
+
 
       <div
         ref={containerRef}
