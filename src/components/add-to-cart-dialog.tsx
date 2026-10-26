@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { useEffect, useState } from "react";
 import { X, Minus, Plus } from "lucide-react";
 import { BROWN, DARK } from "@/components/site-chrome";
@@ -97,7 +98,7 @@ export function AddToCartDialog({
         </button>
 
         <div className="flex items-center gap-4">
-          <img src={product.images[0]} alt={product.name} className="h-20 w-16 object-cover" />
+          <StoreImage src={product.images[0]} alt={product.name} className="h-20 w-16 object-cover" />
           <div>
             <h2 className="font-serif text-[22px] font-bold leading-snug" style={{ color: BROWN }}>
               {product.name}

@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   CheckCircle2,
@@ -89,7 +90,7 @@ function OrdersPage() {
         {/* Order header card */}
         <section className="border border-border/60 bg-background p-6 md:p-8">
           <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <img
+            <StoreImage
               src={orderItems[0]?.image}
               alt={orderItems[0]?.name}
               className="w-24 h-32 object-cover rounded-sm"
@@ -155,7 +156,7 @@ function OrdersPage() {
             {orderItems.map((item) => (
               <li key={`${item.slug}-${item.size}`} className="flex items-center gap-4 pb-5 border-b border-border/40 last:border-0 last:pb-0">
                 <Link to="/product/$slug" params={{ slug: item.slug }} className="shrink-0">
-                  <img src={item.image} alt={item.name} className="w-16 h-20 object-cover rounded-sm" loading="lazy" />
+                  <StoreImage src={item.image} alt={item.name} className="w-16 h-20 object-cover rounded-sm" loading="lazy" />
                 </Link>
                 <div className="flex-1 min-w-0">
                   <p className="font-serif text-[16px] font-bold" style={{ color: BROWN }}>

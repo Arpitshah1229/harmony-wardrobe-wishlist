@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { useLivePrices } from "@/lib/shopify";
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
@@ -8,6 +9,7 @@ import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import heroImg from "@/assets/collection_hero_v3.png.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 
 function ProductCard({ product }: { product: Product }) {
@@ -25,7 +27,7 @@ function ProductCard({ product }: { product: Product }) {
     <article className="group flex flex-col">
       <div className="relative overflow-hidden bg-cream/60">
         <Link to="/product/$slug" params={{ slug: product.slug }} className="block relative">
-          <img
+          <StoreImage
             src={product.images[imgIdx]}
             alt={product.name}
             loading="lazy"
@@ -192,8 +194,9 @@ function CollectionsPage() {
       {/* Hero */}
       <section
         className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center"
-        style={{ backgroundImage: `url(${heroImg.url})` }}
+
       >
+        <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-background/10" />
         <div className="relative ml-auto px-8 md:pl-16 md:pr-36 pt-40 pb-24 max-w-xl text-left">
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4" style={{ color: BROWN }}>
@@ -245,29 +248,31 @@ function CollectionsPage() {
             <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
               CATEGORY
             </p>
-            <select
-              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[140px]"
-              style={{ color: DARK, borderColor: BROWN }}
-            >
-              <option>Shirts</option>
-            </select>
+            <Select value="shirts">
+              <SelectTrigger aria-label="Category" className="min-w-[140px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="rounded-none border-border bg-background text-foreground">
+                <SelectItem value="shirts" className="rounded-none text-[14px] focus:bg-accent focus:text-beige data-[highlighted]:bg-accent data-[highlighted]:text-beige">Shirts</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           <div>
             <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
               SORT BY
             </p>
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value)}
-              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[180px]"
-              style={{ color: DARK, borderColor: BROWN }}
-            >
-              {SORT_OPTIONS.map((o) => (
-                <option key={o} value={o}>
-                  {o}
-                </option>
-              ))}
-            </select>
+            <Select value={sort} onValueChange={setSort}>
+              <SelectTrigger aria-label="Sort by" className="min-w-[180px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="rounded-none border-border bg-background text-foreground">
+                {SORT_OPTIONS.map((o) => (
+                  <SelectItem key={o} value={o} className="rounded-none text-[14px] focus:bg-accent focus:text-beige data-[highlighted]:bg-accent data-[highlighted]:text-beige">
+                    {o}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <div>
@@ -380,7 +385,7 @@ function CollectionsPage() {
           </div>
         </div>
         <figure className="mt-14 mx-auto max-w-[1440px] overflow-hidden">
-          <img
+          <StoreImage
             src={stitchesStrip.url}
             alt="Chikankari stitch details on hand-dyed fabric"
             loading="lazy"

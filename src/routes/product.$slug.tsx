@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { useLiveProduct, useLivePrices } from "@/lib/shopify";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
@@ -128,7 +129,7 @@ function SizeChartModal({ onClose }: { onClose: () => void }) {
             {SIZE_CHART_MODELS.map((model) => (
               <figure key={model.size} className="min-w-0">
                 <div className="aspect-[3/4] w-full">
-                  <img
+                  <StoreImage
                     src={model.image}
                     alt={model.alt}
                     className="h-full w-full object-contain"
@@ -318,8 +319,10 @@ function Lightbox({
           zoomAt(zoom > 1 ? 1 : 2.5, e.clientX - rect.left, e.clientY - rect.top);
         }}
       >
-        <img
+        <StoreImage
           ref={imgRef}
+          fullDetail
+          loading="eager"
           src={images[index]}
           alt={alt}
           draggable={false}
@@ -368,7 +371,7 @@ function Lightbox({
             className="shrink-0"
             style={{ outline: i === index ? "2px solid #F7F4EE" : "none" }}
           >
-            <img src={src} alt="" className="h-16 w-12 object-cover" />
+            <StoreImage src={src} alt="" className="h-16 w-12 object-cover" />
           </button>
         ))}
       </div>
@@ -478,10 +481,12 @@ function ProductPage() {
               onClick={() => setLightbox(i)}
               className="group relative block w-full overflow-hidden bg-cream/60 cursor-zoom-in"
             >
-              <img
+              <StoreImage
                 src={src}
                 alt={product.altText}
                 loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "auto"}
+                sizes="(min-width: 1024px) 32vw, (min-width: 640px) 50vw, 100vw"
                 className="w-full aspect-[3/4] object-cover"
               />
               <span
@@ -658,7 +663,7 @@ function ProductPage() {
             <div className="mt-4 grid grid-cols-3 gap-3">
               {(product.stylingImages || product.images.slice(0, 3).map((src) => ({ src, label: "", tall: false }))).slice(0, 3).map((item, i) => (
                 <figure key={i} className="flex flex-col">
-                  <img
+                  <StoreImage
                     src={item.src}
                     alt={`${product.name} styled ${item.label || "look"}`}
                     loading="lazy"
@@ -706,7 +711,7 @@ function ProductPage() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10">
           {others.map((p) => (
             <Link key={p.slug} to="/product/$slug" params={{ slug: p.slug }} className="group flex flex-col">
-              <img
+              <StoreImage
                 src={p.images[0]}
                 alt={p.altText}
                 loading="lazy"

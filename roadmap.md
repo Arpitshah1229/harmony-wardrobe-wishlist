@@ -1,5 +1,12 @@
 # Roadmap
 
+## Image loading performance
+- [x] Founder logo: needle aligned above the ampersand; verified at 393px and 1280px.
+- [x] Collections filter dropdown: brown/beige hover and sorting verified.
+- [x] Measured oversized photo payloads and early video download.
+- [x] Responsive WebP photos across the storefront; original-detail zoom retained; off-screen video deferred with WebM/MP4 fallback.
+- [x] Verified photos on Home, Collections, Founder, About, product, Login, Register and Wishlist at phone/desktop widths; tests pass.
+
 - [x] Size chart: added both full model photos and reference captions (M, 5’11”; S, 5’8”); checked photo loading, captions, closing, and mobile overflow.
 
 ## Responsive design for every screen size (plan approved 2026-10-05)

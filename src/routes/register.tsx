@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ShieldCheck, ArrowLeft, UserPlus } from "lucide-react";
@@ -103,8 +104,10 @@ function RegisterPage() {
           className="relative w-full min-h-[740px]"
           style={{ aspectRatio: "1920 / 1212" }}
         >
-          <img
+          <StoreImage
             src={accountBackground.url}
+            loading="eager"
+            fetchPriority="high"
             alt="Man wearing a white NIP shirt drinking tea against a tropical wallpaper"
             className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_100%]"
           />
@@ -144,7 +147,7 @@ function RegisterPage() {
         <section className="ml-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:translate-x-4 lg:translate-x-10">
           <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
             <div className="flex flex-col items-center">
-              <img src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
+              <StoreImage src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
             </div>
 
             <h1 className="-mt-3 text-center font-serif text-[30px] leading-tight text-foreground">

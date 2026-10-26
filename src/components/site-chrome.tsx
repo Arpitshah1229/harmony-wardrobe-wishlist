@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { useEffect, useState, type ComponentType } from "react";
 import { User, Heart, Menu, X } from "lucide-react";
 import { GmailIcon } from "@/components/gmail-icon";
@@ -66,7 +67,7 @@ export function Header({
     >
       <div className="flex min-w-0 items-center gap-3 xl:gap-4">
         {!hideLogo && (
-          <img src={nipMonogram.url} alt="Notions in Pattern" className="h-[19px] w-auto shrink-0 sm:h-[24px] lg:h-[27px] xl:h-[34px]" />
+          <StoreImage src={nipMonogram.url} loading="eager" sizes="80px" alt="Notions in Pattern" className="h-[19px] w-auto shrink-0 sm:h-[24px] lg:h-[27px] xl:h-[34px]" />
         )}
         <Link to="/" className="flex items-center gap-1.5 sm:gap-2 font-serif font-bold text-[11px] sm:text-sm lg:text-base xl:text-xl tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap leading-none hover:opacity-80 transition-opacity" style={{ color: ink }}>
           <span className="flex flex-col items-stretch gap-1 lg:gap-1.5">
@@ -222,7 +223,7 @@ export function Footer() {
     <footer className="px-5 md:px-10 py-4 border-t border-border/60" style={{ color: BROWN }}>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 items-start">
         <div className="self-start">
-          <img src={nipLogo.url} alt="Notions in Pattern" className="w-36 h-auto" />
+          <StoreImage src={nipLogo.url} sizes="144px" alt="Notions in Pattern" className="w-36 h-auto" />
         </div>
         {cols.map((c) => (
           <div key={c.title} className={c.wide ? "col-span-2 md:col-span-1" : undefined}>

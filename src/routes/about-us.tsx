@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { createFileRoute } from "@tanstack/react-router";
 import aboutus1 from "@/assets/aboutus1_v2.jpeg.asset.json";
 import aboutus2 from "@/assets/aboutus2_v2.jpeg.asset.json";
@@ -81,7 +82,7 @@ function AboutPage() {
           </p>
         </div>
         <div className="w-full aspect-[1600/1066] overflow-hidden md:-mx-16 md:w-[calc(100%_+_8rem)] xl:mx-0 xl:w-full">
-          <img src={aboutus1.url} alt="Artisans working on textile" className="w-full h-full object-contain block" />
+          <StoreImage src={aboutus1.url} loading="eager" fetchPriority="high" alt="Artisans working on textile" className="w-full h-full object-contain block" />
         </div>
       </section>
 
@@ -113,7 +114,7 @@ function AboutPage() {
       {/* What we do */}
       <section className="grid md:grid-cols-2 gap-12 md:gap-16 items-center pb-24">
         <div className="px-8 md:pl-16 md:pr-0">
-          <img src={aboutus2.url} alt="Hand embroidering fabric" className="w-full max-h-[420px] h-auto object-cover" />
+          <StoreImage src={aboutus2.url} alt="Hand embroidering fabric" className="w-full max-h-[420px] h-auto object-cover" />
         </div>
         <div className="px-8 md:pr-16 md:pl-0">
           <h3 className={titleClass} style={{ color: BROWN }}>WHAT WE DO</h3>
@@ -149,8 +150,9 @@ function AboutPage() {
       {/* Gratitude */}
       <section
         className="relative w-full px-8 md:px-16 py-24 bg-no-repeat bg-cover bg-right"
-        style={{ backgroundImage: `url(${aboutus3.url})`, minHeight: "480px" }}
+        style={{ minHeight: "480px" }}
       >
+        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />
         <div className="max-w-6xl relative z-10">
           <div className="max-w-md p-5 -mx-5 bg-background/85 backdrop-blur-[2px] lg:p-0 lg:mx-0 lg:bg-transparent lg:backdrop-blur-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4" style={{ color: BROWN }}>With Gratitude.</h2>
