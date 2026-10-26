@@ -197,7 +197,11 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
 
 const INSTAGRAM_URL =
   "https://instagram.com/notionsinpattern.nipstories?utm_source=qr&cplk=OG1hNDlpNThjYWl4";
+const CONTACT_EMAIL = "hello@notionsinpattern.com";
+// Opens the Gmail app on phones, and the Gmail web compose window on a desktop browser.
+export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
 const PHONE_DISPLAY = "+91 75218 02791";
+
 const PHONE_TEL = "tel:+917521802791";
 const WHATSAPP_CHAT_URL =
   "https://wa.me/917521802791?text=Hi%20NIP%2C%20I%27d%20like%20to%20know%20more%20about%20this%20shirt.";

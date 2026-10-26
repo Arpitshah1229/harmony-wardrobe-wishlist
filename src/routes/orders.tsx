@@ -9,7 +9,7 @@ import {
   Star,
   Truck,
 } from "lucide-react";
-import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
+import { Header, Footer, AnnouncementBar, BROWN, DARK, GMAIL_COMPOSE_URL } from "@/components/site-chrome";
 import { products, PRODUCT_SUBTITLE } from "@/lib/products";
 import { useCart, formatPrice, parsePrice } from "@/lib/cart";
 

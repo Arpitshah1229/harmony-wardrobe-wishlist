@@ -6,7 +6,7 @@ import { PhoneIcon } from "@/components/phone-icon";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { GmailIcon } from "@/components/gmail-icon";
 import { InstagramIcon } from "@/components/instagram-icon";
-import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
+import { Header, Footer, AnnouncementBar, BROWN, DARK, GMAIL_COMPOSE_URL } from "@/components/site-chrome";
 import {
   products,
   getProduct,
