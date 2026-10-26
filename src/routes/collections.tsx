@@ -9,6 +9,7 @@ import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import heroImg from "@/assets/collection_hero_v3.png.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 
 function ProductCard({ product }: { product: Product }) {
@@ -247,29 +248,31 @@ function CollectionsPage() {
             <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
               CATEGORY
             </p>
-            <select
-              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[140px]"
-              style={{ color: DARK, borderColor: BROWN }}
-            >
-              <option>Shirts</option>
-            </select>
+            <Select value="shirts">
+              <SelectTrigger aria-label="Category" className="min-w-[140px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="rounded-none border-border bg-background text-foreground">
+                <SelectItem value="shirts" className="rounded-none text-[14px] focus:bg-accent focus:text-beige data-[highlighted]:bg-accent data-[highlighted]:text-beige">Shirts</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           <div>
             <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
               SORT BY
             </p>
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value)}
-              className="bg-transparent border-b pb-1 text-[14px] outline-none min-w-[180px]"
-              style={{ color: DARK, borderColor: BROWN }}
-            >
-              {SORT_OPTIONS.map((o) => (
-                <option key={o} value={o}>
-                  {o}
-                </option>
-              ))}
-            </select>
+            <Select value={sort} onValueChange={setSort}>
+              <SelectTrigger aria-label="Sort by" className="min-w-[180px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="rounded-none border-border bg-background text-foreground">
+                {SORT_OPTIONS.map((o) => (
+                  <SelectItem key={o} value={o} className="rounded-none text-[14px] focus:bg-accent focus:text-beige data-[highlighted]:bg-accent data-[highlighted]:text-beige">
+                    {o}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <div>
