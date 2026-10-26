@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { createFileRoute } from "@tanstack/react-router";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import logo from "@/assets/nip-monogram.png.asset.json";
@@ -43,7 +44,7 @@ function TextBlock({ num, title, center, vCenter, footer, children }: { num: str
 function ImgBlock({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
-      <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover block" />
+      <StoreImage src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover block" />
     </div>
   );
 }
@@ -58,14 +59,14 @@ function FounderPage() {
         <div className="grid grid-cols-2 gap-0">
           {/* Hero image */}
           <div className="h-full">
-            <img src={founder1.url} alt="Neha Prasad" className="w-full h-full object-cover block" />
+            <StoreImage src={founder1.url} loading="eager" fetchPriority="high" sizes="(min-width: 1440px) 656px, 50vw" alt="Neha Prasad" className="w-full h-full object-cover block" />
           </div>
 
           {/* Hero text */}
           <div className="p-3 sm:p-8 md:p-10 h-full min-w-0 flex flex-col justify-center" style={{ color: BROWN }}>
             <div className="w-fit">
               <div className="flex w-full flex-col items-center">
-                <img src={logo.url} alt="Notions in Pattern" className="w-14 sm:w-24 h-auto mb-2 sm:mb-4" />
+                <StoreImage src={logo.url} sizes="(min-width: 640px) 96px, 56px" alt="Notions in Pattern" className="w-14 sm:w-24 h-auto mb-2 sm:mb-4" />
                 <p className="text-[7px] sm:text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.28em] mb-2 sm:mb-4 whitespace-nowrap">FOUNDER &amp; DESIGNER</p>
               </div>
               <div className="w-16 h-px mb-6 mx-auto" style={{ backgroundColor: `${BROWN}66` }} />
@@ -86,7 +87,7 @@ function FounderPage() {
             </TextBlock>
           </div>
           <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
-            <img src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover object-[54%_100%] block" />
+            <StoreImage src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover object-[54%_100%] block" />
           </div>
 
           {/* Row 2 : image | text */}
@@ -120,7 +121,7 @@ function FounderPage() {
 
           {/* Row 6 : complete rectangular photo, connected to the preceding row */}
           <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
-            <img src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="absolute inset-0 w-full h-full object-cover object-[20%_50%] block" />
+            <StoreImage src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="absolute inset-0 w-full h-full object-cover object-[20%_50%] block" />
           </div>
           <div className="flex flex-col gap-0">
           <TextBlock num="7" title="A day at Notions in Pattern." vCenter>
@@ -143,7 +144,7 @@ function FounderPage() {
             <p>That, more than anything, is where Notions in Pattern lives.</p>
           </TextBlock>
           <div className="w-full aspect-square overflow-hidden">
-            <img src={founder9.url} alt="Packing shirts and hand-marked NIP pouches in the studio" className="w-full h-auto object-cover block" />
+            <StoreImage src={founder9.url} alt="Packing shirts and hand-marked NIP pouches in the studio" className="w-full h-auto object-cover block" />
           </div>
         </div>
       </section>

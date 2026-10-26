@@ -1,3 +1,5 @@
+import { DeferredVideo } from "@/components/deferred-video";
+import { StoreImage } from "@/components/store-image";
 import { ArrowRight } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnnouncementBar, Footer, Header } from "@/components/site-chrome";
@@ -58,8 +60,10 @@ function HomePage() {
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo scrolledBrown />
 
       <section className="relative flex w-full flex-col bg-cream min-h-[100svh]">
-        <img
+        <StoreImage
           src={hero.url}
+          loading="eager"
+          fetchPriority="high"
           alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
           className="absolute inset-0 h-full w-full object-cover object-[100%_50%] sm:object-bottom"
         />
@@ -96,7 +100,7 @@ function HomePage() {
       <AnnouncementBar />
 
       <section className="relative mt-2.5 flex min-h-[700px] items-center justify-center overflow-hidden bg-home-linen">
-        <img
+        <StoreImage
           src={philosophy.url}
           alt="Embroidered textiles illustrating evolving patterns"
           loading="lazy"
@@ -126,7 +130,7 @@ function HomePage() {
               params={{ slug: item.slug }}
               className="group relative block aspect-square w-full min-w-0 overflow-hidden bg-cream"
             >
-              <img
+              <StoreImage
                 src={item.image}
                 alt={`${item.name} shirt`}
                 loading="lazy"
@@ -154,16 +158,14 @@ function HomePage() {
       </section>
 
       <section aria-label="Crafted by hand" className="relative min-h-[760px] overflow-hidden md:min-h-[110vh]">
-        <img src={sepia.url} alt="Sepia-toned studio setting" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+        <StoreImage src={sepia.url} alt="Sepia-toned studio setting" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
         <div className="relative flex min-h-[760px] flex-col items-center justify-center gap-10 p-6 md:min-h-[110vh] md:flex-row md:gap-[4vw] md:p-8 lg:gap-[16vw] lg:p-10">
           <Link
             to="/collections"
             aria-label="Explore the collection"
             className="relative aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame shadow-sm md:max-w-[320px] md:border-[20px] lg:max-w-[460px] lg:border-[25px]"
           >
-            <video className="h-full w-full object-cover" autoPlay loop muted playsInline preload="metadata" poster={sepia.url}>
-              <source src={processVideo.url} type="video/mp4" />
-            </video>
+            <DeferredVideo className="h-full w-full object-cover" src={processVideo.url} poster={sepia.url} />
           </Link>
           <div className="aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame bg-home-panel md:max-w-[320px] md:border-[20px] lg:max-w-[460px] lg:border-[25px]">
             <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center md:p-8 lg:p-12">
@@ -174,7 +176,7 @@ function HomePage() {
               <p className="font-serif uppercase tracking-wide text-foreground">
                 Perfect was never the point<br />We learn. We evolve. We return.<br />Always.
               </p>
-              <img src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-3 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]" />
+              <StoreImage src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-3 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]" />
             </div>
           </div>
         </div>

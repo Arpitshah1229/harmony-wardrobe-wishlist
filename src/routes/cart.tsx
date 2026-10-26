@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Minus, Plus, X, Truck, RotateCcw, Lock, TicketPercent } from "lucide-react";
@@ -32,7 +33,7 @@ function PaymentIcons() {
       <div className="flex flex-wrap items-center gap-3">
         {PAYMENT_LOGOS.map(({ id, name, src, h }) => (
           <div key={id} className="flex h-10 w-[84px] items-center justify-center rounded border border-border/60 bg-background px-2">
-            <img src={src} alt={name} title={name} loading="lazy" className={`${h} w-auto max-w-full object-contain`} />
+            <StoreImage src={src} alt={name} title={name} loading="lazy" className={`${h} w-auto max-w-full object-contain`} />
           </div>
         ))}
       </div>
@@ -168,7 +169,7 @@ function CartPage() {
                   >
                     <div className="flex gap-4 min-w-0 col-span-2 md:col-span-1">
                       <Link to="/product/$slug" params={{ slug: item.slug }} className="shrink-0">
-                        <img
+                        <StoreImage
                           src={item.image}
                           alt={item.name}
                           className="w-24 h-32 object-cover"

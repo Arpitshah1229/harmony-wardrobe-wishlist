@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { useLivePrices } from "@/lib/shopify";
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -42,8 +43,10 @@ function WishlistPage() {
       <main className="relative isolate mx-auto w-full max-w-[1440px] overflow-hidden px-8 md:px-16 py-14">
         {/* Softened photo backdrop — main section only */}
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <img
+          <StoreImage
             src={wishlistBackground.url}
+            loading="eager"
+            fetchPriority="high"
             alt=""
             aria-hidden="true"
             className="h-full w-full scale-105 object-cover blur-[5px]"
@@ -81,7 +84,7 @@ function WishlistPage() {
               <article key={p.slug} className="group flex flex-col w-[calc(50%-12px)] md:w-[calc(25%-18px)]">
                 <div className="relative overflow-hidden bg-cream/60">
                   <Link to="/product/$slug" params={{ slug: p.slug }} className="block">
-                    <img
+                    <StoreImage
                       src={p.images[0]}
                       alt={p.name}
                       loading="lazy"

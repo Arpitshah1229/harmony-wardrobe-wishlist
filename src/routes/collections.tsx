@@ -1,3 +1,4 @@
+import { StoreImage } from "@/components/store-image";
 import { useLivePrices } from "@/lib/shopify";
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
@@ -25,7 +26,7 @@ function ProductCard({ product }: { product: Product }) {
     <article className="group flex flex-col">
       <div className="relative overflow-hidden bg-cream/60">
         <Link to="/product/$slug" params={{ slug: product.slug }} className="block relative">
-          <img
+          <StoreImage
             src={product.images[imgIdx]}
             alt={product.name}
             loading="lazy"
@@ -192,8 +193,9 @@ function CollectionsPage() {
       {/* Hero */}
       <section
         className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center"
-        style={{ backgroundImage: `url(${heroImg.url})` }}
+
       >
+        <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-background/10" />
         <div className="relative ml-auto px-8 md:pl-16 md:pr-36 pt-40 pb-24 max-w-xl text-left">
           <p className="text-[12px] font-bold tracking-[0.28em] mb-4" style={{ color: BROWN }}>
@@ -380,7 +382,7 @@ function CollectionsPage() {
           </div>
         </div>
         <figure className="mt-14 mx-auto max-w-[1440px] overflow-hidden">
-          <img
+          <StoreImage
             src={stitchesStrip.url}
             alt="Chikankari stitch details on hand-dyed fabric"
             loading="lazy"
