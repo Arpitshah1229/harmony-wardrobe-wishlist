@@ -219,50 +219,57 @@ export function Footer() {
     { title: "CONNECT", wide: true, items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@notionsinpattern.com", href: GMAIL_COMPOSE_URL, icon: GmailIcon }] },
 
   ];
-  // Mobile-only column order: HELP, SHOP, CONNECT, ABOUT. Desktop keeps source order.
-  const mobileOrder: Record<string, string> = {
-    SHOP: "order-2 md:order-none",
-    HELP: "order-1 md:order-none",
-    ABOUT: "order-4 md:order-none",
-    CONNECT: "order-3 md:order-none",
+  type Col = { title: string; items: FooterItem[]; wide?: boolean };
+  const byTitle: Record<string, Col> = Object.fromEntries(cols.map((c) => [c.title, c]));
+  // Desktop keeps SHOP, HELP, ABOUT, CONNECT; mobile shows the two tight rows below.
+  const desktopOrder: Record<string, string> = {
+    SHOP: "md:order-1",
+    HELP: "md:order-2",
+    ABOUT: "md:order-3",
+    CONNECT: "md:order-4",
   };
+  const rows = [["HELP", "SHOP"], ["CONNECT", "ABOUT"]];
+  const renderCol = (c: Col) => (
+    <div key={c.title} className={[c.wide ? "min-w-0" : "", desktopOrder[c.title] ?? ""].filter(Boolean).join(" ")}>
+      <h4 className="text-[12px] font-bold tracking-[0.22em] mb-2" style={{ color: BROWN }}>{c.title}</h4>
+      <ul className="space-y-1 text-[13px] font-bold" style={{ color: BROWN }}>
+        {c.items.map((i) => {
+          const label = typeof i === "string" ? i : i.label;
+          const to = typeof i === "string" ? undefined : i.to;
+          const href = typeof i === "string" ? undefined : i.href;
+          const ItemIcon = typeof i === "string" ? undefined : i.icon;
+          return (
+            <li key={label}>
+              {to ? (
+                <Link to={to} className="hover:opacity-70">{label}</Link>
+              ) : href ? (
+                <a
+                  href={href}
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  className="inline-flex items-start gap-2 whitespace-nowrap hover:opacity-70"
+                >
+                  {ItemIcon && <ItemIcon size={14} className="mt-[3px] shrink-0" />}
+                  {label}
+                </a>
+              ) : (
+                <a href="#" className="hover:opacity-70">{label}</a>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
   return (
     <footer className="px-5 md:px-10 py-4 border-t border-border/60" style={{ color: BROWN }}>
-      <div className="grid grid-cols-[auto_auto] justify-center md:justify-normal md:grid-cols-5 gap-x-10 gap-y-5 md:gap-4 items-start">
-        <div className="order-none col-span-2 flex justify-center md:col-span-1 md:block md:self-start">
+      <div className="flex flex-col items-center gap-y-4 md:grid md:grid-cols-5 md:justify-normal md:gap-4 md:items-start">
+        <div className="flex w-full justify-center md:w-auto md:justify-self-start md:self-start">
           <StoreImage src={nipLogo.url} sizes="144px" alt="Notions in Pattern" className="w-24 md:w-36 h-auto" />
         </div>
-        {cols.map((c) => (
-          <div key={c.title} className={[c.wide ? "min-w-0" : "", mobileOrder[c.title] ?? ""].filter(Boolean).join(" ")}>
-
-            <h4 className="text-[12px] font-bold tracking-[0.22em] mb-2" style={{ color: BROWN }}>{c.title}</h4>
-            <ul className="space-y-1 text-[13px] font-bold" style={{ color: BROWN }}>
-              {c.items.map((i) => {
-                const label = typeof i === "string" ? i : i.label;
-                const to = typeof i === "string" ? undefined : i.to;
-                const href = typeof i === "string" ? undefined : i.href;
-                const ItemIcon = typeof i === "string" ? undefined : i.icon;
-                return (
-                  <li key={label}>
-                    {to ? (
-                      <Link to={to} className="hover:opacity-70">{label}</Link>
-                    ) : href ? (
-                      <a
-                        href={href}
-                        target={href.startsWith("mailto:") ? undefined : "_blank"}
-                        rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                        className="inline-flex items-start gap-2 whitespace-nowrap hover:opacity-70"
-                      >
-                        {ItemIcon && <ItemIcon size={14} className="mt-[3px] shrink-0" />}
-                        {label}
-                      </a>
-                    ) : (
-                      <a href="#" className="hover:opacity-70">{label}</a>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+        {rows.map((r) => (
+          <div key={r.join("+")} className="flex gap-x-6 md:contents">
+            {r.map((t) => renderCol(byTitle[t]))}
           </div>
         ))}
       </div>
