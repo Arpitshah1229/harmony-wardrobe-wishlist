@@ -193,12 +193,12 @@ function CollectionsPage() {
 
       {/* Hero */}
       <section
-        className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center"
+        className="relative w-full bg-cover bg-center aspect-[3/2] md:aspect-auto md:min-h-[780px] flex items-end md:items-center"
 
       >
         <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-background/10" />
-        <div className="relative ml-auto px-8 md:pl-16 md:pr-36 pt-32 pb-16 max-w-lg text-left">
+        <div className="relative ml-auto px-8 pb-6 md:pl-16 md:pr-36 md:pt-32 md:pb-16 max-w-lg text-left">
           <p className="text-[11px] font-bold tracking-[0.28em] mb-3" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
