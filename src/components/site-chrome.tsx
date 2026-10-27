@@ -221,7 +221,7 @@ export function Footer() {
   ];
   return (
     <footer className="px-5 md:px-10 py-4 border-t border-border/60" style={{ color: BROWN }}>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-5 md:gap-4 items-start">
+      <div className="grid grid-cols-[1fr_auto] md:grid-cols-5 gap-x-4 gap-y-5 md:gap-4 items-start">
         <div className="col-span-2 flex justify-center md:col-span-1 md:block md:self-start">
           <StoreImage src={nipLogo.url} sizes="144px" alt="Notions in Pattern" className="w-24 md:w-36 h-auto" />
         </div>
