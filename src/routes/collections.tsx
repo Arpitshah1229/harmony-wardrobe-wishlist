@@ -207,7 +207,7 @@ function CollectionsPage() {
           </p>
           <span className="block w-7 border-t mt-3 mb-3 md:w-10 md:mt-4 md:mb-4" style={{ borderColor: BROWN }} />
           <p className="text-[10px] leading-snug md:text-[14px] md:leading-relaxed md:max-w-md" style={{ color: DARK }}>
-            A collection that begins with how we see,
+            A collection that begins with how we see,{" "}
             <br className="hidden md:inline" />
             and how that vision takes form.
           </p>
