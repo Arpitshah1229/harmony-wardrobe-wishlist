@@ -268,7 +268,7 @@ export function Footer() {
           <StoreImage src={nipLogo.url} sizes="144px" alt="Notions in Pattern" className="w-24 md:w-36 h-auto" />
         </div>
         {rows.map((r) => (
-          <div key={r.join("+")} className="flex gap-x-3 md:contents">
+          <div key={r.join("+")} className="flex gap-x-6 md:contents">
             {r.map((t) => renderCol(byTitle[t]))}
           </div>
         ))}
