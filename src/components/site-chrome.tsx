@@ -220,17 +220,23 @@ export function Footer() {
 
   ];
   type Col = { title: string; items: FooterItem[]; wide?: boolean };
-  const byTitle: Record<string, Col> = Object.fromEntries(cols.map((c) => [c.title, c]));
-  // Desktop keeps SHOP, HELP, ABOUT, CONNECT; mobile shows the two tight rows below.
+  // Desktop keeps SHOP, HELP, ABOUT, CONNECT; mobile shows the 2×2 grid below.
   const desktopOrder: Record<string, string> = {
     SHOP: "md:order-1",
     HELP: "md:order-2",
     ABOUT: "md:order-3",
     CONNECT: "md:order-4",
   };
-  const rows = [["HELP", "SHOP"], ["CONNECT", "ABOUT"]];
+  // Mobile-only column order: HELP, SHOP on the first row; CONNECT, ABOUT on the second.
+  const mobileOrder: Record<string, string> = {
+    SHOP: "max-md:order-2",
+    HELP: "max-md:order-1",
+    CONNECT: "max-md:order-3",
+    ABOUT: "max-md:order-4",
+  };
   const renderCol = (c: Col) => (
-    <div key={c.title} className={[c.wide ? "min-w-0" : "", desktopOrder[c.title] ?? ""].filter(Boolean).join(" ")}>
+    <div key={c.title} className={[c.wide ? "min-w-0" : "", mobileOrder[c.title] ?? "", desktopOrder[c.title] ?? ""].filter(Boolean).join(" ")}>
+
       <h4 className="text-[12px] font-bold tracking-[0.22em] mb-2" style={{ color: BROWN }}>{c.title}</h4>
       <ul className="space-y-1 text-[13px] font-bold" style={{ color: BROWN }}>
         {c.items.map((i) => {
@@ -263,16 +269,13 @@ export function Footer() {
   );
   return (
     <footer className="px-5 md:px-10 py-4 border-t border-border/60" style={{ color: BROWN }}>
-      <div className="flex flex-col items-center gap-y-4 md:grid md:grid-cols-5 md:justify-normal md:gap-4 md:items-start">
-        <div className="flex w-full justify-center md:w-auto md:justify-self-start md:self-start">
+      <div className="grid grid-cols-[auto_auto] justify-center gap-x-6 gap-y-4 items-start md:grid-cols-5 md:justify-normal md:gap-4">
+        <div className="col-span-2 flex justify-center md:col-span-1 md:block md:self-start">
           <StoreImage src={nipLogo.url} sizes="144px" alt="Notions in Pattern" className="w-24 md:w-36 h-auto" />
         </div>
-        {rows.map((r) => (
-          <div key={r.join("+")} className="flex gap-x-6 md:contents">
-            {r.map((t) => renderCol(byTitle[t]))}
-          </div>
-        ))}
+        {cols.map((c) => renderCol(c))}
       </div>
+
       <div className="mt-3 pt-2 border-t border-border/60 text-center text-[12px] font-bold" style={{ color: BROWN }}>
         © Notions in Pattern. All rights reserved.
       </div>
