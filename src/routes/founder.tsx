@@ -102,7 +102,7 @@ function FounderPage() {
             <p>It is only now, in my thirties, that I realise. Those people, those places, those pieces have become the most treasured things in me. The happiest parts of myself.</p>
             <p>I studied fashion and apparel design in Bangalore. Then spent years assisting on major films, advertising campaigns, and photoshoots and eventually working independently as a costume stylist. That world taught me how aesthetics work. How a garment carries a story. How deeply people attach to what they wear. How a particular piece can belong so completely to a particular person, a particular moment.</p>
           </TextBlock>
-          <ImgBlock src={founder4.url} alt="Sketchbook and motifs" />
+          <ImgBlock src={founder4.url} alt="Sketchbook and motifs" mAspect="max-sm:aspect-[16/9]" />
 
           {/* Row 4 : image | text */}
           <ImgBlock src={founder5.url} alt="Bara Imambara, Lucknow" />
