@@ -39,3 +39,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] Product photo zoom: zoomed photo stays centred and can't slide off to one side (2026-10-26).
 - [x] Product pages: removed the extra second line under SHIPPING & PROCESSING (2026-10-26).
 - [x] Mobile footer: back to the tidy 2×2 grid (HELP+SHOP row 1, CONNECT+ABOUT row 2) with the original gap between columns; rows share their left/right edges, logo centred above, email on one line — verified 393px and 1280px, desktop untouched (2026-10-27)
+- [x] Collection page (phones): CATEGORY and SORT BY now share one line, and the hero shows the whole photograph with the title below it — verified 393px/768px/1280px, laptop and desktop untouched (2026-10-27)

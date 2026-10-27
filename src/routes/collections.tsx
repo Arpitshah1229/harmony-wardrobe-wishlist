@@ -192,13 +192,13 @@ function CollectionsPage() {
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo={false} />
 
       {/* Hero */}
-      <section
-        className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center"
-
-      >
-        <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
-        <div className="absolute inset-0 bg-background/10" />
-        <div className="relative ml-auto px-8 md:pl-16 md:pr-36 pt-32 pb-16 max-w-lg text-left">
+      <section className="relative w-full bg-cover bg-center flex flex-col md:block md:min-h-[780px] overflow-hidden">
+        <div className="relative w-full aspect-[3/2] md:absolute md:inset-0 md:aspect-auto md:h-full">
+          <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-background/10" />
+        </div>
+        <div className="relative md:absolute md:inset-0 md:flex md:items-center">
+          <div className="ml-auto px-8 pt-6 pb-8 md:pl-16 md:pr-36 md:pt-32 md:pb-16 max-w-lg text-left">
           <p className="text-[11px] font-bold tracking-[0.28em] mb-3" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
@@ -214,6 +214,7 @@ function CollectionsPage() {
             <br />
             and how that vision takes form.
           </p>
+          </div>
         </div>
       </section>
 
@@ -240,8 +241,8 @@ function CollectionsPage() {
 
       {/* Filters */}
       <div id="shop" className="mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
-        <div className="flex flex-col items-stretch gap-6 md:flex-row md:items-end md:gap-10">
-          <span className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
+        <div className="grid grid-cols-2 gap-x-5 gap-y-6 md:flex md:flex-row md:items-end md:gap-10">
+          <span className="col-span-2 text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
             FILTER:
           </span>
           <div>
@@ -249,7 +250,7 @@ function CollectionsPage() {
               CATEGORY
             </p>
             <Select value="shirts">
-              <SelectTrigger aria-label="Category" className="min-w-[140px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+              <SelectTrigger aria-label="Category" className="min-w-0 md:min-w-[140px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="rounded-none border-border bg-background text-foreground">
@@ -262,7 +263,7 @@ function CollectionsPage() {
               SORT BY
             </p>
             <Select value={sort} onValueChange={setSort}>
-              <SelectTrigger aria-label="Sort by" className="min-w-[180px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+              <SelectTrigger aria-label="Sort by" className="min-w-0 md:min-w-[180px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="rounded-none border-border bg-background text-foreground">
