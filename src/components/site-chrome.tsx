@@ -222,17 +222,17 @@ export function Footer() {
   type Col = { title: string; items: FooterItem[]; wide?: boolean };
   // Desktop keeps SHOP, HELP, ABOUT, CONNECT; mobile shows the 2×2 grid below.
   const desktopOrder: Record<string, string> = {
-    SHOP: "md:order-1",
-    HELP: "md:order-2",
-    ABOUT: "md:order-3",
-    CONNECT: "md:order-4",
+    SHOP: "lg:order-1",
+    HELP: "lg:order-2",
+    ABOUT: "lg:order-3",
+    CONNECT: "lg:order-4",
   };
   // Mobile-only column order: HELP, SHOP on the first row; CONNECT, ABOUT on the second.
   const mobileOrder: Record<string, string> = {
-    SHOP: "max-md:order-2",
-    HELP: "max-md:order-1",
-    CONNECT: "max-md:order-3",
-    ABOUT: "max-md:order-4",
+    SHOP: "max-lg:order-2",
+    HELP: "max-lg:order-1",
+    CONNECT: "max-lg:order-3",
+    ABOUT: "max-lg:order-4",
   };
   const renderCol = (c: Col) => (
     <div key={c.title} className={[c.wide ? "min-w-0" : "", mobileOrder[c.title] ?? "", desktopOrder[c.title] ?? ""].filter(Boolean).join(" ")}>
@@ -269,9 +269,9 @@ export function Footer() {
   );
   return (
     <footer className="px-5 md:px-10 py-4 border-t border-border/60" style={{ color: BROWN }}>
-      <div className="grid grid-cols-[auto_auto] justify-center gap-x-6 gap-y-4 items-start md:grid-cols-5 md:justify-normal md:gap-4">
-        <div className="col-span-2 flex justify-center md:col-span-1 md:block md:self-start">
-          <StoreImage src={nipLogo.url} sizes="144px" alt="Notions in Pattern" className="w-24 md:w-36 h-auto" />
+      <div className="grid grid-cols-[auto_auto] justify-center gap-x-6 gap-y-4 items-start lg:grid-cols-5 lg:justify-normal lg:gap-4">
+        <div className="col-span-2 flex justify-center lg:col-span-1 lg:block lg:self-start">
+          <StoreImage src={nipLogo.url} sizes="144px" alt="Notions in Pattern" className="w-24 lg:w-36 h-auto" />
         </div>
         {cols.map((c) => renderCol(c))}
       </div>
