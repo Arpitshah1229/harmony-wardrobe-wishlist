@@ -67,7 +67,6 @@ function HomePage() {
           alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
           className="absolute inset-0 h-full w-full object-cover object-[100%_50%] sm:object-bottom"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream/85 via-cream/70 to-cream/85 sm:hidden" />
         <div className="home-hero-content relative z-10 flex w-full min-h-[100svh] flex-col justify-between gap-6 px-5 pb-4 pt-20 sm:min-h-[100svh] sm:justify-between sm:gap-8 sm:bg-transparent sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] sm:pt-[29vh] lg:pl-[142px] xl:pl-[165px]">
 
           <div className="w-full max-w-[450px]">
