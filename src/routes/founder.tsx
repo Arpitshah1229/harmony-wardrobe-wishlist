@@ -41,9 +41,9 @@ function TextBlock({ num, title, center, vCenter, footer, children }: { num: str
   );
 }
 
-function ImgBlock({ src, alt }: { src: string; alt: string }) {
+function ImgBlock({ src, alt, mAspect }: { src: string; alt: string; mAspect: string }) {
   return (
-    <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
+    <div className={`relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden max-sm:h-auto max-sm:self-center ${mAspect}`}>
       <StoreImage src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover block" />
     </div>
   );
