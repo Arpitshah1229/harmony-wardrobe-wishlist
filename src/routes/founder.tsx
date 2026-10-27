@@ -105,7 +105,7 @@ function FounderPage() {
           <ImgBlock src={founder4.url} alt="Sketchbook and motifs" mAspect="max-sm:aspect-[16/9]" />
 
           {/* Row 4 : image | text */}
-          <ImgBlock src={founder5.url} alt="Bara Imambara, Lucknow" />
+          <ImgBlock src={founder5.url} alt="Bara Imambara, Lucknow" mAspect="max-sm:aspect-[4/3]" />
           <TextBlock num="5" title="Coming back home." vCenter>
             <p>Post COVID, I came back to Lucknow. Where my family finally settled after my father's retirement. The city where I did my schooling. The place I have always called my base. My city. My people.</p>
             <p>I came back because I wanted to spend real time here. And because I had always seen traditional chikankari. The blocks, the stitches, the craft. Worn so closely, so quietly. And I wanted to see what happened when the notions shifted. When the patterns evolved. But the effort stayed. The purity of the stitch stayed. And something new emerged.</p>
