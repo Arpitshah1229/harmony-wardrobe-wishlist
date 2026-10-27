@@ -117,10 +117,10 @@ function FounderPage() {
             <p>I wanted to create pieces that weren't really there. The same blocks had been rotating for years. I wanted to ask: what if they changed? What if new notions could be formed? What if something rooted in real craft could also feel completely of today? I could be wrong. But what is wrong? That is my notion.</p>
             <p>And if such pieces existed at all, they were either exported or priced entirely out of reach. That is the space Notions in Pattern steps into.</p>
           </TextBlock>
-          <ImgBlock src={founder6.url} alt="Chikankari embroidery close-up" />
+          <ImgBlock src={founder6.url} alt="Chikankari embroidery close-up" mAspect="max-sm:aspect-[4/3]" />
 
           {/* Row 6 : complete rectangular photo, connected to the preceding row */}
-          <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
+          <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden max-sm:h-auto max-sm:self-center max-sm:aspect-[3/2]">
             <StoreImage src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="absolute inset-0 w-full h-full object-cover object-[20%_50%] block" />
           </div>
           <div className="flex flex-col gap-0">
