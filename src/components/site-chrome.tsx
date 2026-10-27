@@ -219,14 +219,22 @@ export function Footer() {
     { title: "CONNECT", wide: true, items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@notionsinpattern.com", href: GMAIL_COMPOSE_URL, icon: GmailIcon }] },
 
   ];
+  // Mobile-only column order: HELP, SHOP, CONNECT, ABOUT. Desktop keeps source order.
+  const mobileOrder: Record<string, string> = {
+    SHOP: "order-2 md:order-none",
+    HELP: "order-1 md:order-none",
+    ABOUT: "order-4 md:order-none",
+    CONNECT: "order-3 md:order-none",
+  };
   return (
     <footer className="px-5 md:px-10 py-4 border-t border-border/60" style={{ color: BROWN }}>
       <div className="grid grid-cols-[auto_auto] justify-center md:justify-normal md:grid-cols-5 gap-x-10 gap-y-5 md:gap-4 items-start">
-        <div className="col-span-2 flex justify-center md:col-span-1 md:block md:self-start">
+        <div className="order-none col-span-2 flex justify-center md:col-span-1 md:block md:self-start">
           <StoreImage src={nipLogo.url} sizes="144px" alt="Notions in Pattern" className="w-24 md:w-36 h-auto" />
         </div>
         {cols.map((c) => (
-          <div key={c.title} className={c.wide ? "min-w-0" : undefined}>
+          <div key={c.title} className={[c.wide ? "min-w-0" : "", mobileOrder[c.title] ?? ""].filter(Boolean).join(" ")}>
+
             <h4 className="text-[12px] font-bold tracking-[0.22em] mb-2" style={{ color: BROWN }}>{c.title}</h4>
             <ul className="space-y-1 text-[13px] font-bold" style={{ color: BROWN }}>
               {c.items.map((i) => {
