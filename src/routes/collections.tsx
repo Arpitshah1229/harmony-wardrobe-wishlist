@@ -192,8 +192,8 @@ function CollectionsPage() {
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo={false} />
 
       {/* Hero */}
-      <section className="relative w-full bg-cover bg-center flex flex-col md:block md:min-h-[780px]">
-        <div className="relative w-full aspect-[3/2] md:absolute md:inset-0">
+      <section className="relative w-full bg-cover bg-center flex flex-col md:block md:min-h-[780px] overflow-hidden">
+        <div className="relative w-full aspect-[3/2] md:absolute md:inset-0 md:aspect-auto md:h-full">
           <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-background/10" />
         </div>
