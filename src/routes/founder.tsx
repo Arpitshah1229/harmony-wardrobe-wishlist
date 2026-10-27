@@ -86,12 +86,12 @@ function FounderPage() {
               <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
             </TextBlock>
           </div>
-          <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
+          <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden max-sm:h-auto max-sm:self-center max-sm:aspect-[16/9]">
             <StoreImage src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover object-[54%_100%] block" />
           </div>
 
           {/* Row 2 : image | text */}
-          <ImgBlock src={founder3.url} alt="Two women embroidering" />
+          <ImgBlock src={founder3.url} alt="Two women embroidering" mAspect="max-sm:aspect-[4/3]" />
           <TextBlock num="3" title="Those pieces became my personality." vCenter>
             <p>I wouldn't say it was something that was mindfully happening for me. How and when it became a part of me, I still don't know. And you know how parents are. If they made something for themselves, they would sometimes go out of their way to make an exquisite piece for us too. That is how it always happened. Beautiful things in unexpected places. People whose craft had no audience but their own love for it.</p>
             <p>I loved it. I enjoyed it. But I didn't always know what I was collecting.</p>
