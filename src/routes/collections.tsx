@@ -192,13 +192,13 @@ function CollectionsPage() {
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo={false} />
 
       {/* Hero */}
-      <section
-        className="relative w-full bg-cover bg-center aspect-[3/2] md:aspect-auto md:min-h-[780px] flex items-end md:items-center"
-
-      >
-        <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
-        <div className="absolute inset-0 bg-background/10" />
-        <div className="relative ml-auto px-8 pb-6 md:pl-16 md:pr-36 md:pt-32 md:pb-16 max-w-lg text-left">
+      <section className="relative w-full bg-cover bg-center flex flex-col md:block md:min-h-[780px]">
+        <div className="relative w-full aspect-[3/2] md:absolute md:inset-0">
+          <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-background/10" />
+        </div>
+        <div className="relative md:absolute md:inset-0 md:flex md:items-center">
+          <div className="ml-auto px-8 pt-6 pb-8 md:pl-16 md:pr-36 md:pt-32 md:pb-16 max-w-lg text-left">
           <p className="text-[11px] font-bold tracking-[0.28em] mb-3" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
@@ -214,6 +214,7 @@ function CollectionsPage() {
             <br />
             and how that vision takes form.
           </p>
+          </div>
         </div>
       </section>
 
