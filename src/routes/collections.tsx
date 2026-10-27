@@ -240,8 +240,8 @@ function CollectionsPage() {
 
       {/* Filters */}
       <div id="shop" className="mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
-        <div className="flex flex-col items-stretch gap-6 md:flex-row md:items-end md:gap-10">
-          <span className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
+        <div className="grid grid-cols-2 gap-x-5 gap-y-6 md:flex md:flex-row md:items-end md:gap-10">
+          <span className="col-span-2 text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
             FILTER:
           </span>
           <div>
@@ -249,7 +249,7 @@ function CollectionsPage() {
               CATEGORY
             </p>
             <Select value="shirts">
-              <SelectTrigger aria-label="Category" className="min-w-[140px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+              <SelectTrigger aria-label="Category" className="min-w-0 md:min-w-[140px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="rounded-none border-border bg-background text-foreground">
@@ -262,7 +262,7 @@ function CollectionsPage() {
               SORT BY
             </p>
             <Select value={sort} onValueChange={setSort}>
-              <SelectTrigger aria-label="Sort by" className="min-w-[180px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+              <SelectTrigger aria-label="Sort by" className="min-w-0 md:min-w-[180px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="rounded-none border-border bg-background text-foreground">
