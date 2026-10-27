@@ -1,4 +1,4 @@
-# Roadmap
+- [x] Collection page (phones): hero reverted to the desktop presentation — photo full-bleed with the title overlaid (user: "should same same as desktop only"); CATEGORY and SORT BY still share one line — verified 393px/844px/768px/1280px, no overflow, build OK (2026-10-27)
 
 ## Image loading performance
 - [x] Founder logo: needle aligned above the ampersand; verified at 393px and 1280px.
