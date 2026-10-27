@@ -198,18 +198,18 @@ function CollectionsPage() {
       >
         <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-background/10" />
-        <div className="relative ml-auto px-8 md:pl-16 md:pr-36 pt-40 pb-24 max-w-xl text-left">
-          <p className="text-[12px] font-bold tracking-[0.28em] mb-4" style={{ color: BROWN }}>
+        <div className="relative ml-auto px-8 md:pl-16 md:pr-36 pt-32 pb-16 max-w-lg text-left">
+          <p className="text-[11px] font-bold tracking-[0.28em] mb-3" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
-          <h1 className="font-serif text-5xl md:text-6xl font-bold leading-tight" style={{ color: BROWN }}>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight" style={{ color: BROWN }}>
             Naqsh-e-Nigāh
           </h1>
-          <p className="font-serif italic text-2xl md:text-3xl mt-2" style={{ color: BROWN }}>
+          <p className="font-serif italic text-xl md:text-2xl mt-2" style={{ color: BROWN }}>
             Patterns of the Vision
           </p>
-          <span className="block w-10 border-t mt-6 mb-6" style={{ borderColor: BROWN }} />
-          <p className="text-[15px] leading-relaxed max-w-md" style={{ color: DARK }}>
+          <span className="block w-10 border-t mt-4 mb-4" style={{ borderColor: BROWN }} />
+          <p className="text-[13px] md:text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
             A collection that begins with how we see,
             <br />
             and how that vision takes form.
@@ -239,8 +239,8 @@ function CollectionsPage() {
 
 
       {/* Filters */}
-      <div id="shop" className="mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-wrap items-end justify-between gap-8">
-        <div className="flex flex-wrap items-end gap-10">
+      <div id="shop" className="mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
+        <div className="flex flex-col items-stretch gap-6 md:flex-row md:items-end md:gap-10">
           <span className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
             FILTER:
           </span>
@@ -298,7 +298,7 @@ function CollectionsPage() {
       </div>
 
       {/* Product grid */}
-      <section className="mx-auto w-full max-w-[1440px] px-8 md:px-16 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
+      <section className="mx-auto w-full max-w-[1440px] px-8 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
         {sorted.map((p, i) => (
           <div key={p.slug} className={!query && i === 6 ? "md:col-start-2" : undefined}>
             <ProductCard product={p} />
