@@ -206,7 +206,7 @@ function CollectionsPage() {
             Patterns of the Vision
           </p>
           <span className="block w-8 md:w-10 border-t mt-3 mb-3 md:mt-4 md:mb-4" style={{ borderColor: BROWN }} />
-          <p className="text-[10.5px] md:text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
+          <p className="text-[10.5px] md:text-[14px] leading-relaxed max-w-md max-md:whitespace-nowrap" style={{ color: DARK }}>
             A collection that begins with how we see,
             <br />
             and how that vision takes form.
