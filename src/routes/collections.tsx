@@ -195,18 +195,18 @@ function CollectionsPage() {
       <section className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center">
         <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-background/10" />
-        <div className="relative ml-auto w-[56%] max-w-lg pr-5 pt-24 pb-24 text-left md:w-auto md:px-8 md:pl-16 md:pr-36 md:pt-32 md:pb-16">
-          <p className="text-[10px] font-bold tracking-[0.24em] mb-3" style={{ color: BROWN }}>
+        <div className="relative ml-auto px-8 md:pl-16 md:pr-36 pt-32 pb-16 max-w-lg text-left">
+          <p className="text-[11px] font-bold tracking-[0.28em] mb-3" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
-          <h1 className="font-serif text-[27px] md:text-5xl font-bold leading-tight" style={{ color: BROWN }}>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight" style={{ color: BROWN }}>
             Naqsh-e-Nigāh
           </h1>
-          <p className="font-serif italic text-base md:text-2xl mt-2" style={{ color: BROWN }}>
+          <p className="font-serif italic text-xl md:text-2xl mt-2" style={{ color: BROWN }}>
             Patterns of the Vision
           </p>
           <span className="block w-10 border-t mt-4 mb-4" style={{ borderColor: BROWN }} />
-          <p className="text-[11px] md:text-[14px] leading-relaxed" style={{ color: DARK }}>
+          <p className="text-[13px] md:text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
             A collection that begins with how we see,
             <br />
             and how that vision takes form.
