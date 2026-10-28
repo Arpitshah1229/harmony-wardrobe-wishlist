@@ -195,7 +195,7 @@ function CollectionsPage() {
       <section className="relative w-full bg-cover bg-center min-h-[440px] md:min-h-[780px] flex items-center">
         <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-background/10" />
-        <div className="relative ml-auto pl-4 pr-4 md:pl-16 md:pr-36 pt-28 md:pt-32 pb-12 md:pb-16 max-w-[58%] md:max-w-lg text-left">
+        <div className="relative ml-auto pl-4 pr-4 md:pl-16 md:pr-36 pt-28 md:pt-32 pb-12 md:pb-16 max-w-[62%] md:max-w-lg text-left">
           <p className="text-[9px] md:text-[11px] font-bold tracking-[0.22em] md:tracking-[0.28em] mb-2 md:mb-3" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
@@ -206,7 +206,7 @@ function CollectionsPage() {
             Patterns of the Vision
           </p>
           <span className="block w-8 md:w-10 border-t mt-3 mb-3 md:mt-4 md:mb-4" style={{ borderColor: BROWN }} />
-          <p className="text-[11px] md:text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
+          <p className="text-[10.5px] md:text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
             A collection that begins with how we see,
             <br />
             and how that vision takes form.
