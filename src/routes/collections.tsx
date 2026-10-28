@@ -193,7 +193,7 @@ function CollectionsPage() {
 
       {/* Hero */}
       <section className="relative w-full bg-cover bg-center min-h-[440px] min-[600px]:min-h-[780px] flex items-center">
-        <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-[52%_center] min-[360px]:object-[58%_center] min-[420px]:object-[73%_center] min-[600px]:object-center" />
+        <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-[-170px_center] min-[600px]:object-center" />
         <div className="absolute inset-0 bg-background/10" />
         <div className="relative ml-auto pl-4 pr-1 min-[600px]:pl-16 min-[600px]:pr-36 pt-16 min-[600px]:pt-32 pb-12 min-[600px]:pb-16 max-w-[62%] min-[600px]:max-w-xl text-left">
           <p className="text-[9px] min-[600px]:text-[12px] font-bold tracking-[0.22em] min-[600px]:tracking-[0.28em] mb-2 min-[600px]:mb-3" style={{ color: BROWN }}>
