@@ -195,20 +195,20 @@ function CollectionsPage() {
       <section className="relative w-full bg-cover bg-center min-h-[620px] md:min-h-[780px] flex items-center">
         <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-background/10" />
-        <div className="relative ml-auto px-5 pt-24 pb-8 max-w-[170px] text-left md:px-8 md:pl-16 md:pr-36 md:pt-32 md:pb-16 md:max-w-lg">
-          <p className="text-[8px] font-bold tracking-[0.18em] mb-2 md:text-[11px] md:tracking-[0.28em] md:mb-3" style={{ color: BROWN }}>
+        <div className="relative ml-auto px-8 md:pl-16 md:pr-36 pt-32 pb-16 max-w-lg text-left">
+          <p className="text-[11px] font-bold tracking-[0.28em] mb-3" style={{ color: BROWN }}>
             INAUGURAL COLLECTION
           </p>
-          <h1 className="font-serif text-[20px] font-bold leading-tight md:text-5xl" style={{ color: BROWN }}>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight" style={{ color: BROWN }}>
             Naqsh-e-Nigāh
           </h1>
-          <p className="font-serif italic text-[12px] mt-1 md:text-2xl md:mt-2" style={{ color: BROWN }}>
+          <p className="font-serif italic text-xl md:text-2xl mt-2" style={{ color: BROWN }}>
             Patterns of the Vision
           </p>
-          <span className="block w-7 border-t mt-3 mb-3 md:w-10 md:mt-4 md:mb-4" style={{ borderColor: BROWN }} />
-          <p className="text-[10px] leading-snug md:text-[14px] md:leading-relaxed md:max-w-md" style={{ color: DARK }}>
-            A collection that begins with how we see,{" "}
-            <br className="hidden md:inline" />
+          <span className="block w-10 border-t mt-4 mb-4" style={{ borderColor: BROWN }} />
+          <p className="text-[13px] md:text-[14px] leading-relaxed max-w-md" style={{ color: DARK }}>
+            A collection that begins with how we see,
+            <br />
             and how that vision takes form.
           </p>
         </div>
