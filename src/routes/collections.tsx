@@ -218,18 +218,18 @@ function CollectionsPage() {
 
       {/* Trust strip */}
       <div className="px-8 md:px-16 py-6 border-b border-border/60">
-        <div className="relative grid grid-cols-4 items-center">
-          <p className="col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+        <div className="relative max-md:flex max-md:items-center max-md:justify-center max-md:gap-5 md:grid md:grid-cols-4 md:items-center">
+          <p className="max-md:min-w-0 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
             HAND-EMBROIDERED IN LUCKNOW
-          </p>
-          <p className="col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
-            HAND-DYED, SMALL BATCH
           </p>
           <span
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 h-8 w-px -translate-x-1/2 -translate-y-1/2 blur-[0.6px]"
+            className="pointer-events-none shrink-0 h-8 w-px blur-[0.6px] md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
             style={{ backgroundColor: BROWN, opacity: 0.5 }}
           />
+          <p className="max-md:min-w-0 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+            HAND-DYED, SMALL BATCH
+          </p>
         </div>
       </div>
 
