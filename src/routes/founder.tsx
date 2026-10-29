@@ -86,7 +86,7 @@ function FounderPage() {
               <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
             </TextBlock>
           </div>
-          <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden">
+          <div className="relative w-full h-full min-h-0 aspect-[10/9] overflow-hidden max-md:col-span-2 max-md:order-2">
             <StoreImage src={founder2.url} alt="Two people sitting on the shore at sunset" className="absolute inset-0 w-full h-full object-cover object-[54%_100%] block" />
           </div>
 
