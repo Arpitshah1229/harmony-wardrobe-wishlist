@@ -697,6 +697,9 @@ function ProductPage() {
               <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:opacity-70">
                 <GmailIcon size={16} /> E-MAIL
               </a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:opacity-70">
+                <InstagramIcon size={16} /> INSTAGRAM
+              </a>
             </div>
           </div>
         </div>
