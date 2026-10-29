@@ -78,22 +78,16 @@ function HomePage() {
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
             </div>
-            <Link
-              to="/collections"
-              className="home-hero-link mt-4 inline-flex items-center gap-3 border-b-2 border-accent pb-1.5 text-[11px] font-black uppercase tracking-[0.18em] text-accent sm:hidden"
-            >
-              Explore Naqsh-E-Nigah <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
           </div>
 
-          <div className="relative z-20 -mr-1 flex w-full flex-col items-start gap-6 pb-2 sm:-mr-[3.5vw] sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pb-0">
+          <div className="relative z-20 -mr-1 flex w-full flex-row items-center justify-between gap-3 pb-2 sm:-mr-[3.5vw] sm:gap-6 sm:pb-0">
             <Link
               to="/collections"
-              className="home-hero-link hidden sm:inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-black uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60"
+              className="home-hero-link inline-flex items-center gap-2 border-b-2 border-accent pb-1 text-[9px] font-black uppercase tracking-[0.14em] text-accent transition-opacity hover:opacity-60 sm:gap-4 sm:pb-1.5 sm:text-[12px] sm:tracking-[0.18em]"
             >
-              Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
+              Explore Naqsh-E-Nigah <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
             </Link>
-            <div className="-mr-1 self-end text-right text-[10px] uppercase leading-[1.7] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:self-auto sm:text-[11px] sm:leading-[1.8]">
+            <div className="-mr-1 text-right text-[10px] uppercase leading-[1.7] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:text-[11px] sm:leading-[1.8]">
               <p>Inaugural Collection</p>
               <p className="my-1 font-serif text-[22px] font-bold normal-case leading-none sm:my-1 sm:text-[35px]">Naqsh-E-Nigāh</p>
               <p>Patterns of the vision</p>
