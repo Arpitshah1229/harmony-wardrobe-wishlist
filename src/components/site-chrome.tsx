@@ -1,5 +1,5 @@
 import { StoreImage } from "@/components/store-image";
-import { useEffect, useRef, useState, type ComponentType } from "react";
+import { useEffect, useState, type ComponentType } from "react";
 import { User, Heart, Menu, X } from "lucide-react";
 import { GmailIcon } from "@/components/gmail-icon";
 import { InstagramIcon } from "@/components/instagram-icon";
@@ -15,8 +15,6 @@ import { useAuth } from "@/lib/auth";
 
 export const BROWN = "#4B3528";
 export const DARK = "#2C2119";
-const CREAM = "#ECE4DB";
-const RULE = "#D7CEC3";
 
 const navLinks = [
   { label: "COLLECTION", to: "/collections" },
@@ -77,7 +75,6 @@ export function Header({
   const ink = solidBg ? solidInk : BROWN;
 
   return (
-    <>
       <header
         className={`${
           overlay
@@ -136,189 +133,46 @@ export function Header({
             <BagIcon size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
           </Link>
         </div>
-      </header>
-
-      <MenuSheet
-        open={menuOpen}
-        onClose={() => setMenuOpen(false)}
-        hideLogo={hideLogo}
-        isLoggedIn={isLoggedIn}
-        userName={user?.name || "Account"}
-        wishCount={wishCount}
-        cartCount={cartCount}
-        onLogout={() => {
-          setMenuOpen(false);
-          logout();
-        }}
-      />
-    </>
-  );
-}
-
-// Phone-only menu: a full-height cream sheet so the list gets room to breathe.
-function MenuSheet({
-  open,
-  onClose,
-  hideLogo,
-  isLoggedIn,
-  userName,
-  wishCount,
-  cartCount,
-  onLogout,
-}: {
-  open: boolean;
-  onClose: () => void;
-  hideLogo: boolean;
-  isLoggedIn: boolean;
-  userName: string;
-  wishCount: number;
-  cartCount: number;
-  onLogout: () => void;
-}) {
-  const closeRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    closeRef.current?.focus({ preventScroll: true });
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [open, onClose]);
-
-  if (!open) return null;
-
-  const contactLinks = [
-    { label: PHONE_DISPLAY, href: PHONE_TEL, Icon: PhoneIcon },
-    { label: "WhatsApp", href: WHATSAPP_CHAT_URL, Icon: WhatsAppIcon },
-    { label: "Instagram", href: INSTAGRAM_URL, Icon: InstagramIcon },
-    { label: CONTACT_EMAIL, href: GMAIL_COMPOSE_URL, Icon: GmailIcon },
-  ];
-
-  return (
-    <div role="dialog" aria-modal="true" aria-label="Menu" className="fixed inset-0 z-[70] lg:hidden">
-      <div
-        className="menu-sheet-backdrop absolute inset-0"
-        style={{ backgroundColor: "rgba(44,33,25,0.55)" }}
-        onClick={onClose}
-      />
-      <div className="menu-sheet-panel absolute inset-0 flex flex-col bg-background">
-        <div className="flex shrink-0 items-center justify-between px-8 py-5">
-          <div className="flex min-w-0 items-center gap-3">
-            {!hideLogo && (
-              <StoreImage src={nipMonogram.url} loading="eager" sizes="80px" alt="Notions in Pattern" className="h-[24px] w-auto shrink-0" />
-            )}
-            <Wordmark ink={BROWN} />
-          </div>
-          <button
-            ref={closeRef}
-            type="button"
-            aria-label="Close menu"
-            onClick={onClose}
-            className="-mr-2 p-2 hover:opacity-70 transition-opacity"
-            style={{ color: BROWN }}
-          >
-            <X size={20} />
-          </button>
-        </div>
-        <div className="h-px w-full shrink-0" style={{ backgroundColor: RULE }} />
-
-        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
-          <nav aria-label="Main navigation" className="px-8 pt-1">
-            {navLinks.map((l, i) => (
+      {menuOpen && (
+        <nav
+          aria-label="Main navigation"
+          className="absolute top-full left-0 right-0 border-t border-border/40 shadow-md lg:hidden"
+          style={{ backgroundColor: solidBg ? "#4B3528" : "#F7F4EE" }}
+        >
+          <div className="flex flex-col px-6 py-3">
+            {navLinks.map((l) => (
               <Link
                 key={l.label}
                 to={l.to}
-                onClick={onClose}
-                className="menu-sheet-row flex items-baseline justify-between gap-4 border-b py-4 last:border-b-0 hover:opacity-70 transition-opacity"
-                style={{ borderColor: "rgba(215,206,195,0.75)" }}
+                onClick={() => setMenuOpen(false)}
+                className="border-b border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em] last:border-b-0 hover:opacity-70 transition-opacity"
+                style={{ color: ink }}
               >
-                <span className="font-serif text-[26px] leading-none" style={{ color: BROWN }}>
-                  {l.label}
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.24em]" style={{ color: BROWN, opacity: 0.38 }}>
-                  {`0${i + 1}`}
-                </span>
+                {l.label}
               </Link>
             ))}
-          </nav>
-
-          <div className="menu-sheet-row mx-8 mt-5 px-5 py-1" style={{ backgroundColor: CREAM }}>
             {isLoggedIn ? (
-              <button
-                type="button"
-                onClick={onLogout}
-                className="flex w-full items-center gap-2.5 border-b py-3.5 text-left text-[11px] font-bold uppercase tracking-[0.2em] hover:opacity-70 transition-opacity last:border-b-0"
-                style={{ color: BROWN, borderColor: "rgba(215,206,195,0.75)" }}
-              >
-                <User size={15} /> {userName.split(" ")[0]} · LOGOUT
+              <button type="button" onClick={() => { setMenuOpen(false); logout(); }} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-left text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: ink }}>
+                <User size={15} /> {(user?.name || "Account").split(" ")[0]} · LOGOUT
               </button>
             ) : (
-              <Link
-                to="/login"
-                search={{ redirect: "/cart" }}
-                onClick={onClose}
-                className="flex w-full items-center gap-2.5 border-b py-3.5 text-[11px] font-bold tracking-[0.2em] hover:opacity-70 transition-opacity"
-                style={{ color: BROWN, borderColor: "rgba(215,206,195,0.75)" }}
-              >
+              <Link to="/login" search={{ redirect: "/cart" }} onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
                 <User size={15} /> ACCOUNT
               </Link>
             )}
-            <Link
-              to="/wishlist"
-              onClick={onClose}
-              className="flex w-full items-center gap-2.5 border-b py-3.5 text-[11px] font-bold tracking-[0.2em] hover:opacity-70 transition-opacity"
-              style={{ color: BROWN, borderColor: "rgba(215,206,195,0.75)" }}
-            >
-              <Heart size={15} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} />
-              <span className="ml-auto">WISHLIST</span>
-              <span className="tracking-[0.1em]">({wishCount})</span>
+            <Link to="/wishlist" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
+              <Heart size={15} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> WISHLIST ({wishCount})
             </Link>
-            <Link
-              to="/cart"
-              onClick={onClose}
-              className="flex w-full items-center gap-2.5 py-3.5 text-[11px] font-bold tracking-[0.2em] hover:opacity-70 transition-opacity"
-              style={{ color: BROWN }}
-            >
-              <BagIcon size={15} />
-              <span className="ml-auto">CART</span>
-              <span className="tracking-[0.1em]">({cartCount})</span>
+            <Link to="/cart" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
+              <BagIcon size={15} /> CART ({cartCount})
             </Link>
           </div>
-
-          <div className="mt-auto px-8 pb-6 pt-7">
-            <p className="text-[10px] font-bold tracking-[0.22em]" style={{ color: BROWN, opacity: 0.62 }}>
-              NAQSH-E-NIGĀH · THE INAUGURAL COLLECTION
-            </p>
-            <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
-              {contactLinks.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href === GMAIL_COMPOSE_URL || href === PHONE_TEL ? undefined : "_blank"}
-                  rel={href === GMAIL_COMPOSE_URL || href === PHONE_TEL ? undefined : "noopener noreferrer"}
-                  className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-[0.12em] whitespace-nowrap hover:opacity-70 transition-opacity"
-                  style={{ color: BROWN }}
-                >
-                  <Icon size={14} className="shrink-0" /> {label}
-                </a>
-              ))}
-            </div>
-            <p className="mt-4 text-[10px] font-bold tracking-[0.14em]" style={{ color: BROWN, opacity: 0.45 }}>
-              © Notions in Pattern
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+        </nav>
+      )}
+    </header>
   );
 }
+
 
 export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
   const items = [
