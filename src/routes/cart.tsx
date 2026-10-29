@@ -260,7 +260,7 @@ function CartPage() {
                     value={code}
                     onChange={(e) => setCode(e.target.value)}
                     placeholder="Enter coupon code"
-                    className="flex-1 h-11 px-3 bg-background border text-[13px] outline-none"
+                    className="min-w-0 flex-1 h-11 px-3 bg-background border text-[13px] outline-none"
                     style={{ borderColor: BROWN, color: DARK }}
                   />
                   <button
