@@ -70,26 +70,32 @@ function HomePage() {
         <div className="home-hero-content relative z-10 flex w-full min-h-[100svh] flex-col justify-between gap-6 px-5 pb-4 pt-20 sm:min-h-[100svh] sm:justify-between sm:gap-8 sm:bg-transparent sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] sm:pt-[29vh] lg:pl-[142px] xl:pl-[165px]">
 
           <div className="w-full max-w-[450px]">
-            <h1 className="home-hero-title font-serif text-[34px] font-medium leading-[1.08] text-accent sm:text-[48px] lg:text-[58px]">
+            <h1 className="home-hero-title font-serif text-[24px] font-medium leading-[1.12] text-accent sm:text-[48px] lg:text-[58px]">
               Understanding life begins with understanding of patterns
             </h1>
-            <div className="home-hero-copy mt-4 mb-1 max-w-[440px] space-y-2 text-[15px] leading-[1.7] text-accent sm:mt-20 sm:mb-8 sm:text-home-light sm:text-base">
+            <div className="home-hero-copy mt-3 mb-1 max-w-[440px] space-y-2 text-[12px] leading-[1.55] text-accent sm:mt-20 sm:mb-8 sm:text-home-light sm:text-base sm:leading-[1.7]">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
               <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
             </div>
+            <Link
+              to="/collections"
+              className="home-hero-link mt-4 inline-flex items-center gap-3 border-b-2 border-accent pb-1.5 text-[11px] font-black uppercase tracking-[0.18em] text-accent sm:hidden"
+            >
+              Explore Naqsh-E-Nigah <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
 
           <div className="relative z-20 -mr-1 flex w-full flex-col items-start gap-6 pb-2 sm:-mr-[3.5vw] sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pb-0">
             <Link
               to="/collections"
-              className="home-hero-link inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-black uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60"
+              className="home-hero-link hidden sm:inline-flex items-center gap-4 border-b-2 border-accent pb-1.5 text-[12px] font-black uppercase tracking-[0.18em] text-accent transition-opacity hover:opacity-60"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-4 w-4" />
             </Link>
-            <div className="-mr-1 self-end text-right text-[11px] uppercase leading-[1.8] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:self-auto">
+            <div className="-mr-1 self-end text-right text-[10px] uppercase leading-[1.7] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:self-auto sm:text-[11px] sm:leading-[1.8]">
               <p>Inaugural Collection</p>
-              <p className="my-1 font-serif text-[30px] font-bold normal-case leading-none sm:text-[35px]">Naqsh-E-Nigāh</p>
+              <p className="my-1 font-serif text-[22px] font-bold normal-case leading-none sm:my-1 sm:text-[35px]">Naqsh-E-Nigāh</p>
               <p>Patterns of the vision</p>
             </div>
           </div>
