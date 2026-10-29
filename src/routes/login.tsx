@@ -64,19 +64,19 @@ function LoginPage() {
       <AnnouncementBar />
 
       <main className="relative isolate flex w-full flex-1 overflow-hidden">
-        <div className="relative min-h-[610px] w-full flex-1 max-sm:flex max-sm:min-h-0 max-sm:flex-col">
+        <div className="relative min-h-[610px] w-full flex-1">
           <StoreImage
             src={loginBackground}
             loading="eager"
             fetchPriority="high"
             alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:relative max-sm:z-0 max-sm:h-[440px]"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:object-[72%_center]"
           />
-          <div className="absolute inset-0 -z-10 bg-foreground/20 max-sm:hidden" aria-hidden="true" />
+          <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-right max-sm:hidden" />
 
-          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:relative max-sm:left-0 max-sm:translate-x-0 max-sm:py-8 px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
+          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-end max-sm:pb-8 px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
 
 
 
@@ -105,13 +105,13 @@ function LoginPage() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm sm:-translate-x-40">
-          <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
-            <h1 className="relative mx-auto mt-[78px] w-fit text-center font-serif text-[30px] leading-tight text-foreground md:mt-[91px]">
+        <section className="mx-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm max-sm:max-w-[300px] max-sm:bg-background/90 sm:-translate-x-40">
+          <div className="border border-foreground/35 px-6 py-2.5 max-sm:px-4 max-sm:py-2 sm:px-7 sm:py-3.5">
+            <h1 className="relative mx-auto mt-[78px] w-fit text-center font-serif text-[30px] leading-tight text-foreground max-sm:mt-[58px] max-sm:text-[26px] md:mt-[91px]">
               <StoreImage
                 src={nipLogo.url}
                 alt="Notions in Pattern"
-                className="absolute bottom-full left-1 h-24 w-auto max-w-none object-contain -translate-x-[22.97%] translate-y-[11%] md:h-28"
+                className="absolute bottom-full left-1 h-24 w-auto max-w-none object-contain -translate-x-[22.97%] translate-y-[11%] max-sm:h-[72px] md:h-28"
               />
               Login
             </h1>
