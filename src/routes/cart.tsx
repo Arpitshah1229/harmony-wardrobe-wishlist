@@ -240,7 +240,7 @@ function CartPage() {
               </Link>
             </section>
 
-            <aside className="h-fit p-8" style={{ backgroundColor: "var(--cream)" }}>
+            <aside className="h-fit p-8 max-md:px-5" style={{ backgroundColor: "var(--cream)" }}>
               <h2 className="font-serif text-2xl font-bold" style={{ color: BROWN }}>
                 Order Summary
               </h2>
@@ -260,7 +260,7 @@ function CartPage() {
                     value={code}
                     onChange={(e) => setCode(e.target.value)}
                     placeholder="Enter coupon code"
-                    className="flex-1 h-11 px-3 bg-background border text-[13px] outline-none"
+                    className="min-w-0 flex-1 h-11 px-3 bg-background border text-[13px] outline-none"
                     style={{ borderColor: BROWN, color: DARK }}
                   />
                   <button
@@ -307,9 +307,9 @@ function CartPage() {
                   <dt>Taxes</dt>
                   <dd className="font-bold">Included</dd>
                 </div>
-                <div className="flex items-start justify-between gap-3 max-md:flex-col max-md:items-stretch max-md:gap-1">
-                  <dt className="min-w-0">Shipping charges</dt>
-                  <dd className="font-bold max-md:text-right" style={{ color: DARK }}>
+                <div className="flex items-baseline justify-between gap-3 min-[350px]:max-md:gap-2 min-[350px]:max-md:text-[12px] max-[350px]:text-[10px]">
+                  <dt className="min-w-0 whitespace-nowrap">Shipping charges</dt>
+                  <dd className="font-bold whitespace-nowrap" style={{ color: DARK }}>
                     Calculated at Checkout
                   </dd>
                 </div>
