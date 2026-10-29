@@ -708,9 +708,9 @@ function ProductPage() {
           More from this Collection
         </h2>
         <span className="block w-16 border-t-2 mx-auto mt-5 mb-12" style={{ borderColor: BROWN }} />
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-8 max-md:px-8 max-md:pb-4 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
           {others.map((p) => (
-            <Link key={p.slug} to="/product/$slug" params={{ slug: p.slug }} className="group flex flex-col">
+            <Link key={p.slug} to="/product/$slug" params={{ slug: p.slug }} className="group flex flex-col max-md:w-[72%] max-md:shrink-0 max-md:snap-start">
               <StoreImage
                 src={p.images[0]}
                 alt={p.altText}
