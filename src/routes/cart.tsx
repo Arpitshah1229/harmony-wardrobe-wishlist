@@ -240,7 +240,7 @@ function CartPage() {
               </Link>
             </section>
 
-            <aside className="h-fit p-8" style={{ backgroundColor: "var(--cream)" }}>
+            <aside className="h-fit p-8 max-md:px-5" style={{ backgroundColor: "var(--cream)" }}>
               <h2 className="font-serif text-2xl font-bold" style={{ color: BROWN }}>
                 Order Summary
               </h2>
@@ -307,9 +307,9 @@ function CartPage() {
                   <dt>Taxes</dt>
                   <dd className="font-bold">Included</dd>
                 </div>
-                <div className="flex items-start justify-between gap-3 max-md:flex-col max-md:items-stretch max-md:gap-1">
-                  <dt className="min-w-0">Shipping charges</dt>
-                  <dd className="font-bold max-md:text-right" style={{ color: DARK }}>
+                <div className="flex items-baseline justify-between gap-3 max-md:gap-2 max-md:text-[12px] max-[360px]:text-[11px] max-[330px]:text-[10px]">
+                  <dt className="min-w-0 whitespace-nowrap">Shipping charges</dt>
+                  <dd className="font-bold whitespace-nowrap" style={{ color: DARK }}>
                     Calculated at Checkout
                   </dd>
                 </div>
