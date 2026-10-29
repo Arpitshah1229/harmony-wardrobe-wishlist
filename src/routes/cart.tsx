@@ -307,7 +307,7 @@ function CartPage() {
                   <dt>Taxes</dt>
                   <dd className="font-bold">Included</dd>
                 </div>
-                <div className="flex items-baseline justify-between gap-3 min-[350px]:max-md:gap-2 min-[350px]:max-md:text-[12px] max-[349px]:text-[10px]">
+                <div className="flex items-baseline justify-between gap-3 min-[350px]:max-md:gap-2 min-[350px]:max-md:text-[12px] max-[350px]:text-[10px]">
                   <dt className="min-w-0 whitespace-nowrap">Shipping charges</dt>
                   <dd className="font-bold whitespace-nowrap" style={{ color: DARK }}>
                     Calculated at Checkout
