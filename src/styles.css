@@ -101,6 +101,7 @@
 
 .login-edge-blur {
   position: absolute;
+  top: 0;
   bottom: 0;
   z-index: -5;
   pointer-events: none;
@@ -138,4 +139,38 @@
   right: 0;
   width: 6%;
   mask-image: linear-gradient(to left, black 30%, transparent 100%);
+}
+
+/* Mobile menu sheet: panel drops in, rows ease up into place. */
+@keyframes menu-sheet-in {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes menu-row-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-sheet-backdrop {
+  animation: menu-sheet-in 0.25s ease-out both;
+}
+
+.menu-sheet-panel {
+  animation: menu-sheet-in 0.3s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.menu-sheet-row {
+  animation: menu-row-in 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.menu-sheet-panel nav .menu-sheet-row:nth-child(2) { animation-delay: 0.05s; }
+.menu-sheet-panel nav .menu-sheet-row:nth-child(3) { animation-delay: 0.1s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-sheet-backdrop,
+  .menu-sheet-panel,
+  .menu-sheet-row {
+    animation: none;
+  }
 }
