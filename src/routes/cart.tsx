@@ -307,9 +307,14 @@ function CartPage() {
                   <dt>Taxes</dt>
                   <dd className="font-bold">Included</dd>
                 </div>
-                <div className="flex justify-between">
-                  <dt>Shipping charges</dt>
-                  <dd className="font-bold" style={{ color: DARK }}>Calculated at Checkout</dd>
+                <div className="flex items-start justify-between gap-3">
+                  <dt className="min-w-0">Shipping charges</dt>
+                  <dd
+                    className="shrink-0 font-bold max-md:text-right max-md:text-[13px] max-md:leading-snug"
+                    style={{ color: DARK }}
+                  >
+                    Calculated at Checkout
+                  </dd>
                 </div>
               </dl>
 
