@@ -51,6 +51,15 @@ function WishlistPage() {
             aria-hidden="true"
             className="h-full w-full scale-105 object-cover object-[20%_50%] blur-[5px] md:object-center"
           />
+          {/* Mobile: whole photo, uncropped, over the blurred fill */}
+          <StoreImage
+            src={wishlistBackground.url}
+            loading="eager"
+            fetchPriority="high"
+            alt=""
+            aria-hidden="true"
+            className="hidden max-md:block absolute inset-0 h-full w-full scale-105 object-contain blur-[5px]"
+          />
           <div className="absolute inset-0 bg-background/25" />
         </div>
 
