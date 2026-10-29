@@ -64,19 +64,19 @@ function LoginPage() {
       <AnnouncementBar />
 
       <main className="relative isolate flex w-full flex-1 overflow-hidden">
-        <div className="relative min-h-[610px] w-full flex-1">
+        <div className="relative min-h-[610px] w-full flex-1 max-sm:flex max-sm:min-h-0 max-sm:flex-col">
           <StoreImage
             src={loginBackground}
             loading="eager"
             fetchPriority="high"
             alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:relative max-sm:z-0 max-sm:h-[440px]"
           />
-          <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
-          <div aria-hidden="true" className="login-edge-blur login-edge-blur-left" />
-          <div aria-hidden="true" className="login-edge-blur login-edge-blur-right" />
+          <div className="absolute inset-0 -z-10 bg-foreground/20 max-sm:hidden" aria-hidden="true" />
+          <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
+          <div aria-hidden="true" className="login-edge-blur login-edge-blur-right max-sm:hidden" />
 
-          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
+          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:relative max-sm:left-0 max-sm:translate-x-0 max-sm:py-8 px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
 
 
 
