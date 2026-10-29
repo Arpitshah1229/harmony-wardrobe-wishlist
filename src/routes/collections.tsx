@@ -227,7 +227,7 @@ function CollectionsPage() {
             className="pointer-events-none shrink-0 h-8 w-px blur-[0.6px] md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
             style={{ backgroundColor: BROWN, opacity: 0.5 }}
           />
-          <p className="max-md:min-w-0 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+          <p className="max-md:min-w-0 md:col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
             HAND-DYED, SMALL BATCH
           </p>
         </div>
