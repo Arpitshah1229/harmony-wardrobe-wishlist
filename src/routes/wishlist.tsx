@@ -49,7 +49,7 @@ function WishlistPage() {
             fetchPriority="high"
             alt=""
             aria-hidden="true"
-            className="h-full w-full scale-105 object-cover blur-[5px]"
+            className="h-full w-full scale-105 object-cover object-[20%_50%] blur-[5px] md:object-center"
           />
           <div className="absolute inset-0 bg-background/25" />
         </div>
