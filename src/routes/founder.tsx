@@ -77,12 +77,12 @@ function FounderPage() {
 
           {/* Ch 1 + Ch 2 stacked */}
           <div className="flex max-md:flex-row flex-col gap-0 max-md:col-span-2 max-md:order-1">
-            <TextBlock num="1" title="I grew up moving.">
+            <TextBlock num="1" title="I grew up moving." className="max-md:flex-1 max-md:basis-0">
               <p>Army family.</p>
               <p>Sometimes the most metropolitan cities. Sometimes the most remote postings. Places most people never reach.</p>
               <p>It was in those places that I discovered craft that the world simply didn't know existed.</p>
             </TextBlock>
-            <TextBlock num="2" title="Beautiful things in unexpected places.">
+            <TextBlock num="2" title="Beautiful things in unexpected places." className="max-md:flex-1 max-md:basis-0">
               <p>My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She would see something beautiful and immediately ask how she could make it her own. These discoveries came from the most unexpected sources, a word of mouth from a fellow Army wife, something spotted at a gathering, or something my father came across unexpectedly. No one was really looking. But they always had it coming to them.</p>
             </TextBlock>
           </div>
@@ -124,11 +124,11 @@ function FounderPage() {
             <StoreImage src={founder7.url} alt="Man carving a wooden block, and the studio at work" className="absolute inset-0 w-full h-full object-cover object-[20%_50%] block" />
           </div>
           <div className="flex max-md:flex-row flex-col gap-0 max-md:col-span-2 max-md:order-11">
-          <TextBlock num="7" title="A day at Notions in Pattern." vCenter>
+          <TextBlock num="7" title="A day at Notions in Pattern." vCenter className="max-md:flex-1 max-md:basis-0">
             <p>My typical day looks like swatches. Colours for dyes. Thread combinations. Sitting with my team, figuring things out together. The path is not always clear, but the destination always is. There are too many swatches in my bag. Too many threads. Random things everywhere.</p>
             <p>But a very clear vision.</p>
           </TextBlock>
-          <TextBlock num="8" title="My people." vCenter>
+          <TextBlock num="8" title="My people." vCenter className="max-md:flex-1 max-md:basis-0">
             <p>My mother is a starist, a traveller, a doctor of Hindi literature. My father, a retired Army officer, art enthusiast, someone who writes beautifully, plays guitar, and loves to read. Craft and creativity have always run quietly through my family.</p>
             <p>I am what I am because of them.</p>
             <p>And I love to dance. That too.</p>
