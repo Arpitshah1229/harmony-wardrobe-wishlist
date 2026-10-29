@@ -710,13 +710,19 @@ function ProductPage() {
         <span className="block w-16 border-t-2 mx-auto mt-5 mb-12" style={{ borderColor: BROWN }} />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-8 max-md:px-8 max-md:pb-4 max-md:[scroll-padding-inline:2rem] max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
           {others.map((p) => (
-            <Link key={p.slug} to="/product/$slug" params={{ slug: p.slug }} className="group flex flex-col max-md:w-[72%] max-md:shrink-0 max-md:snap-start">
+            <Link key={p.slug} to="/product/$slug" params={{ slug: p.slug }} className="group relative flex flex-col max-md:w-[72%] max-md:shrink-0 max-md:snap-start">
               <StoreImage
                 src={p.images[0]}
                 alt={p.altText}
                 loading="lazy"
                 className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
+              <span
+                className="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
+                style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+              >
+                {p.badge || "Hand Dyed & Embroidered"}
+              </span>
               <h3 className="mt-4 font-serif text-[18px] font-bold" style={{ color: BROWN }}>
                 {p.name}
               </h3>
