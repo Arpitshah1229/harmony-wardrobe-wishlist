@@ -2,7 +2,7 @@
 
 ## Current requested adjustments
 - [x] Check contact email opening: correct recipient; standalone browser opens Gmail sign-in. Embedded preview may block external tabs; no link rewrite needed.
-- [x] Login on phones: kept smaller left card; restored original photo zoom and shifted photo left with approximately 0.5 cm blurred edge gap. Verified 320/393/1280px, no overflow, build OK. Desktop and register unchanged.
+- [x] Login on phones: retained smaller left card and original photo zoom; shifted framing left while filling the entire width with photo, no right-side blur. Verified 320/393/1280px, no overflow. Desktop and register unchanged.
 
 ## Image loading performance
 - [x] Founder logo: needle aligned above the ampersand; verified at 393px and 1280px.
