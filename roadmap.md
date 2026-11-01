@@ -2,7 +2,7 @@
 
 ## Current requested adjustments
 - [x] Check contact email opening: correct recipient; standalone browser opens Gmail sign-in. Embedded preview may block external tabs; no link rewrite needed.
-- [ ] Login on phones: smaller card moved left; wider shirt framing with an approximately 0.5 cm blurred edge gap. Desktop and register unchanged.
+- [x] Login on phones: smaller card moved left; wider shirt framing with an approximately 0.5 cm blurred edge gap. Checked 320/393/1280px, no overflow or runtime errors. Desktop and register unchanged.
 
 ## Image loading performance
 - [x] Founder logo: needle aligned above the ampersand; verified at 393px and 1280px.
