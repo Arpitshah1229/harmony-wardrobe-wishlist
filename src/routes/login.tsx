@@ -77,7 +77,7 @@ function LoginPage() {
             loading="eager"
             fetchPriority="high"
             alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:inset-auto max-sm:right-[0.5cm] max-sm:top-[0.5cm] max-sm:h-[66%] max-sm:w-[calc(100%-1cm)]"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:-translate-x-[0.5cm]"
           />
           <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
