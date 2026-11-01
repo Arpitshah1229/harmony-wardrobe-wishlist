@@ -70,14 +70,14 @@ function LoginPage() {
             loading="eager"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right sm:hidden"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:w-[86%] sm:hidden"
           />
           <StoreImage
             src={loginBackground}
             loading="eager"
             fetchPriority="high"
             alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:object-[calc(100%-0.5cm)_center]"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:w-[86%] max-sm:object-[calc(100%-0.5cm)_center]"
           />
           <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
