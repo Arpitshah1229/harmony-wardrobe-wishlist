@@ -65,19 +65,20 @@ function LoginPage() {
 
       <main className="relative isolate flex w-full flex-1 overflow-hidden">
         <div className="relative min-h-[610px] w-full flex-1">
-          <StoreImage
-            src={loginBackground}
-            loading="eager"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:w-[86%] sm:hidden"
-          />
+          <div className="absolute inset-y-0 left-0 -z-20 w-[86%] overflow-hidden sm:hidden" aria-hidden="true">
+            <StoreImage
+              src={loginBackground}
+              loading="eager"
+              alt=""
+              className="h-full w-screen max-w-none object-cover object-[calc(100%-0.5cm)_center]"
+            />
+          </div>
           <StoreImage
             src={loginBackground}
             loading="eager"
             fetchPriority="high"
             alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:w-[86%]"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:hidden"
           />
           <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
