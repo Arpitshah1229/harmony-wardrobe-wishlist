@@ -1,7 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
-- [ ] Check contact email opening and explain any preview restriction.
+- [x] Check contact email opening: correct recipient; standalone browser opens Gmail sign-in. Embedded preview may block external tabs; no link rewrite needed.
 - [ ] Login on phones: smaller card moved left; wider shirt framing with an approximately 0.5 cm blurred edge gap. Desktop and register unchanged.
 
 ## Image loading performance

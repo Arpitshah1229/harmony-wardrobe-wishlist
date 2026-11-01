@@ -68,9 +68,16 @@ function LoginPage() {
           <StoreImage
             src={loginBackground}
             loading="eager"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right blur-md sm:hidden"
+          />
+          <StoreImage
+            src={loginBackground}
+            loading="eager"
             fetchPriority="high"
             alt="Man relaxing on an ornate bench wearing a green NIP shirt"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:object-[72%_center]"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:inset-auto max-sm:right-[0.5cm] max-sm:top-[0.5cm] max-sm:h-[66%] max-sm:w-[calc(100%-1cm)]"
           />
           <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
@@ -105,7 +112,7 @@ function LoginPage() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm max-sm:max-w-[300px] max-sm:origin-bottom max-sm:scale-[0.8] max-sm:bg-background/90 sm:-translate-x-40">
+        <section className="mx-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm max-sm:ml-0 max-sm:mr-auto max-sm:max-w-[280px] max-sm:origin-bottom-left max-sm:scale-[0.72] max-sm:bg-background/90 sm:-translate-x-40">
           <div className="border border-foreground/35 px-6 py-2.5 max-sm:px-4 max-sm:py-2 sm:px-7 sm:py-3.5">
             <h1 className="relative mx-auto mt-[78px] w-fit text-center font-serif text-[30px] leading-tight text-foreground max-sm:mt-[58px] max-sm:text-[26px] md:mt-[91px]">
               <StoreImage
