@@ -1,5 +1,9 @@
 # Roadmap
 
+## Current requested adjustments
+- [ ] Check contact email opening and explain any preview restriction.
+- [ ] Login on phones: smaller card moved left; wider shirt framing with an approximately 0.5 cm blurred edge gap. Desktop and register unchanged.
+
 ## Image loading performance
 - [x] Founder logo: needle aligned above the ampersand; verified at 393px and 1280px.
 - [x] Collections filter dropdown: brown/beige hover and sorting verified.
