@@ -68,6 +68,13 @@ function LoginPage() {
           <StoreImage
             src={loginBackground}
             loading="eager"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-right sm:hidden"
+          />
+          <StoreImage
+            src={loginBackground}
+            loading="eager"
             fetchPriority="high"
             alt="Man relaxing on an ornate bench wearing a green NIP shirt"
             className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:object-[calc(100%-0.5cm)_center]"
