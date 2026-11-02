@@ -388,8 +388,12 @@ function ProductPage() {
   const { img: startImg } = Route.useSearch();
   useEffect(() => {
     if (!startImg || window.innerWidth >= 768) return;
-    const el = document.querySelector(`[data-gallery-index="${startImg}"]`);
-    el?.scrollIntoView({ block: "start" });
+    const jump = () => {
+      const el = document.querySelector<HTMLElement>(`[data-gallery-index="${startImg}"]`);
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80 });
+    };
+    const timers = [50, 400, 900].map((ms) => window.setTimeout(jump, ms));
+    return () => timers.forEach(clearTimeout);
   }, [slug, startImg]);
   const product = getProduct(slug);
   const { priceText, isSoldOut } = useLiveProduct(product);
