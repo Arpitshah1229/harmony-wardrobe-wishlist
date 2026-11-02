@@ -70,7 +70,7 @@ function LoginPage() {
             loading="eager"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-[calc(100%-0.5cm)_center] sm:hidden"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[calc(100%-1.1cm)_center] sm:hidden"
           />
           <StoreImage
             src={loginBackground}
@@ -80,10 +80,11 @@ function LoginPage() {
             className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:hidden"
           />
           <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
+          <div aria-hidden="true" className="absolute inset-y-0 left-0 -z-10 w-[22px] backdrop-blur-md sm:hidden" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-right max-sm:hidden" />
 
-          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-end max-sm:pb-14 px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
+          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-end max-sm:px-3 max-sm:pb-14 px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
 
 
 
