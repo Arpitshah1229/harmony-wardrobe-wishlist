@@ -386,11 +386,12 @@ function Lightbox({
 function ProductPage() {
   const { slug } = Route.useParams();
   const { img: startImg } = Route.useSearch();
+  const [galleryIdx, setGalleryIdx] = useState(startImg ?? 0);
   useEffect(() => {
     if (!startImg || window.innerWidth >= 768) return;
     const jump = () => {
-      const el = document.querySelector<HTMLElement>(`[data-gallery-index="${startImg}"]`);
-      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80 });
+      const strip = document.querySelector<HTMLElement>("[data-gallery-strip]");
+      if (strip) strip.scrollTo({ left: strip.clientWidth * startImg });
     };
     const timers = [50, 400, 900].map((ms) => window.setTimeout(jump, ms));
     return () => timers.forEach(clearTimeout);
@@ -486,7 +487,16 @@ function ProductPage() {
 
       <section className="px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-8 lg:gap-14">
         {/* Gallery */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div className="relative min-w-0">
+        <div
+          data-gallery-strip
+          onScroll={(e) => {
+            const el = e.currentTarget;
+            const i = Math.round(el.scrollLeft / el.clientWidth);
+            if (i !== galleryIdx) setGalleryIdx(i);
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-md:flex max-md:gap-0 max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory no-scrollbar"
+        >
           {gallery.map((src, i) => (
             <button
               key={i}
@@ -494,7 +504,7 @@ function ProductPage() {
               type="button"
               aria-label={`Open image ${i + 1} in viewer`}
               onClick={() => setLightbox(i)}
-              className="group relative block w-full overflow-hidden bg-cream/60 cursor-zoom-in"
+              className="group relative block w-full overflow-hidden bg-cream/60 cursor-zoom-in max-md:shrink-0 max-md:snap-center"
             >
               <StoreImage
                 src={src}
@@ -512,6 +522,18 @@ function ProductPage() {
               </span>
             </button>
           ))}
+        </div>
+        {gallery.length > 1 && (
+          <div className="md:hidden pointer-events-none absolute bottom-3 inset-x-0 flex justify-center gap-1.5">
+            {gallery.map((_, i) => (
+              <span
+                key={i}
+                className="h-1.5 w-1.5 rounded-full transition-colors"
+                style={{ backgroundColor: i === galleryIdx ? BROWN : "#F7F4EE", opacity: i === galleryIdx ? 1 : 0.85 }}
+              />
+            ))}
+          </div>
+        )}
         </div>
 
         {/* Detail column */}
