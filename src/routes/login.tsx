@@ -70,7 +70,7 @@ function LoginPage() {
             loading="eager"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:origin-right max-sm:scale-[1.18] sm:hidden"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[calc(100%-1.5cm)_center] sm:hidden"
           />
           <StoreImage
             src={loginBackground}
