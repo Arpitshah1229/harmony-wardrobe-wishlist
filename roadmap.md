@@ -54,4 +54,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [ ] Known, pre-existing: on a 320px-wide phone the Collections page scrolls sideways by ~23px — caused by the announcement marquee ticker below the hero, not by the hero photo (photo rect is exactly 0-320). Not yet fixed; user not asked.
 - [x] Mobile menu (hamburger, phones/tablets): full-height cream sheet redesign was REVERTED at user request ("Please revert back", 2026-10-29) — the menu is back to the original simple dropdown list under the header (COLLECTION / ABOUT / FOUNDER, then ACCOUNT / WISHLIST / CART); do not re-propose the sheet. Verified at 393px, build OK.
 - [x] Login phone: photo ends at marked line (superseded)
-- [ ] Login phone: photo covers full background, no blank strip on right
+- [x] Login phone: photo covers full background edge to edge, no blank strip; man fully in frame — verified 393px (2026-11-02)
