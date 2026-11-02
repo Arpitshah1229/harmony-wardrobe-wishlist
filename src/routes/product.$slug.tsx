@@ -26,6 +26,10 @@ import { SIZE_CHART_MODELS } from "@/lib/size-chart-models";
 
 export const Route = createFileRoute("/product/$slug")({
   component: ProductPage,
+  validateSearch: (s: Record<string, unknown>): { img?: number } => {
+    const n = Number(s.img);
+    return Number.isInteger(n) && n > 0 ? { img: n } : {};
+  },
   head: ({ params }) => {
     const p = getProduct(params.slug);
     const title = p ? p.metaTitle : "Product | Notions in Pattern";
@@ -381,6 +385,12 @@ function Lightbox({
 
 function ProductPage() {
   const { slug } = Route.useParams();
+  const { img: startImg } = Route.useSearch();
+  useEffect(() => {
+    if (!startImg || window.innerWidth >= 768) return;
+    const el = document.querySelector(`[data-gallery-index="${startImg}"]`);
+    el?.scrollIntoView({ block: "start" });
+  }, [slug, startImg]);
   const product = getProduct(slug);
   const { priceText, isSoldOut } = useLiveProduct(product);
   const livePrice = useLivePrices();
@@ -476,6 +486,7 @@ function ProductPage() {
           {gallery.map((src, i) => (
             <button
               key={i}
+              data-gallery-index={i}
               type="button"
               aria-label={`Open image ${i + 1} in viewer`}
               onClick={() => setLightbox(i)}
