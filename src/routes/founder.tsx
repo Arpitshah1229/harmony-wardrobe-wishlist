@@ -256,7 +256,7 @@ function FounderPage() {
             className="max-md:col-span-2 max-md:order-13"
             footer={
               <p
-                className="font-serif text-center text-[13px] sm:text-[22px] md:text-[26px] mt-3 md:mt-8"
+                className="font-serif text-center text-[13px] sm:text-[22px] md:text-[26px] mt-3 md:mt-8 max-md:hidden"
                 style={{ color: BROWN }}
               >
                 Here's to many more chapters...
@@ -282,6 +282,12 @@ function FounderPage() {
               alt="Packing shirts and hand-marked NIP pouches in the studio"
               className="w-full h-auto object-cover block"
             />
+          </div>
+          {/* Mobile-only: chapter tagline sits below the last photo on phones */}
+          <div className="md:hidden max-md:col-span-2 max-md:order-15 px-1 pt-1 pb-2">
+            <p className="font-serif text-center text-[13px]" style={{ color: BROWN }}>
+              Here's to many more chapters...
+            </p>
           </div>
         </div>
       </section>
