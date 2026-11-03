@@ -408,6 +408,7 @@ function ProductPage() {
   const [qty, setQty] = useState(1);
   const [open, setOpen] = useState<string | null>("FABRIC & DETAILS");
   const [chartOpen, setChartOpen] = useState(false);
+  const [descExpanded, setDescExpanded] = useState(false);
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const isMobile = useIsMobile();
@@ -562,9 +563,30 @@ function ProductPage() {
           </p>
           <div className="mt-3 space-y-4 text-[14px] leading-[1.9]" style={{ color: DARK }}>
             {product.description.map((para, i) => (
-              <p key={i}>{para}</p>
+              <p
+                key={i}
+                className={
+                  i === 0
+                    ? descExpanded
+                      ? undefined
+                      : "max-md:line-clamp-3"
+                    : !descExpanded
+                      ? "max-md:hidden"
+                      : undefined
+                }
+              >
+                {para}
+              </p>
             ))}
           </div>
+          <button
+            type="button"
+            onClick={() => setDescExpanded((v) => !v)}
+            className="mt-1 hidden max-md:block text-[13px] font-bold tracking-wide"
+            style={{ color: BROWN }}
+          >
+            {descExpanded ? "less" : "... more"}
+          </button>
 
           <div className="mt-5 space-y-1.5 text-[14px] leading-[1.7]" style={{ color: DARK }}>
             <p>
