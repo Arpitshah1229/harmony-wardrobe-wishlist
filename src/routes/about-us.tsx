@@ -155,7 +155,7 @@ function AboutPage() {
         <div className="max-w-6xl relative z-10">
           <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 max-md:mb-2" style={{ color: BROWN }}>With Gratitude.</h2>
-            <div className="w-14 h-px mb-6 max-md:mb-2" style={{ backgroundColor: `${BROWN}66` }} />
+            <div className="w-14 h-px mb-6 max-md:mb-2 max-md:ml-[80px]" style={{ backgroundColor: `${BROWN}66` }} />
             <div className="space-y-2 max-md:space-y-1 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
               <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
