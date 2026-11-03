@@ -11,6 +11,8 @@
 
 # Project Architecture Rules
 
+- Keep the phone product photo viewer separate from the desktop lightbox and use react-zoom-pan-pinch for gesture handling so mobile presentation changes preserve desktop behavior.
+
 - Render storefront photos through StoreImage and the image-delivery registry; keep original asset pointers for full-detail zoom so responsive WebP delivery never changes uploaded artwork or framing.
 - Defer the homepage process video until its section approaches the viewport so off-screen playback does not compete with first-screen images.
 - Use the shared Select controls for Collections filters so dropdown highlights follow brand tokens rather than browser-owned menu colours.

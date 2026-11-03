@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
+- [ ] Match the supplied mobile product photo viewer reference; verify photo navigation, zoom, close, and unchanged desktop viewer.
 - [x] Check contact email opening: correct recipient; standalone browser opens Gmail sign-in. Embedded preview may block external tabs; no link rewrite needed.
 - [x] Login on phones: retained smaller left card and original photo zoom; shifted framing left while filling the entire width with photo, no right-side blur. Verified 320/393/1280px, no overflow. Desktop and register unchanged.
 
