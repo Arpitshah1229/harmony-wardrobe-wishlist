@@ -292,7 +292,7 @@ function Lightbox({
         size="icon"
         aria-label="Close viewer"
         onClick={onClose}
-        className="absolute top-2 right-1 z-20 h-12 w-12 rounded-none bg-viewer-surface/95 text-foreground"
+        className="absolute top-2 right-1 z-20 h-12 w-12 rounded-none bg-viewer-surface/95 text-foreground [&_svg]:size-9"
       >
         <X className="size-9" strokeWidth={1.25} />
       </Button>
