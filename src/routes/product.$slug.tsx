@@ -764,7 +764,7 @@ function ProductPage() {
             <p className="mt-1 text-[13px]" style={{ color: DARK }}>
               Get in touch. Mon to Sat, 10:00 AM to 6:00 PM IST.
             </p>
-            <div className="mt-3 flex flex-wrap gap-5 text-[12px] font-bold tracking-[0.16em]" style={{ color: BROWN }}>
+            <div className="mt-3 flex flex-wrap gap-5 text-[12px] font-bold tracking-[0.16em] max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-5 max-sm:gap-y-4" style={{ color: BROWN }}>
               <a href={PHONE_TEL} className="flex items-center gap-1.5 hover:opacity-70">
                 <PhoneIcon size={16} /> {PHONE_DISPLAY}
               </a>
