@@ -284,7 +284,7 @@ function FounderPage() {
             />
           </div>
           {/* Mobile-only: chapter tagline sits below the last photo on phones */}
-          <div className="md:hidden max-md:col-span-2 max-md:order-15 px-1 pt-2 pb-2">
+          <div className="md:hidden max-md:col-span-2 max-md:order-15 px-1 pt-5 pb-2">
             <p className="font-serif text-center text-[13px]" style={{ color: BROWN }}>
               Here's to many more chapters...
             </p>
