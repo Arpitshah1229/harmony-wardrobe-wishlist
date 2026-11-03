@@ -59,3 +59,7 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 
 ## About page gratitude title
 - [x] Keep "With Gratitude." title top-left and in line on the About page (mobile view) after removing the white box.
+
+## About page gratitude (mobile)
+- [x] Keep gratitude text clear of the founder's face on phones — taller section, photo dropped lower, verified 393px (2026-11-03).
+- [x] Small rule under "With Gratitude." starts at the left, aligned under the "G" — max-md:ml-[80px], verified 393px (2026-11-03).

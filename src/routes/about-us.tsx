@@ -149,14 +149,13 @@ function AboutPage() {
 
       {/* Gratitude */}
       <section
-        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 bg-no-repeat bg-cover bg-right"
-        style={{ minHeight: "480px" }}
+        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 bg-no-repeat bg-cover bg-right min-h-[480px] max-md:min-h-[680px]"
       >
-        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />
+        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right max-md:h-[132%] max-md:object-[82%_top]" />
         <div className="max-w-6xl relative z-10">
           <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 max-md:mb-2" style={{ color: BROWN }}>With Gratitude.</h2>
-            <div className="w-14 h-px mb-6 max-md:mx-auto max-md:mb-2" style={{ backgroundColor: `${BROWN}66` }} />
+            <div className="w-14 h-px mb-6 max-md:mb-2 max-md:ml-[80px]" style={{ backgroundColor: `${BROWN}66` }} />
             <div className="space-y-2 max-md:space-y-1 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
               <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
