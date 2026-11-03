@@ -177,15 +177,16 @@ function Lightbox({
 }) {
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 50, y: 50 });
   const containerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
-  const dragRef = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
   const stateRef = useRef({ zoom, offset });
   stateRef.current = { zoom, offset };
 
   const reset = useCallback(() => {
     setZoom(1);
     setOffset({ x: 0, y: 0 });
+    setPosition({ x: 50, y: 50 });
   }, []);
 
   const step = (dir: number) => {
@@ -247,37 +248,25 @@ function Lightbox({
 
   return (
     <div
-      className="fixed inset-0 z-[110]"
-      style={{ backgroundColor: "#FFFFFF" }}
+      className="fixed inset-0 z-[110] bg-viewer-surface"
       role="dialog"
       aria-modal="true"
       aria-label="Product image viewer"
     >
       <div
         ref={containerRef}
-        className="absolute inset-0 overflow-hidden touch-none select-none"
-        style={{ cursor: zoom > 1 ? (dragRef.current ? "grabbing" : "grab") : "zoom-in" }}
-        onPointerDown={(e) => {
-          if (zoom === 1) return;
-          (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-          dragRef.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
-        }}
+        className="absolute inset-0 overflow-hidden touch-none select-none cursor-default"
         onPointerMove={(e) => {
-          const d = dragRef.current;
-          if (!d) return;
-          setOffset(bound({ x: d.ox + (e.clientX - d.x), y: d.oy + (e.clientY - d.y) }, zoom));
-        }}
-        onPointerUp={() => {
-          dragRef.current = null;
-        }}
-        onPointerCancel={() => {
-          dragRef.current = null;
-        }}
-        onDoubleClick={(e) => {
           const container = containerRef.current;
           if (!container) return;
           const rect = container.getBoundingClientRect();
-          zoomAt(zoom > 1 ? 1 : 2.5, e.clientX - rect.left, e.clientY - rect.top);
+          const x = clamp((e.clientX - rect.left) / rect.width, 0, 1);
+          const y = clamp((e.clientY - rect.top) / rect.height, 0, 1);
+          setPosition({ x: x * 100, y: y * 100 });
+          setOffset(bound({
+            x: (0.5 - x) * container.clientWidth * (zoom - 1),
+            y: (0.5 - y) * container.clientHeight * (zoom - 1),
+          }, zoom));
         }}
       >
         <StoreImage
@@ -291,46 +280,43 @@ function Lightbox({
           style={{
             transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
             transformOrigin: "center center",
-            transition: dragRef.current ? "none" : "transform 120ms ease-out",
+            objectPosition: `${position.x}% ${position.y}%`,
           }}
         />
       </div>
 
       {/* Close */}
-      <button
+      <Button
         type="button"
+        variant="ghost"
+        size="icon"
         aria-label="Close viewer"
         onClick={onClose}
-        className="absolute top-3 right-[60px] z-20 grid h-10 w-10 place-items-center"
-        style={{ color: "#2C2119" }}
+        className="absolute top-2 right-1 z-20 h-12 w-12 rounded-none bg-viewer-surface/95 text-foreground [&_svg]:size-9"
       >
-        <X size={26} strokeWidth={1.25} />
-      </button>
+        <X className="size-9" strokeWidth={1.25} />
+      </Button>
 
       {/* Thumbnail filmstrip along the right edge */}
       {images.length > 1 && (
         <div
-          className="absolute right-0 top-0 z-10 flex h-full w-14 flex-col items-center gap-2 overflow-y-auto no-scrollbar py-14"
-          style={{ backgroundColor: "rgba(255,255,255,0.94)" }}
+          className="absolute right-0 top-0 z-10 flex h-full w-14 flex-col items-center gap-2 overflow-y-auto no-scrollbar pt-16 pb-3 bg-viewer-surface/95"
         >
           {images.map((src, i) => (
-            <button
+            <Button
               key={i}
               type="button"
+              variant="ghost"
               aria-label={`View image ${i + 1}`}
+              aria-pressed={i === index}
               onClick={() => {
                 onIndex(i);
                 reset();
               }}
-              className="shrink-0"
-              style={{
-                outline: i === index ? "1.5px solid #2C2119" : "none",
-                outlineOffset: "1px",
-                opacity: i === index ? 1 : 0.7,
-              }}
+              className={`h-[72px] w-11 shrink-0 rounded-none p-0 outline-offset-1 ${i === index ? "outline outline-foreground opacity-100" : "opacity-70"}`}
             >
               <StoreImage src={src} alt="" className="h-[72px] w-11 object-cover" />
-            </button>
+            </Button>
           ))}
         </div>
       )}
