@@ -83,7 +83,7 @@ function HomePage() {
           <div className="relative z-20 -mr-1 flex w-full flex-row items-center justify-between gap-3 pb-2 sm:-mr-[3.5vw] sm:gap-6 sm:pb-0">
             <Link
               to="/collections"
-              className="home-hero-link inline-flex items-center gap-2 whitespace-nowrap border-b-2 border-accent pb-1 text-[9px] font-black uppercase tracking-[0.14em] text-accent transition-opacity hover:opacity-60 max-[360px]:gap-1.5 max-[360px]:text-[8px] max-[360px]:tracking-[0.1em] sm:gap-4 sm:pb-1.5 sm:text-[12px] sm:tracking-[0.18em]"
+              className="home-hero-link inline-flex items-center gap-2 whitespace-nowrap border-b-2 border-accent pb-1 text-[9px] font-black uppercase tracking-[0.14em] text-accent transition-opacity hover:opacity-60 max-sm:border-beige max-sm:text-beige max-[360px]:gap-1.5 max-[360px]:text-[8px] max-[360px]:tracking-[0.1em] sm:gap-4 sm:pb-1.5 sm:text-[12px] sm:tracking-[0.18em]"
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-3 w-3 max-[360px]:h-2.5 max-[360px]:w-2.5 sm:h-4 sm:w-4" />
             </Link>
