@@ -149,7 +149,7 @@ function AboutPage() {
 
       {/* Gratitude */}
       <section
-        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 bg-no-repeat bg-cover bg-right min-h-[480px] max-md:min-h-[680px]"
+        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 bg-no-repeat bg-cover bg-right min-h-[480px] max-md:min-h-[680px] max-md:overflow-hidden"
       >
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right max-md:h-[132%] max-md:object-[82%_top]" />
         <div className="max-w-6xl relative z-10">
