@@ -154,7 +154,7 @@ function AboutPage() {
       >
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />
         <div className="max-w-6xl relative z-10">
-          <div className="max-w-md p-5 -mx-5 bg-background/85 backdrop-blur-[2px] lg:p-0 lg:mx-0 lg:bg-transparent lg:backdrop-blur-none" style={{ color: DARK }}>
+          <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="w-14 h-px mb-6" style={{ backgroundColor: `${BROWN}66` }} />
             <div className="space-y-2 text-[14px] leading-[1.9]">

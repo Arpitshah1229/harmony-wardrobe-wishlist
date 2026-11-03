@@ -56,3 +56,6 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] Mobile menu (hamburger, phones/tablets): full-height cream sheet redesign was REVERTED at user request ("Please revert back", 2026-10-29) — the menu is back to the original simple dropdown list under the header (COLLECTION / ABOUT / FOUNDER, then ACCOUNT / WISHLIST / CART); do not re-propose the sheet. Verified at 393px, build OK.
 - [x] Login phone: photo ends at marked line (superseded)
 - [x] Login phone: photo covers full background edge to edge, no blank strip; man fully in frame — verified 393px (2026-11-02)
+
+## About page gratitude title
+- [x] Keep "With Gratitude." title top-left and in line on the About page (mobile view) after removing the white box.
