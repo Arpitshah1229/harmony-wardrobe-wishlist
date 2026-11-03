@@ -96,7 +96,16 @@ export function Header({
             <StoreImage src={nipMonogram.url} loading="eager" sizes="80px" alt="Notions in Pattern" className="h-[19px] w-auto shrink-0 sm:h-[24px] lg:h-[27px] xl:h-[34px]" />
           )}
           {hideLogo && (
-            <StoreImage src={nipMonogram.url} loading="eager" sizes="40px" alt="Notions in Pattern monogram" className="h-[19px] w-auto shrink-0 md:hidden" />
+            <span className="relative inline-flex shrink-0 md:hidden">
+              <StoreImage src={nipMonogram.url} loading="eager" sizes="40px" alt="Notions in Pattern monogram" className="h-[19px] w-auto" style={solidBg ? { opacity: 0 } : undefined} />
+              {solidBg && (
+                <span
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{ backgroundColor: ink, WebkitMaskImage: `url(${nipMonogram.url})`, maskImage: `url(${nipMonogram.url})`, WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskPosition: "center", maskPosition: "center" }}
+                />
+              )}
+            </span>
           )}
           <Wordmark ink={ink} />
         </div>
