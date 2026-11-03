@@ -282,15 +282,6 @@ function FounderPage() {
               alt="Packing shirts and hand-marked NIP pouches in the studio"
               className="w-full h-auto object-cover block"
             />
-            footer=
-            {
-              <p
-                className="font-serif text-center text-[13px] sm:text-[22px] md:text-[26px] mt-3 md:mt-8"
-                style={{ color: BROWN }}
-              >
-                Here's to many more chapters...
-              </p>
-            }
           </div>
         </div>
       </section>
