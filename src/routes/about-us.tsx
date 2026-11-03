@@ -155,13 +155,13 @@ function AboutPage() {
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />
         <div className="max-w-6xl relative z-10">
           <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
-            <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4" style={{ color: BROWN }}>With Gratitude.</h2>
-            <div className="w-14 h-px mb-6" style={{ backgroundColor: `${BROWN}66` }} />
-            <div className="space-y-2 text-[14px] leading-[1.9]">
+            <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 max-md:mb-2" style={{ color: BROWN }}>With Gratitude.</h2>
+            <div className="w-14 h-px mb-6 max-md:mx-auto max-md:mb-2" style={{ backgroundColor: `${BROWN}66` }} />
+            <div className="space-y-2 max-md:space-y-1 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
               <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
-              <p>Thank you for being here.</p>
-              <p>— Neha &amp; Anita</p>
+              <p className="max-md:ml-[50%]">Thank you for being here.</p>
+              <p className="max-md:ml-[50%]">— Neha &amp; Anita</p>
             </div>
           </div>
         </div>
