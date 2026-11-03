@@ -73,7 +73,7 @@ export function MobileProductViewer({ images, index, alt, onClose, onIndex }: {
           centerOnInit
           doubleClick={{ mode: "toggle", step: 1.5 }}
           onInit={() => { scale.current = 1; }}
-          onTransformed={(_, state) => { scale.current = state.scale; }}
+          onTransform={(_, state) => { scale.current = state.scale; }}
         >
           <TransformComponent wrapperClass="mobile-viewer-frame" contentClass="mobile-viewer-photo">
             <StoreImage fullDetail loading="eager" src={images[index]} alt={alt}
