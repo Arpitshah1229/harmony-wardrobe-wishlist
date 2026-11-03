@@ -11,7 +11,6 @@ import heroImg from "@/assets/collection_hero_v3.png.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-
 function ProductCard({ product }: { product: Product }) {
   const [imgIdx, setImgIdx] = useState(0);
   const [mobileIdx, setMobileIdx] = useState(0);
@@ -21,8 +20,7 @@ function ProductCard({ product }: { product: Product }) {
   const livePrice = useLivePrices();
   const wished = has(product.slug);
   const hasMultiple = product.images.length > 1;
-  const move = (d: number) =>
-    setImgIdx((c) => (c + d + product.images.length) % product.images.length);
+  const move = (d: number) => setImgIdx((c) => (c + d + product.images.length) % product.images.length);
 
   return (
     <article className="group flex flex-col">
@@ -102,7 +100,6 @@ function ProductCard({ product }: { product: Product }) {
           />
         </button>
 
-
         {hasMultiple && (
           <>
             <button
@@ -170,9 +167,6 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
-
-
-
 export const Route = createFileRoute("/collections")({
   component: CollectionsPage,
   head: () => ({
@@ -194,7 +188,6 @@ export const Route = createFileRoute("/collections")({
   }),
 });
 
-
 const SORT_OPTIONS = [
   "Most Relevant",
   "Best Selling",
@@ -210,9 +203,7 @@ function CollectionsPage() {
   const [sort, setSort] = useState<string>(SORT_OPTIONS[0]);
   const [query, setQuery] = useState("");
 
-  const filtered = products.filter((p) =>
-    p.name.toLowerCase().includes(query.trim().toLowerCase())
-  );
+  const filtered = products.filter((p) => p.name.toLowerCase().includes(query.trim().toLowerCase()));
 
   const sorted = [...filtered].sort((a, b) => {
     switch (sort) {
@@ -235,23 +226,45 @@ function CollectionsPage() {
 
       {/* Hero */}
       <section className="relative w-full bg-cover bg-center min-h-[440px] min-[600px]:min-h-[780px] flex items-center">
-        <StoreImage src={heroImg.url} alt="" aria-hidden="true" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-[-170px_center] min-[600px]:object-center" />
+        <StoreImage
+          src={heroImg.url}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-[-170px_center] min-[600px]:object-center"
+        />
         <div className="absolute inset-0 bg-background/10" />
         <div className="relative ml-auto pl-4 pr-1 min-[600px]:pl-16 min-[600px]:pr-36 pt-16 min-[600px]:pt-32 pb-12 min-[600px]:pb-16 max-w-[62%] min-[600px]:max-w-xl text-left">
-          <p className="text-[9px] min-[600px]:text-[12px] font-bold tracking-[0.22em] min-[600px]:tracking-[0.28em] mb-2 min-[600px]:mb-3" style={{ color: BROWN }}>
+          <p
+            className="text-[9px] min-[600px]:text-[12px] font-bold tracking-[0.22em] min-[600px]:tracking-[0.28em] mb-2 min-[600px]:mb-3"
+            style={{ color: BROWN }}
+          >
             INAUGURAL COLLECTION
           </p>
-          <h1 className="font-serif text-[28px] min-[600px]:text-[60px] font-bold leading-tight" style={{ color: BROWN }}>
+          <h1
+            className="font-serif text-[28px] min-[600px]:text-[60px] font-bold leading-tight"
+            style={{ color: BROWN }}
+          >
             Naqsh-e-Nigāh
           </h1>
-          <p className="font-serif italic text-base min-[600px]:text-[30px] mt-1 min-[600px]:mt-2" style={{ color: BROWN }}>
+          <p
+            className="font-serif italic text-base min-[600px]:text-[30px] mt-1 min-[600px]:mt-2"
+            style={{ color: BROWN }}
+          >
             Patterns of the Vision
           </p>
-          <span className="block w-8 min-[600px]:w-10 border-t mt-3 mb-3 min-[600px]:mt-4 min-[600px]:mb-4" style={{ borderColor: BROWN }} />
-          <p className="text-[10.5px] min-[600px]:text-[15px] leading-relaxed max-w-md max-[599px]:whitespace-nowrap" style={{ color: DARK }}>
-            A collection that begins with how we see,
+          <span
+            className="block w-8 min-[600px]:w-10 border-t mt-3 mb-3 min-[600px]:mt-4 min-[600px]:mb-4"
+            style={{ borderColor: BROWN }}
+          />
+          <p
+            className="text-[10.5px] min-[600px]:text-[15px] leading-relaxed max-w-md max-[599px]:whitespace-nowrap"
+            style={{ color: DARK }}
+          >
+            A collection that begins with how we
             <br />
-            and how that vision takes form.
+            see,and how that vision takes form.
           </p>
         </div>
       </section>
@@ -261,7 +274,10 @@ function CollectionsPage() {
       {/* Trust strip */}
       <div className="px-8 md:px-16 py-6 border-b border-border/60">
         <div className="relative max-md:flex max-md:items-center max-md:justify-center max-md:gap-5 md:grid md:grid-cols-4 md:items-center">
-          <p className="max-md:min-w-0 md:col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+          <p
+            className="max-md:min-w-0 md:col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center"
+            style={{ color: BROWN }}
+          >
             HAND-EMBROIDERED IN LUCKNOW
           </p>
           <span
@@ -269,16 +285,20 @@ function CollectionsPage() {
             className="pointer-events-none shrink-0 h-8 w-px blur-[0.6px] md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
             style={{ backgroundColor: BROWN, opacity: 0.5 }}
           />
-          <p className="max-md:min-w-0 md:col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center" style={{ color: BROWN }}>
+          <p
+            className="max-md:min-w-0 md:col-span-2 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center"
+            style={{ color: BROWN }}
+          >
             HAND-DYED, SMALL BATCH
           </p>
         </div>
       </div>
 
-
-
       {/* Filters */}
-      <div id="shop" className="mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
+      <div
+        id="shop"
+        className="mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8"
+      >
         <div className="grid grid-cols-2 gap-x-5 gap-y-6 md:flex md:flex-row md:items-end md:gap-10">
           <span className="col-span-2 text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
             FILTER:
@@ -288,11 +308,19 @@ function CollectionsPage() {
               CATEGORY
             </p>
             <Select value="shirts">
-              <SelectTrigger aria-label="Category" className="min-w-0 md:min-w-[140px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+              <SelectTrigger
+                aria-label="Category"
+                className="min-w-0 md:min-w-[140px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none"
+              >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="rounded-none border-border bg-background text-foreground">
-                <SelectItem value="shirts" className="rounded-none text-[14px] focus:bg-accent focus:text-beige data-[highlighted]:bg-accent data-[highlighted]:text-beige">Shirts</SelectItem>
+                <SelectItem
+                  value="shirts"
+                  className="rounded-none text-[14px] focus:bg-accent focus:text-beige data-[highlighted]:bg-accent data-[highlighted]:text-beige"
+                >
+                  Shirts
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -301,12 +329,19 @@ function CollectionsPage() {
               SORT BY
             </p>
             <Select value={sort} onValueChange={setSort}>
-              <SelectTrigger aria-label="Sort by" className="min-w-0 md:min-w-[180px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none">
+              <SelectTrigger
+                aria-label="Sort by"
+                className="min-w-0 md:min-w-[180px] rounded-none border-0 border-b border-accent px-0 pb-1 text-[14px] text-foreground shadow-none"
+              >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="rounded-none border-border bg-background text-foreground">
                 {SORT_OPTIONS.map((o) => (
-                  <SelectItem key={o} value={o} className="rounded-none text-[14px] focus:bg-accent focus:text-beige data-[highlighted]:bg-accent data-[highlighted]:text-beige">
+                  <SelectItem
+                    key={o}
+                    value={o}
+                    className="rounded-none text-[14px] focus:bg-accent focus:text-beige data-[highlighted]:bg-accent data-[highlighted]:text-beige"
+                  >
                     {o}
                   </SelectItem>
                 ))}
@@ -318,10 +353,7 @@ function CollectionsPage() {
           <p className="text-[11px] font-bold tracking-[0.22em] mb-1" style={{ color: BROWN }}>
             SEARCH
           </p>
-          <div
-            className="flex items-center gap-2 border-b pb-1 min-w-[180px]"
-            style={{ borderColor: BROWN }}
-          >
+          <div className="flex items-center gap-2 border-b pb-1 min-w-[180px]" style={{ borderColor: BROWN }}>
             <Search size={16} style={{ color: BROWN }} />
             <input
               type="search"
@@ -350,9 +382,6 @@ function CollectionsPage() {
         )}
       </section>
 
-
-
-
       {/* Collection story */}
       <section className="mt-24 px-8 md:px-16 py-20" style={{ backgroundColor: "var(--cream)" }}>
         <div className="max-w-6xl mx-auto">
@@ -363,7 +392,10 @@ function CollectionsPage() {
             Collection Story
           </h2>
           <span className="block w-16 border-t-2 mx-auto mt-5 mb-14" style={{ borderColor: BROWN }} />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 text-[15px] leading-[1.9]" style={{ color: DARK }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 text-[15px] leading-[1.9]"
+            style={{ color: DARK }}
+          >
             <div className="space-y-5 md:border-r md:pr-10 border-border/70">
               <p className="font-serif italic text-2xl leading-snug" style={{ color: BROWN }}>
                 Rooted in Lucknow.
@@ -438,7 +470,6 @@ function CollectionsPage() {
           </figcaption>
         </figure>
       </section>
-
 
       <Footer />
     </div>
