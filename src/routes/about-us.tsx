@@ -152,7 +152,7 @@ function AboutPage() {
         className="relative w-full px-8 md:px-16 max-md:pt-6 max-md:pb-24 md:py-24 bg-no-repeat bg-cover bg-right"
         style={{ minHeight: "480px" }}
       >
-        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right max-md:object-top" />
+        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right max-md:object-[74%_top]" />
         <div className="max-w-6xl relative z-10">
           <div className="max-w-md" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4" style={{ color: BROWN }}>With Gratitude.</h2>
