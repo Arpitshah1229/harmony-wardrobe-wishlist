@@ -283,13 +283,6 @@ function FounderPage() {
               className="w-full h-auto object-cover block"
             />
           </div>
-
-          <p
-            className="font-serif text-center text-[13px] sm:text-[22px] md:text-[26px] mt-3 md:mt-8"
-            style={{ color: BROWN }}
-          >
-            Here's to many more chapters...
-          </p>
         </div>
       </section>
 
