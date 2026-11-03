@@ -22,6 +22,8 @@ import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import { Button } from "@/components/ui/button";
 import { useWishlist } from "@/lib/wishlist";
 import { SIZE_CHART_MODELS } from "@/lib/size-chart-models";
+import { MobileProductViewer } from "@/components/mobile-product-viewer";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 
 export const Route = createFileRoute("/product/$slug")({
@@ -319,7 +321,9 @@ function Lightbox({
           dragRef.current = null;
         }}
         onDoubleClick={(e) => {
-          const rect = containerRef.current!.getBoundingClientRect();
+          const container = containerRef.current;
+          if (!container) return;
+          const rect = container.getBoundingClientRect();
           zoomAt(zoom > 1 ? 1 : 2.5, e.clientX - rect.left, e.clientY - rect.top);
         }}
       >
@@ -406,6 +410,7 @@ function ProductPage() {
   const [chartOpen, setChartOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const isMobile = useIsMobile();
   const navigate = useNavigate();
   const { has, toggle } = useWishlist();
   const isWished = product ? has(product.slug) : false;
@@ -898,7 +903,13 @@ function ProductPage() {
 
       {chartOpen && <SizeChartModal onClose={() => setChartOpen(false)} />}
       {lightbox !== null && (
-        <Lightbox
+        isMobile ? <MobileProductViewer
+          images={gallery}
+          index={lightbox}
+          alt={product.altText}
+          onClose={() => setLightbox(null)}
+          onIndex={setLightbox}
+        /> : <Lightbox
           images={gallery}
           index={lightbox}
           alt={product.altText}
