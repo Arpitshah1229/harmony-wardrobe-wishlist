@@ -562,31 +562,44 @@ function ProductPage() {
             {product.tagline}
           </p>
           <div className="mt-3 space-y-4 text-[14px] leading-[1.9]" style={{ color: DARK }}>
-            {product.description.map((para, i) => (
-              <p
-                key={i}
-                className={
-                  i === 0
-                    ? descExpanded
-                      ? undefined
-                      : "max-md:line-clamp-3"
-                    : !descExpanded
-                      ? "max-md:hidden"
-                      : undefined
-                }
-              >
-                {para}
-              </p>
-            ))}
+            {product.description.map((para, i) => {
+              const firstCollapsed = i === 0 && !descExpanded;
+              const cut = para.length > 150 ? para.slice(0, para.slice(0, 150).lastIndexOf(" ")).trimEnd() : para;
+              return (
+                <p
+                  key={i}
+                  className={i > 0 && !descExpanded ? "max-md:hidden" : undefined}
+                >
+                  <span className={firstCollapsed ? "max-md:hidden" : undefined}>{para}</span>
+                  {firstCollapsed && (
+                    <>
+                      <span className="hidden max-md:inline">
+                        {cut}{" "}
+                        <button
+                          type="button"
+                          onClick={() => setDescExpanded(true)}
+                          className="inline font-bold"
+                          style={{ color: BROWN }}
+                        >
+                          ... more
+                        </button>
+                      </span>
+                    </>
+                  )}
+                </p>
+              );
+            })}
           </div>
-          <button
-            type="button"
-            onClick={() => setDescExpanded((v) => !v)}
-            className="mt-1 hidden max-md:block text-[13px] font-bold tracking-wide"
-            style={{ color: BROWN }}
-          >
-            {descExpanded ? "less" : "... more"}
-          </button>
+          {descExpanded && (
+            <button
+              type="button"
+              onClick={() => setDescExpanded(false)}
+              className="mt-1 hidden max-md:block text-[13px] font-bold tracking-wide"
+              style={{ color: BROWN }}
+            >
+              less
+            </button>
+          )}
 
           <div className="mt-5 space-y-1.5 text-[14px] leading-[1.7]" style={{ color: DARK }}>
             <p>
