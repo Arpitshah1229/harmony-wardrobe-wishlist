@@ -58,4 +58,4 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] Login phone: photo covers full background edge to edge, no blank strip; man fully in frame — verified 393px (2026-11-02)
 
 ## About page gratitude title
-- [ ] Keep "With Gratitude." title top-left and in line on the About page (mobile view) after removing the white box.
+- [x] Keep "With Gratitude." title top-left and in line on the About page (mobile view) after removing the white box.
