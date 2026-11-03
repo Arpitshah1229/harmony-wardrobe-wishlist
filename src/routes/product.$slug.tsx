@@ -2,7 +2,7 @@ import { StoreImage } from "@/components/store-image";
 import { useLiveProduct, useLivePrices } from "@/lib/shopify";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, Expand } from "lucide-react";
 import { PhoneIcon } from "@/components/phone-icon";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { GmailIcon } from "@/components/gmail-icon";
@@ -159,7 +159,7 @@ function SizeChartModal({ onClose }: { onClose: () => void }) {
 }
 
 const MIN_ZOOM = 1;
-const MAX_ZOOM = 5;
+const MAX_ZOOM = 8;
 const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
 
 function Lightbox({
@@ -218,11 +218,6 @@ function Lightbox({
     setOffset(target === 1 ? { x: 0, y: 0 } : bound({ x: nx, y: ny }, target));
   }, [bound]);
 
-  const zoomCenter = (factor: number) => {
-    const c = containerRef.current;
-    zoomAt(stateRef.current.zoom * factor, (c?.clientWidth ?? 0) / 2, (c?.clientHeight ?? 0) / 2);
-  };
-
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -252,57 +247,15 @@ function Lightbox({
 
   return (
     <div
-      className="fixed inset-0 z-[110] flex flex-col"
-      style={{ backgroundColor: "rgba(44,33,25,0.94)" }}
+      className="fixed inset-0 z-[110]"
+      style={{ backgroundColor: "#FFFFFF" }}
       role="dialog"
       aria-modal="true"
       aria-label="Product image viewer"
     >
-      <div className="relative flex items-center justify-end gap-2 p-4">
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
-          <button
-            type="button"
-            aria-label="Zoom out"
-            onClick={() => zoomCenter(1 / 1.4)}
-            className="h-10 w-10 grid place-items-center border"
-            style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
-          >
-            <ZoomOut size={18} />
-          </button>
-          <button
-            type="button"
-            aria-label="Zoom in"
-            onClick={() => zoomCenter(1.4)}
-            className="h-10 w-10 grid place-items-center border"
-            style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
-          >
-            <ZoomIn size={18} />
-          </button>
-        </div>
-        <button
-          type="button"
-          onClick={reset}
-          className="h-10 px-4 text-[11px] font-bold tracking-[0.18em] border"
-          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
-        >
-          RESET
-        </button>
-        <button
-          type="button"
-          aria-label="Close viewer"
-          onClick={onClose}
-          className="h-10 w-10 grid place-items-center border"
-          style={{ borderColor: "rgba(247,244,238,0.5)", color: "#F7F4EE" }}
-        >
-          <X size={18} />
-        </button>
-      </div>
-
-
-
       <div
         ref={containerRef}
-        className="relative flex-1 overflow-hidden touch-none select-none"
+        className="absolute inset-0 overflow-hidden touch-none select-none"
         style={{ cursor: zoom > 1 ? (dragRef.current ? "grabbing" : "grab") : "zoom-in" }}
         onPointerDown={(e) => {
           if (zoom === 1) return;
@@ -334,55 +287,53 @@ function Lightbox({
           src={images[index]}
           alt={alt}
           draggable={false}
-          className="absolute inset-0 m-auto max-h-full max-w-full object-contain"
+          className="absolute inset-0 h-full w-full object-cover"
           style={{
             transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
             transformOrigin: "center center",
             transition: dragRef.current ? "none" : "transform 120ms ease-out",
           }}
         />
-
-        {images.length > 1 && (
-          <>
-            <button
-              type="button"
-              aria-label="Previous image"
-              onClick={() => step(-1)}
-              className="absolute left-3 top-1/2 -translate-y-1/2 h-11 w-11 grid place-items-center"
-              style={{ backgroundColor: "rgba(247,244,238,0.9)", color: BROWN }}
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              type="button"
-              aria-label="Next image"
-              onClick={() => step(1)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 h-11 w-11 grid place-items-center"
-              style={{ backgroundColor: "rgba(247,244,238,0.9)", color: BROWN }}
-            >
-              <ChevronRight size={20} />
-            </button>
-          </>
-        )}
       </div>
 
-      <div className="p-4 flex items-center justify-center gap-2 overflow-x-auto no-scrollbar">
-        {images.map((src, i) => (
-          <button
-            key={i}
-            type="button"
-            aria-label={`View image ${i + 1}`}
-            onClick={() => {
-              onIndex(i);
-              reset();
-            }}
-            className="shrink-0"
-            style={{ outline: i === index ? "2px solid #F7F4EE" : "none" }}
-          >
-            <StoreImage src={src} alt="" className="h-16 w-12 object-cover" />
-          </button>
-        ))}
-      </div>
+      {/* Close */}
+      <button
+        type="button"
+        aria-label="Close viewer"
+        onClick={onClose}
+        className="absolute top-3 right-[60px] z-20 grid h-10 w-10 place-items-center"
+        style={{ color: "#2C2119" }}
+      >
+        <X size={26} strokeWidth={1.25} />
+      </button>
+
+      {/* Thumbnail filmstrip along the right edge */}
+      {images.length > 1 && (
+        <div
+          className="absolute right-0 top-0 z-10 flex h-full w-14 flex-col items-center gap-2 overflow-y-auto no-scrollbar py-14"
+          style={{ backgroundColor: "rgba(255,255,255,0.94)" }}
+        >
+          {images.map((src, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`View image ${i + 1}`}
+              onClick={() => {
+                onIndex(i);
+                reset();
+              }}
+              className="shrink-0"
+              style={{
+                outline: i === index ? "1.5px solid #2C2119" : "none",
+                outlineOffset: "1px",
+                opacity: i === index ? 1 : 0.7,
+              }}
+            >
+              <StoreImage src={src} alt="" className="h-[72px] w-11 object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
