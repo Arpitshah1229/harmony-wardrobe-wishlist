@@ -158,9 +158,11 @@ function AboutPage() {
             <div className="w-14 h-px mb-6 max-md:mb-2 max-md:ml-[80px]" style={{ backgroundColor: `${BROWN}66` }} />
             <div className="space-y-2 max-md:space-y-1 text-[14px] leading-[1.9]">
               <p>Notions in Pattern began with our family.</p>
-              <p>It continues through every artisan, every collaborator, and everyone who becomes part of the story.</p>
-              <p className="max-md:ml-[50%]">Thank you for being here.</p>
-              <p className="max-md:ml-[50%]">— Neha &amp; Anita</p>
+              <p>
+                It continues through every artisan, every collaborator, and everyone who becomes part of the story.{" "}
+                <span className="max-md:inline md:block md:mt-2">Thank you for being here.</span>{" "}
+                <span className="max-md:inline md:block md:mt-2">— Neha & Anita</span>
+              </p>
             </div>
           </div>
         </div>
