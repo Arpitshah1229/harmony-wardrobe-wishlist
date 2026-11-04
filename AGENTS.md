@@ -11,6 +11,8 @@
 
 # Project Architecture Rules
 
+- Coordinate navigation through TanStack Router's native view transitions, not pathname-keyed remounts or live-page fades, so the previous page remains visible during the crossfade and fixed headers stay stable.
+
 - Keep the phone product photo viewer separate from the desktop lightbox and use react-zoom-pan-pinch for gesture handling so mobile presentation changes preserve desktop behavior.
 
 - Render storefront photos through StoreImage and the image-delivery registry; keep original asset pointers for full-detail zoom so responsive WebP delivery never changes uploaded artwork or framing.
