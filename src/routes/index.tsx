@@ -75,8 +75,8 @@ function HomePage() {
             </h1>
             <div className="home-hero-copy mt-3 mb-1 max-w-[440px] space-y-2 text-[12px] leading-[1.55] text-accent sm:mt-20 sm:mb-8 sm:text-home-light sm:text-base sm:leading-[1.7]">
               <p>A thinking label using craft as expression.</p>
-              <p>Exploring textiles and handicrafts as a way of understanding life — through evolving collections.</p>
-              <p>Reimagining patterns, reshaping them, and creating one piece at a time.</p>
+              <p>Exploring textiles and handicrafts as a way of understanding life through evolving collections.</p>
+              <p className="max-sm:max-w-[64%]">Reimagining patterns, reshaping them, and creating one piece at a time.</p>
             </div>
           </div>
 
