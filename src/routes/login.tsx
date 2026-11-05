@@ -82,7 +82,7 @@ function LoginPage() {
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-right max-sm:hidden" />
 
-          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-start max-sm:px-1 max-sm:pt-[19vh] px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
+          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-start max-sm:px-1 max-sm:pt-[18vh] px-5 py-10 sm:px-10 lg:px-[7%] lg:py-8">
             <section className="hidden w-[40%] max-w-[420px] text-background lg:block">
               <p className="font-serif text-[33px] font-bold leading-[1.18]">
                 Join us
