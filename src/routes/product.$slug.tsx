@@ -668,7 +668,7 @@ function ProductPage() {
 
           {/* Shop the Look */}
           <div className="mt-12">
-            <p className="text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
+            <p className="text-[12px] font-bold tracking-[0.22em] max-sm:text-center" style={{ color: BROWN }}>
               ONE SHIRT MANY NOTION
             </p>
             <p className="mt-1 font-serif text-xl md:text-2xl max-sm:text-center" style={{ color: BROWN }}>
