@@ -80,7 +80,6 @@ function LoginPage() {
             className="absolute inset-0 -z-20 h-full w-full object-cover object-right max-sm:hidden"
           />
           <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
-          <div aria-hidden="true" className="absolute inset-y-0 left-0 -z-10 w-[5%] backdrop-blur-lg sm:hidden" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-left max-sm:hidden" />
           <div aria-hidden="true" className="login-edge-blur login-edge-blur-right max-sm:hidden" />
 
