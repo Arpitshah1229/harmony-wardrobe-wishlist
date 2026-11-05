@@ -59,15 +59,15 @@ function HomePage() {
     <main className="m-[5px] min-h-screen overflow-hidden bg-home-linen text-foreground">
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo scrolledBrown />
 
-      <section className="relative flex w-full flex-col bg-cream min-h-[100svh]">
+      <section className="relative flex w-full flex-col bg-cream min-h-[100svh] max-sm:overflow-hidden">
         <StoreImage
           src={hero.url}
           loading="eager"
           fetchPriority="high"
           alt="Man wearing a pink embroidered shirt beside a sunlit arched window"
-          className="absolute inset-0 h-full w-full object-cover object-[100%_50%] sm:object-bottom"
+          className="absolute inset-0 h-full w-full object-cover object-[100%_50%] max-sm:h-[112%] max-sm:object-[100%_0%] sm:object-bottom"
         />
-        <div className="home-hero-content relative z-10 flex w-full min-h-[100svh] flex-col justify-between gap-6 px-5 pb-4 pt-20 sm:min-h-[100svh] sm:justify-between sm:gap-8 sm:bg-transparent sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] sm:pt-[29vh] lg:pl-[142px] xl:pl-[165px]">
+        <div className="home-hero-content relative z-10 flex w-full min-h-[100svh] flex-col justify-between gap-6 px-5 pb-4 pt-16 sm:min-h-[100svh] sm:justify-between sm:gap-8 sm:bg-transparent sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] sm:pt-[29vh] lg:pl-[142px] xl:pl-[165px]">
 
           <div className="w-full max-w-[450px]">
             <h1 className="home-hero-title font-serif text-[24px] font-medium leading-[1.12] text-accent sm:text-[48px] lg:text-[58px]">
