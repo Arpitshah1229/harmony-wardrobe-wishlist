@@ -68,15 +68,16 @@ function HomePage() {
           className="absolute inset-0 h-full w-full object-cover object-[100%_50%] sm:object-bottom"
         />
         <div className="home-hero-content relative z-10 flex w-full min-h-[100svh] flex-col justify-between gap-6 px-5 pb-4 pt-20 sm:min-h-[100svh] sm:justify-between sm:gap-8 sm:bg-transparent sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] sm:pt-[29vh] lg:pl-[142px] xl:pl-[165px]">
-
           <div className="w-full max-w-[450px]">
             <h1 className="home-hero-title font-serif text-[24px] font-medium leading-[1.12] text-accent sm:text-[48px] lg:text-[58px]">
               Understanding life begins with understanding of patterns
             </h1>
-            <div className="home-hero-copy mt-3 mb-1 max-w-[440px] space-y-2 text-[12px] leading-[1.55] text-accent sm:mt-20 sm:mb-8 sm:text-home-light sm:text-base sm:leading-[1.7]">
+            <div className="home-hero-copy mt-3 mb-1 max-w-[440px] space-y-2 text-[12px] leading-[1.55] text-accent max-sm:-translate-y-6 sm:mt-20 sm:mb-8 sm:text-home-light sm:text-base sm:leading-[1.7]">
               <p>A thinking label using craft as expression.</p>
               <p>Exploring textiles and handicrafts as a way of understanding life through evolving collections.</p>
-              <p className="max-sm:max-w-[64%]">Reimagining patterns, reshaping them, and creating one piece at a time.</p>
+              <p className="max-sm:max-w-[64%]">
+                Reimagining patterns, reshaping them, and creating one piece at a time.
+              </p>
             </div>
           </div>
 
@@ -89,7 +90,9 @@ function HomePage() {
             </Link>
             <div className="-mr-1 text-right text-[10px] uppercase leading-[1.7] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:text-[11px] sm:leading-[1.8]">
               <p>Inaugural Collection</p>
-              <p className="my-1 whitespace-nowrap font-serif text-[22px] font-bold normal-case leading-none max-[360px]:text-[19px] sm:my-1 sm:text-[35px]">Naqsh-E-Nigāh</p>
+              <p className="my-1 whitespace-nowrap font-serif text-[22px] font-bold normal-case leading-none max-[360px]:text-[19px] sm:my-1 sm:text-[35px]">
+                Naqsh-E-Nigāh
+              </p>
               <p>Patterns of the vision</p>
             </div>
           </div>
@@ -107,15 +110,21 @@ function HomePage() {
         />
         <div className="relative z-10 px-6 text-center">
           <h2 className="home-philosophy-line-1 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
-            Where making remains<br />but patterns evolve,
+            Where making remains
+            <br />
+            but patterns evolve,
           </h2>
           <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
           <h2 className="home-philosophy-line-2 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
-            Where process<br />becomes perception,
+            Where process
+            <br />
+            becomes perception,
           </h2>
           <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
           <h2 className="home-philosophy-line-3 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
-            Where nothing is fixed,<br />not even us.
+            Where nothing is fixed,
+            <br />
+            not even us.
           </h2>
         </div>
       </section>
@@ -137,9 +146,13 @@ function HomePage() {
               />
               <div className="absolute inset-0 z-10 flex items-end justify-center bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent px-4 pb-0 text-center text-home-light">
                 <div className="w-full">
-                  <h2 className="flex h-7 items-center justify-center font-serif text-2xl uppercase tracking-wide">{item.name}</h2>
+                  <h2 className="flex h-7 items-center justify-center font-serif text-2xl uppercase tracking-wide">
+                    {item.name}
+                  </h2>
                   <span className="mx-auto my-1.5 block h-px w-2/3 bg-home-light" />
-                  <p className="mb-4 flex min-h-[42px] items-start justify-center text-center text-xs font-light leading-relaxed tracking-wide">{item.copy}</p>
+                  <p className="mb-4 flex min-h-[42px] items-start justify-center text-center text-xs font-light leading-relaxed tracking-wide">
+                    {item.copy}
+                  </p>
                   <span className="inline-flex -translate-y-[22px] items-center gap-2 text-[10px] uppercase tracking-[0.12em]">
                     Explore <ArrowRight className="h-3 w-3" />
                   </span>
@@ -157,7 +170,12 @@ function HomePage() {
       </section>
 
       <section aria-label="Crafted by hand" className="relative min-h-[760px] overflow-hidden md:min-h-[110vh]">
-        <StoreImage src={sepia.url} alt="Sepia-toned studio setting" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+        <StoreImage
+          src={sepia.url}
+          alt="Sepia-toned studio setting"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="relative flex min-h-[760px] flex-col items-center justify-center gap-10 p-6 md:min-h-[110vh] md:flex-row md:gap-[4vw] md:p-8 lg:gap-[16vw] lg:p-10">
           <Link
             to="/collections"
@@ -169,13 +187,24 @@ function HomePage() {
           <div className="aspect-[4/4.7] w-full max-w-[460px] shrink-0 overflow-hidden border-[16px] border-home-frame bg-home-panel md:max-w-[320px] md:border-[20px] lg:max-w-[460px] lg:border-[25px]">
             <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center md:p-8 lg:p-12">
               <h2 className="font-serif text-2xl font-bold uppercase tracking-wide text-accent md:text-xl lg:text-2xl">
-                Crafted by hand<br />Honest in every detail
+                Crafted by hand
+                <br />
+                Honest in every detail
               </h2>
               <span className="mx-auto my-4 block h-0.5 w-9 bg-home-espresso lg:my-7" />
               <p className="font-serif uppercase tracking-wide text-foreground">
-                Perfect was never the point<br />We learn. We evolve. We return.<br />Always.
+                Perfect was never the point
+                <br />
+                We learn. We evolve. We return.
+                <br />
+                Always.
               </p>
-              <StoreImage src={motif.url} alt="Notions in Pattern motif" loading="lazy" className="mt-3 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]" />
+              <StoreImage
+                src={motif.url}
+                alt="Notions in Pattern motif"
+                loading="lazy"
+                className="mt-3 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]"
+              />
             </div>
           </div>
         </div>
