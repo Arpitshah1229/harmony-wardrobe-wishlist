@@ -101,7 +101,7 @@ function RegisterPage() {
 
       <main className="relative isolate w-full flex-1 overflow-hidden">
         <div
-          className="relative w-full min-h-[740px]"
+          className="relative w-full min-h-[740px] max-sm:min-h-[700px]"
           style={{ aspectRatio: "1920 / 1212" }}
         >
           <StoreImage
@@ -109,7 +109,7 @@ function RegisterPage() {
             loading="eager"
             fetchPriority="high"
             alt="Man wearing a white NIP shirt drinking tea against a tropical wallpaper"
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_100%] min-[1440px]:object-[35%_0%]"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[35%_100%] max-sm:object-[47%_100%] min-[1440px]:object-[35%_0%]"
           />
           <div
             className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/60 via-foreground/15 to-transparent"
