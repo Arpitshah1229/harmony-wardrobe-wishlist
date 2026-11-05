@@ -116,7 +116,7 @@ function RegisterPage() {
             aria-hidden="true"
           />
 
-          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-start max-sm:px-1 max-sm:pt-2 px-5 py-10 sm:px-10 lg:px-[7.5%] min-[1440px]:px-[108px] lg:py-6">
+          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-start max-sm:px-1 max-sm:pt-[24%] px-5 py-10 sm:px-10 lg:px-[7.5%] min-[1440px]:px-[108px] lg:py-6">
 
         <section className="w-[39%] max-w-[410px] text-background max-sm:hidden sm:block">
           <h2 className="font-serif text-[26px] leading-[0.98] md:text-[34px] lg:text-[48px]">
@@ -142,7 +142,7 @@ function RegisterPage() {
           </p>
         </section>
 
-        <section className="ml-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm max-sm:ml-0 max-sm:mr-auto max-sm:max-w-[300px] max-sm:origin-top-left max-sm:scale-[0.72] max-sm:bg-background/90 sm:translate-x-4 lg:translate-x-10">
+        <section className="ml-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm max-sm:ml-0 max-sm:mr-auto max-sm:max-w-[300px] max-sm:origin-top-left max-sm:scale-[0.66] max-sm:bg-background/90 sm:translate-x-4 lg:translate-x-10">
           <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
             <div className="flex flex-col items-center">
               <StoreImage src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
