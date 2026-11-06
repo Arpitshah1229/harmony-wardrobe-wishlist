@@ -149,9 +149,9 @@ function AboutPage() {
 
       {/* Gratitude */}
       <section
-        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 bg-no-repeat bg-cover bg-right min-h-[480px] max-md:min-h-[680px] max-md:overflow-hidden"
+        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
       >
-        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right max-md:object-[82%_center]" />
+        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />
         <div className="max-w-6xl relative z-10">
           <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 max-md:mb-2" style={{ color: BROWN }}>With Gratitude.</h2>
