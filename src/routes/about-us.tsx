@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import aboutus1 from "@/assets/aboutus1_v2.jpeg.asset.json";
 import aboutus2 from "@/assets/aboutus2_v2.jpeg.asset.json";
 import aboutus3 from "@/assets/aboutus3_v4.jpeg.asset.json";
+import gratitudeMobile from "@/assets/about-us-gratitude-mobile.jpeg.asset.json";
 import { AnnouncementBar, Footer, Header } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/about-us")({
@@ -149,9 +150,10 @@ function AboutPage() {
 
       {/* Gratitude */}
       <section
-        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
+        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
       >
-        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />
+        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
+        <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
         <div className="max-w-6xl relative z-10">
           <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 max-md:mb-2" style={{ color: BROWN }}>With Gratitude.</h2>
