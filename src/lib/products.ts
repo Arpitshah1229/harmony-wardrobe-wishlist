@@ -76,7 +76,7 @@ export const SIZING_NOTE =
   "Our sizing runs slightly bigger — we recommend sizing down. The model is wearing a size Small. Please refer to our size chart.";
 
 export const SHIPPING_NOTE =
-  "Orders are prepared and dispatched within 2–4 working days from our studio. Estimated delivery: 6–7 working days for metro cities, 7–10 working days for non-metro locations. Prepaid orders are prioritized in processing and dispatch, and receive a discount of ₹100. Cash on delivery is available at an additional charge of ₹100. Our team will reach out to confirm order details prior to dispatch.";
+  "Orders are prepared and dispatched within 2–4 working days from our studio. Estimated delivery: 6–7 working days for metro cities, 7–10 working days for non-metro locations. Prepaid orders are prioritized in processing and dispatch. Cash on delivery is available at an additional charge of ₹100. Our team will reach out to confirm order details prior to dispatch.";
 
 export const SIZE_CHART: { measurement: string; s: string; m: string; l: string; xl: string; tolerance: string }[] = [
   { measurement: "Length", s: "27", m: "28", l: "30", xl: "31.5", tolerance: "± 3/4" },
