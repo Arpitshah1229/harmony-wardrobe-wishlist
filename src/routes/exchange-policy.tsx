@@ -26,8 +26,6 @@ export const Route = createFileRoute("/exchange-policy")({
 const PHONE = "+91 75218 02791";
 const WA = "https://wa.me/917521802791";
 const gmail = (to: string) => `https://mail.google.com/mail/?view=cm&fs=1&to=${to}`;
-const MAPS =
-  "https://www.google.com/maps/search/Vrindavan+Yojna,+Raebareli+Road,+Lucknow,+Uttar+Pradesh+%E2%80%93+226029,+India";
 
 const HIGHLIGHT = /(7 days|24 hours|3 months|3–5\s+business days)/g;
 function hl(text: string): ReactNode {
@@ -261,41 +259,41 @@ const sections: Section[] = [
   },
   {
     letter: "G",
-    title: "CONTACT US",
+    title: "RETURN & EXCHANGE SUPPORT",
     body: (
-      <div className="space-y-6 text-[15px] md:text-[16px]">
-        <P>For all exchange, store credit and return-related queries, please contact:</P>
-        <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
-          <div className="space-y-3 bg-cream/60 p-6 md:p-8">
-            <p className="font-serif text-[22px]" style={{ color: BROWN }}>
-              Notions in Pattern
-            </p>
-            <p>
-              <span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">EMAIL:</span>
+      <div className="space-y-7 text-[15px] md:text-[16px]">
+        <P>For all return, exchange and store-credit-related queries, please contact us:</P>
+
+        <div className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
+          <div className="bg-cream/60 px-6 py-7 md:px-8 md:py-8">
+            <p className="mb-2.5 text-[11px] font-semibold tracking-[0.22em] opacity-70">EMAIL</p>
+            <p className="font-serif text-[19px] leading-snug md:text-[21px]">
               <Email to="hello@notionsinpattern.com" />
             </p>
-            <p>
-              <span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">WHATSAPP:</span>
+          </div>
+          <div className="bg-cream/60 px-6 py-7 md:px-8 md:py-8">
+            <p className="mb-2.5 text-[11px] font-semibold tracking-[0.22em] opacity-70">WHATSAPP</p>
+            <p className="font-serif text-[19px] leading-snug md:text-[21px]">
               <Whats />
             </p>
           </div>
-          <address className="space-y-1 bg-cream/60 p-6 not-italic leading-[1.75] md:p-8">
-            <p className="mb-3 text-[11px] font-semibold tracking-[0.2em]" style={{ color: BROWN }}>
-              REGISTERED RETURN ADDRESS:
-            </p>
-            <p className="font-medium">Neha Prasad</p>
-            <p>Notions in Pattern Clothing And Lifestyle Pvt. Ltd.</p>
-            <p>Flat No. T-1/502, Aditya Royal Height 2B/GH-5,</p>
-            <a href={MAPS} target="_blank" rel="noreferrer" className="block transition-opacity hover:opacity-70">
-              Vrindavan Yojna, Raebareli Road,
-              <br />
-              Lucknow, Uttar Pradesh – 226029, India.
-            </a>
-            <p className="pt-3 text-[13px] tracking-[0.08em]">
-              <span className="font-semibold">GSTIN:</span> 09AAHCN5057E1ZD
-            </p>
-          </address>
         </div>
+
+        <div className="space-y-5 border-l border-[#C9B79C] pl-5 md:space-y-6 md:pl-8">
+          <P>
+            All returns and exchanges must be approved by our team before the product is shipped back. Once your
+            request is approved, the return shipping address and instructions will be shared with you privately.
+          </P>
+          <P>
+            Please note that the customer is responsible for all return shipping charges. Products must not be
+            dispatched without prior approval.
+          </P>
+        </div>
+
+        <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t border-border/60 pt-5 text-[13px] tracking-[0.08em]">
+          <span className="text-[11px] font-semibold tracking-[0.22em] opacity-70">GSTIN:</span>
+          <span className="font-medium">09AAHCN5057E1ZD</span>
+        </p>
       </div>
     ),
   },
