@@ -59,10 +59,12 @@ const List = ({ items }: { items: ReactNode[] }) => (
 );
 const Sub = ({ n, title, children }: { n?: string; title: string; children: ReactNode }) => (
   <div className="space-y-4">
-    <h3 className="flex items-baseline gap-3 font-serif text-[22px] md:text-[24px]" style={{ color: BROWN }}>
-      {n && <span className="font-sans text-[12px] font-semibold tracking-[0.2em] opacity-60">{n}</span>}
-      {title}
-    </h3>
+    {title && (
+      <h3 className="flex items-baseline gap-3 font-serif text-[22px] md:text-[24px]" style={{ color: BROWN }}>
+        {n && <span className="font-sans text-[12px] font-semibold tracking-[0.2em] opacity-60">{n}</span>}
+        {title}
+      </h3>
+    )}
     <div className="space-y-4 text-[15px] md:text-[16px]">{children}</div>
   </div>
 );
