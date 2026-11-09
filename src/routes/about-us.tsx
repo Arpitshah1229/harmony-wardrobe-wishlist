@@ -150,7 +150,7 @@ function AboutPage() {
 
       {/* Gratitude */}
       <section
-        className="relative w-full px-8 md:px-16 py-24 max-md:pt-2 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
+        className="relative w-full px-8 md:px-16 py-24 max-md:pt-[12%] max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
       >
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
         <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
@@ -163,7 +163,7 @@ function AboutPage() {
               <p>
                 It continues through every artisan, every collaborator, and everyone who becomes part of the story.{" "}
                 <span className="max-md:inline md:block md:mt-2">Thank you for being here.</span>{" "}
-                <span className="max-md:inline md:block md:mt-2">— Neha & Anita</span>
+                <span className="max-md:block max-md:text-right md:block md:mt-2">— Neha & Anita</span>
               </p>
             </div>
           </div>
