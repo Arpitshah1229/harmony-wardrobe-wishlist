@@ -272,3 +272,9 @@
 @media (min-width: 1501px) {
   .wishlist-page, .cart-page, .text-page { zoom: 1.1; }
 }
+
+/* Wide laptop screens only: Exchange & Store Credit Policy */
+@media (min-width: 1501px) {
+  .policy-page { zoom: 1.1; }
+  .policy-page .policy-col { max-width: 880px; }
+}
