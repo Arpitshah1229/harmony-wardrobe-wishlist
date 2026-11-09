@@ -1,6 +1,8 @@
 # Roadmap
 
 ## Current requested adjustments
+- [x] About Us (phones): small gap added between "With Gratitude." and the story text, story kept clear of the model's head, "— Neha & Anita" moved a little up; verified 320/360/393/414px with no text over her hair, build OK.
+- [x] Sukoon shirt (phones): the "... more" cutoff now starts at "WHITE ON WHITE" — collapsed text ends "...with a quiet touch of our own on," and tapping reveals "WHITE ON WHITE."; verified 393px, build OK.
 - [x] Exchange policy section G rebuilt as "RETURN & EXCHANGE SUPPORT": clickable email/WhatsApp rows, approval-before-shipping and return-shipping-charge notes, GSTIN; registered return address removed from the page (shared privately after approval). Contact rows aligned on one axis, link underlines offset clear of descenders, wide-screen (1500px+) column widened and scaled; verified 1920/1440/768/393px, no horizontal overflow, no page errors, build OK.
 - [x] Replace orders@notionsinpattern.com with hello@notionsinpattern.com throughout the exchange policy page.
 - [x] Secure email password recovery implemented; public navigation and expired-link protection checked at 393/834/1280px, matching-password tests pass, build OK. Browser-only credentials replaced with email/password accounts.
