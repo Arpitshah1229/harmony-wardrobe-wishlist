@@ -150,7 +150,7 @@ function AboutPage() {
 
       {/* Gratitude */}
       <section
-        className="relative w-full px-8 md:px-16 py-24 max-md:pt-[12%] max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
+        className="relative w-full px-8 md:px-16 py-24 max-md:pt-3 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
       >
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
         <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
@@ -158,7 +158,7 @@ function AboutPage() {
           <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 max-md:mb-2" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="w-14 h-px mb-6 max-md:mb-2 max-md:ml-[80px]" style={{ backgroundColor: `${BROWN}66` }} />
-            <div className="space-y-2 max-md:space-y-1 text-[14px] leading-[1.9]">
+            <div className="space-y-2 max-md:space-y-0.5 text-[14px] max-md:text-[13px] leading-[1.9] max-md:leading-[1.7]">
               <p>Notions in Pattern began with our family.</p>
               <p>
                 It continues through every artisan, every collaborator, and everyone who becomes part of the story.{" "}
