@@ -163,7 +163,7 @@ function AboutPage() {
               <p>
                 It continues through every artisan, every collaborator, and everyone who becomes part of the story.{" "}
                 <span className="max-md:inline md:block md:mt-2">Thank you for being here.</span>{" "}
-                <span className="max-md:block max-md:text-right max-md:mt-6 md:block md:mt-2">— Neha & Anita</span>
+                <span className="max-md:block max-md:text-right max-md:pr-10 max-md:mt-6 md:block md:mt-2">— Neha & Anita</span>
               </p>
             </div>
           </div>
