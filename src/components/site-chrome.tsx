@@ -235,7 +235,7 @@ type FooterItem =
 export function Footer() {
   const cols: { title: string; items: FooterItem[]; wide?: boolean }[] = [
     { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
-    { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", "Returns", { label: "Privacy Policy", to: "/privacy" }] },
+    { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", { label: "Exchange & Store Credit", to: "/exchange-policy" }, { label: "Privacy Policy", to: "/privacy" }] },
     { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
     { title: "CONNECT", wide: true, items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@notionsinpattern.com", href: GMAIL_COMPOSE_URL, icon: GmailIcon }] },
 
