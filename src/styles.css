@@ -168,6 +168,24 @@
   }
 }
 
+/* Match the desktop reference: scale the whole card with the photograph,
+   keeping its right edge over the slippers rather than exposing them. */
+@media (min-width: 1024px) {
+  .login-photo-section { min-height: max(610px, 45vw); }
+  .login-photo-section > div:last-child { max-width: none; }
+  .login-photo-card {
+    position: absolute;
+    left: 41%;
+    top: calc(50% - 296.46875px);
+    width: 355px;
+    margin: 0;
+    transform: none;
+    scale: calc(100vw / 1400px);
+    transform-origin: left center;
+    background-color: var(--background);
+  }
+}
+
 .login-edge-blur {
   position: absolute;
   top: 0;
