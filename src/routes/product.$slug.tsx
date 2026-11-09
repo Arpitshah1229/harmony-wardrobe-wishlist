@@ -169,6 +169,8 @@ function Lightbox({
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 50, y: 50 });
+  // Gentle base framing so the photo overflows both ways and follows the cursor in 2D.
+  const [pan, setPan] = useState({ x: 0.5, y: 0.5 });
   const containerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const stateRef = useRef({ zoom, offset });
@@ -257,6 +259,7 @@ function Lightbox({
           const x = clamp((e.clientX - rect.left) / rect.width, 0, 1);
           const y = clamp((e.clientY - rect.top) / rect.height, 0, 1);
           setPosition({ x: x * 100, y: y * 100 });
+          setPan({ x, y });
           setOffset(
             bound(
               {
@@ -275,9 +278,9 @@ function Lightbox({
           src={images[index]}
           alt={alt}
           draggable={false}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute left-0 top-0 h-[135%] w-[135%] max-w-none object-cover"
           style={{
-            transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
+            transform: `translate(calc(${-pan.x * 35 / 1.35}% + ${offset.x}px), calc(${-pan.y * 35 / 1.35}% + ${offset.y}px)) scale(${zoom})`,
             transformOrigin: "center center",
             objectPosition: `${position.x}% ${position.y}%`,
           }}
@@ -291,14 +294,14 @@ function Lightbox({
         size="icon"
         aria-label="Close viewer"
         onClick={onClose}
-        className="absolute top-2 right-1 z-20 h-12 w-12 rounded-none bg-viewer-surface/95 text-foreground [&_svg]:size-9"
+        className="absolute top-3 right-[15px] z-20 h-12 w-[100px] rounded-none bg-viewer-surface/95 text-foreground [&_svg]:size-9"
       >
         <X className="size-9" strokeWidth={1.25} />
       </Button>
 
       {/* Thumbnail filmstrip along the right edge */}
       {images.length > 1 && (
-        <div className="absolute right-0 top-0 z-10 flex h-full w-14 flex-col items-center gap-2 overflow-y-auto no-scrollbar pt-16 pb-3 bg-viewer-surface/95">
+        <div className="absolute right-0 top-0 z-10 flex h-full w-[130px] flex-col items-center gap-3 overflow-y-auto no-scrollbar pt-[72px] pb-4 bg-viewer-surface/95">
           {images.map((src, i) => (
             <Button
               key={i}
@@ -310,9 +313,9 @@ function Lightbox({
                 onIndex(i);
                 reset();
               }}
-              className={`h-[72px] w-11 shrink-0 rounded-none p-0 outline-offset-1 ${i === index ? "outline outline-foreground opacity-100" : "opacity-70"}`}
+              className={`h-[125px] w-[100px] shrink-0 rounded-none p-0 outline-offset-2 ${i === index ? "outline outline-foreground opacity-100" : "opacity-70"}`}
             >
-              <StoreImage src={src} alt="" className="h-[72px] w-11 object-cover" />
+              <StoreImage src={src} alt="" className="h-[125px] w-[100px] object-cover" />
             </Button>
           ))}
         </div>
