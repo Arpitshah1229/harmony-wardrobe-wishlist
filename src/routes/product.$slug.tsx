@@ -420,7 +420,7 @@ function ProductPage() {
     <div className="bg-background min-h-screen">
       <Header />
       <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
-      <div className="mx-auto w-full max-w-[1440px]">
+      <div className="product-page mx-auto w-full max-w-[1440px] min-[1501px]:max-w-[1720px]">
         <nav className="px-8 md:px-16 py-4 text-[11px] font-bold tracking-[0.2em]" style={{ color: BROWN }}>
           <Link to="/collections" className="hover:opacity-70">
             NAQSH-E-NIGĀH
