@@ -249,3 +249,8 @@
   .founder-page h3 + div { font-size: 15.5px !important; }
   .founder-page h1 { font-size: 84px !important; }
 }
+
+/* Wide laptop screens only: Cart, Wishlist, Privacy, Orders */
+@media (min-width: 1501px) {
+  .wishlist-page, .cart-page, .text-page { zoom: 1.1; }
+}

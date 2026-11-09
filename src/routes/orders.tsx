@@ -75,7 +75,7 @@ function OrdersPage() {
       <Header />
       <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
 
-      <main className="flex-1 px-6 md:px-16 py-12 max-w-4xl mx-auto w-full">
+      <main className="text-page flex-1 px-6 md:px-16 py-12 max-w-4xl min-[1501px]:max-w-5xl mx-auto w-full">
         <nav className="text-[11px] font-bold tracking-[0.2em] mb-8" style={{ color: DARK }}>
           <Link to="/" className="hover:opacity-70">HOME</Link>
           <span className="px-2">/</span>
