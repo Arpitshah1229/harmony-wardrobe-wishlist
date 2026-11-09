@@ -245,7 +245,7 @@
 @media (min-width: 1501px) {
   .product-page { font-size: 1.06em; }
   .product-page h1 { font-size: 44px; }
-  .founder-page h2 { font-size: 30px !important; }
-  .founder-page h2 + div { font-size: 15px !important; }
+  .founder-page h3 { font-size: 32px !important; }
+  .founder-page h3 + div { font-size: 15.5px !important; }
   .founder-page h1 { font-size: 84px !important; }
 }
