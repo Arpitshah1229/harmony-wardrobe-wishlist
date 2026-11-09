@@ -65,20 +65,20 @@ function Icon({ type }: { type: string }) {
 }
 
 function AboutPage() {
-  const titleClass = "font-serif font-black text-[22px] md:text-[26px] tracking-[0.25em] mb-8";
+  const titleClass = "font-serif font-black text-[22px] md:text-[26px] min-[1500px]:text-[30px] tracking-[0.25em] mb-8";
   return (
     <div className="min-h-[calc(100vh-10px)] m-[5px]" style={{ color: DARK }}>
       <Header solid solidInk="#E5D9C5" />
 
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-[1440px] min-[1500px]:max-w-[1680px] mx-auto">
       {/* Hero */}
-      <section className="px-8 md:px-16 pt-8 pb-20 grid xl:grid-cols-[minmax(0,520px)_minmax(0,1fr)] gap-2 xl:gap-4 items-center">
+      <section className="px-8 md:px-16 pt-8 pb-20 grid xl:grid-cols-[minmax(0,520px)_minmax(0,1fr)] min-[1500px]:grid-cols-[minmax(0,640px)_minmax(0,1fr)] min-[1500px]:gap-10 gap-2 xl:gap-4 items-center">
         <div className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
-          <h1 className="font-serif text-6xl sm:text-7xl leading-[1.05] tracking-tight">
+          <h1 className="font-serif text-6xl sm:text-7xl min-[1500px]:text-[88px] leading-[1.05] tracking-tight">
             A thinking label<br className="hidden xl:block" /> using craft as<br className="hidden xl:block" /> expression.
           </h1>
           <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
-          <p className="text-[17px] md:text-[18px] leading-[1.85] max-w-md">
+          <p className="text-[17px] md:text-[18px] min-[1500px]:text-[20px] leading-[1.85] max-w-md min-[1500px]:max-w-lg">
             Exploring textiles and handicrafts as a way of understanding life, through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
           </p>
         </div>
@@ -90,7 +90,7 @@ function AboutPage() {
       {/* Our Story */}
       <section className="px-8 md:px-16 pb-24">
         <h3 className={titleClass} style={{ color: BROWN }}>OUR STORY</h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-[13px] leading-[1.9] relative" style={{ color: DARK }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-[1500px]:gap-12 text-[13px] min-[1500px]:text-[15px] leading-[1.9] relative" style={{ color: DARK }}>
           <div className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>Notions in Pattern began at home.<br />With my mother.</p>
             <p>It did not begin as a brand,<br />but as something quieter. Repetition.</p>
@@ -115,11 +115,11 @@ function AboutPage() {
       {/* What we do */}
       <section className="grid md:grid-cols-2 gap-12 md:gap-16 items-center pb-24">
         <div className="px-8 md:pl-16 md:pr-0">
-          <StoreImage src={aboutus2.url} alt="Hand embroidering fabric" className="w-full max-h-[420px] h-auto object-cover" />
+          <StoreImage src={aboutus2.url} alt="Hand embroidering fabric" className="w-full max-h-[420px] min-[1500px]:max-h-[540px] h-auto object-cover" />
         </div>
         <div className="px-8 md:pr-16 md:pl-0">
           <h3 className={titleClass} style={{ color: BROWN }}>WHAT WE DO</h3>
-          <div className="space-y-4 text-[13px] leading-[1.9] max-w-lg" style={{ color: DARK }}>
+          <div className="space-y-4 text-[13px] min-[1500px]:text-[15px] leading-[1.9] max-w-lg min-[1500px]:max-w-xl" style={{ color: DARK }}>
             <p>At Notions in Patterns, we want to work with traditional crafts across various forms: stitching, dyeing, printing, weaving, and handwork.</p>
             <p>We do not approach craft as something to preserve unchanged.</p>
             <p>We see it as a living system, open to reinterpretation.</p>
@@ -141,24 +141,27 @@ function AboutPage() {
           ].map((p, i) => (
             <div key={p.title} className={`flex flex-col items-center text-center px-4 ${i < 3 ? "md:border-r" : ""}`} style={{ borderColor: `${DARK}33` }}>
               <span style={{ color: BROWN }}><Icon type={p.icon} /></span>
-              <h4 className="font-serif font-bold text-[15px] tracking-[0.25em] mt-4 mb-3" style={{ color: BROWN }}>{p.title}</h4>
-              <p className="text-[12px] leading-[1.8]">{p.l1}<br />{p.l2}</p>
+              <h4 className="font-serif font-bold text-[15px] min-[1500px]:text-[17px] tracking-[0.25em] mt-4 mb-3" style={{ color: BROWN }}>{p.title}</h4>
+              <p className="text-[12px] min-[1500px]:text-[14px] leading-[1.8]">{p.l1}<br />{p.l2}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Gratitude */}
+      </div>
+
+      {/* Gratitude — full width on wide screens */}
+      <div className="max-w-[1440px] mx-auto min-[1500px]:max-w-none">
       <section
-        className="about-gratitude relative w-full px-8 max-md:px-3 md:px-16 py-24 max-md:pt-3 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
+        className="about-gratitude relative w-full px-8 max-md:px-3 md:px-16 py-24 min-[1500px]:py-32 min-[1500px]:px-24 min-[1500px]:min-h-[620px] max-md:pt-3 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
       >
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
         <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
         <div className="max-w-6xl relative z-10 max-md:absolute max-md:inset-0 max-md:px-3 max-md:pt-3">
-          <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
-            <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 max-md:mb-2 max-[361px]:text-[32px] max-[361px]:mb-1" style={{ color: BROWN }}>With Gratitude.</h2>
+          <div className="max-w-md min-[1500px]:max-w-xl max-md:max-w-none" style={{ color: DARK }}>
+            <h2 className="font-serif font-bold text-4xl md:text-5xl min-[1500px]:text-[60px] mb-4 max-md:mb-2 max-[361px]:text-[32px] max-[361px]:mb-1" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="w-14 h-px mb-6 max-md:mb-2 max-md:ml-[80px] max-[361px]:ml-[71px] max-[361px]:mb-1" style={{ backgroundColor: `${BROWN}66` }} />
-            <div className="space-y-2 max-md:space-y-0.5 text-[14px] max-md:text-[13px] leading-[1.9] max-md:leading-[1.7] max-[361px]:text-[12px] max-[361px]:leading-[1.5]">
+            <div className="space-y-2 max-md:space-y-0.5 text-[14px] min-[1500px]:text-[17px] max-md:text-[13px] leading-[1.9] max-md:leading-[1.7] max-[361px]:text-[12px] max-[361px]:leading-[1.5]">
               <p>Notions in Pattern began with our family.</p>
               <p>
                 It continues through every artisan, every collaborator, and everyone who becomes part of the story.{" "}
