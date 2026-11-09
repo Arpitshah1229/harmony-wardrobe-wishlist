@@ -264,16 +264,18 @@ const sections: Section[] = [
       <div className="space-y-7 text-[15px] md:text-[16px]">
         <P>For all return, exchange and store-credit-related queries, please contact us:</P>
 
-        <div className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
-          <div className="bg-cream/60 px-6 py-7 md:px-8 md:py-8">
-            <p className="mb-2.5 text-[11px] font-semibold tracking-[0.22em] opacity-70">EMAIL</p>
-            <p className="font-serif text-[19px] leading-snug md:text-[21px]">
+        <div className="divide-y divide-border border border-border bg-cream/60">
+          <div className="flex flex-col gap-1.5 px-5 py-5 sm:flex-row sm:items-baseline sm:gap-7 sm:px-6 sm:py-6">
+            <span className="w-[110px] shrink-0 text-[11px] font-semibold tracking-[0.22em] opacity-70">EMAIL</span>
+            <p className="font-serif text-[18px] leading-snug md:text-[20px]">
               <Email to="hello@notionsinpattern.com" />
             </p>
           </div>
-          <div className="bg-cream/60 px-6 py-7 md:px-8 md:py-8">
-            <p className="mb-2.5 text-[11px] font-semibold tracking-[0.22em] opacity-70">WHATSAPP</p>
-            <p className="font-serif text-[19px] leading-snug md:text-[21px]">
+          <div className="flex flex-col gap-1.5 px-5 py-5 sm:flex-row sm:items-baseline sm:gap-7 sm:px-6 sm:py-6">
+            <span className="w-[110px] shrink-0 text-[11px] font-semibold tracking-[0.22em] opacity-70">
+              WHATSAPP
+            </span>
+            <p className="font-serif text-[18px] leading-snug md:text-[20px]">
               <Whats />
             </p>
           </div>
