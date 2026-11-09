@@ -894,7 +894,14 @@ function ProductPage() {
                   </h3>
                   <p className="mt-2 text-[15px] leading-[1.7] text-foreground">
                     {item.text}
-                    {item.terms && <span className="mt-1 block text-[12px] leading-[1.6]">{item.terms}</span>}
+                    {item.terms && (
+                      <Link
+                        to="/exchange-policy"
+                        className="mt-1 block text-[12px] leading-[1.6] transition-opacity hover:opacity-70"
+                      >
+                        {item.terms}
+                      </Link>
+                    )}
                   </p>
                 </div>
               </div>
