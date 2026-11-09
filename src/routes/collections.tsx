@@ -221,11 +221,11 @@ function CollectionsPage() {
   });
 
   return (
-    <div className="bg-background min-h-screen">
+    <div className="collections-page bg-background min-h-screen">
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo={false} />
 
       {/* Hero */}
-      <section className="relative w-full bg-cover bg-center min-h-[440px] min-[600px]:min-h-[780px] flex items-center">
+      <section className="collections-hero relative w-full bg-cover bg-center min-h-[440px] min-[600px]:min-h-[780px] flex items-center">
         <StoreImage
           src={heroImg.url}
           alt=""
@@ -235,7 +235,7 @@ function CollectionsPage() {
           className="absolute inset-0 h-full w-full object-cover object-[-170px_center] min-[600px]:object-center"
         />
         <div className="absolute inset-0 bg-background/10" />
-        <div className="relative ml-auto pl-4 pr-1 min-[600px]:pl-16 min-[600px]:pr-36 pt-16 min-[600px]:pt-32 pb-12 min-[600px]:pb-16 max-w-[62%] min-[600px]:max-w-xl text-left">
+        <div className="collections-hero-copy relative ml-auto pl-4 pr-1 min-[600px]:pl-16 min-[600px]:pr-36 pt-16 min-[600px]:pt-32 pb-12 min-[600px]:pb-16 max-w-[62%] min-[600px]:max-w-xl text-left">
           <p
             className="text-[9px] min-[600px]:text-[12px] font-bold tracking-[0.22em] min-[600px]:tracking-[0.28em] mb-2 min-[600px]:mb-3"
             style={{ color: BROWN }}
@@ -297,7 +297,7 @@ function CollectionsPage() {
       {/* Filters */}
       <div
         id="shop"
-        className="mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8"
+        className="collections-filters mx-auto w-full max-w-[1440px] px-8 md:px-16 pt-12 pb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8"
       >
         <div className="grid grid-cols-2 gap-x-5 gap-y-6 md:flex md:flex-row md:items-end md:gap-10">
           <span className="col-span-2 text-[12px] font-bold tracking-[0.22em]" style={{ color: BROWN }}>
@@ -369,7 +369,7 @@ function CollectionsPage() {
       </div>
 
       {/* Product grid */}
-      <section className="mx-auto w-full max-w-[1440px] px-8 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
+      <section className="collections-grid mx-auto w-full max-w-[1440px] px-8 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
         {sorted.map((p, i) => (
           <div key={p.slug} className={!query && i === 6 ? "md:col-start-2" : undefined}>
             <ProductCard product={p} />
@@ -383,7 +383,7 @@ function CollectionsPage() {
       </section>
 
       {/* Collection story */}
-      <section className="mt-24 px-8 md:px-16 py-20" style={{ backgroundColor: "var(--cream)" }}>
+      <section className="collections-story mt-24 px-8 md:px-16 py-20" style={{ backgroundColor: "var(--cream)" }}>
         <div className="max-w-6xl mx-auto">
           <h2
             className="font-serif text-4xl md:text-5xl font-bold tracking-[0.04em] text-center"
@@ -436,7 +436,7 @@ function CollectionsPage() {
       </section>
 
       {/* Language of stitches */}
-      <section className="px-8 md:px-16 pt-24 pb-20">
+      <section className="collections-stitches px-8 md:px-16 pt-24 pb-20">
         <div className="max-w-6xl mx-auto">
           <h2
             className="font-serif text-4xl md:text-5xl font-bold tracking-[0.04em] text-center"
