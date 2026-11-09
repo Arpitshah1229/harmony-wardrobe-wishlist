@@ -14,11 +14,13 @@ import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as ExchangePolicyRouteImport } from './routes/exchange-policy'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
@@ -47,6 +49,11 @@ const ExchangePolicyRoute = ExchangePolicyRouteImport.update({
   path: '/exchange-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FounderRoute = FounderRouteImport.update({
   id: '/founder',
   path: '/founder',
@@ -72,6 +79,11 @@ const RegisterRoute = RegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
   path: '/wishlist',
@@ -89,11 +101,13 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/exchange-policy': typeof ExchangePolicyRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/founder': typeof FounderRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
   '/privacy': typeof PrivacyRoute
   '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -103,11 +117,13 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/exchange-policy': typeof ExchangePolicyRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/founder': typeof FounderRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
   '/privacy': typeof PrivacyRoute
   '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -118,11 +134,13 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
   '/exchange-policy': typeof ExchangePolicyRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/founder': typeof FounderRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
   '/privacy': typeof PrivacyRoute
   '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/wishlist': typeof WishlistRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -134,11 +152,13 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/exchange-policy'
+    | '/forgot-password'
     | '/founder'
     | '/login'
     | '/orders'
     | '/privacy'
     | '/register'
+    | '/reset-password'
     | '/wishlist'
     | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -148,11 +168,13 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/exchange-policy'
+    | '/forgot-password'
     | '/founder'
     | '/login'
     | '/orders'
     | '/privacy'
     | '/register'
+    | '/reset-password'
     | '/wishlist'
     | '/product/$slug'
   id:
@@ -162,11 +184,13 @@ export interface FileRouteTypes {
     | '/cart'
     | '/collections'
     | '/exchange-policy'
+    | '/forgot-password'
     | '/founder'
     | '/login'
     | '/orders'
     | '/privacy'
     | '/register'
+    | '/reset-password'
     | '/wishlist'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
@@ -177,11 +201,13 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CollectionsRoute: typeof CollectionsRoute
   ExchangePolicyRoute: typeof ExchangePolicyRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   FounderRoute: typeof FounderRoute
   LoginRoute: typeof LoginRoute
   OrdersRoute: typeof OrdersRoute
   PrivacyRoute: typeof PrivacyRoute
   RegisterRoute: typeof RegisterRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   WishlistRoute: typeof WishlistRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
@@ -223,6 +249,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExchangePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/founder': {
       id: '/founder'
       path: '/founder'
@@ -258,6 +291,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/wishlist': {
       id: '/wishlist'
       path: '/wishlist'
@@ -281,11 +321,13 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CollectionsRoute: CollectionsRoute,
   ExchangePolicyRoute: ExchangePolicyRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   FounderRoute: FounderRoute,
   LoginRoute: LoginRoute,
   OrdersRoute: OrdersRoute,
   PrivacyRoute: PrivacyRoute,
   RegisterRoute: RegisterRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   WishlistRoute: WishlistRoute,
   ProductSlugRoute: ProductSlugRoute,
 }

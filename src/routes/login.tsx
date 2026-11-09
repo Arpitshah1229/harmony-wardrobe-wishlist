@@ -3,7 +3,7 @@ import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Eye, EyeOff } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
-import { useAuth, normalizeMobile } from "@/lib/auth";
+import { useAuth } from "@/lib/auth";
 import loginBackground from "@/assets/login-background-right.jpg";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
@@ -17,10 +17,10 @@ export const Route = createFileRoute("/login")({
       { title: "Login | Notions in Pattern" },
       {
         name: "description",
-        content: "Sign in with your mobile number to continue to checkout at Notions in Pattern.",
+        content: "Sign in with your email to continue to checkout at Notions in Pattern.",
       },
       { property: "og:title", content: "Login | Notions in Pattern" },
-      { property: "og:description", content: "Sign in with your mobile number and password." },
+      { property: "og:description", content: "Sign in with your email and password." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -34,22 +34,22 @@ function LoginPage() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [keepSignedIn, setKeepSignedIn] = useState(false);
   const [error, setError] = useState("");
 
-  const submit = () => {
-    if (normalizeMobile(mobile).length !== 10) {
-      setError("Enter a valid 10 digit mobile number.");
+  const submit = async () => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setError("Enter a valid email address.");
       return;
     }
     if (password.length < 6) {
       setError("Enter your password.");
       return;
     }
-    const result = login(mobile, password);
+    const result = await login(email, password);
     if (!result.ok) {
       setError(result.error);
       return;
@@ -127,24 +127,17 @@ function LoginPage() {
                 </p>
 
                 <div className="mt-3 flex items-center border" style={{ borderColor: BROWN }}>
-                  <span
-                    className="border-r px-3 py-2.5 text-[13px] font-bold"
-                    style={{ borderColor: BROWN, color: BROWN }}
-                  >
-                    +91
-                  </span>
-                  <label className="sr-only" htmlFor="mobile">
-                    Mobile number
+                  <label className="sr-only" htmlFor="email">
+                    Email ID
                   </label>
                   <input
-                    id="mobile"
-                    type="tel"
-                    inputMode="numeric"
-                    maxLength={10}
-                    value={mobile}
-                    onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && submit()}
-                    placeholder="Mobile number"
+                    placeholder="Email ID"
                     className="w-full bg-transparent px-3 py-2.5 text-[13px] outline-none"
                     style={{ color: DARK }}
                   />
@@ -185,9 +178,9 @@ function LoginPage() {
                     />
                     Keep me signed in
                   </label>
-                  <button type="button" className="hover:underline" style={{ color: DARK }}>
+                  <Link to="/forgot-password" className="hover:underline" style={{ color: DARK }}>
                     Forgot password?
-                  </button>
+                  </Link>
                 </div>
 
                 <button

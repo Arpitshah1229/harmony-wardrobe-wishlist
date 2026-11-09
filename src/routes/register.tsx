@@ -1,10 +1,10 @@
 import { StoreImage } from "@/components/store-image";
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { ShieldCheck, ArrowLeft, UserPlus } from "lucide-react";
+import { UserPlus } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { Button } from "@/components/ui/button";
-import { useAuth, normalizeMobile, DEMO_OTP } from "@/lib/auth";
+import { useAuth, normalizeMobile } from "@/lib/auth";
 import accountBackground from "@/assets/register-wallpaper.jpg.asset.json";
 import nipLogo from "@/assets/nip_logo.png.asset.json";
 
@@ -54,45 +54,24 @@ function Field({
 function RegisterPage() {
   const { redirect } = Route.useSearch();
   const navigate = useNavigate();
-  const { register, emailExists } = useAuth();
+  const { register } = useAuth();
 
-  const [step, setStep] = useState<"details" | "otp">("details");
+  const [confirmationSent, setConfirmationSent] = useState(false);
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
 
-  const submitDetails = () => {
+  const submitDetails = async () => {
     if (name.trim().length < 2) return setError("Please enter your full name.");
     if (normalizeMobile(mobile).length !== 10) return setError("Enter a valid 10 digit mobile number.");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) return setError("Enter a valid email address.");
-    if (emailExists(email)) return setError("An account with this email already exists. Please login.");
     if (password.length < 6) return setError("Create a password with at least 6 characters.");
     setError("");
-    const result = register({ name: name.trim(), mobile, email: email.trim(), password });
+    const result = await register({ name: name.trim(), mobile, email: email.trim(), password });
     if (!result.ok) return setError(result.error);
-    navigate({ to: redirect as never });
-  };
-
-  const verify = () => {
-    if (otp.trim() !== DEMO_OTP) {
-      setError("Incorrect code. Please try again.");
-      return;
-    }
-    setError("");
-    const result = register({
-      name: name.trim(),
-      mobile,
-      email: email.trim(),
-      password,
-    });
-    if (!result.ok) {
-      setError(result.error);
-      setStep("details");
-      return;
-    }
+    if (result.confirmationRequired) { setConfirmationSent(true); return; }
     navigate({ to: redirect as never });
   };
 
@@ -161,7 +140,7 @@ function RegisterPage() {
             </p>
 
             <div className="mt-5">
-            {step === "details" ? (
+            {!confirmationSent ? (
               <>
                 <Field
                   id="name"
@@ -211,60 +190,7 @@ function RegisterPage() {
                 </Button>
               </>
             ) : (
-              <>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  onClick={() => {
-                    setStep("details");
-                    setOtp("");
-                    setError("");
-                  }}
-                  className="h-auto rounded-none p-0 text-[10px] font-bold tracking-[0.2em] hover:bg-transparent"
-                  style={{ color: BROWN }}
-                >
-                  <ArrowLeft size={13} /> EDIT DETAILS
-                </Button>
-
-                <p className="mt-5 text-[13px]" style={{ color: DARK }}>
-                  We've sent a code to <span className="font-bold">+91 {normalizeMobile(mobile)}</span>
-                </p>
-
-                <label
-                  className="mt-6 block text-[11px] font-bold tracking-[0.22em]"
-                  style={{ color: BROWN }}
-                  htmlFor="reg-otp"
-                >
-                  ENTER OTP
-                </label>
-                <input
-                  id="reg-otp"
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={4}
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 4))}
-                  onKeyDown={(e) => e.key === "Enter" && verify()}
-                  placeholder="1234"
-                  className="mt-3 w-full border bg-transparent px-3 py-3 text-center text-[20px] tracking-[0.5em] outline-none"
-                  style={{ borderColor: BROWN, color: DARK }}
-                />
-                <p
-                  className="mt-3 text-[11px] font-bold tracking-[0.12em] text-center"
-                  style={{ color: DARK }}
-                >
-                  Demo mode — use code {DEMO_OTP}
-                </p>
-
-                <Button
-                  type="button"
-                  onClick={verify}
-                  className="mt-5 h-11 w-full rounded-none text-[11px] font-bold tracking-[0.24em]"
-                  style={{ backgroundColor: BROWN, color: IVORY }}
-                >
-                  <ShieldCheck size={13} /> VERIFY &amp; SIGN IN
-                </Button>
-              </>
+              <p role="status" className="text-center text-sm leading-relaxed">Please check your email to confirm your account, then return to login.</p>
             )}
 
             {error && (
