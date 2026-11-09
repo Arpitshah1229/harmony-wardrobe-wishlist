@@ -505,7 +505,13 @@ function ProductPage() {
             <div className="mt-3 space-y-4 text-[14px] leading-[1.9]" style={{ color: DARK }}>
               {product.description.map((para, i) => {
                 const firstCollapsed = i === 0 && !descExpanded;
-                const cut = para.length > 150 ? para.slice(0, para.slice(0, 150).lastIndexOf(" ")).trimEnd() : para;
+                const nameIdx = para.toLowerCase().indexOf(`${product.name.split(" ")[0].toLowerCase()} shirt is`);
+                const cut =
+                  nameIdx > 0
+                    ? para.slice(0, nameIdx).trimEnd()
+                    : para.length > 150
+                      ? para.slice(0, para.slice(0, 150).lastIndexOf(" ")).trimEnd()
+                      : para;
                 return (
                   <p key={i} className={i > 0 && !descExpanded ? "max-md:hidden" : undefined}>
                     <span className={firstCollapsed ? "max-md:hidden" : undefined}>{para}</span>
