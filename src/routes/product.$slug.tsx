@@ -342,7 +342,11 @@ function ProductPage() {
       body: (
         <div className="space-y-3 text-[14px] leading-[1.9]">
           <p>{SHIPPING_NOTE}</p>
-          <Link to="/exchange-policy" className="inline-block font-bold transition-opacity hover:opacity-70" style={{ color: BROWN }}>
+          <Link
+            to="/exchange-policy"
+            className="inline-block font-bold transition-opacity hover:opacity-70"
+            style={{ color: BROWN }}
+          >
             Read our full Exchange &amp; Store Credit Policy →
           </Link>
         </div>
@@ -866,7 +870,7 @@ function ProductPage() {
               {
                 icon: <RotateCcw size={40} strokeWidth={1.5} />,
                 title: "Easy Exchange / Store Credits",
-                text: "Exchange within 15 days of order delivery.",
+                text: "Exchange within 7 days of order delivery.",
                 terms: "*Terms and condition apply.",
               },
               {
