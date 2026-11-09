@@ -21,6 +21,7 @@
 - Defer the homepage process video until its section approaches the viewport so off-screen playback does not compete with first-screen images.
 - Use the shared Select controls for Collections filters so dropdown highlights follow brand tokens rather than browser-owned menu colours.
 - Scope wide-screen Collections sizing to its page at widths above 1500px, retaining the smaller layouts and shared chrome so approved phone and laptop presentations remain stable.
+- Scope wide-screen homepage sizing above 1500px and cap its square featured grid independently of full-width backgrounds so approved smaller layouts and photo framing remain stable.
 
 - Use the shared `site-chrome` Header, Footer, and AnnouncementBar across content pages so navigation, store state, and branding remain consistent.
 - Keep shared header sizing consistent between overlay and in-flow presentations, while preserving the Collections header exception, so page navigation retains consistent dimensions.

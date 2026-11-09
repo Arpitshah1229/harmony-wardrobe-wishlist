@@ -56,10 +56,10 @@ const featured = [
 
 function HomePage() {
   return (
-    <main className="m-[5px] min-h-screen overflow-hidden bg-home-linen text-foreground">
+    <main className="home-page m-[5px] min-h-screen overflow-hidden bg-home-linen text-foreground">
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo scrolledBrown />
 
-      <section className="relative flex w-full flex-col bg-cream min-h-[100svh]">
+      <section className="home-hero relative flex w-full flex-col bg-cream min-h-[100svh]">
         <StoreImage
           src={hero.url}
           loading="eager"
@@ -89,7 +89,7 @@ function HomePage() {
             >
               Explore Naqsh-E-Nigah <ArrowRight className="h-3 w-3 max-[360px]:h-2.5 max-[360px]:w-2.5 sm:h-4 sm:w-4" />
             </Link>
-            <div className="-mr-1 text-right text-[10px] uppercase leading-[1.7] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:text-[11px] sm:leading-[1.8]">
+            <div className="home-hero-collection -mr-1 text-right text-[10px] uppercase leading-[1.7] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:text-[11px] sm:leading-[1.8]">
               <p>Inaugural Collection</p>
               <p className="my-1 whitespace-nowrap font-serif text-[22px] font-bold normal-case leading-none max-[360px]:text-[19px] sm:my-1 sm:text-[35px]">
                 Naqsh-E-Nigāh
@@ -102,7 +102,7 @@ function HomePage() {
 
       <AnnouncementBar />
 
-      <section className="relative mt-2.5 flex min-h-[700px] items-center justify-center overflow-hidden bg-home-linen">
+      <section className="home-philosophy relative mt-2.5 flex min-h-[700px] items-center justify-center overflow-hidden bg-home-linen">
         <StoreImage
           src={philosophy.url}
           alt="Embroidered textiles illustrating evolving patterns"
@@ -130,7 +130,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="bg-home-linen p-3 sm:p-5">
+      <section className="home-featured bg-home-linen p-3 sm:p-5">
         <div className="grid min-h-[280px] grid-cols-1 gap-1 md:grid-cols-3">
           {featured.map((item) => (
             <Link
@@ -170,7 +170,7 @@ function HomePage() {
         </Link>
       </section>
 
-      <section aria-label="Crafted by hand" className="relative min-h-[760px] overflow-hidden md:min-h-[110vh]">
+      <section aria-label="Crafted by hand" className="home-craft relative min-h-[760px] overflow-hidden md:min-h-[110vh]">
         <StoreImage
           src={sepia.url}
           alt="Sepia-toned studio setting"
