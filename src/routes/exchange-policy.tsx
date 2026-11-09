@@ -291,7 +291,7 @@ const sections: Section[] = [
         </div>
 
         <div className="space-y-2 border-t border-border/60 pt-5">
-          <p className="font-serif text-[17px] leading-snug md:text-[19px]" style={{ color: BROWN }}>
+          <p className="font-serif text-[15.5px] leading-snug md:text-[19px]" style={{ color: BROWN }}>
             Notions in Pattern Clothing And Lifestyle Pvt. Ltd.
           </p>
           <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[13px] tracking-[0.08em]">
