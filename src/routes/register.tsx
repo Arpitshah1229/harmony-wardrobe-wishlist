@@ -71,7 +71,9 @@ function RegisterPage() {
     if (emailExists(email)) return setError("An account with this email already exists. Please login.");
     if (password.length < 6) return setError("Create a password with at least 6 characters.");
     setError("");
-    setStep("otp");
+    const result = register({ name: name.trim(), mobile, email: email.trim(), password });
+    if (!result.ok) return setError(result.error);
+    navigate({ to: redirect as never });
   };
 
   const verify = () => {
