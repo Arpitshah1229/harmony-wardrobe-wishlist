@@ -6,9 +6,16 @@ export const Route = createFileRoute("/exchange-policy")({
   head: () => ({
     meta: [
       { title: "Exchange, Store Credit & Refund Policy — Notions in Pattern" },
-      { name: "description", content: "Exchanges and store credit within 7 days of delivery, cancellations within 24 hours, and how to reach Notions in Pattern customer care." },
+      {
+        name: "description",
+        content:
+          "Exchanges and store credit within 7 days of delivery, cancellations within 24 hours, and how to reach Notions in Pattern customer care.",
+      },
       { property: "og:title", content: "Exchange, Store Credit & Refund Policy — Notions in Pattern" },
-      { property: "og:description", content: "Exchanges, store credit, refunds and cancellations at Notions in Pattern." },
+      {
+        property: "og:description",
+        content: "Exchanges, store credit, refunds and cancellations at Notions in Pattern.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -26,7 +33,11 @@ const HIGHLIGHT = /(7 days|24 hours|3 months|3–5\s+business days)/g;
 function hl(text: string): ReactNode {
   return text.split(HIGHLIGHT).map((part, i) =>
     i % 2 === 1 ? (
-      <span key={i} className="whitespace-nowrap border-b border-[#C9B79C] bg-beige/50 px-1 font-semibold" style={{ color: BROWN }}>
+      <span
+        key={i}
+        className="whitespace-nowrap border-b border-[#C9B79C] bg-beige/50 px-1 font-semibold"
+        style={{ color: BROWN }}
+      >
         {part}
       </span>
     ) : (
@@ -36,12 +47,24 @@ function hl(text: string): ReactNode {
 }
 
 const Email = ({ to }: { to: string }) => (
-  <a href={gmail(to)} target="_blank" rel="noreferrer" className="font-medium underline decoration-[#C9B79C] underline-offset-4 transition-opacity hover:opacity-70" style={{ color: BROWN }}>
+  <a
+    href={gmail(to)}
+    target="_blank"
+    rel="noreferrer"
+    className="font-medium underline decoration-[#C9B79C] underline-offset-4 transition-opacity hover:opacity-70"
+    style={{ color: BROWN }}
+  >
     {to}
   </a>
 );
 const Whats = () => (
-  <a href={WA} target="_blank" rel="noreferrer" className="whitespace-nowrap font-medium underline decoration-[#C9B79C] underline-offset-4 transition-opacity hover:opacity-70" style={{ color: BROWN }}>
+  <a
+    href={WA}
+    target="_blank"
+    rel="noreferrer"
+    className="whitespace-nowrap font-medium underline decoration-[#C9B79C] underline-offset-4 transition-opacity hover:opacity-70"
+    style={{ color: BROWN }}
+  >
     {PHONE}
   </a>
 );
@@ -80,11 +103,22 @@ const sections: Section[] = [
         <Sub n="1." title="7-Day Window">
           <P>{hl("We offer exchanges or store credit for eligible items requested within 7 days of delivery.")}</P>
           <P>To qualify, items must be:</P>
-          <List items={["Unworn, unwashed and unused.", "In their original condition.", "Returned with all original tags, labels and packaging intact."]} />
+          <List
+            items={[
+              "Unworn, unwashed and unused.",
+              "In their original condition.",
+              "Returned with all original tags, labels and packaging intact.",
+            ]}
+          />
         </Sub>
         <Sub n="2." title="Non-Returnable Items">
           <P>The following items are not eligible for return or exchange:</P>
-          <List items={["Items purchased during a sale or from the Archive section.", "Customised garments, including pieces with personalised length or fit alterations."]} />
+          <List
+            items={[
+              "Items purchased during a sale or from the Archive section.",
+              "Customised garments, including pieces with personalised length or fit alterations.",
+            ]}
+          />
           <P>These exclusions do not affect any remedies available under applicable consumer protection laws.</P>
         </Sub>
       </>
@@ -107,32 +141,55 @@ const sections: Section[] = [
           />
         </Sub>
         <Sub n="2." title="Refunds for Defective or Incorrect Products">
-          <P>In the event of a verified manufacturing defect, damaged product or incorrect item being delivered, we will arrange an appropriate resolution, which may include a replacement or refund to the original payment method, as applicable under law.</P>
+          <P>
+            In the event of a verified manufacturing defect, damaged product or incorrect item being delivered, we will
+            arrange an appropriate resolution, which may include a replacement or refund to the original payment method,
+            as applicable under law.
+          </P>
         </Sub>
       </>
     ),
   },
   {
     letter: "C",
-    title: "DOMESTIC EXCHANGES (INDIA)",
+    title: "EXCHANGES",
     body: (
       <>
         <Sub n="1." title="How to Initiate an Exchange">
           <P>
-            To initiate an exchange or request store credit, please email us at <Email to="hello@notionsinpattern.com" /> or WhatsApp us at <Whats /> {hl("within 7 days of delivery.")}
+            To initiate an exchange or request store credit, please email us at{" "}
+            <Email to="orders@notionsinpattern.com" /> or WhatsApp us at <Whats /> {hl("within 7 days of delivery.")}
           </P>
           <P>Please include:</P>
-          <List items={["Your order number.", "The name of the product.", "The reason for the exchange or return.", "Photographs, where applicable."]} />
+          <List
+            items={[
+              "Your order number.",
+              "The name of the product.",
+              "The reason for the exchange or return.",
+              "Photographs, where applicable.",
+            ]}
+          />
           <P>we will guide you through the next steps.</P>
         </Sub>
         <Sub n="2." title="Shipping Your Return">
           <P>At present, we do not offer reverse pickup services.</P>
-          <P>Customers are required to arrange and ship the product to our registered return address. We recommend using a reliable courier service with tracking.</P>
-          <P>The customer will be responsible for return shipping costs for exchanges or change-of-mind returns. This does not apply to verified defective, damaged or incorrectly shipped products, for which NIP will arrange an appropriate resolution.</P>
+          <P>
+            Customers are required to arrange and ship the product to our registered return address. We recommend using
+            a reliable courier service with tracking.
+          </P>
+          <P>
+            The customer will be responsible for return shipping costs for exchanges or change-of-mind returns. This
+            does not apply to verified defective, damaged or incorrectly shipped products, for which NIP will arrange an
+            appropriate resolution.
+          </P>
         </Sub>
         <Sub n="3." title="Inspection & Processing">
           <P>Once the returned product reaches us, it will undergo a quality inspection.</P>
-          <P>{hl("Approved exchanges or store credits will be processed within 3–5 business days of receiving and inspecting the product.")}</P>
+          <P>
+            {hl(
+              "Approved exchanges or store credits will be processed within 3–5 business days of receiving and inspecting the product.",
+            )}
+          </P>
           <P>Exchanges are subject to stock availability.</P>
         </Sub>
       </>
@@ -143,8 +200,15 @@ const sections: Section[] = [
     title: "ORDER CANCELLATION POLICY",
     body: (
       <Sub title="">
-        <P>{hl("Orders can be cancelled within 24 hours of placement, provided they have not already entered processing, customisation or dispatch.")}</P>
-        <P>Once an order has been processed or dispatched, cancellation requests cannot be accommodated under this policy.</P>
+        <P>
+          {hl(
+            "Orders can be cancelled within 24 hours of placement, provided they have not already entered processing, customisation or dispatch.",
+          )}
+        </P>
+        <P>
+          Once an order has been processed or dispatched, cancellation requests cannot be accommodated under this
+          policy.
+        </P>
         <P>
           To request a cancellation, please contact us at <Email to="hello@notionsinpattern.com" /> or <Whats />.
         </P>
@@ -158,12 +222,22 @@ const sections: Section[] = [
       <>
         <Sub n="1." title="Reporting an Issue">
           <P>Every Notions in Pattern piece undergoes a quality check before dispatch.</P>
-          <P>{hl("However, in an unlikely situation, if you receive a damaged,or incorrect product, please notify us within 24 hours of delivery.")}</P>
+          <P>
+            {hl(
+              "However, in an unlikely situation, if you receive a damaged,or incorrect product, please notify us within 24 hours of delivery.",
+            )}
+          </P>
           <P>Please share your order number along with clear photographs or videos showing the issue.</P>
         </Sub>
         <Sub n="2." title="Resolution">
-          <P>Once the issue has been reviewed and verified, we will arrange a replacement of the same product at no additional cost, subject to availability.</P>
-          <P>If the product is unavailable, we will discuss an appropriate alternative or refund, as applicable under law.</P>
+          <P>
+            Once the issue has been reviewed and verified, we will arrange a replacement of the same product at no
+            additional cost, subject to availability.
+          </P>
+          <P>
+            If the product is unavailable, we will discuss an appropriate alternative or refund, as applicable under
+            law.
+          </P>
           <P>NIP will bear the applicable shipping costs for verified defective or incorrectly shipped products.</P>
         </Sub>
       </>
@@ -193,12 +267,22 @@ const sections: Section[] = [
         <P>For all exchange, store credit and return-related queries, please contact:</P>
         <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
           <div className="space-y-3 bg-cream/60 p-6 md:p-8">
-            <p className="font-serif text-[22px]" style={{ color: BROWN }}>Notions in Pattern</p>
-            <p><span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">EMAIL:</span><Email to="hello@notionsinpattern.com" /></p>
-            <p><span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">WHATSAPP:</span><Whats /></p>
+            <p className="font-serif text-[22px]" style={{ color: BROWN }}>
+              Notions in Pattern
+            </p>
+            <p>
+              <span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">EMAIL:</span>
+              <Email to="orders@notionsinpattern.com" />
+            </p>
+            <p>
+              <span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">WHATSAPP:</span>
+              <Whats />
+            </p>
           </div>
           <address className="space-y-1 bg-cream/60 p-6 not-italic leading-[1.75] md:p-8">
-            <p className="mb-3 text-[11px] font-semibold tracking-[0.2em]" style={{ color: BROWN }}>REGISTERED RETURN ADDRESS:</p>
+            <p className="mb-3 text-[11px] font-semibold tracking-[0.2em]" style={{ color: BROWN }}>
+              REGISTERED RETURN ADDRESS:
+            </p>
             <p className="font-medium">Neha Prasad</p>
             <p>Notions in Pattern Clothing And Lifestyle Pvt. Ltd.</p>
             <p>Flat No. T-1/502, Aditya Royal Height 2B/GH-5,</p>
@@ -207,7 +291,9 @@ const sections: Section[] = [
               <br />
               Lucknow, Uttar Pradesh – 226029, India.
             </a>
-            <p className="pt-3 text-[13px] tracking-[0.08em]"><span className="font-semibold">GSTIN:</span> 09AAHCN5057E1ZD</p>
+            <p className="pt-3 text-[13px] tracking-[0.08em]">
+              <span className="font-semibold">GSTIN:</span> 09AAHCN5057E1ZD
+            </p>
           </address>
         </div>
       </div>
@@ -222,8 +308,13 @@ function ExchangePolicyPage() {
       <Header />
 
       <section className="animate-in fade-in slide-in-from-bottom-3 border-b border-border/60 px-6 pb-12 pt-14 text-center duration-700 md:px-12 md:pb-16 md:pt-24">
-        <p className="mb-5 text-[11px] font-semibold tracking-[0.32em]" style={{ color: BROWN }}>CUSTOMER CARE</p>
-        <h1 className="mx-auto max-w-4xl font-serif text-[38px] leading-[1.1] sm:text-5xl md:text-6xl" style={{ color: BROWN }}>
+        <p className="mb-5 text-[11px] font-semibold tracking-[0.32em]" style={{ color: BROWN }}>
+          CUSTOMER CARE
+        </p>
+        <h1
+          className="mx-auto max-w-4xl font-serif text-[38px] leading-[1.1] sm:text-5xl md:text-6xl"
+          style={{ color: BROWN }}
+        >
           Exchange, Store Credit &amp; Refund Policy
         </h1>
         <div className="mx-auto mt-7 flex items-center justify-center gap-3" style={{ color: BROWN }}>
@@ -236,14 +327,20 @@ function ExchangePolicyPage() {
       <main className="mx-auto w-full max-w-[1440px] px-6 py-12 md:px-12 md:py-20" style={{ color: DARK }}>
         <div className="mx-auto max-w-3xl">
           <p className="animate-in fade-in mb-14 font-serif text-[20px] leading-relaxed duration-1000 md:text-[24px]">
-            At Notions in Pattern, every piece is thoughtfully created with attention to detail, craftsmanship and quality. We want you to feel confident about your purchase. If something isn't quite right, our exchange and store credit policy is designed to help.
+            At Notions in Pattern, every piece is thoughtfully created with attention to detail, craftsmanship and
+            quality. We want you to feel confident about your purchase. If something isn't quite right, our exchange and
+            store credit policy is designed to help.
           </p>
 
           <nav className="mb-14 border-y border-border/60 py-6">
             <ol className="grid gap-x-10 gap-y-2 text-[13px] sm:grid-cols-2">
               {sections.map((s) => (
                 <li key={s.letter}>
-                  <a href={`#policy-${s.letter}`} className="font-medium tracking-[0.08em] transition-opacity hover:opacity-60" style={{ color: BROWN }}>
+                  <a
+                    href={`#policy-${s.letter}`}
+                    className="font-medium tracking-[0.08em] transition-opacity hover:opacity-60"
+                    style={{ color: BROWN }}
+                  >
                     {s.letter}. {s.title}
                   </a>
                 </li>
@@ -259,8 +356,13 @@ function ExchangePolicyPage() {
                 className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both scroll-mt-28 border-b border-border/60 py-10 duration-700 first:pt-0 last:border-b-0 md:py-14"
                 style={{ animationDelay: `${Math.min(i, 4) * 90}ms` }}
               >
-                <h2 className="mb-8 flex items-baseline gap-4 text-[13px] font-semibold tracking-[0.24em] md:text-[14px]" style={{ color: BROWN, fontFamily: "var(--font-sans)" }}>
-                  <span className="font-serif text-[34px] font-normal leading-none tracking-normal md:text-[40px]">{s.letter}.</span>
+                <h2
+                  className="mb-8 flex items-baseline gap-4 text-[13px] font-semibold tracking-[0.24em] md:text-[14px]"
+                  style={{ color: BROWN, fontFamily: "var(--font-sans)" }}
+                >
+                  <span className="font-serif text-[34px] font-normal leading-none tracking-normal md:text-[40px]">
+                    {s.letter}.
+                  </span>
                   {s.title}
                 </h2>
                 <div className="space-y-9">{s.body}</div>
@@ -268,7 +370,10 @@ function ExchangePolicyPage() {
             ))}
           </div>
 
-          <p className="mt-6 border-t border-border/60 pt-10 text-center font-serif text-[20px] italic leading-relaxed md:text-[22px]" style={{ color: BROWN }}>
+          <p
+            className="mt-6 border-t border-border/60 pt-10 text-center font-serif text-[20px] italic leading-relaxed md:text-[22px]"
+            style={{ color: BROWN }}
+          >
             We appreciate your understanding and thank you for being a part of Notions in Pattern.
           </p>
         </div>
