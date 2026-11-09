@@ -505,7 +505,11 @@ function ProductPage() {
             <div className="mt-3 space-y-4 text-[14px] leading-[1.9]" style={{ color: DARK }}>
               {product.description.map((para, i) => {
                 const firstCollapsed = i === 0 && !descExpanded;
-                const nameIdx = para.toLowerCase().indexOf(`${product.name.split(" ")[0].toLowerCase()} shirt is`);
+                const firstName = product.name.split(" ")[0];
+                const lower = para.toLowerCase();
+                let nameIdx = lower.indexOf(`${firstName.toLowerCase()} shirt is`);
+                if (nameIdx < 0) nameIdx = lower.indexOf(`${firstName.toLowerCase()} honours`);
+                if (nameIdx < 0 && firstName === "Zameen") nameIdx = para.indexOf("Mulmul,");
                 const cut =
                   nameIdx > 0
                     ? para.slice(0, nameIdx).trimEnd()
