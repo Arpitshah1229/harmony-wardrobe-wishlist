@@ -281,7 +281,7 @@ const sections: Section[] = [
           </div>
         </div>
 
-        <div className="space-y-5 border-l border-[#C9B79C] pl-5 md:space-y-6 md:pl-8">
+        <div className="space-y-5 border-l-2 border-[#C9B79C] pl-6 md:space-y-6 md:pl-8">
           <P>
             All returns and exchanges must be approved by our team before the product is shipped back. Once your
             request is approved, the return shipping address and instructions will be shared with you privately.
