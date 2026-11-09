@@ -174,7 +174,12 @@ function Lightbox({
     const el = containerRef.current;
     if (!el) return;
     // Block the browser/trackpad from zooming the page while the viewer is open.
-    const onWheel = (e: WheelEvent) => e.preventDefault();
+    const onWheel = (e: WheelEvent) => {
+      // Keep ordinary scrolling available inside the thumbnail column.
+      // Trackpad pinch must still never zoom the page.
+      if (!e.ctrlKey && e.target instanceof Element && e.target.closest('[data-viewer-thumbnails]')) return;
+      e.preventDefault();
+    };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
@@ -235,7 +240,7 @@ function Lightbox({
 
       {/* Thumbnail filmstrip floating over the photo along the right edge */}
       {images.length > 1 && (
-        <div className="absolute right-0 top-0 z-10 flex h-full w-[130px] flex-col items-center gap-3 overflow-y-auto no-scrollbar pt-[88px] pb-4">
+        <div data-viewer-thumbnails className="absolute right-0 top-[88px] bottom-0 z-10 flex w-[130px] flex-col items-center gap-3 overflow-y-auto overscroll-contain no-scrollbar pt-1 pb-4">
           {images.map((src, i) => (
             <Button
               key={i}
