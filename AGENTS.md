@@ -28,3 +28,4 @@
 - Founder story photos use stretching grid-cell wrappers with positioned images so taller chapter text cannot leave gaps between adjacent photo corners.
 - Keep model fit-reference data in the shared size-chart-models module so all product size charts use the same tested sizing facts and uploaded photo pointers.
 - Shopify is the source of truth for price, stock and checkout (src/lib/shopify.ts, product handle = local slug); src/lib/products.ts keeps the design content (copy, colours, styling photos) plus a fallback price used only while live data is missing, so the bespoke layout survives while commerce data stays live.
+- Scope wide-screen Product and Founder sizing above 1500px via page wrapper classes so approved smaller layouts remain stable.

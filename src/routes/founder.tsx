@@ -84,7 +84,7 @@ function FounderPage() {
       <Header solid solidInk="#E5D9C5" />
 
       {/* Story grid: hero + chapters share a single connected grid */}
-      <section className="max-w-[1440px] mx-auto px-2 sm:px-8 md:px-16 pt-4 pb-20">
+      <section className="founder-page max-w-[1440px] min-[1501px]:max-w-[1720px] mx-auto px-2 sm:px-8 md:px-16 pt-4 pb-20">
         <div className="grid grid-cols-2 gap-0">
           {/* Hero image */}
           <div className="h-full">

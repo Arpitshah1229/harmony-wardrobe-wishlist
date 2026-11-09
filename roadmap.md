@@ -24,14 +24,14 @@ Process: audit page at phone/tablet/laptop/desktop/landscape widths → propose 
 - [x] 1. Shared header, announcement bar, footer — done: added hamburger menu (phones/tablets); footer & announcement bar needed no changes
 - [x] 2. Homepage — done: "Crafted by hand" panels now shrink to fit on tablets (were cut off at the right edge); verified at phone/tablet/laptop/desktop/landscape, no overflow anywhere
 - [x] 3. Collection page — done: hero content made smaller (headline, subtitle and text reduced one step), filter row rebuilt as tidy stacked rows on phones/tablets and unchanged one-row layout on computers, products one per row on phones (2→1) with computers untouched; also fixed the footer email overflowing sideways at tablet width by extending the tidy 2×2 footer to tablets — verified phone/landscape/tablet/laptop/desktop, no overflow anywhere (2026-10-27)
-- [ ] 4. Product page
+- [x] 4. Product page (wide-screen 1720px + larger text above 1500px)
 - [ ] 5. Cart
 - [ ] 6. Wishlist
 - [ ] 7. Login
 - [ ] 8. Register / Create account
 - [ ] 9. Orders
 - [x] 10. About Us — done (done early at user request): hero stacks below laptop width (was clipping behind the photo on tablets/landscape phones), Our Story 2 columns at tablet (was 4 cramped columns), Gratitude text sits on a soft ivory panel on phones (was unreadable over the photo); desktop unchanged, verified at phone/tablet/laptop/desktop/landscape, no overflow anywhere
-- [ ] 11. Founder
+- [x] 11. Founder (wide-screen 1720px + larger text above 1500px)
 - [ ] 12. Privacy
 - [x] Footer logo: make it a little smaller — done (144px wide)
 - [x] Login & Register: visible gap between logo wordmark and heading, same on both pages — done
