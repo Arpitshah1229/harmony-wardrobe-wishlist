@@ -30,3 +30,6 @@
 - Shopify is the source of truth for price, stock and checkout (src/lib/shopify.ts, product handle = local slug); src/lib/products.ts keeps the design content (copy, colours, styling photos) plus a fallback price used only while live data is missing, so the bespoke layout survives while commerce data stays live.
 - Scope wide-screen Product, Founder, Cart, Wishlist, Orders and Privacy sizing above 1500px via page wrapper classes so approved smaller layouts remain stable.
 - Anchor and scale the desktop login card proportionally to its photo section; isolate these rules above the desktop breakpoint to preserve phone and tablet layouts.
+
+- Customer authentication uses Cloud email/password accounts with no profile table; recovery requires a verified email recovery link and never changes a password based only on a supplied email.
+- Keep Bun test typings outside the app TypeScript program so Bun's fetch extensions do not conflict with browser/Worker clients; run behavioral tests with Bun separately.
