@@ -119,7 +119,7 @@ const sections: Section[] = [
       <>
         <Sub n="1." title="How to Initiate an Exchange">
           <P>
-            To initiate an exchange or request store credit, please email us at <Email to="orders@notionsinpattern.com" /> or WhatsApp us at <Whats /> {hl("within 7 days of delivery.")}
+            To initiate an exchange or request store credit, please email us at <Email to="hello@notionsinpattern.com" /> or WhatsApp us at <Whats /> {hl("within 7 days of delivery.")}
           </P>
           <P>Please include:</P>
           <List items={["Your order number.", "The name of the product.", "The reason for the exchange or return.", "Photographs, where applicable."]} />
@@ -194,7 +194,7 @@ const sections: Section[] = [
         <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
           <div className="space-y-3 bg-cream/60 p-6 md:p-8">
             <p className="font-serif text-[22px]" style={{ color: BROWN }}>Notions in Pattern</p>
-            <p><span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">EMAIL:</span><Email to="orders@notionsinpattern.com" /></p>
+            <p><span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">EMAIL:</span><Email to="hello@notionsinpattern.com" /></p>
             <p><span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">WHATSAPP:</span><Whats /></p>
           </div>
           <address className="space-y-1 bg-cream/60 p-6 not-italic leading-[1.75] md:p-8">
