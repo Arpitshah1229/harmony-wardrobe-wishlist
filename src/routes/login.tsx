@@ -112,7 +112,7 @@ function LoginPage() {
               </p>
             </section>
 
-            <section className="login-photo-card mx-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl sm:backdrop-blur-sm max-sm:ml-0 max-sm:mr-auto max-sm:max-w-[280px] max-sm:origin-top-left max-sm:scale-[0.62] min-[360px]:max-sm:scale-[0.70] min-[390px]:max-sm:scale-[0.76] min-[412px]:max-sm:scale-[0.81] min-[430px]:max-sm:scale-[0.85] max-sm:bg-background sm:-translate-x-40">
+            <section className="login-photo-card mx-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl sm:backdrop-blur-sm max-sm:ml-0 max-sm:mr-auto max-sm:max-w-[280px] max-sm:origin-top-left max-sm:scale-[0.62] min-[360px]:max-sm:scale-[0.70] min-[390px]:max-sm:scale-[0.76] min-[412px]:max-sm:scale-[0.81] min-[430px]:max-sm:scale-[0.85] max-sm:bg-background sm:max-lg:-translate-x-40">
               <div className="border border-foreground/35 px-6 py-2.5 max-sm:px-4 max-sm:pt-2 max-sm:pb-[48px] sm:px-7 sm:py-3.5">
                 <h1 className="relative mx-auto mt-[78px] w-fit text-center font-serif text-[30px] leading-tight text-foreground max-sm:mt-[58px] max-sm:text-[26px] md:mt-[91px]">
                   <StoreImage

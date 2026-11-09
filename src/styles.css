@@ -176,11 +176,10 @@
   .login-photo-card {
     position: absolute;
     left: 41%;
-    top: 50%;
+    top: calc(50% - 296.46875px);
     width: 355px;
     margin: 0;
-    transform: translateY(-50%) !important;
-    translate: none !important;
+    transform: none;
     scale: calc(100vw / 1400px);
     transform-origin: left center;
     background-color: var(--background);
