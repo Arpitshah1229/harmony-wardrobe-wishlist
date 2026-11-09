@@ -116,7 +116,7 @@ function RegisterPage() {
             aria-hidden="true"
           />
 
-          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-start max-sm:px-1 max-sm:pt-[24%] px-5 py-10 sm:px-10 lg:px-[7.5%] min-[1440px]:px-[108px] lg:py-6">
+          <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-start max-sm:px-1 max-sm:pt-[24%] px-5 py-10 sm:px-10 lg:px-[7.5%] min-[1440px]:px-[108px] lg:py-6 min-[1501px]:max-w-none min-[1501px]:px-[5%]">
 
         <section className="w-[39%] max-w-[410px] text-background max-sm:hidden sm:block">
           <h2 className="font-serif text-[26px] leading-[0.98] md:text-[34px] lg:text-[48px]">
