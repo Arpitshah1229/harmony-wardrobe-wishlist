@@ -117,6 +117,8 @@ function RegisterPage() {
             className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/60 via-foreground/15 to-transparent"
             aria-hidden="true"
           />
+          <div className="register-edge-blur register-edge-blur-left max-lg:hidden" aria-hidden="true" />
+          <div className="register-edge-blur register-edge-blur-right max-lg:hidden" aria-hidden="true" />
 
           <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-start max-sm:px-1 max-sm:pt-[24%] px-5 py-10 sm:px-10 lg:px-[7.5%] min-[1440px]:px-[108px] lg:py-6 min-[1501px]:max-w-none min-[1501px]:px-[5%]">
 
