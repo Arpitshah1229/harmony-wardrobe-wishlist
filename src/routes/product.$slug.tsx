@@ -453,6 +453,7 @@ function ProductPage() {
                 let nameIdx = lower.indexOf(`${firstName.toLowerCase()} shirt is`);
                 if (nameIdx < 0) nameIdx = lower.indexOf(`${firstName.toLowerCase()} honours`);
                 if (nameIdx < 0 && firstName === "Zameen") nameIdx = para.indexOf("Mulmul,");
+                if (firstName === "Sukoon") nameIdx = para.indexOf("WHITE ON WHITE");
                 const cut =
                   nameIdx > 0
                     ? para.slice(0, nameIdx).trimEnd()

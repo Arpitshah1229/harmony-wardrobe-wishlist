@@ -157,16 +157,16 @@ function AboutPage() {
       >
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
         <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
-        <div className="max-w-6xl relative z-10 max-md:absolute max-md:inset-0 max-md:px-3 max-md:pt-3">
+        <div className="max-w-6xl relative z-10 max-md:absolute max-md:inset-0 max-md:px-3 max-md:pt-1">
           <div className="max-w-md min-[1500px]:max-w-xl max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl min-[1500px]:text-[60px] mb-4 max-md:mb-2 max-[361px]:text-[32px] max-[361px]:mb-1" style={{ color: BROWN }}>With Gratitude.</h2>
-            <div className="w-14 h-px mb-6 max-md:mb-2 max-md:ml-[80px] max-[361px]:ml-[71px] max-[361px]:mb-1" style={{ backgroundColor: `${BROWN}66` }} />
+            <div className="w-14 h-px mb-6 max-md:mb-4 max-md:ml-[80px] max-[361px]:ml-[71px] max-[361px]:mb-1" style={{ backgroundColor: `${BROWN}66` }} />
             <div className="space-y-2 max-md:space-y-0.5 text-[14px] min-[1500px]:text-[17px] max-md:text-[13px] leading-[1.9] max-md:leading-[1.7] max-[361px]:text-[12px] max-[361px]:leading-[1.5]">
               <p>Notions in Pattern began with our family.</p>
               <p>
                 It continues through every artisan, every collaborator, and everyone who becomes part of the story.{" "}
                 <span className="max-md:inline md:block md:mt-2">Thank you for being here.</span>{" "}
-                <span className="max-md:absolute max-md:right-[10.4%] max-md:top-[36.5%] max-md:whitespace-nowrap md:block md:mt-2">— Neha & Anita</span>
+                <span className="max-md:absolute max-md:right-[10.4%] max-md:top-[33%] max-md:whitespace-nowrap md:block md:mt-2">— Neha & Anita</span>
               </p>
             </div>
           </div>
