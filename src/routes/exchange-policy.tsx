@@ -324,8 +324,8 @@ function ExchangePolicyPage() {
         </div>
       </section>
 
-      <main className="mx-auto w-full max-w-[1440px] px-6 py-12 md:px-12 md:py-20" style={{ color: DARK }}>
-        <div className="mx-auto max-w-3xl">
+      <main className="policy-page mx-auto w-full max-w-[1440px] px-6 py-12 md:px-12 md:py-20" style={{ color: DARK }}>
+        <div className="policy-col mx-auto max-w-3xl">
           <p className="animate-in fade-in mb-14 font-serif text-[20px] leading-relaxed duration-1000 md:text-[24px]">
             At Notions in Pattern, every piece is thoughtfully created with attention to detail, craftsmanship and
             quality. We want you to feel confident about your purchase. If something isn't quite right, our exchange and
