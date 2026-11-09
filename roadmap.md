@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
+- [x] Exchange policy section G rebuilt as "RETURN & EXCHANGE SUPPORT": clickable email/WhatsApp rows, approval-before-shipping and return-shipping-charge notes, GSTIN; registered return address removed from the page (shared privately after approval). Contact rows aligned on one axis, link underlines offset clear of descenders, wide-screen (1500px+) column widened and scaled; verified 1920/1440/768/393px, no horizontal overflow, no page errors, build OK.
 - [x] Replace orders@notionsinpattern.com with hello@notionsinpattern.com throughout the exchange policy page.
 - [x] Secure email password recovery implemented; public navigation and expired-link protection checked at 393/834/1280px, matching-password tests pass, build OK. Browser-only credentials replaced with email/password accounts.
 - [ ] Verify email delivery and complete reset → success popup → new-password login with a real recovery email; requires the customer's verified email link.
