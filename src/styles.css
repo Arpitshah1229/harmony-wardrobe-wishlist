@@ -56,6 +56,12 @@
   height: 100%;
 }
 
+@media (max-width: 361px) {
+  .about-gratitude h2 { font-size: 32px; margin-bottom: 4px; }
+  .about-gratitude h2 + div { margin-left: 71px; margin-bottom: 4px; }
+  .about-gratitude h2 + div + div { font-size: 12px; line-height: 1.5; }
+}
+
 @keyframes marquee-x {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

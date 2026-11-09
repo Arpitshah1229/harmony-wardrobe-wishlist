@@ -150,7 +150,7 @@ function AboutPage() {
 
       {/* Gratitude */}
       <section
-        className="relative w-full px-8 max-md:px-3 md:px-16 py-24 max-md:pt-3 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
+        className="about-gratitude relative w-full px-8 max-md:px-3 md:px-16 py-24 max-md:pt-3 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
       >
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
         <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
