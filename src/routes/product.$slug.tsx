@@ -218,9 +218,9 @@ function Lightbox({
           src={images[index]}
           alt={alt}
           draggable={false}
-          className="absolute left-0 top-0 h-[115%] w-[115%] max-w-none object-cover"
+          className="absolute left-0 top-0 h-[115%] w-[140%] max-w-none object-cover"
           style={{
-            transform: `translate(${(-pan.x * 15) / 1.15}%, ${(-pan.y * 15) / 1.15}%)`,
+            transform: `translate(${(-pan.x * 40) / 1.4}%, ${(-pan.y * 15) / 1.15}%)`,
             objectPosition: `${pan.x * 100}% ${pan.y * 100}%`,
           }}
         />
