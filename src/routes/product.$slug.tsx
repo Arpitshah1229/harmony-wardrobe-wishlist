@@ -408,9 +408,9 @@ function ProductPage() {
       body: (
         <div className="space-y-3 text-[14px] leading-[1.9]">
           <p>{SHIPPING_NOTE}</p>
-          <p className="font-bold" style={{ color: BROWN }}>
+          <Link to="/exchange-policy" className="inline-block font-bold transition-opacity hover:opacity-70" style={{ color: BROWN }}>
             Read our full Exchange &amp; Store Credit Policy →
-          </p>
+          </Link>
         </div>
       ),
     },

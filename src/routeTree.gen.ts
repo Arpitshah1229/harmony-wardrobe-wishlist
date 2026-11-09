@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CollectionsRouteImport } from './routes/collections'
+import { Route as ExchangePolicyRouteImport } from './routes/exchange-policy'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as OrdersRouteImport } from './routes/orders'
@@ -39,6 +40,11 @@ const CartRoute = CartRouteImport.update({
 const CollectionsRoute = CollectionsRouteImport.update({
   id: '/collections',
   path: '/collections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExchangePolicyRoute = ExchangePolicyRouteImport.update({
+  id: '/exchange-policy',
+  path: '/exchange-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FounderRoute = FounderRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/about-us': typeof AboutUsRoute
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
+  '/exchange-policy': typeof ExchangePolicyRoute
   '/founder': typeof FounderRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/about-us': typeof AboutUsRoute
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
+  '/exchange-policy': typeof ExchangePolicyRoute
   '/founder': typeof FounderRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/about-us': typeof AboutUsRoute
   '/cart': typeof CartRoute
   '/collections': typeof CollectionsRoute
+  '/exchange-policy': typeof ExchangePolicyRoute
   '/founder': typeof FounderRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/cart'
     | '/collections'
+    | '/exchange-policy'
     | '/founder'
     | '/login'
     | '/orders'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/cart'
     | '/collections'
+    | '/exchange-policy'
     | '/founder'
     | '/login'
     | '/orders'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/cart'
     | '/collections'
+    | '/exchange-policy'
     | '/founder'
     | '/login'
     | '/orders'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   AboutUsRoute: typeof AboutUsRoute
   CartRoute: typeof CartRoute
   CollectionsRoute: typeof CollectionsRoute
+  ExchangePolicyRoute: typeof ExchangePolicyRoute
   FounderRoute: typeof FounderRoute
   LoginRoute: typeof LoginRoute
   OrdersRoute: typeof OrdersRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/collections'
       fullPath: '/collections'
       preLoaderRoute: typeof CollectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exchange-policy': {
+      id: '/exchange-policy'
+      path: '/exchange-policy'
+      fullPath: '/exchange-policy'
+      preLoaderRoute: typeof ExchangePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/founder': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutUsRoute: AboutUsRoute,
   CartRoute: CartRoute,
   CollectionsRoute: CollectionsRoute,
+  ExchangePolicyRoute: ExchangePolicyRoute,
   FounderRoute: FounderRoute,
   LoginRoute: LoginRoute,
   OrdersRoute: OrdersRoute,
