@@ -56,6 +56,34 @@
   height: 100%;
 }
 
+/* Wide Collections presentation only; preserve all approved smaller views. */
+@media (min-width: 1501px) {
+  .collections-hero { min-height: calc(100vw * 13 / 24); }
+  .collections-hero-copy { max-width: 720px; }
+  .collections-hero-copy h1 { font-size: 72px; }
+  .collections-hero-copy > p:first-child { font-size: 14px; }
+  .collections-hero-copy h1 + p { font-size: 36px; }
+  .collections-hero-copy > p:last-child { font-size: 18px; }
+  .collections-filters,
+  .collections-grid { max-width: 1800px; padding-inline: 80px; }
+  .collections-grid { column-gap: 32px; }
+  .collections-grid h3 { font-size: 24px; }
+  .collections-grid h3 + p { font-size: 14px; }
+  .collections-grid article > div:nth-child(2) > p { font-size: 18px; }
+  .collections-grid article > button { font-size: 14px; padding-block: 16px; }
+  .collections-filters input,
+  .collections-filters [data-slot="select-trigger"] { font-size: 16px; }
+  .collections-story > div,
+  .collections-stitches > div { max-width: 1600px; }
+  .collections-story h2,
+  .collections-stitches h2 { font-size: 56px; }
+  .collections-story h2 + span + div,
+  .collections-stitches h2 + span + div { font-size: 18px; }
+  .collections-story .font-serif.italic { font-size: 28px; }
+  .collections-stitches h2 + span + div { max-width: 800px; }
+  .collections-stitches figure { max-width: 1640px; }
+}
+
 @media (max-width: 361px) {
   .about-gratitude h2 { font-size: 32px; margin-bottom: 4px; }
   .about-gratitude h2 + div { margin-left: 71px; margin-bottom: 4px; }

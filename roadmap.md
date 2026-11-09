@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
+- [ ] Collections wide-screen adjustment: preserve views through 1500px, improve hero framing and widen shopping/story content; verify larger screen and unchanged smaller views before completion.
 - [x] Replace the page-change blip with a coordinated 480ms crossfade; verified navigation and browser back at 951/1280/768/393px, reduced motion disables animation, no page errors.
 - [x] Match the supplied mobile product photo viewer reference: light full-screen photo, bottom circular previous/close/next controls, gesture zoom. Verified photo navigation, zoom, close, unchanged desktop controls, and no page errors.
 - [x] Check contact email opening: correct recipient; standalone browser opens Gmail sign-in. Embedded preview may block external tabs; no link rewrite needed.
