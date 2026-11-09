@@ -49,7 +49,7 @@ const Email = ({ to }: { to: string }) => (
     href={gmail(to)}
     target="_blank"
     rel="noreferrer"
-    className="font-medium underline decoration-[#C9B79C] underline-offset-[7px] [text-decoration-thickness:1px] transition-opacity hover:opacity-70"
+    className="font-medium underline decoration-[#C9B79C] underline-offset-4 transition-opacity hover:opacity-70"
     style={{ color: BROWN }}
   >
     {to}
@@ -60,7 +60,7 @@ const Whats = () => (
     href={WA}
     target="_blank"
     rel="noreferrer"
-    className="whitespace-nowrap font-medium underline decoration-[#C9B79C] underline-offset-[7px] [text-decoration-thickness:1px] transition-opacity hover:opacity-70"
+    className="whitespace-nowrap font-medium underline decoration-[#C9B79C] underline-offset-4 transition-opacity hover:opacity-70"
     style={{ color: BROWN }}
   >
     {PHONE}
@@ -140,9 +140,9 @@ const sections: Section[] = [
         </Sub>
         <Sub n="2." title="Refunds for Defective or Incorrect Products">
           <P>
-            In the event of a verified manufacturing defect, damaged product or incorrect item being delivered, we will
-            arrange an appropriate resolution, which may include a replacement or refund to the original payment method,
-            as applicable under law.
+            In the Highly unlikely event of a verified manufacturing defect, damaged product or incorrect item being
+            delivered, we will arrange an appropriate resolution, which may include a replacement or refund to the
+            original payment method, as applicable under law.
           </P>
         </Sub>
       </>
@@ -264,27 +264,25 @@ const sections: Section[] = [
       <div className="space-y-7 text-[15px] md:text-[16px]">
         <P>For all return, exchange and store-credit-related queries, please contact us:</P>
 
-        <div className="divide-y divide-border border border-border bg-cream/60">
-          <div className="flex flex-col gap-1.5 px-5 py-5 sm:flex-row sm:items-baseline sm:gap-7 sm:px-6 sm:py-6">
-            <span className="w-[110px] shrink-0 text-[11px] font-semibold tracking-[0.22em] opacity-70">EMAIL</span>
-            <p className="font-serif text-[18px] leading-snug md:text-[20px]">
+        <div className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
+          <div className="bg-cream/60 px-6 py-7 md:px-8 md:py-8">
+            <p className="mb-2.5 text-[11px] font-semibold tracking-[0.22em] opacity-70">EMAIL</p>
+            <p className="font-serif text-[19px] leading-snug md:text-[21px]">
               <Email to="hello@notionsinpattern.com" />
             </p>
           </div>
-          <div className="flex flex-col gap-1.5 px-5 py-5 sm:flex-row sm:items-baseline sm:gap-7 sm:px-6 sm:py-6">
-            <span className="w-[110px] shrink-0 text-[11px] font-semibold tracking-[0.22em] opacity-70">
-              WHATSAPP
-            </span>
-            <p className="font-serif text-[18px] leading-snug md:text-[20px]">
+          <div className="bg-cream/60 px-6 py-7 md:px-8 md:py-8">
+            <p className="mb-2.5 text-[11px] font-semibold tracking-[0.22em] opacity-70">WHATSAPP</p>
+            <p className="font-serif text-[19px] leading-snug md:text-[21px]">
               <Whats />
             </p>
           </div>
         </div>
 
-        <div className="space-y-5 border-l-2 border-[#C9B79C] pl-6 md:space-y-6 md:pl-8">
+        <div className="space-y-5 border-l border-[#C9B79C] pl-5 md:space-y-6 md:pl-8">
           <P>
-            All returns and exchanges must be approved by our team before the product is shipped back. Once your
-            request is approved, the return shipping address and instructions will be shared with you privately.
+            All returns and exchanges must be approved by our team before the product is shipped back. Once your request
+            is approved, the return shipping address and instructions will be shared with you privately.
           </P>
           <P>
             Please note that the customer is responsible for all return shipping charges. Products must not be
@@ -324,8 +322,8 @@ function ExchangePolicyPage() {
         </div>
       </section>
 
-      <main className="policy-page mx-auto w-full max-w-[1440px] px-6 py-12 md:px-12 md:py-20" style={{ color: DARK }}>
-        <div className="policy-col mx-auto max-w-3xl">
+      <main className="mx-auto w-full max-w-[1440px] px-6 py-12 md:px-12 md:py-20" style={{ color: DARK }}>
+        <div className="mx-auto max-w-3xl">
           <p className="animate-in fade-in mb-14 font-serif text-[20px] leading-relaxed duration-1000 md:text-[24px]">
             At Notions in Pattern, every piece is thoughtfully created with attention to detail, craftsmanship and
             quality. We want you to feel confident about your purchase. If something isn't quite right, our exchange and
