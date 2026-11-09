@@ -49,7 +49,7 @@ const Email = ({ to }: { to: string }) => (
     href={gmail(to)}
     target="_blank"
     rel="noreferrer"
-    className="font-medium underline decoration-[#C9B79C] underline-offset-4 transition-opacity hover:opacity-70"
+    className="font-medium underline decoration-[#C9B79C] underline-offset-[7px] [text-decoration-thickness:1px] transition-opacity hover:opacity-70"
     style={{ color: BROWN }}
   >
     {to}
@@ -60,7 +60,7 @@ const Whats = () => (
     href={WA}
     target="_blank"
     rel="noreferrer"
-    className="whitespace-nowrap font-medium underline decoration-[#C9B79C] underline-offset-4 transition-opacity hover:opacity-70"
+    className="whitespace-nowrap font-medium underline decoration-[#C9B79C] underline-offset-[7px] [text-decoration-thickness:1px] transition-opacity hover:opacity-70"
     style={{ color: BROWN }}
   >
     {PHONE}
