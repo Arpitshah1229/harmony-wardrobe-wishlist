@@ -154,7 +154,7 @@ function AboutPage() {
       >
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
         <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
-        <div className="max-w-6xl relative z-10 max-md:static">
+        <div className="max-w-6xl relative z-10 max-md:absolute max-md:inset-0 max-md:px-3 max-md:pt-3">
           <div className="max-w-md max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 max-md:mb-2 max-[361px]:text-[32px] max-[361px]:mb-1" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="w-14 h-px mb-6 max-md:mb-2 max-md:ml-[80px] max-[361px]:ml-[71px] max-[361px]:mb-1" style={{ backgroundColor: `${BROWN}66` }} />
