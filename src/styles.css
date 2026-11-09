@@ -56,6 +56,33 @@
   height: 100%;
 }
 
+/* Homepage overrides never change approved phone, tablet or smaller laptop layouts. */
+@media (min-width: 1501px) {
+  .home-hero,
+  .home-hero-content { min-height: calc(100svh - 32px); }
+  .home-hero-content { padding-top: max(120px, 20svh); padding-left: 9%; padding-right: 6%; }
+  .home-hero-content > div:first-child { max-width: 560px; }
+  .home-hero-title { font-size: 68px; }
+  .home-hero-copy { max-width: 520px; margin-top: 40px; font-size: 18px; }
+  .home-hero-link { font-size: 14px; }
+  .home-hero-collection { font-size: 14px; }
+  .home-hero-collection > p:nth-child(2) { font-size: 44px; }
+  .home-philosophy { min-height: 800px; }
+  .home-philosophy h2 { font-size: 44px; }
+  .home-featured { padding-block: 28px; }
+  .home-featured > div { max-width: 1680px; margin-inline: auto; gap: 6px; }
+  .home-featured img { object-position: center top; }
+  .home-featured h2 { height: 38px; font-size: 30px; }
+  .home-featured p { font-size: 15px; min-height: 50px; }
+  .home-featured a > span,
+  .home-featured a > div > div > span:last-child { font-size: 13px; }
+  .home-craft > div { gap: 120px; }
+  .home-craft > div > a,
+  .home-craft > div > div { max-width: 520px; }
+  .home-craft h2 { font-size: 28px; }
+  .home-craft p { font-size: 18px; }
+}
+
 /* Wide Collections presentation only; preserve all approved smaller views. */
 @media (min-width: 1501px) {
   .collections-hero { min-height: calc(100vw * 13 / 24); }
