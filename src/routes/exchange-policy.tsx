@@ -158,7 +158,7 @@ const sections: Section[] = [
         <Sub n="1." title="How to Initiate an Exchange">
           <P>
             To initiate an exchange or request store credit, please email us at{" "}
-            <Email to="orders@notionsinpattern.com" /> or WhatsApp us at <Whats /> {hl("within 7 days of delivery.")}
+            <Email to="hello@notionsinpattern.com" /> or WhatsApp us at <Whats /> {hl("within 7 days of delivery.")}
           </P>
           <P>Please include:</P>
           <List
@@ -272,7 +272,7 @@ const sections: Section[] = [
             </p>
             <p>
               <span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">EMAIL:</span>
-              <Email to="orders@notionsinpattern.com" />
+              <Email to="hello@notionsinpattern.com" />
             </p>
             <p>
               <span className="mr-2 text-[11px] font-semibold tracking-[0.2em] opacity-70">WHATSAPP:</span>

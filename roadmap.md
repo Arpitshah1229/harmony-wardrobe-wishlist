@@ -1,7 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
-- [ ] Replace orders@notionsinpattern.com with hello@notionsinpattern.com throughout the exchange policy page.
+- [x] Replace orders@notionsinpattern.com with hello@notionsinpattern.com throughout the exchange policy page.
 - [x] Secure email password recovery implemented; public navigation and expired-link protection checked at 393/834/1280px, matching-password tests pass, build OK. Browser-only credentials replaced with email/password accounts.
 - [ ] Verify email delivery and complete reset → success popup → new-password login with a real recovery email; requires the customer's verified email link.
 - [x] Homepage wide-screen improvement: larger headline and supporting text, capped square featured grid with top framing, balanced craft panels; verified 1920px visually, exact unchanged measurements at 393/768/1068/1440px, featured product navigation working, no page errors, build OK. Existing featured source photos themselves crop the tops of the models' heads; originals retained.
