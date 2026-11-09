@@ -149,8 +149,6 @@ function SizeChartModal({ onClose }: { onClose: () => void }) {
   );
 }
 
-const MIN_ZOOM = 1;
-const MAX_ZOOM = 8;
 const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
 
 function Lightbox({
@@ -166,67 +164,20 @@ function Lightbox({
   onClose: () => void;
   onIndex: (i: number) => void;
 }) {
-  const [zoom, setZoom] = useState(1);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [position, setPosition] = useState({ x: 50, y: 50 });
-  // Gentle base framing so the photo overflows both ways and follows the cursor in 2D.
+  // Fixed framing (no zoom): the photo is slightly larger than the screen and follows the cursor in 2D.
   const [pan, setPan] = useState({ x: 0.5, y: 0.5 });
   const containerRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const stateRef = useRef({ zoom, offset });
-  stateRef.current = { zoom, offset };
 
-  const reset = useCallback(() => {
-    setZoom(1);
-    setOffset({ x: 0, y: 0 });
-    setPosition({ x: 50, y: 50 });
-  }, []);
-
-  const step = (dir: number) => {
-    onIndex((index + dir + images.length) % images.length);
-    reset();
-  };
-
-  // Keep the zoomed photo covering the frame: it can never slide off to one side.
-  const bound = useCallback((o: { x: number; y: number }, z: number) => {
-    const c = containerRef.current;
-    const img = imgRef.current;
-    if (!c || !img) return o;
-    const maxX = Math.max(0, (img.offsetWidth * z - c.clientWidth) / 2);
-    const maxY = Math.max(0, (img.offsetHeight * z - c.clientHeight) / 2);
-    return { x: clamp(o.x, -maxX, maxX), y: clamp(o.y, -maxY, maxY) };
-  }, []);
-
-  // px/py are relative to the frame's top-left; the photo scales from its centre,
-  // so convert to centre-relative coordinates before keeping that point fixed.
-  const zoomAt = useCallback(
-    (next: number, px: number, py: number) => {
-      const { zoom: z, offset: o } = stateRef.current;
-      const target = clamp(next, MIN_ZOOM, MAX_ZOOM);
-      const c = containerRef.current;
-      const cx = px - (c?.clientWidth ?? 0) / 2;
-      const cy = py - (c?.clientHeight ?? 0) / 2;
-      const k = target / z;
-      const nx = cx - (cx - o.x) * k;
-      const ny = cy - (cy - o.y) * k;
-      setZoom(target);
-      setOffset(target === 1 ? { x: 0, y: 0 } : bound({ x: nx, y: ny }, target));
-    },
-    [bound],
-  );
+  const step = (dir: number) => onIndex((index + dir + images.length) % images.length);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1);
-      const rect = el.getBoundingClientRect();
-      zoomAt(stateRef.current.zoom * Math.exp(-dy * 0.002), e.clientX - rect.left, e.clientY - rect.top);
-    };
+    // Block the browser/trackpad from zooming the page while the viewer is open.
+    const onWheel = (e: WheelEvent) => e.preventDefault();
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
-  }, [zoomAt]);
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -244,35 +195,19 @@ function Lightbox({
 
   return (
     <div
+      ref={containerRef}
       className="fixed inset-0 z-[110] bg-viewer-surface"
       role="dialog"
       aria-modal="true"
       aria-label="Product image viewer"
+      onPointerMove={(e) => {
+        const x = clamp(e.clientX / window.innerWidth, 0, 1);
+        const y = clamp(e.clientY / window.innerHeight, 0, 1);
+        setPan({ x, y });
+      }}
     >
-      <div
-        ref={containerRef}
-        className="absolute inset-0 overflow-hidden touch-none select-none cursor-default"
-        onPointerMove={(e) => {
-          const container = containerRef.current;
-          if (!container) return;
-          const rect = container.getBoundingClientRect();
-          const x = clamp((e.clientX - rect.left) / rect.width, 0, 1);
-          const y = clamp((e.clientY - rect.top) / rect.height, 0, 1);
-          setPosition({ x: x * 100, y: y * 100 });
-          setPan({ x, y });
-          setOffset(
-            bound(
-              {
-                x: (0.5 - x) * container.clientWidth * (zoom - 1),
-                y: (0.5 - y) * container.clientHeight * (zoom - 1),
-              },
-              zoom,
-            ),
-          );
-        }}
-      >
+      <div className="absolute inset-0 overflow-hidden touch-none select-none cursor-default">
         <StoreImage
-          ref={imgRef}
           fullDetail
           loading="eager"
           src={images[index]}
@@ -280,9 +215,8 @@ function Lightbox({
           draggable={false}
           className="absolute left-0 top-0 h-[115%] w-[115%] max-w-none object-cover"
           style={{
-            transform: `translate(calc(${-pan.x * 15 / 1.15}% + ${offset.x}px), calc(${-pan.y * 15 / 1.15}% + ${offset.y}px)) scale(${zoom})`,
-            transformOrigin: "center center",
-            objectPosition: `${position.x}% ${position.y}%`,
+            transform: `translate(${(-pan.x * 15) / 1.15}%, ${(-pan.y * 15) / 1.15}%)`,
+            objectPosition: `${pan.x * 100}% ${pan.y * 100}%`,
           }}
         />
       </div>
@@ -294,14 +228,14 @@ function Lightbox({
         size="icon"
         aria-label="Close viewer"
         onClick={onClose}
-        className="absolute top-3 right-[15px] z-20 h-12 w-[100px] rounded-none bg-viewer-surface/95 text-foreground [&_svg]:size-9"
+        className="absolute top-3 right-[15px] z-20 h-16 w-[100px] rounded-none bg-transparent text-foreground hover:bg-transparent [&_svg]:size-14"
       >
-        <X className="size-9" strokeWidth={1.25} />
+        <X className="size-14" strokeWidth={1} />
       </Button>
 
-      {/* Thumbnail filmstrip along the right edge */}
+      {/* Thumbnail filmstrip floating over the photo along the right edge */}
       {images.length > 1 && (
-        <div className="absolute right-0 top-0 z-10 flex h-full w-[130px] flex-col items-center gap-3 overflow-y-auto no-scrollbar pt-[72px] pb-4 bg-viewer-surface/95">
+        <div className="absolute right-0 top-0 z-10 flex h-full w-[130px] flex-col items-center gap-3 overflow-y-auto no-scrollbar pt-[88px] pb-4">
           {images.map((src, i) => (
             <Button
               key={i}
@@ -309,10 +243,7 @@ function Lightbox({
               variant="ghost"
               aria-label={`View image ${i + 1}`}
               aria-pressed={i === index}
-              onClick={() => {
-                onIndex(i);
-                reset();
-              }}
+              onClick={() => onIndex(i)}
               className={`h-[125px] w-[100px] shrink-0 rounded-none p-0 outline-offset-2 ${i === index ? "outline outline-foreground opacity-100" : "opacity-70"}`}
             >
               <StoreImage src={src} alt="" className="h-[125px] w-[100px] object-cover" />
