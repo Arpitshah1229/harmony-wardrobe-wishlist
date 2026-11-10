@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
+- [ ] Add an eye control to show and hide the password field identified in the supplied screenshot.
 - [x] Extend gentle heading fades and slow section reveals to all content pages except Collections; preserved homepage motion, photo framing and reduced-motion support; checked 14 pages at 393/1280px with no page errors.
 - [x] About Us (phones): small gap added between "With Gratitude." and the story text, story kept clear of the model's head, "— Neha & Anita" moved a little up; verified 320/360/393/414px with no text over her hair, build OK.
 - [x] Sukoon shirt (phones): the "... more" cutoff now starts at "WHITE ON WHITE" — collapsed text ends "...with a quiet touch of our own on," and tapping reveals "WHITE ON WHITE."; verified 393px, build OK.
