@@ -143,7 +143,7 @@ function HomePage() {
                 src={item.image}
                 alt={`${item.name} shirt`}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover object-[center_5%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover object-[center_5%] transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025]"
               />
               <div className="absolute inset-0 z-10 flex items-end justify-center bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent px-4 pb-0 text-center text-home-light">
                 <div className="w-full">
