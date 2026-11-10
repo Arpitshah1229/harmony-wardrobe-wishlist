@@ -1,4 +1,5 @@
 import { StoreImage } from "@/components/store-image";
+import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import logo from "@/assets/nip-monogram.png.asset.json";
@@ -36,8 +37,12 @@ function TextBlock({
   vCenter,
   footer,
   className,
+  from = "l",
+  mFrom = "l",
   children,
 }: {
+  from?: "l" | "r";
+  mFrom?: "l" | "r";
   num: string;
   title: string;
   center?: boolean;
@@ -48,7 +53,8 @@ function TextBlock({
 }) {
   return (
     <div
-      className={`p-3 sm:p-6 md:p-10 h-full min-w-0 flex flex-col ${center ? "justify-center text-center" : vCenter ? "justify-center text-left" : footer ? "justify-between" : "justify-start"} ${className ?? ""}`}
+      data-fdr-slide
+      className={`fdr-slide fdr-d-${from} fdr-m-${mFrom} p-3 sm:p-6 md:p-10 h-full min-w-0 flex flex-col ${center ? "justify-center text-center" : vCenter ? "justify-center text-left" : footer ? "justify-between" : "justify-start"} ${className ?? ""}`}
     >
       <div className={footer ? "flex-1 flex flex-col justify-center" : ""}>
         <h3
@@ -79,12 +85,32 @@ function ImgBlock({ src, alt, className }: { src: string; alt: string; className
 }
 
 function FounderPage() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>("[data-fdr-slide]");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("fdr-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("fdr-in");
+            io.unobserve(e.target);
+          }
+        }),
+      { rootMargin: "0px 0px -8% 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div className="min-h-[calc(100vh-10px)] m-[5px]" style={{ color: DARK }}>
       <Header solid solidInk="#E5D9C5" />
 
       {/* Story grid: hero + chapters share a single connected grid */}
-      <section className="founder-page max-w-[1440px] min-[1501px]:max-w-[1720px] mx-auto px-2 sm:px-8 md:px-16 pt-4 pb-20">
+      <section className="founder-page overflow-x-clip max-w-[1440px] min-[1501px]:max-w-[1720px] mx-auto px-2 sm:px-8 md:px-16 pt-4 pb-20">
         <div className="grid grid-cols-2 gap-0">
           {/* Hero image */}
           <div className="h-full">
@@ -99,7 +125,7 @@ function FounderPage() {
           </div>
 
           {/* Hero text */}
-          <div className="p-3 sm:p-8 md:p-10 h-full min-w-0 flex flex-col justify-center" style={{ color: BROWN }}>
+          <div data-fdr-slide className="fdr-slide fdr-d-r fdr-m-r p-3 sm:p-8 md:p-10 h-full min-w-0 flex flex-col justify-center" style={{ color: BROWN }}>
             <div className="w-fit">
               <div className="flex w-full flex-col items-center">
                 <div aria-hidden="true" className="w-14 sm:w-24 aspect-[1483/1132] mb-2 sm:mb-4" />
@@ -134,7 +160,8 @@ function FounderPage() {
               </p>
               <p>It was in those places that I discovered craft that the world simply didn't know existed.</p>
             </TextBlock>
-            <TextBlock num="2" title="Beautiful things in unexpected places." className="max-md:flex-1 max-md:basis-0">
+            <TextBlock num="2" title="Beautiful things in unexpected places."
+              mFrom="r" className="max-md:flex-1 max-md:basis-0">
               <p>
                 My father was posted in Assam. I was young, but it was my mother who first noticed, she always did. She
                 would see something beautiful and immediately ask how she could make it her own. These discoveries came
@@ -156,7 +183,7 @@ function FounderPage() {
           <ImgBlock src={founder3.url} alt="Two women embroidering" className="max-md:col-span-2 max-md:order-4" />
           <TextBlock
             num="3"
-            title="Those pieces became my personality."
+            title="Those pieces became my personality." from="r"
             vCenter
             className="max-md:col-span-2 max-md:order-3"
           >
@@ -186,7 +213,7 @@ function FounderPage() {
 
           {/* Row 4 : image | text */}
           <ImgBlock src={founder5.url} alt="Bara Imambara, Lucknow" className="max-md:col-span-2 max-md:order-8" />
-          <TextBlock num="5" title="Coming back home." vCenter className="max-md:col-span-2 max-md:order-7">
+          <TextBlock num="5" title="Coming back home." from="r" vCenter className="max-md:col-span-2 max-md:order-7">
             <p>
               Post COVID, I came back to Lucknow. Where my family finally settled after my father's retirement. The city
               where I did my schooling. The place I have always called my base. My city. My people.
@@ -230,7 +257,7 @@ function FounderPage() {
             />
           </div>
           <div className="flex max-md:flex-row flex-col gap-0 max-md:col-span-2 max-md:order-11">
-            <TextBlock num="7" title="A day at Notions in Pattern." vCenter className="max-md:flex-1 max-md:basis-0">
+            <TextBlock num="7" title="A day at Notions in Pattern." from="r" vCenter className="max-md:flex-1 max-md:basis-0">
               <p>
                 My typical day looks like swatches. Colours for dyes. Thread combinations. Sitting with my team,
                 figuring things out together. The path is not always clear, but the destination always is. There are too
@@ -238,7 +265,7 @@ function FounderPage() {
               </p>
               <p>But a very clear vision.</p>
             </TextBlock>
-            <TextBlock num="8" title="My people." vCenter className="max-md:flex-1 max-md:basis-0">
+            <TextBlock num="8" title="My people." from="r" mFrom="r" vCenter className="max-md:flex-1 max-md:basis-0">
               <p>
                 My mother is a starist, a traveller, a doctor of Hindi literature. My father, a retired Army officer,
                 art enthusiast, someone who writes beautifully, plays guitar, and loves to read. Craft and creativity
