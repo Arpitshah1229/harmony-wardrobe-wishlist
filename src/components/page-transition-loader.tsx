@@ -10,36 +10,39 @@ const FADE_MS = 200;
 export function PageTransitionLoader() {
   const pending = useRouterState({ select: (s) => s.status === "pending" });
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const pathRef = useRef(pathname);
+  pathRef.current = pathname;
   const visited = useRef<Set<string>>(new Set());
   const [visible, setVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  // Timers keyed only on the start/end of a navigation, so location updates
+  // mid-navigation never restart the 150ms delay or the 1.2s ceiling.
   useEffect(() => {
     if (!pending) {
-      visited.current.add(pathname);
+      visited.current.add(pathRef.current);
       setVisible(false);
       const t = setTimeout(() => setMounted(false), FADE_MS);
       return () => clearTimeout(t);
     }
-    if (visited.current.has(pathname)) return;
-    const show = setTimeout(() => {
-      setMounted(true);
-      requestAnimationFrame(() => setVisible(true));
-    }, SHOW_DELAY_MS);
-    const cap = setTimeout(() => setVisible(false), SHOW_DELAY_MS + MAX_VISIBLE_MS);
-    const unmount = setTimeout(() => setMounted(false), SHOW_DELAY_MS + MAX_VISIBLE_MS + FADE_MS);
-    return () => {
-      clearTimeout(show);
-      clearTimeout(cap);
-      clearTimeout(unmount);
-    };
-  }, [pending, pathname]);
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    timers.push(
+      setTimeout(() => {
+        if (visited.current.has(pathRef.current)) return;
+        setMounted(true);
+        requestAnimationFrame(() => setVisible(true));
+        timers.push(setTimeout(() => setVisible(false), MAX_VISIBLE_MS));
+        timers.push(setTimeout(() => setMounted(false), MAX_VISIBLE_MS + FADE_MS));
+      }, SHOW_DELAY_MS),
+    );
+    return () => timers.forEach(clearTimeout);
+  }, [pending]);
 
   if (!mounted) return null;
   return (
     <div
       aria-hidden
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-[#F7F4EE] transition-opacity ease-out"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-background transition-opacity ease-out"
       style={{ opacity: visible ? 1 : 0, transitionDuration: `${FADE_MS}ms`, pointerEvents: visible ? "auto" : "none" }}
     >
       <img src={nipMonogram.url} alt="" className="nip-loader-pulse h-auto w-[140px] md:w-[180px]" />
