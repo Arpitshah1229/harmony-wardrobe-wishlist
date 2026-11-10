@@ -137,7 +137,7 @@ function ProductCard({ product }: { product: Product }) {
                 e.stopPropagation();
                 move(-1);
               }}
-              className="max-md:hidden absolute left-2 top-1/2 -translate-y-1/2 h-9 w-9 p-0 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110 bg-background text-accent"
+              className="max-md:hidden absolute left-2 top-1/2 -translate-y-1/2 h-9 w-9 p-0 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110 bg-background text-accent hover:bg-background hover:text-accent"
             >
               <ChevronLeft className="h-5 w-5" />
             </Button>
@@ -150,7 +150,7 @@ function ProductCard({ product }: { product: Product }) {
                 e.stopPropagation();
                 move(1);
               }}
-              className="max-md:hidden absolute right-2 top-1/2 -translate-y-1/2 h-9 w-9 p-0 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110 bg-background text-accent"
+              className="max-md:hidden absolute right-2 top-1/2 -translate-y-1/2 h-9 w-9 p-0 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110 bg-background text-accent hover:bg-background hover:text-accent"
             >
               <ChevronRight className="h-5 w-5" />
             </Button>
