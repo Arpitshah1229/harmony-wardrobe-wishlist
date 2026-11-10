@@ -73,7 +73,7 @@ function AboutPage() {
       <div className="max-w-[1440px] min-[1500px]:max-w-[1680px] mx-auto">
       {/* Hero */}
       <section className="px-8 md:px-16 pt-8 pb-20 grid xl:grid-cols-[minmax(0,520px)_minmax(0,1fr)] min-[1500px]:grid-cols-[minmax(0,640px)_minmax(0,1fr)] min-[1500px]:gap-10 gap-2 xl:gap-4 items-center">
-        <div className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
+        <div data-about-reveal className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
           <h1 className="font-serif text-6xl sm:text-7xl min-[1500px]:text-[88px] leading-[1.05] tracking-tight">
             A thinking label<br className="hidden xl:block" /> using craft as<br className="hidden xl:block" /> expression.
           </h1>
@@ -89,22 +89,22 @@ function AboutPage() {
 
       {/* Our Story */}
       <section className="px-8 md:px-16 pb-24">
-        <h3 className={titleClass} style={{ color: BROWN }}>OUR STORY</h3>
+        <h3 data-about-reveal className={titleClass} style={{ color: BROWN }}>OUR STORY</h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-[1500px]:gap-12 text-[13px] min-[1500px]:text-[15px] leading-[1.9] relative" style={{ color: DARK }}>
-          <div className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+          <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>Notions in Pattern began at home.<br />With my mother.</p>
             <p>It did not begin as a brand,<br />but as something quieter. Repetition.</p>
           </div>
-          <div className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+          <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>The same sentences. The same advice. The same words heard so often, they fade into the background.</p>
             <p>Over time, they begin to structure how you think, respond, and move through the world.</p>
           </div>
-          <div className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+          <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
             <p>They were patterns.</p>
             <p>Notions in Pattern comes from that realisation.</p>
             <p>That nothing in us is fixed.<br />Not thought. Not behaviour.<br />Not meaning.</p>
           </div>
-          <div className="space-y-4">
+          <div data-about-reveal className="space-y-4">
             <p>Everything is formed through repetition.</p>
             <p>And anything formed can be re-formed.</p>
             <p>We are choosing craft as the language to show that shift.</p>
@@ -117,7 +117,7 @@ function AboutPage() {
         <div className="px-8 md:pl-16 md:pr-0">
           <StoreImage src={aboutus2.url} alt="Hand embroidering fabric" className="w-full max-h-[420px] min-[1500px]:max-h-[540px] h-auto object-cover" />
         </div>
-        <div className="px-8 md:pr-16 md:pl-0">
+        <div data-about-reveal className="px-8 md:pr-16 md:pl-0">
           <h3 className={titleClass} style={{ color: BROWN }}>WHAT WE DO</h3>
           <div className="space-y-4 text-[13px] min-[1500px]:text-[15px] leading-[1.9] max-w-lg min-[1500px]:max-w-xl" style={{ color: DARK }}>
             <p>At Notions in Patterns, we want to work with traditional crafts across various forms: stitching, dyeing, printing, weaving, and handwork.</p>
@@ -139,7 +139,7 @@ function AboutPage() {
             { icon: "process", title: "PROCESS", l1: "Nothing here", l2: "is ever rushed." },
             { icon: "pattern", title: "PATTERN", l1: "Nothing is fixed.", l2: "Not even us." },
           ].map((p, i) => (
-            <div key={p.title} className={`flex flex-col items-center text-center px-4 ${i < 3 ? "md:border-r" : ""}`} style={{ borderColor: `${DARK}33` }}>
+            <div data-about-reveal key={p.title} className={`flex flex-col items-center text-center px-4 ${i < 3 ? "md:border-r" : ""}`} style={{ borderColor: `${DARK}33` }}>
               <span style={{ color: BROWN }}><Icon type={p.icon} /></span>
               <h4 className="font-serif font-bold text-[15px] min-[1500px]:text-[17px] tracking-[0.25em] mt-4 mb-3" style={{ color: BROWN }}>{p.title}</h4>
               <p className="text-[12px] min-[1500px]:text-[14px] leading-[1.8]">{p.l1}<br />{p.l2}</p>
@@ -158,7 +158,7 @@ function AboutPage() {
         <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
         <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
         <div className="max-w-6xl relative z-10 max-md:absolute max-md:inset-0 max-md:px-3 max-md:pt-1">
-          <div className="max-w-md min-[1500px]:max-w-xl max-md:max-w-none" style={{ color: DARK }}>
+          <div data-about-reveal="fade" className="max-w-md min-[1500px]:max-w-xl max-md:max-w-none" style={{ color: DARK }}>
             <h2 className="font-serif font-bold text-4xl md:text-5xl min-[1500px]:text-[60px] mb-4 max-md:mb-2 max-[361px]:text-[32px] max-[361px]:mb-1" style={{ color: BROWN }}>With Gratitude.</h2>
             <div className="w-14 h-px mb-6 max-md:mb-4 max-md:ml-[80px] max-[361px]:ml-[71px] max-[361px]:mb-1" style={{ backgroundColor: `${BROWN}66` }} />
             <div className="space-y-2 max-md:space-y-0.5 text-[14px] min-[1500px]:text-[17px] max-md:text-[13px] leading-[1.9] max-md:leading-[1.7] max-[361px]:text-[12px] max-[361px]:leading-[1.5]">

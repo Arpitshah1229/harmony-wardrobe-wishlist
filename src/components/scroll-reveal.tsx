@@ -10,6 +10,28 @@ export function ScrollReveal() {
     const enhanced = pathname !== "/" && pathname !== "/collections";
     const animated: HTMLElement[] = [];
     const frame = window.requestAnimationFrame(() => {
+      if (pathname === "/about-us") {
+        const targets = Array.from(document.querySelectorAll<HTMLElement>("[data-about-reveal]"));
+        observer = new IntersectionObserver((entries) => {
+          const entering = entries.filter((entry) => entry.isIntersecting);
+          entering.forEach((entry, index) => {
+            const el = entry.target as HTMLElement;
+            el.style.setProperty("--about-reveal-delay", `${index * 100}ms`);
+            el.classList.add("about-reveal-in");
+            observer?.unobserve(el);
+          });
+        }, { threshold: 0, rootMargin: "0px 0px -5% 0px" });
+        for (const el of targets) {
+          animated.push(el);
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+            el.classList.add("about-entry");
+          } else {
+            el.classList.add("about-reveal");
+            observer.observe(el);
+          }
+        }
+        return;
+      }
       if (enhanced) {
         for (const heading of document.querySelectorAll<HTMLElement>("h1")) {
           if (heading.closest('[role="dialog"], header') || heading.getBoundingClientRect().top >= window.innerHeight) continue;
@@ -41,6 +63,8 @@ export function ScrollReveal() {
       observer?.disconnect();
       for (const el of animated) {
         el.classList.remove("nip-soft-entry", "nip-soft-reveal", "nip-reveal", "nip-reveal-in");
+        el.classList.remove("about-entry", "about-reveal", "about-reveal-in");
+        el.style.removeProperty("--about-reveal-delay");
       }
     };
   }, [pathname]);

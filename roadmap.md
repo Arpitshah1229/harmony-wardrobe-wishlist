@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
+- [ ] Make About Us text animations visible and gentle; retain photos and layout, verify phone/desktop scrolling and reduced motion.
 - [x] Add an eye control to the Create Account password field; verified show/hide, preserved value and unchanged field dimensions at 393/1280px.
 - [x] Extend gentle heading fades and slow section reveals to all content pages except Collections; preserved homepage motion, photo framing and reduced-motion support; checked 14 pages at 393/1280px with no page errors.
 - [x] About Us (phones): small gap added between "With Gratitude." and the story text, story kept clear of the model's head, "— Neha & Anita" moved a little up; verified 320/360/393/414px with no text over her hair, build OK.
