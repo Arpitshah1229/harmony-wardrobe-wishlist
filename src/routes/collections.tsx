@@ -1,6 +1,6 @@
 import { StoreImage } from "@/components/store-image";
 import { useLivePrices } from "@/lib/shopify";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Heart, Search } from "lucide-react";
 import { useWishlist } from "@/lib/wishlist";
@@ -10,35 +10,61 @@ import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import heroImg from "@/assets/collection_hero_v3.png.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 
 function ProductCard({ product }: { product: Product }) {
   const [imgIdx, setImgIdx] = useState(0);
   const [mobileIdx, setMobileIdx] = useState(0);
   const [pickerOpen, setPickerOpen] = useState(false);
+  const desktopStrip = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { has, toggle } = useWishlist();
   const livePrice = useLivePrices();
   const wished = has(product.slug);
   const hasMultiple = product.images.length > 1;
-  const move = (d: number) => setImgIdx((c) => (c + d + product.images.length) % product.images.length);
+  const move = (d: number) => {
+    const strip = desktopStrip.current;
+    if (!strip) return;
+    const next = (imgIdx + d + product.images.length) % product.images.length;
+    strip.scrollTo({
+      left: next * strip.clientWidth,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  };
 
   return (
     <article className="group flex flex-col">
       <div className="relative overflow-hidden bg-cream/60">
-        <Link to="/product/$slug" params={{ slug: product.slug }} className="block relative max-md:hidden">
-          <StoreImage
-            src={product.images[imgIdx]}
-            alt={product.name}
-            loading="lazy"
-            className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-          />
+        <div className="relative max-md:hidden">
+          <div
+            ref={desktopStrip}
+            data-desktop-photo-strip
+            className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar"
+            onScroll={(e) => {
+              const strip = e.currentTarget;
+              setImgIdx(Math.round(strip.scrollLeft / strip.clientWidth));
+            }}
+          >
+            {product.images.map((src, i) => (
+              <Link key={src} to="/product/$slug" params={{ slug: product.slug }} search={i > 0 ? { img: i } : {}} className="block w-full shrink-0 snap-center overflow-hidden">
+                <StoreImage src={src} alt={product.name} loading="lazy" className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]" />
+              </Link>
+            ))}
+          </div>
           <span
-            className="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
+            className="pointer-events-none absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
             style={{ backgroundColor: "#F7F4EE", color: BROWN }}
           >
             {product.badge || "Hand Dyed & Embroidered"}
           </span>
-        </Link>
+          {hasMultiple && (
+            <div aria-hidden="true" className="pointer-events-none absolute bottom-3 inset-x-0 flex justify-center gap-1.5">
+              {product.images.map((_, i) => (
+                <span key={i} data-desktop-photo-dot data-active={i === imgIdx} className={`h-1.5 w-1.5 rounded-full transition-colors ${i === imgIdx ? "bg-accent" : "bg-background opacity-85"}`} />
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* Phones: swipe through photos; tapping opens that photo on the product page */}
         <div className="relative md:hidden">
@@ -102,7 +128,8 @@ function ProductCard({ product }: { product: Product }) {
 
         {hasMultiple && (
           <>
-            <button
+            <Button
+              variant="ghost"
               type="button"
               aria-label="Previous image"
               onClick={(e) => {
@@ -110,12 +137,12 @@ function ProductCard({ product }: { product: Product }) {
                 e.stopPropagation();
                 move(-1);
               }}
-              className="max-md:hidden absolute left-2 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110"
-              style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+              className="max-md:hidden absolute left-2 top-1/2 -translate-y-1/2 h-9 w-9 p-0 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110 bg-background text-accent hover:bg-background hover:text-accent"
             >
               <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="ghost"
               type="button"
               aria-label="Next image"
               onClick={(e) => {
@@ -123,11 +150,10 @@ function ProductCard({ product }: { product: Product }) {
                 e.stopPropagation();
                 move(1);
               }}
-              className="max-md:hidden absolute right-2 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110"
-              style={{ backgroundColor: "#F7F4EE", color: BROWN }}
+              className="max-md:hidden absolute right-2 top-1/2 -translate-y-1/2 h-9 w-9 p-0 rounded-full grid place-items-center shadow-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 hover:scale-110 bg-background text-accent hover:bg-background hover:text-accent"
             >
               <ChevronRight className="h-5 w-5" />
-            </button>
+            </Button>
           </>
         )}
       </div>
