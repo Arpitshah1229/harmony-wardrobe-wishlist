@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Mail, LoaderCircle } from "lucide-react";
 import { PasswordPage } from "@/components/password-page";
 import { Button } from "@/components/ui/button";
@@ -24,7 +24,11 @@ function ForgotPasswordPage() {
   const [error, setError] = useState("");
 
   return <PasswordPage title="Forgot password?">
-    {sent ? <p role="status" className="text-center text-sm leading-relaxed">If an account exists for this email, you’ll receive a password reset link. Please check your inbox and spam folder.</p> :
+    {sent ? <div className="text-center text-sm leading-relaxed">
+      <p role="status">If an account exists for this email, you’ll receive a password reset link. Please check your inbox and spam folder.</p>
+      <Button type="button" className="mt-5 h-11 w-full rounded-none" onClick={() => { setSent(false); setError(""); }}>Try another email / Resend</Button>
+      <Link to="/login" search={{ redirect: "/cart" }} className="mt-4 inline-block underline">Back to Login</Link>
+    </div> :
       <form onSubmit={async (event) => {
         event.preventDefault();
         setBusy(true); setError("");
