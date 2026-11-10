@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
-import nipMonogram from "@/assets/nip-monogram.png.asset.json";
+import nipMonogram from "@/assets/optimized/nip-monogram.png.480.webp.asset.json";
 
 const SHOW_DELAY_MS = 150;
 const MAX_VISIBLE_MS = 1200;
@@ -38,14 +38,16 @@ export function PageTransitionLoader() {
     return () => timers.forEach(clearTimeout);
   }, [pending]);
 
-  if (!mounted) return null;
+  // The small logo stays preloaded (hidden) so it is ready the instant the loader appears.
+  if (!mounted)
+    return <img src={nipMonogram.url} alt="" aria-hidden className="pointer-events-none fixed h-px w-px opacity-0" />;
   return (
     <div
       aria-hidden
       className="fixed inset-0 z-[200] flex items-center justify-center bg-background transition-opacity ease-out"
       style={{ opacity: visible ? 1 : 0, transitionDuration: `${FADE_MS}ms`, pointerEvents: visible ? "auto" : "none" }}
     >
-      <img src={nipMonogram.url} alt="" className="nip-loader-pulse h-auto w-[140px] md:w-[180px]" />
+      <img src={nipMonogram.url} alt="" decoding="sync" className="nip-loader-pulse h-auto w-[140px] md:w-[180px]" />
     </div>
   );
 }
