@@ -1,3 +1,4 @@
+import { PageTransitionLoader } from "@/components/page-transition-loader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -133,6 +134,7 @@ function RootComponent() {
           <AuthProvider>
             {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
             <Outlet />
+            <PageTransitionLoader />
           </AuthProvider>
         </WishlistProvider>
       </CartProvider>
