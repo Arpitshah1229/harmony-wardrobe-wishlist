@@ -35,3 +35,4 @@
 - Keep Bun test typings outside the app TypeScript program so Bun's fetch extensions do not conflict with browser/Worker clients; run behavioral tests with Bun separately.
 - Keep editorial motion in ScrollReveal with CSS opacity/transform transitions; preserve homepage choreography and give Collections its own scoped col-lux motion in its route so shared headers, photo framing and forms stay stable.
 - About Us uses explicit text reveal targets in ScrollReveal instead of section-wide reveals so first-screen motion is visible while photos and the gratitude signature anchor stay stable.
+- Collections desktop product photos use a native snap-scrolling strip with scroll-synchronised position dots so arrow navigation slides without changing mobile galleries.
