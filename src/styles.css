@@ -335,3 +335,14 @@
   .col-lux-photo, .col-lux-hero > * { animation: none; }
   .col-lux-card, .col-lux-fade { opacity: 1; transform: none; transition: none; }
 }
+
+/* Founder page: chapter text slides in from its own side; photos stay still */
+.fdr-slide { opacity: 0; transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.fdr-slide.fdr-m-l { transform: translateX(-28px); }
+.fdr-slide.fdr-m-r { transform: translateX(28px); }
+@media (min-width: 768px) {
+  .fdr-slide.fdr-d-l { transform: translateX(-40px); }
+  .fdr-slide.fdr-d-r { transform: translateX(40px); }
+}
+.fdr-slide.fdr-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .fdr-slide { opacity: 1; transform: none !important; transition: none; } }
