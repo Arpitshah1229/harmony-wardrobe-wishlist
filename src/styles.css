@@ -291,11 +291,13 @@
 @media (prefers-reduced-motion: reduce) { .nip-reveal { opacity: 1; transform: none; transition: none; } }
 
 /* Homepage luxury motion — opacity/transform only */
-@keyframes home-lux-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-.home-lux-hero-a, .home-lux-hero-c { animation: home-lux-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes home-lux-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.home-lux-hero-a, .home-lux-hero-c { animation: home-lux-rise 1.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .home-lux-hero-a { animation-delay: 0.1s; }
 .home-lux-hero-c { animation-delay: 0.45s; }
-.home-page .nip-reveal [class*="home-lux-s"], .home-page .nip-reveal .home-lux-card { opacity: 0; transform: translateY(14px); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.home-page .nip-reveal { transform: translateY(10px); transition-duration: 1.35s; }
+.home-page .nip-reveal [class*="home-lux-s"], .home-page .nip-reveal .home-lux-card { opacity: 0; transform: translateY(6px); transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.home-page .nip-reveal.nip-reveal-in { transform: none; }
 .home-page .nip-reveal .home-lux-rule { transform: scaleX(0); }
 .home-page .nip-reveal-in [class*="home-lux-s"], .home-page .nip-reveal-in .home-lux-card { opacity: 1; transform: none; }
 .home-page .nip-reveal-in .home-lux-s2 { transition-delay: 0.25s; }
@@ -304,4 +306,4 @@
 .home-page .nip-reveal-in .home-lux-s5 { transition-delay: 0.85s; }
 .home-page .nip-reveal-in .home-lux-card:nth-child(2) { transition-delay: 0.12s; }
 .home-page .nip-reveal-in .home-lux-card:nth-child(3) { transition-delay: 0.24s; }
-@media (prefers-reduced-motion: reduce) { .home-lux-hero-a, .home-lux-hero-c { animation: none; } .home-page [class*="home-lux-s"], .home-page .home-lux-card { opacity: 1 !important; transform: none !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { .home-lux-hero-a, .home-lux-hero-c { animation: none; } .home-page .nip-reveal, .home-page [class*="home-lux-s"], .home-page .home-lux-card, .home-page .home-lux-card img { opacity: 1 !important; transform: none !important; transition: none !important; } }
