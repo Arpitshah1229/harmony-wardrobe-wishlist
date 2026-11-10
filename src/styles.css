@@ -289,3 +289,19 @@
 .nip-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
 .nip-reveal.nip-reveal-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .nip-reveal { opacity: 1; transform: none; transition: none; } }
+
+/* Homepage luxury motion — opacity/transform only */
+@keyframes home-lux-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.home-lux-hero-a, .home-lux-hero-c { animation: home-lux-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.home-lux-hero-a { animation-delay: 0.1s; }
+.home-lux-hero-c { animation-delay: 0.45s; }
+.home-page .nip-reveal [class*="home-lux-s"], .home-page .nip-reveal .home-lux-card { opacity: 0; transform: translateY(14px); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.home-page .nip-reveal .home-lux-rule { transform: scaleX(0); }
+.home-page .nip-reveal-in [class*="home-lux-s"], .home-page .nip-reveal-in .home-lux-card { opacity: 1; transform: none; }
+.home-page .nip-reveal-in .home-lux-s2 { transition-delay: 0.25s; }
+.home-page .nip-reveal-in .home-lux-s3 { transition-delay: 0.45s; }
+.home-page .nip-reveal-in .home-lux-s4 { transition-delay: 0.65s; }
+.home-page .nip-reveal-in .home-lux-s5 { transition-delay: 0.85s; }
+.home-page .nip-reveal-in .home-lux-card:nth-child(2) { transition-delay: 0.12s; }
+.home-page .nip-reveal-in .home-lux-card:nth-child(3) { transition-delay: 0.24s; }
+@media (prefers-reduced-motion: reduce) { .home-lux-hero-a, .home-lux-hero-c { animation: none; } .home-page [class*="home-lux-s"], .home-page .home-lux-card { opacity: 1 !important; transform: none !important; transition: none !important; } }
