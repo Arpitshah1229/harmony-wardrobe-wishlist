@@ -27,9 +27,11 @@ export function PageTransitionLoader() {
       requestAnimationFrame(() => setVisible(true));
     }, SHOW_DELAY_MS);
     const cap = setTimeout(() => setVisible(false), SHOW_DELAY_MS + MAX_VISIBLE_MS);
+    const unmount = setTimeout(() => setMounted(false), SHOW_DELAY_MS + MAX_VISIBLE_MS + FADE_MS);
     return () => {
       clearTimeout(show);
       clearTimeout(cap);
+      clearTimeout(unmount);
     };
   }, [pending, pathname]);
 
