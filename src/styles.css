@@ -278,3 +278,9 @@
   .policy-page { zoom: 1.1; }
   .policy-page .policy-col { max-width: 880px; }
 }
+
+@keyframes nip-loader-pulse {
+  0%, 100% { opacity: 0.75; transform: scale(0.97); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+.nip-loader-pulse { animation: nip-loader-pulse 1.4s ease-in-out infinite; }
