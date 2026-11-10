@@ -1,6 +1,6 @@
 import { StoreImage } from "@/components/store-image";
 import { useLivePrices } from "@/lib/shopify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Heart, Search } from "lucide-react";
 import { useWishlist } from "@/lib/wishlist";
@@ -30,7 +30,7 @@ function ProductCard({ product }: { product: Product }) {
             src={product.images[imgIdx]}
             alt={product.name}
             loading="lazy"
-            className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+            className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
           />
           <span
             className="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-bold tracking-[0.18em]"
@@ -220,6 +220,26 @@ function CollectionsPage() {
     }
   });
 
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>("[data-col-reveal]:not(.col-lux-in)");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("col-lux-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("col-lux-in");
+            io.unobserve(e.target);
+          }
+        }),
+      { rootMargin: "0px 0px -6% 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [sorted.length, query, sort]);
+
   return (
     <div className="collections-page bg-background min-h-screen">
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo={false} />
@@ -232,10 +252,10 @@ function CollectionsPage() {
           aria-hidden="true"
           loading="eager"
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-[-170px_center] min-[600px]:object-center"
+          className="col-lux-photo absolute inset-0 h-full w-full object-cover object-[-170px_center] min-[600px]:object-center"
         />
         <div className="absolute inset-0 bg-background/10" />
-        <div className="collections-hero-copy relative ml-auto pl-4 pr-1 min-[600px]:pl-16 min-[600px]:pr-36 pt-16 min-[600px]:pt-32 pb-12 min-[600px]:pb-16 max-w-[62%] min-[600px]:max-w-xl text-left">
+        <div className="collections-hero-copy col-lux-hero relative ml-auto pl-4 pr-1 min-[600px]:pl-16 min-[600px]:pr-36 pt-16 min-[600px]:pt-32 pb-12 min-[600px]:pb-16 max-w-[62%] min-[600px]:max-w-xl text-left">
           <p
             className="text-[9px] min-[600px]:text-[12px] font-bold tracking-[0.22em] min-[600px]:tracking-[0.28em] mb-2 min-[600px]:mb-3"
             style={{ color: BROWN }}
@@ -371,7 +391,7 @@ function CollectionsPage() {
       {/* Product grid */}
       <section className="collections-grid mx-auto w-full max-w-[1440px] px-8 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
         {sorted.map((p, i) => (
-          <div key={p.slug} className={!query && i === 6 ? "md:col-start-2" : undefined}>
+          <div key={p.slug} data-col-reveal style={{ transitionDelay: `${(i % 3) * 80}ms` }} className={`col-lux-card ${!query && i === 6 ? "md:col-start-2" : ""}`}>
             <ProductCard product={p} />
           </div>
         ))}
@@ -393,7 +413,7 @@ function CollectionsPage() {
           </h2>
           <span className="block w-16 border-t-2 mx-auto mt-5 mb-14" style={{ borderColor: BROWN }} />
           <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 text-[15px] leading-[1.9]"
+            data-col-reveal className="col-lux-card grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 text-[15px] leading-[1.9]"
             style={{ color: DARK }}
           >
             <div className="space-y-5 md:border-r md:pr-10 border-border/70">
@@ -455,7 +475,7 @@ function CollectionsPage() {
             </p>
           </div>
         </div>
-        <figure className="mt-14 mx-auto max-w-[1440px] overflow-hidden">
+        <figure data-col-reveal className="col-lux-fade mt-14 mx-auto max-w-[1440px] overflow-hidden">
           <StoreImage
             src={stitchesStrip.url}
             alt="Chikankari stitch details on hand-dyed fabric"
