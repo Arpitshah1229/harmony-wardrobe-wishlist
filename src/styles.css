@@ -337,6 +337,25 @@
 }
 
 /* Founder page: chapter text slides in from its own side; photos stay still */
+/* About Us: animate editorial text, never the photo sections or shared chrome. */
+@keyframes about-text-entry {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.about-entry { animation: about-text-entry 1.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.about-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1), transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--about-reveal-delay, 0ms);
+}
+.about-reveal.about-reveal-in { opacity: 1; transform: none; }
+[data-about-reveal="fade"].about-reveal { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .about-entry { animation: none; }
+  .about-reveal { opacity: 1; transform: none; transition: none; }
+}
+
 .fdr-slide { opacity: 0; transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1); }
 .fdr-slide.fdr-m-l { transform: translateX(-28px); }
 .fdr-slide.fdr-m-r { transform: translateX(28px); }
