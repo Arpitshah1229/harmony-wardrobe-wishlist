@@ -68,7 +68,7 @@ function HomePage() {
           className="absolute inset-0 h-full w-full object-cover object-[100%_50%] sm:object-bottom"
         />
         <div className="home-hero-content relative z-10 flex w-full min-h-[100svh] flex-col justify-between gap-6 px-5 pb-4 pt-20 sm:min-h-[100svh] sm:justify-between sm:gap-8 sm:bg-transparent sm:pb-6 sm:pl-[15.5vw] sm:pr-[6vw] sm:pt-[29vh] lg:pl-[142px] xl:pl-[165px]">
-          <div className="w-full max-w-[450px]">
+          <div className="home-lux-hero-a w-full max-w-[450px]">
             <h1 className="home-hero-title font-serif text-[24px] font-medium leading-[1.12] text-accent sm:text-[48px] lg:text-[58px]">
               Understanding life begins with understanding of patterns
             </h1>
@@ -82,7 +82,7 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-20 -mr-1 flex w-full flex-row items-center justify-between gap-3 pb-2 sm:-mr-[3.5vw] sm:gap-6 sm:pb-0">
+          <div className="home-lux-hero-c relative z-20 -mr-1 flex w-full flex-row items-center justify-between gap-3 pb-2 sm:-mr-[3.5vw] sm:gap-6 sm:pb-0">
             <Link
               to="/collections"
               className="home-hero-link inline-flex items-center gap-2 whitespace-nowrap border-b-2 border-accent pb-1 text-[9px] font-black uppercase tracking-[0.14em] text-accent transition-opacity hover:opacity-60 max-sm:border-beige max-sm:text-beige max-[360px]:gap-1.5 max-[360px]:text-[8px] max-[360px]:tracking-[0.1em] sm:gap-4 sm:pb-1.5 sm:text-[12px] sm:tracking-[0.18em]"
@@ -110,19 +110,19 @@ function HomePage() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="relative z-10 px-6 text-center">
-          <h2 className="home-philosophy-line-1 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
+          <h2 className="home-lux-s1 home-philosophy-line-1 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
             Where making remains
             <br />
             but patterns evolve,
           </h2>
-          <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
-          <h2 className="home-philosophy-line-2 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
+          <span className="home-lux-rule home-lux-s2 mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
+          <h2 className="home-lux-s3 home-philosophy-line-2 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
             Where process
             <br />
             becomes perception,
           </h2>
-          <span className="mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
-          <h2 className="home-philosophy-line-3 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
+          <span className="home-lux-rule home-lux-s4 mx-auto my-7 block h-0.5 w-9 bg-home-espresso" />
+          <h2 className="home-lux-s5 home-philosophy-line-3 font-serif text-[31px] font-medium italic leading-[1.6] sm:text-[38px]">
             Where nothing is fixed,
             <br />
             not even us.
@@ -137,13 +137,13 @@ function HomePage() {
               key={item.slug}
               to="/product/$slug"
               params={{ slug: item.slug }}
-              className="group relative block aspect-square w-full min-w-0 overflow-hidden bg-cream"
+              className="home-lux-card group relative block aspect-square w-full min-w-0 overflow-hidden bg-cream"
             >
               <StoreImage
                 src={item.image}
                 alt={`${item.name} shirt`}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover object-[center_5%] transition-transform duration-700 ease-out group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover object-[center_5%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
               />
               <div className="absolute inset-0 z-10 flex items-end justify-center bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent px-4 pb-0 text-center text-home-light">
                 <div className="w-full">
@@ -164,7 +164,7 @@ function HomePage() {
         </div>
         <Link
           to="/collections"
-          className="mx-auto mt-7 flex w-fit items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-accent"
+          className="home-lux-s4 mx-auto mt-7 flex w-fit items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-accent"
         >
           <span className="h-px w-8 bg-accent" /> View collection <ArrowRight className="h-3.5 w-3.5" />
         </Link>
@@ -204,7 +204,7 @@ function HomePage() {
                 src={motif.url}
                 alt="Notions in Pattern motif"
                 loading="lazy"
-                className="mt-3 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]"
+                className="home-lux-s4 mt-3 h-[90px] w-[90px] object-contain lg:mt-6 lg:h-[130px] lg:w-[130px]"
               />
             </div>
           </div>
