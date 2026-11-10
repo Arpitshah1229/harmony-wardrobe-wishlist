@@ -302,6 +302,19 @@ const sections: Section[] = [
       </div>
     ),
   },
+  {
+    letter: "H",
+    title: "CREDIT NOTE",
+    body: (
+      <Sub title="">
+        <P>
+          In the event of an eligible return for a credit note, the amount of the credit note will be the product value
+          after deducting applicable shipping and handling charges. These charges will not be borne by or reimbursed by
+          NIP.
+        </P>
+      </Sub>
+    ),
+  },
 ];
 
 function ExchangePolicyPage() {
