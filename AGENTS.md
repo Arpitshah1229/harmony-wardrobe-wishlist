@@ -33,4 +33,4 @@
 
 - Customer authentication uses Cloud email/password accounts with no profile table; recovery requires a verified email recovery link and never changes a password based only on a supplied email.
 - Keep Bun test typings outside the app TypeScript program so Bun's fetch extensions do not conflict with browser/Worker clients; run behavioral tests with Bun separately.
-- Scroll reveal: soft fade-up of below-the-fold sections and footer on every page (src/components/scroll-reveal.tsx) — CSS-only transitions so layouts stay unchanged.
+- Keep editorial motion in ScrollReveal with CSS opacity/transform transitions; preserve homepage choreography and exclude Collections from enhanced motion so shared headers, photo framing and forms stay stable.

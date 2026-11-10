@@ -1,7 +1,7 @@
 import { StoreImage } from "@/components/store-image";
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { UserPlus } from "lucide-react";
+import { Eye, EyeOff, UserPlus } from "lucide-react";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
 import { Button } from "@/components/ui/button";
 import { useAuth, normalizeMobile } from "@/lib/auth";
@@ -34,19 +34,23 @@ const IVORY = "#F7F4EE";
 function Field({
   id,
   label,
+  trailing,
   ...props
-}: { id: string; label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+}: { id: string; label: string; trailing?: React.ReactNode } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div className="mt-3 first:mt-0">
       <label className="sr-only" htmlFor={id}>
         {label}
       </label>
-      <input
-        id={id}
-        className="w-full border bg-transparent px-3 py-3 text-[13px] outline-none transition-colors focus:border-foreground"
-        style={{ borderColor: BROWN, color: DARK }}
-        {...props}
-      />
+      <div className="relative">
+        <input
+          id={id}
+          className={`w-full border bg-transparent px-3 py-3 text-[13px] outline-none transition-colors focus:border-foreground ${trailing ? "pr-12" : ""}`}
+          style={{ borderColor: BROWN, color: DARK }}
+          {...props}
+        />
+        {trailing}
+      </div>
     </div>
   );
 }
@@ -61,6 +65,7 @@ function RegisterPage() {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   const submitDetails = async () => {
@@ -173,11 +178,26 @@ function RegisterPage() {
                 <Field
                   id="password"
                   label="CREATE PASSWORD"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="At least 6 characters"
                   autoComplete="new-password"
+                  trailing={
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon"
+                      className="absolute right-1 top-1/2 -translate-y-1/2 rounded-none text-accent hover:bg-transparent hover:text-foreground"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                      aria-pressed={showPassword}
+                      aria-controls="password"
+                      title={showPassword ? "Hide password" : "Show password"}
+                      onClick={() => setShowPassword((visible) => !visible)}
+                    >
+                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </Button>
+                  }
                 />
 
                 <Button

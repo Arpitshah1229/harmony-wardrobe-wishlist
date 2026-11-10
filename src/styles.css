@@ -291,6 +291,15 @@
 @media (prefers-reduced-motion: reduce) { .nip-reveal { opacity: 1; transform: none; transition: none; } }
 
 /* Homepage luxury motion — opacity/transform only */
+/* Gentle editorial motion on other content pages; Collections is excluded in ScrollReveal. */
+@keyframes nip-soft-entry { from { opacity: 0.9; } to { opacity: 1; } }
+.nip-soft-entry { animation: nip-soft-entry 1.8s ease-in-out both; }
+.nip-reveal.nip-soft-reveal { transform: translateY(8px); transition-duration: 1.5s; }
+.nip-reveal.nip-soft-reveal.nip-reveal-in { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .nip-soft-entry { animation: none; }
+  .nip-reveal.nip-soft-reveal { opacity: 1; transform: none; transition: none; }
+}
 @keyframes home-photo-settle { from { opacity: 0.95; } to { opacity: 1; } }
 .home-hero-photo { animation: home-photo-settle 3.5s ease-in-out both; }
 @media (prefers-reduced-motion: reduce) { .home-hero-photo { animation: none; } }
