@@ -91,7 +91,7 @@ function HomePage() {
             </Link>
             <div className="home-hero-collection -mr-1 text-right text-[10px] uppercase leading-[1.7] tracking-[0.12em] text-accent sm:-mr-9 sm:translate-x-8 sm:text-[11px] sm:leading-[1.8]">
               <p>Inaugural Collection</p>
-              <p className="my-1 whitespace-nowrap font-serif text-[22px] font-bold normal-case leading-none max-[360px]:text-[19px] sm:my-1 sm:text-[35px]">
+              <p className="my-1 whitespace-nowrap font-serif text-[22px] font-bold normal-case leading-none max-[360px]:text-[19px] sm:my-1 sm:text-[28px]">
                 Naqsh-E-Nigāh
               </p>
               <p>Patterns of the vision</p>
