@@ -29,7 +29,8 @@ export const Route = createFileRoute("/about-us")({
 });
 
 // const BROWN = "#4B3528";
-const BROWN = "#4c2d1de6";
+// const BROWN = "#4c2d1de6";
+const BROWN = "#4C2D1D";
 const DARK = "#2C2119";
 
 function Icon({ type }: { type: string }) {
