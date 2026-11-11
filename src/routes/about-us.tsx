@@ -28,7 +28,8 @@ export const Route = createFileRoute("/about-us")({
   }),
 });
 
-const BROWN = "#4B3528";
+// const BROWN = "#4B3528";
+const BROWN = "#4c2d1de6";
 const DARK = "#2C2119";
 
 function Icon({ type }: { type: string }) {
@@ -36,7 +37,16 @@ function Icon({ type }: { type: string }) {
   const s = 32;
   if (type === "craft")
     return (
-      <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={s}
+        height={s}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={stroke}
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11" />
         <path d="M12 11V4a1.5 1.5 0 0 1 3 0v7" />
         <path d="M15 11V5.5a1.5 1.5 0 0 1 3 0V13" />
@@ -45,14 +55,32 @@ function Icon({ type }: { type: string }) {
     );
   if (type === "thought")
     return (
-      <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={s}
+        height={s}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={stroke}
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z" />
         <circle cx="12" cy="12" r="2.5" />
       </svg>
     );
   if (type === "process")
     return (
-      <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={s}
+        height={s}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={stroke}
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M3 9c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0" />
         <path d="M3 15c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0" />
       </svg>
@@ -71,109 +99,190 @@ function AboutPage() {
       <Header solid solidInk="#E5D9C5" />
 
       <div className="max-w-[1440px] min-[1500px]:max-w-[1680px] mx-auto">
-      {/* Hero */}
-      <section className="px-8 md:px-16 pt-8 pb-20 grid xl:grid-cols-[minmax(0,520px)_minmax(0,1fr)] min-[1500px]:grid-cols-[minmax(0,640px)_minmax(0,1fr)] min-[1500px]:gap-10 gap-2 xl:gap-4 items-center">
-        <div data-about-reveal className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
-          <h1 className="font-serif text-6xl sm:text-7xl min-[1500px]:text-[88px] leading-[1.05] tracking-tight">
-            A thinking label<br className="hidden xl:block" /> using craft as<br className="hidden xl:block" /> expression.
-          </h1>
-          <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
-          <p className="text-[17px] md:text-[18px] min-[1500px]:text-[20px] leading-[1.85] max-w-md min-[1500px]:max-w-lg">
-            Exploring textiles and handicrafts as a way of understanding life, through evolving collections. Reimagining patterns, reshaping them, and creating one piece at a time.
-          </p>
-        </div>
-        <div className="w-full aspect-[1600/1066] overflow-hidden md:-mx-16 md:w-[calc(100%_+_8rem)] xl:mx-0 xl:w-full">
-          <StoreImage src={aboutus1.url} loading="eager" fetchPriority="high" alt="Artisans working on textile" className="w-full h-full object-contain block" />
-        </div>
-      </section>
+        {/* Hero */}
+        <section className="px-8 md:px-16 pt-8 pb-20 grid xl:grid-cols-[minmax(0,520px)_minmax(0,1fr)] min-[1500px]:grid-cols-[minmax(0,640px)_minmax(0,1fr)] min-[1500px]:gap-10 gap-2 xl:gap-4 items-center">
+          <div data-about-reveal className="pt-6 flex flex-col justify-center" style={{ color: BROWN }}>
+            <h1 className="font-serif text-6xl sm:text-7xl min-[1500px]:text-[88px] leading-[1.05] tracking-tight">
+              A thinking label
+              <br className="hidden xl:block" /> using craft as
+              <br className="hidden xl:block" /> expression.
+            </h1>
+            <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
+            <p className="text-[17px] md:text-[18px] min-[1500px]:text-[20px] leading-[1.85] max-w-md min-[1500px]:max-w-lg">
+              Exploring textiles and handicrafts as a way of understanding life, through evolving collections.
+              Reimagining patterns, reshaping them, and creating one piece at a time.
+            </p>
+          </div>
+          <div className="w-full aspect-[1600/1066] overflow-hidden md:-mx-16 md:w-[calc(100%_+_8rem)] xl:mx-0 xl:w-full">
+            <StoreImage
+              src={aboutus1.url}
+              loading="eager"
+              fetchPriority="high"
+              alt="Artisans working on textile"
+              className="w-full h-full object-contain block"
+            />
+          </div>
+        </section>
 
-      {/* Our Story */}
-      <section className="px-8 md:px-16 pb-24">
-        <h3 data-about-reveal className={titleClass} style={{ color: BROWN }}>OUR STORY</h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-[1500px]:gap-12 text-[13px] min-[1500px]:text-[15px] leading-[1.9] relative" style={{ color: DARK }}>
-          <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
-            <p>Notions in Pattern began at home.<br />With my mother.</p>
-            <p>It did not begin as a brand,<br />but as something quieter. Repetition.</p>
-          </div>
-          <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
-            <p>The same sentences. The same advice. The same words heard so often, they fade into the background.</p>
-            <p>Over time, they begin to structure how you think, respond, and move through the world.</p>
-          </div>
-          <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
-            <p>They were patterns.</p>
-            <p>Notions in Pattern comes from that realisation.</p>
-            <p>That nothing in us is fixed.<br />Not thought. Not behaviour.<br />Not meaning.</p>
-          </div>
-          <div data-about-reveal className="space-y-4">
-            <p>Everything is formed through repetition.</p>
-            <p>And anything formed can be re-formed.</p>
-            <p>We are choosing craft as the language to show that shift.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* What we do */}
-      <section className="grid md:grid-cols-2 gap-12 md:gap-16 items-center pb-24">
-        <div className="px-8 md:pl-16 md:pr-0">
-          <StoreImage src={aboutus2.url} alt="Hand embroidering fabric" className="w-full max-h-[420px] min-[1500px]:max-h-[540px] h-auto object-cover" />
-        </div>
-        <div data-about-reveal className="px-8 md:pr-16 md:pl-0">
-          <h3 className={titleClass} style={{ color: BROWN }}>WHAT WE DO</h3>
-          <div className="space-y-4 text-[13px] min-[1500px]:text-[15px] leading-[1.9] max-w-lg min-[1500px]:max-w-xl" style={{ color: DARK }}>
-            <p>At Notions in Patterns, we want to work with traditional crafts across various forms: stitching, dyeing, printing, weaving, and handwork.</p>
-            <p>We do not approach craft as something to preserve unchanged.</p>
-            <p>We see it as a living system, open to reinterpretation.</p>
-            <p>It begins with observation and moves into making.</p>
-            <p>Because what changes the outcome is not only what we make, but how we are taught to see it.</p>
-            <p>What we shift is not the technique, but the way it is seen.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Pillars */}
-      <section className="px-8 md:px-16 pb-24" style={{ color: DARK }}>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { icon: "craft", title: "CRAFT", l1: "Traditional techniques.", l2: "New directions." },
-            { icon: "thought", title: "THOUGHT", l1: "Understanding life begins", l2: "with understanding patterns." },
-            { icon: "process", title: "PROCESS", l1: "Nothing here", l2: "is ever rushed." },
-            { icon: "pattern", title: "PATTERN", l1: "Nothing is fixed.", l2: "Not even us." },
-          ].map((p, i) => (
-            <div data-about-reveal key={p.title} className={`flex flex-col items-center text-center px-4 ${i < 3 ? "md:border-r" : ""}`} style={{ borderColor: `${DARK}33` }}>
-              <span style={{ color: BROWN }}><Icon type={p.icon} /></span>
-              <h4 className="font-serif font-bold text-[15px] min-[1500px]:text-[17px] tracking-[0.25em] mt-4 mb-3" style={{ color: BROWN }}>{p.title}</h4>
-              <p className="text-[12px] min-[1500px]:text-[14px] leading-[1.8]">{p.l1}<br />{p.l2}</p>
+        {/* Our Story */}
+        <section className="px-8 md:px-16 pb-24">
+          <h3 data-about-reveal className={titleClass} style={{ color: BROWN }}>
+            OUR STORY
+          </h3>
+          <div
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-[1500px]:gap-12 text-[13px] min-[1500px]:text-[15px] leading-[1.9] relative"
+            style={{ color: DARK }}
+          >
+            <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+              <p>
+                Notions in Pattern began at home.
+                <br />
+                With my mother.
+              </p>
+              <p>
+                It did not begin as a brand,
+                <br />
+                but as something quieter. Repetition.
+              </p>
             </div>
-          ))}
-        </div>
-      </section>
+            <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+              <p>The same sentences. The same advice. The same words heard so often, they fade into the background.</p>
+              <p>Over time, they begin to structure how you think, respond, and move through the world.</p>
+            </div>
+            <div data-about-reveal className="lg:pr-6 lg:border-r space-y-4" style={{ borderColor: `${DARK}33` }}>
+              <p>They were patterns.</p>
+              <p>Notions in Pattern comes from that realisation.</p>
+              <p>
+                That nothing in us is fixed.
+                <br />
+                Not thought. Not behaviour.
+                <br />
+                Not meaning.
+              </p>
+            </div>
+            <div data-about-reveal className="space-y-4">
+              <p>Everything is formed through repetition.</p>
+              <p>And anything formed can be re-formed.</p>
+              <p>We are choosing craft as the language to show that shift.</p>
+            </div>
+          </div>
+        </section>
 
+        {/* What we do */}
+        <section className="grid md:grid-cols-2 gap-12 md:gap-16 items-center pb-24">
+          <div className="px-8 md:pl-16 md:pr-0">
+            <StoreImage
+              src={aboutus2.url}
+              alt="Hand embroidering fabric"
+              className="w-full max-h-[420px] min-[1500px]:max-h-[540px] h-auto object-cover"
+            />
+          </div>
+          <div data-about-reveal className="px-8 md:pr-16 md:pl-0">
+            <h3 className={titleClass} style={{ color: BROWN }}>
+              WHAT WE DO
+            </h3>
+            <div
+              className="space-y-4 text-[13px] min-[1500px]:text-[15px] leading-[1.9] max-w-lg min-[1500px]:max-w-xl"
+              style={{ color: DARK }}
+            >
+              <p>
+                At Notions in Patterns, we want to work with traditional crafts across various forms: stitching, dyeing,
+                printing, weaving, and handwork.
+              </p>
+              <p>We do not approach craft as something to preserve unchanged.</p>
+              <p>We see it as a living system, open to reinterpretation.</p>
+              <p>It begins with observation and moves into making.</p>
+              <p>Because what changes the outcome is not only what we make, but how we are taught to see it.</p>
+              <p>What we shift is not the technique, but the way it is seen.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Pillars */}
+        <section className="px-8 md:px-16 pb-24" style={{ color: DARK }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { icon: "craft", title: "CRAFT", l1: "Traditional techniques.", l2: "New directions." },
+              {
+                icon: "thought",
+                title: "THOUGHT",
+                l1: "Understanding life begins",
+                l2: "with understanding patterns.",
+              },
+              { icon: "process", title: "PROCESS", l1: "Nothing here", l2: "is ever rushed." },
+              { icon: "pattern", title: "PATTERN", l1: "Nothing is fixed.", l2: "Not even us." },
+            ].map((p, i) => (
+              <div
+                data-about-reveal
+                key={p.title}
+                className={`flex flex-col items-center text-center px-4 ${i < 3 ? "md:border-r" : ""}`}
+                style={{ borderColor: `${DARK}33` }}
+              >
+                <span style={{ color: BROWN }}>
+                  <Icon type={p.icon} />
+                </span>
+                <h4
+                  className="font-serif font-bold text-[15px] min-[1500px]:text-[17px] tracking-[0.25em] mt-4 mb-3"
+                  style={{ color: BROWN }}
+                >
+                  {p.title}
+                </h4>
+                <p className="text-[12px] min-[1500px]:text-[14px] leading-[1.8]">
+                  {p.l1}
+                  <br />
+                  {p.l2}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
 
       {/* Gratitude — full width on wide screens */}
       <div className="max-w-[1440px] mx-auto min-[1500px]:max-w-none">
-      <section
-        className="about-gratitude relative w-full px-8 max-md:px-3 md:px-16 py-24 min-[1500px]:py-32 min-[1500px]:px-24 min-[1500px]:min-h-[620px] max-md:pt-3 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden"
-      >
-        <StoreImage src={aboutus3.url} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover object-right md:block" />
-        <StoreImage src={gratitudeMobile.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-contain md:hidden" />
-        <div className="max-w-6xl relative z-10 max-md:absolute max-md:inset-0 max-md:px-3 max-md:pt-1">
-          <div data-about-reveal="fade" className="max-w-md min-[1500px]:max-w-xl max-md:max-w-none" style={{ color: DARK }}>
-            <h2 className="font-serif font-bold text-4xl md:text-5xl min-[1500px]:text-[60px] mb-4 max-md:mb-2 max-[361px]:text-[32px] max-[361px]:mb-1" style={{ color: BROWN }}>With Gratitude.</h2>
-            <div className="w-14 h-px mb-6 max-md:mb-4 max-md:ml-[80px] max-[361px]:ml-[71px] max-[361px]:mb-1" style={{ backgroundColor: `${BROWN}66` }} />
-            <div className="space-y-2 max-md:space-y-0.5 text-[14px] min-[1500px]:text-[17px] max-md:text-[13px] leading-[1.9] max-md:leading-[1.7] max-[361px]:text-[12px] max-[361px]:leading-[1.5]">
-              <p>Notions in Pattern began with our family.</p>
-              <p>
-                It continues through every artisan, every collaborator, and everyone who becomes part of the story.{" "}
-                <span className="max-md:inline md:block md:mt-2">Thank you for being here.</span>{" "}
-                <span className="max-md:absolute max-md:right-[10.4%] max-md:top-[33%] max-md:whitespace-nowrap md:block md:mt-2">— Neha & Anita</span>
-              </p>
+        <section className="about-gratitude relative w-full px-8 max-md:px-3 md:px-16 py-24 min-[1500px]:py-32 min-[1500px]:px-24 min-[1500px]:min-h-[620px] max-md:pt-3 max-md:pb-0 max-md:aspect-[3/4] bg-no-repeat bg-cover bg-right max-md:overflow-hidden">
+          <StoreImage
+            src={aboutus3.url}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 hidden h-full w-full object-cover object-right md:block"
+          />
+          <StoreImage
+            src={gratitudeMobile.url}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-contain md:hidden"
+          />
+          <div className="max-w-6xl relative z-10 max-md:absolute max-md:inset-0 max-md:px-3 max-md:pt-1">
+            <div
+              data-about-reveal="fade"
+              className="max-w-md min-[1500px]:max-w-xl max-md:max-w-none"
+              style={{ color: DARK }}
+            >
+              <h2
+                className="font-serif font-bold text-4xl md:text-5xl min-[1500px]:text-[60px] mb-4 max-md:mb-2 max-[361px]:text-[32px] max-[361px]:mb-1"
+                style={{ color: BROWN }}
+              >
+                With Gratitude.
+              </h2>
+              <div
+                className="w-14 h-px mb-6 max-md:mb-4 max-md:ml-[80px] max-[361px]:ml-[71px] max-[361px]:mb-1"
+                style={{ backgroundColor: `${BROWN}66` }}
+              />
+              <div className="space-y-2 max-md:space-y-0.5 text-[14px] min-[1500px]:text-[17px] max-md:text-[13px] leading-[1.9] max-md:leading-[1.7] max-[361px]:text-[12px] max-[361px]:leading-[1.5]">
+                <p>Notions in Pattern began with our family.</p>
+                <p>
+                  It continues through every artisan, every collaborator, and everyone who becomes part of the story.{" "}
+                  <span className="max-md:inline md:block md:mt-2">Thank you for being here.</span>{" "}
+                  <span className="max-md:absolute max-md:right-[10.4%] max-md:top-[33%] max-md:whitespace-nowrap md:block md:mt-2">
+                    — Neha & Anita
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
-
 
       <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
       <Footer />
