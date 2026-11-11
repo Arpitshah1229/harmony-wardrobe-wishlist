@@ -26,7 +26,15 @@ export function PasswordPage({
           align === "right" ? "md:justify-end md:pr-[7vw] lg:pr-[9vw]" : ""
         }`}
       >
-        <StoreImage src={background.url} alt="" aria-hidden="true" loading="eager" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+        <StoreImage
+          src={background.url}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          className={`absolute inset-0 -z-20 h-full w-full object-cover ${
+            align === "right" ? "md:object-[76%_50%]" : ""
+          }`}
+        />
         <div className="absolute inset-0 -z-10 bg-foreground/25" aria-hidden="true" />
         <section className="w-full max-w-[420px] border border-foreground/70 bg-background p-1 shadow-xl">
           <div className="border border-foreground/35 px-6 py-8 sm:px-8">
