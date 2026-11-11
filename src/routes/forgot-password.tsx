@@ -23,7 +23,7 @@ function ForgotPasswordPage() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
 
-  return <PasswordPage title="Forgot password?">
+  return <PasswordPage title="Forgot password?" align="right">
     {sent ? <div className="text-center text-sm leading-relaxed">
       <p role="status">If an account exists for this email, you’ll receive a password reset link. Please check your inbox and spam folder.</p>
       <Button type="button" className="mt-5 h-11 w-full rounded-none" onClick={() => { setSent(false); setError(""); }}>Try another email / Resend</Button>

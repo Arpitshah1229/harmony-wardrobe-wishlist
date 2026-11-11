@@ -7,13 +7,34 @@ import background from "@/assets/register-wallpaper.jpg.asset.json";
 import logo from "@/assets/nip_logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 
-export function PasswordPage({ title, children }: { title: string; children: ReactNode }) {
+export function PasswordPage({
+  title,
+  children,
+  align = "center",
+}: {
+  title: string;
+  children: ReactNode;
+  /** "right" parks the card on the right edge from tablet width up; phones stay centred. */
+  align?: "center" | "right";
+}) {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
       <AnnouncementBar />
-      <main className="relative isolate flex min-h-[660px] flex-1 items-center justify-center overflow-hidden px-5 py-12 sm:min-h-[740px]">
-        <StoreImage src={background.url} alt="" aria-hidden="true" loading="eager" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+      <main
+        className={`relative isolate flex min-h-[660px] flex-1 items-center justify-center overflow-hidden px-5 py-12 sm:min-h-[740px] ${
+          align === "right" ? "md:justify-end md:pr-10 lg:pr-14" : ""
+        }`}
+      >
+        <StoreImage
+          src={background.url}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          className={`absolute inset-0 -z-20 h-full w-full object-cover ${
+            align === "right" ? "md:object-[95%_50%]" : ""
+          }`}
+        />
         <div className="absolute inset-0 -z-10 bg-foreground/25" aria-hidden="true" />
         <section className="w-full max-w-[420px] border border-foreground/70 bg-background p-1 shadow-xl">
           <div className="border border-foreground/35 px-6 py-8 sm:px-8">
