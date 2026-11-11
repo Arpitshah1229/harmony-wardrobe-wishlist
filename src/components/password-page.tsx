@@ -23,7 +23,7 @@ export function PasswordPage({
       <AnnouncementBar />
       <main
         className={`relative isolate flex min-h-[660px] flex-1 items-center justify-center overflow-hidden px-5 py-12 sm:min-h-[740px] ${
-          align === "right" ? "md:justify-end md:pr-[7vw] lg:pr-[9vw]" : ""
+          align === "right" ? "md:justify-end md:pr-10 lg:pr-14" : ""
         }`}
       >
         <StoreImage
@@ -32,7 +32,7 @@ export function PasswordPage({
           aria-hidden="true"
           loading="eager"
           className={`absolute inset-0 -z-20 h-full w-full object-cover ${
-            align === "right" ? "md:object-[76%_50%]" : ""
+            align === "right" ? "md:object-[95%_50%]" : ""
           }`}
         />
         <div className="absolute inset-0 -z-10 bg-foreground/25" aria-hidden="true" />
