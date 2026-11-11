@@ -156,6 +156,11 @@
   background-image: linear-gradient(100deg, var(--home-espresso) 52.5%, var(--home-light) 52%);
 }
 
+/* Tablet and small-laptop widths: keep the collection title fully inside the screen. */
+@media (min-width: 640px) and (max-width: 1100px) {
+  .home-hero-collection { translate: calc(6.1vw - 44px) 0; }
+}
+
 @media (min-width: 640px) and (max-height: 600px) {
   .home-hero-content { padding-top: 29vh; }
   .home-hero-title { font-size: 40px; }
