@@ -108,7 +108,7 @@ function AboutPage() {
               <br className="hidden xl:block" /> using craft as
               <br className="hidden xl:block" /> expression.
             </h1>
-            <div className="w-16 h-px my-6" style={{ backgroundColor: `${BROWN}66` }} />
+            <div className="w-16 h-px my-6" style={{ backgroundColor: `${DARK}66` }} />
             <p className="text-[17px] md:text-[18px] min-[1500px]:text-[20px] leading-[1.85] max-w-md min-[1500px]:max-w-lg">
               Exploring textiles and handicrafts as a way of understanding life, through evolving collections.
               Reimagining patterns, reshaping them, and creating one piece at a time.
