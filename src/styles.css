@@ -157,7 +157,7 @@
 }
 
 /* Tablet and small-laptop widths: keep the collection title fully inside the screen. */
-@media (min-width: 640px) and (max-width: 1100px) {
+@media (min-width: 640px) and (max-width: 1200px) {
   .home-hero-collection { translate: calc(6.1vw - 44px) 0; }
 }
 
