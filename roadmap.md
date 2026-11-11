@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
+- [x] Keep product and Collections shoppers on the same page after adding to cart; verified new items and duplicate-size additions at 393/1280px, with saved shirts displayed in the cart; build OK.
 - [x] Make About Us text animations visible and gentle; photos and layout unchanged, verified all 12 text targets at 394/1280px, reduced motion respected, no page errors or sideways overflow.
 - [x] Add an eye control to the Create Account password field; verified show/hide, preserved value and unchanged field dimensions at 393/1280px.
 - [x] Extend gentle heading fades and slow section reveals to all content pages except Collections; preserved homepage motion, photo framing and reduced-motion support; checked 14 pages at 393/1280px with no page errors.

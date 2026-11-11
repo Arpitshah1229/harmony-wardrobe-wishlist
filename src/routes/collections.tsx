@@ -1,7 +1,7 @@
 import { StoreImage } from "@/components/store-image";
 import { useLivePrices } from "@/lib/shopify";
 import { useEffect, useRef, useState } from "react";
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Heart, Search } from "lucide-react";
 import { useWishlist } from "@/lib/wishlist";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
@@ -17,7 +17,6 @@ function ProductCard({ product }: { product: Product }) {
   const [mobileIdx, setMobileIdx] = useState(0);
   const [pickerOpen, setPickerOpen] = useState(false);
   const desktopStrip = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
   const { has, toggle } = useWishlist();
   const livePrice = useLivePrices();
   const wished = has(product.slug);
@@ -187,7 +186,6 @@ function ProductCard({ product }: { product: Product }) {
         product={product}
         open={pickerOpen}
         onClose={() => setPickerOpen(false)}
-        onAdded={() => navigate({ to: "/cart" })}
       />
     </article>
   );

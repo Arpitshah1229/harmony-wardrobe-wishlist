@@ -1,7 +1,7 @@
 import { StoreImage } from "@/components/store-image";
 import { useLiveProduct, useLivePrices } from "@/lib/shopify";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, Expand } from "lucide-react";
 import { PhoneIcon } from "@/components/phone-icon";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
@@ -285,7 +285,6 @@ function ProductPage() {
   const [email, setEmail] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const isMobile = useIsMobile();
-  const navigate = useNavigate();
   const { has, toggle } = useWishlist();
   const isWished = product ? has(product.slug) : false;
 
@@ -591,7 +590,6 @@ function ProductPage() {
                 product={product}
                 open={pickerOpen}
                 onClose={() => setPickerOpen(false)}
-                onAdded={() => navigate({ to: "/cart" })}
                 initialSize={size}
                 initialQty={qty}
               />
