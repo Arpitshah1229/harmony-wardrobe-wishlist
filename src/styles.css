@@ -66,7 +66,7 @@
   .home-hero-copy { max-width: 520px; margin-top: 40px; font-size: 18px; }
   .home-hero-link { font-size: 14px; }
   .home-hero-collection { font-size: 14px; }
-  .home-hero-collection > p:nth-child(2) { font-size: 44px; }
+  .home-hero-collection > p:nth-child(2) { font-size: 36px; }
   .home-philosophy { min-height: 800px; }
   .home-philosophy h2 { font-size: 44px; }
   .home-featured { padding-block: 28px; }
