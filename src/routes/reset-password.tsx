@@ -56,7 +56,7 @@ function ResetPasswordPage() {
     return () => window.clearTimeout(timer);
   }, [success, navigate]);
 
-  return <PasswordPage title="Create new password">
+  return <PasswordPage title="Create new password" align="right">
     {checking ? <p role="status" className="text-center text-sm">Checking your reset link…</p> : !verified ? <div className="text-center text-sm leading-relaxed">
       <p>This reset link is missing or expired. Request a new link to continue.</p>
       <Button className="mt-5 rounded-none" onClick={() => navigate({ to: "/forgot-password" })}>Request new link</Button>
