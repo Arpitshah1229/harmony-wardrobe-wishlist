@@ -314,7 +314,7 @@ function ProductPage() {
   const others = allProducts.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   const accordions = [
-    {
+    product.details.length > 0 && {
       title: "FABRIC & DETAILS",
       body: (
         <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-[14px] leading-[1.8]">
@@ -327,7 +327,7 @@ function ProductPage() {
         </dl>
       ),
     },
-    {
+    !!product.handmadeNote && {
       title: "A NOTE ON HANDMADE CHARACTER",
       body: <p className="text-[14px] leading-[1.9]">{product.handmadeNote}</p>,
     },
@@ -493,12 +493,16 @@ function ProductPage() {
             )}
 
             <div className="mt-5 space-y-1.5 text-[14px] leading-[1.7]" style={{ color: DARK }}>
-              <p>
-                <span className="font-bold">Fabric Colour :</span> {product.fabricColour}
-              </p>
-              <p>
-                <span className="font-bold">Embroidery colour :</span> {product.embroideryColour}
-              </p>
+              {product.fabricColour && (
+                <p>
+                  <span className="font-bold">Fabric Colour :</span> {product.fabricColour}
+                </p>
+              )}
+              {product.embroideryColour && (
+                <p>
+                  <span className="font-bold">Embroidery colour :</span> {product.embroideryColour}
+                </p>
+              )}
             </div>
 
             {/* Size */}
