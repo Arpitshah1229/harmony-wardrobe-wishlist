@@ -1,5 +1,5 @@
 import { StoreImage } from "@/components/store-image";
-import { useLiveProduct, useLivePrices } from "@/lib/shopify";
+import { useLiveProduct, useLivePrices, useAllProducts } from "@/lib/shopify";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, Expand } from "lucide-react";
@@ -273,7 +273,8 @@ function ProductPage() {
     const timers = [50, 400, 900].map((ms) => window.setTimeout(jump, ms));
     return () => timers.forEach(clearTimeout);
   }, [slug, startImg]);
-  const product = getProduct(slug);
+  const allProducts = useAllProducts();
+  const product = getProduct(slug) ?? allProducts.find((p) => p.slug === slug);
   const { priceText, isSoldOut } = useLiveProduct(product);
   const livePrice = useLivePrices();
   const [size, setSize] = useState<string | null>(null);
@@ -311,7 +312,7 @@ function ProductPage() {
   }
 
   const gallery = Array.from(new Set([...product.images, product.detailImg].filter(Boolean)));
-  const others = products.filter((p) => p.slug !== product.slug).slice(0, 3);
+  const others = allProducts.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   const accordions = [
     {

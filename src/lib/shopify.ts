@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { Product } from "@/lib/products";
+import { products as localProducts, type Product } from "@/lib/products";
 
 const SHOPIFY_API_VERSION = "2026-10";
 const SHOPIFY_STORE_PERMANENT_DOMAIN = "3xf5gq-1k.myshopify.com";
@@ -37,13 +37,16 @@ export type LiveProduct = {
   price: number;
   available: boolean;
   variants: LiveVariant[];
+  images: string[];
+  tags: string[];
 };
 
 const PRODUCTS_QUERY = `
   query Catalog($first: Int!) {
     products(first: $first) {
       edges { node {
-        handle title description availableForSale
+        handle title description descriptionHtml productType tags availableForSale
+        images(first: 12) { edges { node { url altText } } }
         priceRange { minVariantPrice { amount } }
         variants(first: 20) { edges { node {
           id availableForSale price { amount }
@@ -64,6 +67,8 @@ async function fetchCatalog(): Promise<Record<string, LiveProduct>> {
       description: node.description,
       price: Number(node.priceRange.minVariantPrice.amount),
       available: node.availableForSale,
+      images: (node.images?.edges ?? []).map((e: any) => e.node.url),
+      tags: node.tags ?? [],
       variants: node.variants.edges.map(({ node: v }: any) => ({
         id: v.id,
         size: v.selectedOptions.find((o: any) => o.name === "Size")?.value ?? v.selectedOptions[0]?.value,
@@ -77,6 +82,43 @@ async function fetchCatalog(): Promise<Record<string, LiveProduct>> {
 
 export function useLiveCatalog() {
   return useQuery({ queryKey: ["shopify-catalog"], queryFn: fetchCatalog, staleTime: 60_000 });
+}
+
+/** Turns a shirt that exists only in Shopify Admin into the storefront's product shape. */
+export function liveToProduct(l: LiveProduct): Product {
+  const paras = l.description.split(/\n\s*\n|(?<=\.)\s{2,}/).map((t) => t.trim()).filter(Boolean);
+  return {
+    slug: l.handle,
+    name: l.title.replace(/\s*shirt$/i, "") || l.title,
+    title: l.title,
+    tagline: "",
+    price: formatINR(l.price),
+    images: l.images,
+    colorName: "",
+    colorHex: "#ECE4DB",
+    colorStory: "",
+    fabricColour: "",
+    embroideryColour: "",
+    detailImg: "",
+    description: paras.length ? paras : [l.description],
+    details: [],
+    handmadeNote: "",
+    altText: l.title,
+    metaTitle: `${l.title} | Notions in Pattern`,
+    metaDescription: l.description.slice(0, 155) || "Hand embroidered chikankari shirt from Notions in Pattern.",
+    tags: l.tags,
+  };
+}
+
+/** Designed shirts first, then any shirt added later in Shopify Admin (with photos). */
+export function useAllProducts(): Product[] {
+  const { data } = useLiveCatalog();
+  if (!data) return localProducts;
+  const known = new Set(localProducts.map((p) => p.slug));
+  const extra = Object.values(data)
+    .filter((l) => !known.has(l.handle) && l.images.length > 0)
+    .map(liveToProduct);
+  return [...localProducts, ...extra];
 }
 
 export function formatINR(n: number) {

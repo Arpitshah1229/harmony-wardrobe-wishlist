@@ -1,3 +1,4 @@
+import { useAllProducts } from "@/lib/shopify";
 import { StoreImage } from "@/components/store-image";
 import { useLivePrices } from "@/lib/shopify";
 import { useEffect, useRef, useState } from "react";
@@ -5,7 +6,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Heart, Search } from "lucide-react";
 import { useWishlist } from "@/lib/wishlist";
 import { Header, Footer, AnnouncementBar, BROWN, DARK } from "@/components/site-chrome";
-import { products, PRODUCT_SUBTITLE, type Product } from "@/lib/products";
+import { PRODUCT_SUBTITLE, type Product } from "@/lib/products";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import heroImg from "@/assets/collection_hero_v3.png.asset.json";
 import stitchesStrip from "@/assets/stitches_strip_v2.jpeg.asset.json";
@@ -227,6 +228,7 @@ function CollectionsPage() {
   const [sort, setSort] = useState<string>(SORT_OPTIONS[0]);
   const [query, setQuery] = useState("");
 
+  const products = useAllProducts();
   const filtered = products.filter((p) => p.name.toLowerCase().includes(query.trim().toLowerCase()));
 
   const sorted = [...filtered].sort((a, b) => {
