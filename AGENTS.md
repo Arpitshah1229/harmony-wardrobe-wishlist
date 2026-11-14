@@ -27,7 +27,7 @@
 - Keep shared header sizing consistent between overlay and in-flow presentations, while preserving the Collections header exception, so page navigation retains consistent dimensions.
 - Founder story photos use stretching grid-cell wrappers with positioned images so taller chapter text cannot leave gaps between adjacent photo corners.
 - Keep model fit-reference data in the shared size-chart-models module so all product size charts use the same tested sizing facts and uploaded photo pointers.
-- Shopify is the source of truth for price, stock and checkout (src/lib/shopify.ts, product handle = local slug); src/lib/products.ts keeps the design content (copy, colours, styling photos) plus a fallback price used only while live data is missing, so the bespoke layout survives while commerce data stays live.
+- Shopify is the source of truth for price, stock and checkout (src/lib/shopify.ts); Shopify handles map to local slugs with or without the "-shirt" suffix, and Shopify-only products with photos and a non-zero price are appended via useAllProducts so new Admin products appear without code; src/lib/products.ts keeps bespoke design content plus a fallback price used while live price is missing or zero.
 - Scope wide-screen Product, Founder, Cart, Wishlist, Orders and Privacy sizing above 1500px via page wrapper classes so approved smaller layouts remain stable.
 - Anchor and scale the desktop login card proportionally to its photo section; isolate these rules above the desktop breakpoint to preserve phone and tablet layouts.
 
