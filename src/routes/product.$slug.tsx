@@ -356,7 +356,7 @@ function ProductPage() {
         </div>
       ),
     },
-  ];
+  ].filter((a): a is { title: string; body: React.JSX.Element } => Boolean(a));
 
   return (
     <div className="bg-background min-h-screen">
