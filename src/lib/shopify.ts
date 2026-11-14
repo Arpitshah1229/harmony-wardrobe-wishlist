@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { Product } from "@/lib/products";
+import { products as localProducts, type Product } from "@/lib/products";
 
 const SHOPIFY_API_VERSION = "2026-10";
 const SHOPIFY_STORE_PERMANENT_DOMAIN = "3xf5gq-1k.myshopify.com";
@@ -37,13 +37,16 @@ export type LiveProduct = {
   price: number;
   available: boolean;
   variants: LiveVariant[];
+  images: string[];
+  tags: string[];
 };
 
 const PRODUCTS_QUERY = `
   query Catalog($first: Int!) {
     products(first: $first) {
       edges { node {
-        handle title description availableForSale
+        handle title description descriptionHtml productType tags availableForSale
+        images(first: 12) { edges { node { url altText } } }
         priceRange { minVariantPrice { amount } }
         variants(first: 20) { edges { node {
           id availableForSale price { amount }
@@ -58,12 +61,20 @@ async function fetchCatalog(): Promise<Record<string, LiveProduct>> {
   const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 100 });
   const map: Record<string, LiveProduct> = {};
   for (const { node } of data?.data?.products?.edges ?? []) {
-    map[node.handle] = {
-      handle: node.handle,
+    // Shopify handles may omit the "-shirt" suffix used by the designed pages.
+    const slug = localProducts.some((p) => p.slug === node.handle)
+      ? node.handle
+      : localProducts.some((p) => p.slug === `${node.handle}-shirt`)
+        ? `${node.handle}-shirt`
+        : node.handle;
+    map[slug] = {
+      handle: slug,
       title: node.title,
       description: node.description,
       price: Number(node.priceRange.minVariantPrice.amount),
       available: node.availableForSale,
+      images: (node.images?.edges ?? []).map((e: any) => e.node.url),
+      tags: node.tags ?? [],
       variants: node.variants.edges.map(({ node: v }: any) => ({
         id: v.id,
         size: v.selectedOptions.find((o: any) => o.name === "Size")?.value ?? v.selectedOptions[0]?.value,
@@ -79,6 +90,43 @@ export function useLiveCatalog() {
   return useQuery({ queryKey: ["shopify-catalog"], queryFn: fetchCatalog, staleTime: 60_000 });
 }
 
+/** Turns a shirt that exists only in Shopify Admin into the storefront's product shape. */
+export function liveToProduct(l: LiveProduct): Product {
+  const paras = l.description.split(/\n\s*\n|(?<=\.)\s{2,}/).map((t) => t.trim()).filter(Boolean);
+  return {
+    slug: l.handle,
+    name: l.title.replace(/\s*shirt$/i, "") || l.title,
+    title: l.title,
+    tagline: "",
+    price: formatINR(l.price),
+    images: l.images,
+    colorName: "",
+    colorHex: "#ECE4DB",
+    colorStory: "",
+    fabricColour: "",
+    embroideryColour: "",
+    detailImg: "",
+    description: paras.length ? paras : [l.description],
+    details: [],
+    handmadeNote: "",
+    altText: l.title,
+    metaTitle: `${l.title} | Notions in Pattern`,
+    metaDescription: l.description.slice(0, 155) || "Hand embroidered chikankari shirt from Notions in Pattern.",
+    tags: l.tags,
+  };
+}
+
+/** Designed shirts first, then any shirt added later in Shopify Admin (with photos). */
+export function useAllProducts(): Product[] {
+  const { data } = useLiveCatalog();
+  if (!data) return localProducts;
+  const known = new Set(localProducts.map((p) => p.slug));
+  const extra = Object.values(data)
+    .filter((l) => !known.has(l.handle) && l.images.length > 0 && l.price > 0)
+    .map(liveToProduct);
+  return [...localProducts, ...extra];
+}
+
 export function formatINR(n: number) {
   return `₹${n.toLocaleString("en-IN")}`;
 }
@@ -87,7 +135,7 @@ export function formatINR(n: number) {
 export function useLiveProduct(product: Product | undefined) {
   const { data } = useLiveCatalog();
   const live = product ? data?.[product.slug] : undefined;
-  const priceText = live ? formatINR(live.price) : product?.price ?? "";
+  const priceText = live && live.price > 0 ? formatINR(live.price) : product?.price ?? "";
   const isSoldOut = (size: string) => {
     const v = live?.variants.find((x) => x.size === size);
     return live ? !v || !v.available : false;
@@ -99,7 +147,7 @@ export function useLiveProduct(product: Product | undefined) {
 /** Lookup for lists (collections, wishlist): returns live price text by slug. */
 export function useLivePrices() {
   const { data } = useLiveCatalog();
-  return (p: Product) => (data?.[p.slug] ? formatINR(data[p.slug].price) : p.price);
+  return (p: Product) => (data?.[p.slug] && data[p.slug].price > 0 ? formatINR(data[p.slug].price) : p.price);
 }
 
 const CART_CREATE = `

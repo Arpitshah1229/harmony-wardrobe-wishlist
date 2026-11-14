@@ -1,10 +1,11 @@
+import { useAllProducts } from "@/lib/shopify";
 import { StoreImage } from "@/components/store-image";
 import { useLivePrices } from "@/lib/shopify";
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { X, HeartCrack } from "lucide-react";
 import { Header, Footer, BROWN, DARK } from "@/components/site-chrome";
-import { products, PRODUCT_SUBTITLE } from "@/lib/products";
+import { PRODUCT_SUBTITLE, type Product } from "@/lib/products";
 import { useWishlist } from "@/lib/wishlist";
 import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import wishlistBackground from "@/assets/wishlist-background.jpg.asset.json";
@@ -33,8 +34,9 @@ export const Route = createFileRoute("/wishlist")({
 function WishlistPage() {
   const { slugs, remove } = useWishlist();
   const livePrice = useLivePrices();
+  const products = useAllProducts();
   const saved = products.filter((p) => slugs.includes(p.slug));
-  const [dialogProduct, setDialogProduct] = useState<typeof products[number] | null>(null);
+  const [dialogProduct, setDialogProduct] = useState<Product | null>(null);
 
   return (
     <div className="relative min-h-screen">

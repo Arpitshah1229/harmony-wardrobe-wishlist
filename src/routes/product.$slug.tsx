@@ -1,5 +1,5 @@
 import { StoreImage } from "@/components/store-image";
-import { useLiveProduct, useLivePrices } from "@/lib/shopify";
+import { useLiveProduct, useLivePrices, useAllProducts } from "@/lib/shopify";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, Expand } from "lucide-react";
@@ -9,7 +9,6 @@ import { GmailIcon } from "@/components/gmail-icon";
 import { InstagramIcon } from "@/components/instagram-icon";
 import { Header, Footer, AnnouncementBar, BROWN, DARK, GMAIL_COMPOSE_URL } from "@/components/site-chrome";
 import {
-  products,
   getProduct,
   PRODUCT_SUBTITLE,
   SIZES,
@@ -273,7 +272,8 @@ function ProductPage() {
     const timers = [50, 400, 900].map((ms) => window.setTimeout(jump, ms));
     return () => timers.forEach(clearTimeout);
   }, [slug, startImg]);
-  const product = getProduct(slug);
+  const allProducts = useAllProducts();
+  const product = getProduct(slug) ?? allProducts.find((p) => p.slug === slug);
   const { priceText, isSoldOut } = useLiveProduct(product);
   const livePrice = useLivePrices();
   const [size, setSize] = useState<string | null>(null);
@@ -311,10 +311,10 @@ function ProductPage() {
   }
 
   const gallery = Array.from(new Set([...product.images, product.detailImg].filter(Boolean)));
-  const others = products.filter((p) => p.slug !== product.slug).slice(0, 3);
+  const others = allProducts.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   const accordions = [
-    {
+    product.details.length > 0 && {
       title: "FABRIC & DETAILS",
       body: (
         <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-[14px] leading-[1.8]">
@@ -327,7 +327,7 @@ function ProductPage() {
         </dl>
       ),
     },
-    {
+    !!product.handmadeNote && {
       title: "A NOTE ON HANDMADE CHARACTER",
       body: <p className="text-[14px] leading-[1.9]">{product.handmadeNote}</p>,
     },
@@ -356,7 +356,7 @@ function ProductPage() {
         </div>
       ),
     },
-  ];
+  ].filter((a): a is { title: string; body: React.JSX.Element } => Boolean(a));
 
   return (
     <div className="bg-background min-h-screen">
@@ -493,12 +493,16 @@ function ProductPage() {
             )}
 
             <div className="mt-5 space-y-1.5 text-[14px] leading-[1.7]" style={{ color: DARK }}>
-              <p>
-                <span className="font-bold">Fabric Colour :</span> {product.fabricColour}
-              </p>
-              <p>
-                <span className="font-bold">Embroidery colour :</span> {product.embroideryColour}
-              </p>
+              {product.fabricColour && (
+                <p>
+                  <span className="font-bold">Fabric Colour :</span> {product.fabricColour}
+                </p>
+              )}
+              {product.embroideryColour && (
+                <p>
+                  <span className="font-bold">Embroidery colour :</span> {product.embroideryColour}
+                </p>
+              )}
             </div>
 
             {/* Size */}
