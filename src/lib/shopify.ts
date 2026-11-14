@@ -122,7 +122,7 @@ export function useAllProducts(): Product[] {
   if (!data) return localProducts;
   const known = new Set(localProducts.map((p) => p.slug));
   const extra = Object.values(data)
-    .filter((l) => !known.has(l.handle) && l.images.length > 0)
+    .filter((l) => !known.has(l.handle) && l.images.length > 0 && l.price > 0)
     .map(liveToProduct);
   return [...localProducts, ...extra];
 }
@@ -135,7 +135,7 @@ export function formatINR(n: number) {
 export function useLiveProduct(product: Product | undefined) {
   const { data } = useLiveCatalog();
   const live = product ? data?.[product.slug] : undefined;
-  const priceText = live ? formatINR(live.price) : product?.price ?? "";
+  const priceText = live && live.price > 0 ? formatINR(live.price) : product?.price ?? "";
   const isSoldOut = (size: string) => {
     const v = live?.variants.find((x) => x.size === size);
     return live ? !v || !v.available : false;
@@ -147,7 +147,7 @@ export function useLiveProduct(product: Product | undefined) {
 /** Lookup for lists (collections, wishlist): returns live price text by slug. */
 export function useLivePrices() {
   const { data } = useLiveCatalog();
-  return (p: Product) => (data?.[p.slug] ? formatINR(data[p.slug].price) : p.price);
+  return (p: Product) => (data?.[p.slug] && data[p.slug].price > 0 ? formatINR(data[p.slug].price) : p.price);
 }
 
 const CART_CREATE = `
