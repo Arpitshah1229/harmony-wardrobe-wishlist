@@ -61,8 +61,14 @@ async function fetchCatalog(): Promise<Record<string, LiveProduct>> {
   const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 100 });
   const map: Record<string, LiveProduct> = {};
   for (const { node } of data?.data?.products?.edges ?? []) {
-    map[node.handle] = {
-      handle: node.handle,
+    // Shopify handles may omit the "-shirt" suffix used by the designed pages.
+    const slug = localProducts.some((p) => p.slug === node.handle)
+      ? node.handle
+      : localProducts.some((p) => p.slug === `${node.handle}-shirt`)
+        ? `${node.handle}-shirt`
+        : node.handle;
+    map[slug] = {
+      handle: slug,
       title: node.title,
       description: node.description,
       price: Number(node.priceRange.minVariantPrice.amount),
