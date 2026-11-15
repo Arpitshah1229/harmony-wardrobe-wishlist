@@ -99,7 +99,7 @@ export function PageTransitionLoader() {
       window.clearInterval(interval);
       timers.forEach(clearTimeout);
     };
-  }, [pathname]);
+  }, [pathname, queryClient]);
 
   // The small logo stays preloaded (hidden) so it is ready the instant the loader appears.
   if (!mounted)
