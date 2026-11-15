@@ -24,11 +24,9 @@ function pendingPageImages() {
 export function PageTransitionLoader() {
   const pending = useRouterState({ select: (s) => s.status === "pending" });
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const catalogFetching = useIsFetching({ queryKey: ["shopify-catalog"] }) > 0;
+  const queryClient = useQueryClient();
   const pendingRef = useRef(pending);
-  const catalogFetchingRef = useRef(catalogFetching);
   pendingRef.current = pending;
-  catalogFetchingRef.current = catalogFetching;
   const visited = useRef<Set<string>>(new Set());
   const [visible, setVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
