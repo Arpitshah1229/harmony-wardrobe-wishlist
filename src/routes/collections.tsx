@@ -47,7 +47,7 @@ function ProductCard({ product }: { product: Product }) {
           >
             {product.images.map((src, i) => (
               <Link key={src} to="/product/$slug" params={{ slug: product.slug }} search={i > 0 ? { img: i } : {}} className="block w-full shrink-0 snap-center overflow-hidden">
-                <StoreImage src={src} alt={product.name} loading="lazy" className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]" />
+                <StoreImage src={src} alt={product.name} loading="lazy" sizes="(min-width: 768px) 33vw, 100vw" className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]" />
               </Link>
             ))}
           </div>
@@ -84,7 +84,7 @@ function ProductCard({ product }: { product: Product }) {
                 search={i > 0 ? { img: i } : {}}
                 className="block w-full shrink-0 snap-center"
               >
-                <StoreImage src={src} alt={product.name} loading="lazy" className="w-full aspect-[3/4] object-cover" />
+                <StoreImage src={src} alt={product.name} loading="lazy" sizes="(min-width: 768px) 33vw, 100vw" className="w-full aspect-[3/4] object-cover" />
               </Link>
             ))}
           </div>
@@ -267,7 +267,7 @@ function CollectionsPage() {
   }, [sorted.length, query, sort]);
 
   return (
-    <div className="collections-page bg-background min-h-screen">
+    <div data-catalog-required className="collections-page bg-background min-h-screen">
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo={false} />
 
       {/* Hero */}

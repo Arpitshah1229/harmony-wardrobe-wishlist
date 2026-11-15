@@ -1,49 +1,125 @@
 import { useEffect, useRef, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { useRouterState } from "@tanstack/react-router";
 import nipMonogram from "@/assets/optimized/nip-monogram.png.480.webp.asset.json";
 
 const SHOW_DELAY_MS = 150;
-const MAX_VISIBLE_MS = 1200;
+const MIN_VISIBLE_MS = 250;
+const MAX_VISIBLE_MS = 10_000;
 const FADE_MS = 200;
+const CHECK_MS = 80;
 
-/** Branded nP loader: only for first visits to a page, only when loading is slow. */
+function pendingPageImages() {
+  return Array.from(document.querySelectorAll<HTMLImageElement>("img")).filter((image) => {
+    if (image.complete || image.closest("[data-page-loader], [role='dialog']")) return false;
+    if (!image.getClientRects().length) return false;
+    if (image.loading === "eager") return true;
+    const rect = image.getBoundingClientRect();
+    // Off-screen photos, including the next photo in a horizontal strip, stay lazy.
+    if (rect.top >= window.innerHeight * 1.25 || rect.bottom <= 0 || rect.left >= window.innerWidth || rect.right <= 0) return false;
+    let ancestor = image.parentElement;
+    while (ancestor && ancestor !== document.body) {
+      const style = getComputedStyle(ancestor);
+      if (/(auto|hidden|scroll|clip)/.test(`${style.overflow} ${style.overflowX} ${style.overflowY}`)) {
+        const clip = ancestor.getBoundingClientRect();
+        if (rect.top >= clip.bottom || rect.bottom <= clip.top || rect.left >= clip.right || rect.right <= clip.left) return false;
+      }
+      ancestor = ancestor.parentElement;
+    }
+    return true;
+  });
+}
+
+/** First-visit nP loader that waits for the arriving screen, its visible photos, fonts and catalog. */
 export function PageTransitionLoader() {
   const pending = useRouterState({ select: (s) => s.status === "pending" });
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const pathRef = useRef(pathname);
-  pathRef.current = pathname;
+  const queryClient = useQueryClient();
+  const pendingRef = useRef(pending);
+  pendingRef.current = pending;
   const visited = useRef<Set<string>>(new Set());
-  const [visible, setVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const firstPage = useRef(true);
+  // SSR renders the cover immediately, so a slow first download never exposes a blank page.
+  const [visible, setVisible] = useState(true);
+  const [mounted, setMounted] = useState(true);
 
-  // Timers keyed only on the start/end of a navigation, so location updates
-  // mid-navigation never restart the 150ms delay or the 1.2s ceiling.
   useEffect(() => {
-    if (!pending) {
-      visited.current.add(pathRef.current);
-      setVisible(false);
-      const t = setTimeout(() => setMounted(false), FADE_MS);
-      return () => clearTimeout(t);
-    }
-    const timers: ReturnType<typeof setTimeout>[] = [];
-    timers.push(
-      setTimeout(() => {
-        if (visited.current.has(pathRef.current)) return;
-        setMounted(true);
-        requestAnimationFrame(() => setVisible(true));
-        timers.push(setTimeout(() => setVisible(false), MAX_VISIBLE_MS));
-        timers.push(setTimeout(() => setMounted(false), MAX_VISIBLE_MS + FADE_MS));
-      }, SHOW_DELAY_MS),
-    );
-    return () => timers.forEach(clearTimeout);
-  }, [pending]);
+    if (visited.current.has(pathname)) return;
 
-  // The small logo stays preloaded (hidden) so it is ready the instant the loader appears.
+    const initial = firstPage.current;
+    firstPage.current = false;
+    const startedAt = Date.now();
+    let shownAt = initial ? startedAt : 0;
+    let finished = false;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const observer = new MutationObserver(check);
+    observer.observe(document.body, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ["src", "srcset"],
+    });
+
+    function ready() {
+      const catalogRequired = Boolean(document.querySelector("[data-catalog-required]"));
+      const catalogStatus = queryClient.getQueryState(["shopify-catalog"])?.status;
+      const catalogReady = !catalogRequired || (catalogStatus !== undefined && catalogStatus !== "pending");
+      return !pendingRef.current
+        && catalogReady
+        && document.fonts.status !== "loading"
+        && pendingPageImages().length === 0;
+    }
+
+    function finish() {
+      if (finished) return;
+      finished = true;
+      observer.disconnect();
+      window.clearInterval(interval);
+      visited.current.add(pathname);
+      setVisible(false);
+      timers.push(setTimeout(() => setMounted(false), FADE_MS));
+    }
+
+    function check() {
+      if (finished) return;
+      const elapsed = Date.now() - startedAt;
+      if (elapsed >= MAX_VISIBLE_MS) {
+        finish();
+        return;
+      }
+      if (!ready()) {
+        if (!shownAt && elapsed >= SHOW_DELAY_MS) {
+          shownAt = Date.now();
+          setMounted(true);
+          requestAnimationFrame(() => setVisible(true));
+        }
+        return;
+      }
+      if (!shownAt || initial) {
+        finish();
+      } else if (!timers.length) {
+        timers.push(setTimeout(finish, Math.max(0, MIN_VISIBLE_MS - (Date.now() - shownAt))));
+      }
+    }
+
+    const interval = window.setInterval(check, CHECK_MS);
+    check();
+
+    return () => {
+      finished = true;
+      observer.disconnect();
+      window.clearInterval(interval);
+      timers.forEach(clearTimeout);
+    };
+  }, [pathname, queryClient]);
+
   if (!mounted)
-    return <img src={nipMonogram.url} alt="" aria-hidden className="pointer-events-none fixed h-px w-px opacity-0" />;
+    return <img data-page-loader src={nipMonogram.url} alt="" aria-hidden className="pointer-events-none fixed h-px w-px opacity-0" />;
   return (
     <div
-      aria-hidden
+      data-page-loader
+      role="status"
+      aria-label="Loading page"
       className="fixed inset-0 z-[200] flex items-center justify-center bg-background transition-opacity ease-out"
       style={{ opacity: visible ? 1 : 0, transitionDuration: `${FADE_MS}ms`, pointerEvents: visible ? "auto" : "none" }}
     >

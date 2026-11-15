@@ -39,7 +39,7 @@ function WishlistPage() {
   const [dialogProduct, setDialogProduct] = useState<Product | null>(null);
 
   return (
-    <div className="relative min-h-screen">
+    <div data-catalog-required className="relative min-h-screen">
       <Header solid solidInk="#E5D9C5" />
 
       <main className="wishlist-page relative isolate mx-auto w-full max-w-[1440px] min-[1501px]:max-w-[1720px] overflow-hidden px-8 md:px-16 py-14">

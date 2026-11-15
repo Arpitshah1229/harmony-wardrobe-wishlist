@@ -1,5 +1,10 @@
 # Roadmap
 
+## Storefront loading performance
+- [x] Serve responsive Shopify CDN photos instead of original multi-megabyte uploads; retain originals for full-detail zoom.
+- [x] Keep the first-visit loader up until the arriving screen's visible photos, fonts and Shopify catalog are ready; preserve instant repeat visits and lazy off-screen loading.
+- [x] Verify loading and navigation on phone and desktop: immediate first-paint loader, visible photos complete, product navigation covered, repeat visits uncovered, no page errors; 10 tests pass and build OK.
+
 ## Current requested adjustments
 - [x] Prepare a separate native Shopify homepage section and media installation kit; Liquid rendered locally at 393/768/1280/1920px, photos/menu/video/square cards and loader timing checked; original React app unchanged.
 - [ ] Confirm the homepage inside the client's Atelier draft theme before converting other pages; blocked on client installation and Shopify preview screenshots. Wishlist and unconverted page destinations remain outside this homepage pilot.
