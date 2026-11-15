@@ -62,7 +62,7 @@ export type Product = {
   badge?: string;
 };
 
-const DYED_NOTE =
+export const DYED_NOTE =
   "Each piece is one of a kind. Slight variation in colour is natural to hand-dyed, hand-embroidered products, and colour may bleed slightly in the first wash. Dry cleaning is always recommended; if washing at home, wash separately with like colours in the first few washes.";
 
 export const CARE_INSTRUCTIONS = [

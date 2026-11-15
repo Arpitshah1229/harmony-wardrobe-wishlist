@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { products as localProducts, type Product } from "@/lib/products";
+import { products as localProducts, DYED_NOTE, type Product } from "@/lib/products";
 
 const SHOPIFY_API_VERSION = "2026-10";
 const SHOPIFY_STORE_PERMANENT_DOMAIN = "3xf5gq-1k.myshopify.com";
@@ -39,13 +39,19 @@ export type LiveProduct = {
   variants: LiveVariant[];
   images: string[];
   tags: string[];
+  /** Values typed into the shirt's custom fields in Shopify Admin. */
+  meta: Partial<Record<MetaKey, string>>;
 };
+
+const META_KEYS = ["tagline", "fabric_colour", "embroidery_colour", "fabric", "handwork", "buttons", "fit"] as const;
+type MetaKey = (typeof META_KEYS)[number];
 
 const PRODUCTS_QUERY = `
   query Catalog($first: Int!) {
     products(first: $first) {
       edges { node {
         handle title description descriptionHtml productType tags availableForSale
+        metafields(identifiers: [${META_KEYS.map((k) => `{ namespace: "custom", key: "${k}" }`).join(", ")}]) { key value }
         images(first: 12) { edges { node { url altText } } }
         priceRange { minVariantPrice { amount } }
         variants(first: 20) { edges { node {
@@ -75,6 +81,11 @@ async function fetchCatalog(): Promise<Record<string, LiveProduct>> {
       available: node.availableForSale,
       images: (node.images?.edges ?? []).map((e: any) => e.node.url),
       tags: node.tags ?? [],
+      meta: Object.fromEntries(
+        (node.metafields ?? [])
+          .filter((m: any) => m && typeof m.value === "string" && m.value.trim())
+          .map((m: any) => [m.key, m.value.trim()]),
+      ),
       variants: node.variants.edges.map(({ node: v }: any) => ({
         id: v.id,
         size: v.selectedOptions.find((o: any) => o.name === "Size")?.value ?? v.selectedOptions[0]?.value,
@@ -108,11 +119,30 @@ export function liveToProduct(l: LiveProduct): Product {
     detailImg: "",
     description: paras.length ? paras : [l.description],
     details: [],
-    handmadeNote: "",
+    handmadeNote: DYED_NOTE,
     altText: l.title,
     metaTitle: `${l.title} | Notions in Pattern`,
     metaDescription: l.description.slice(0, 155) || "Hand embroidered chikankari shirt from Notions in Pattern.",
     tags: l.tags,
+  };
+}
+
+/** Lays Shopify's tagline, description, colours and detail values over a shirt; blanks keep the site's own text. */
+export function withShopifyDetails(product: Product, live: LiveProduct | undefined): Product {
+  if (!live) return product;
+  const m = live.meta;
+  const base = new Map(product.details);
+  const details: [string, string][] = (["Fabric", "Handwork", "Buttons", "Fit"] as const)
+    .map((label): [string, string] => [label, m[label.toLowerCase() as MetaKey] ?? base.get(label) ?? ""])
+    .filter(([, v]) => v);
+  const paras = live.description.split(/\n\s*\n|(?<=\.)\s{2,}/).map((t) => t.trim()).filter(Boolean);
+  return {
+    ...product,
+    tagline: m.tagline ?? product.tagline,
+    fabricColour: m.fabric_colour ?? product.fabricColour,
+    embroideryColour: m.embroidery_colour ?? product.embroideryColour,
+    details,
+    description: paras.length ? paras : product.description,
   };
 }
 
