@@ -8,15 +8,15 @@ const MIN_VISIBLE_MS = 250;
 const MAX_VISIBLE_MS = 10_000;
 const FADE_MS = 200;
 const CHECK_MS = 80;
-const QUIET_PERIOD_MS = 600;
 
 function pendingPageImages() {
   return Array.from(document.querySelectorAll<HTMLImageElement>("img")).filter((image) => {
     if (image.complete || image.closest("[data-page-loader], [role='dialog']")) return false;
     if (!image.getClientRects().length) return false;
+    if (image.loading === "eager") return true;
     const rect = image.getBoundingClientRect();
-    // Off-screen photos stay lazy; only the arriving screen should hold the loader open.
-    return image.loading === "eager" || (rect.top < window.innerHeight * 1.25 && rect.bottom > 0);
+    // Off-screen photos, including the next photo in a horizontal strip, stay lazy.
+    return rect.top < window.innerHeight * 1.25 && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0;
   });
 }
 
@@ -28,14 +28,18 @@ export function PageTransitionLoader() {
   const pendingRef = useRef(pending);
   pendingRef.current = pending;
   const visited = useRef<Set<string>>(new Set());
-  const [visible, setVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const firstPage = useRef(true);
+  // SSR renders the cover immediately, so a slow first download never exposes a blank page.
+  const [visible, setVisible] = useState(true);
+  const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
     if (visited.current.has(pathname)) return;
 
+    const initial = firstPage.current;
+    firstPage.current = false;
     const startedAt = Date.now();
-    let shownAt = 0;
+    let shownAt = initial ? startedAt : 0;
     let finished = false;
     const timers: ReturnType<typeof setTimeout>[] = [];
     const observer = new MutationObserver(check);
@@ -74,8 +78,6 @@ export function PageTransitionLoader() {
         return;
       }
       if (!ready()) {
-        // A query or photo can start just after the route renders. Keep watching through
-        // the quiet period so an early empty DOM cannot dismiss the loader prematurely.
         if (!shownAt && elapsed >= SHOW_DELAY_MS) {
           shownAt = Date.now();
           setMounted(true);
@@ -83,8 +85,7 @@ export function PageTransitionLoader() {
         }
         return;
       }
-      if (elapsed < QUIET_PERIOD_MS) return;
-      if (!shownAt) {
+      if (!shownAt || initial) {
         finish();
       } else if (!timers.length) {
         timers.push(setTimeout(finish, Math.max(0, MIN_VISIBLE_MS - (Date.now() - shownAt))));
@@ -92,6 +93,7 @@ export function PageTransitionLoader() {
     }
 
     const interval = window.setInterval(check, CHECK_MS);
+    check();
 
     return () => {
       finished = true;
@@ -101,7 +103,6 @@ export function PageTransitionLoader() {
     };
   }, [pathname, queryClient]);
 
-  // The small logo stays preloaded (hidden) so it is ready the instant the loader appears.
   if (!mounted)
     return <img data-page-loader src={nipMonogram.url} alt="" aria-hidden className="pointer-events-none fixed h-px w-px opacity-0" />;
   return (
