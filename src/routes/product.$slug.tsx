@@ -250,7 +250,7 @@ function Lightbox({
               onClick={() => onIndex(i)}
               className={`h-[125px] w-[100px] shrink-0 rounded-none p-0 outline-offset-2 ${i === index ? "outline outline-foreground opacity-100" : "opacity-70"}`}
             >
-              <StoreImage src={src} alt="" className="h-[125px] w-[100px] object-cover" />
+              <StoreImage src={src} alt="" sizes="100px" className="h-[125px] w-[100px] object-cover" />
             </Button>
           ))}
         </div>
