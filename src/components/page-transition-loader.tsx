@@ -8,6 +8,7 @@ const MIN_VISIBLE_MS = 250;
 const MAX_VISIBLE_MS = 10_000;
 const FADE_MS = 200;
 const CHECK_MS = 80;
+const QUIET_PERIOD_MS = 600;
 
 function pendingPageImages() {
   return Array.from(document.querySelectorAll<HTMLImageElement>("img")).filter((image) => {
