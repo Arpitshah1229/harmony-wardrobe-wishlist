@@ -132,8 +132,9 @@ export function withShopifyDetails(product: Product, live: LiveProduct | undefin
   if (!live) return product;
   const m = live.meta ?? {};
   const base = new Map(product.details);
+  const defaults: Record<string, string> = { Fabric: "Pure Cotton Mulmul", Handwork: "Handcrafted Chikankari", Buttons: "Natural Wood / Shell", Fit: "Relaxed" };
   const details: [string, string][] = (["Fabric", "Handwork", "Buttons", "Fit"] as const)
-    .map((label): [string, string] => [label, m[label.toLowerCase() as MetaKey] ?? base.get(label) ?? ""])
+    .map((label): [string, string] => [label, m[label.toLowerCase() as MetaKey] ?? base.get(label) ?? defaults[label]])
     .filter(([, v]) => v);
   const paras = live.description.split(/\n\s*\n|(?<=\.)\s{2,}/).map((t) => t.trim()).filter(Boolean);
   return {
@@ -142,6 +143,8 @@ export function withShopifyDetails(product: Product, live: LiveProduct | undefin
     fabricColour: m.fabric_colour ?? product.fabricColour,
     embroideryColour: m.embroidery_colour ?? product.embroideryColour,
     details,
+    handmadeNote: product.handmadeNote || DYED_NOTE,
+    images: live.images.length ? live.images : product.images,
     description: paras.length ? paras : product.description,
   };
 }
@@ -154,7 +157,11 @@ export function useAllProducts(): Product[] {
   const extra = Object.values(data)
     .filter((l) => !known.has(l.handle) && l.images.length > 0 && l.price > 0)
     .map(liveToProduct);
-  return [...localProducts, ...extra];
+  const designed = localProducts.map((p) => {
+    const imgs = data[p.slug]?.images ?? [];
+    return imgs.length ? { ...p, images: imgs } : p;
+  });
+  return [...designed, ...extra];
 }
 
 export function formatINR(n: number) {
