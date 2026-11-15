@@ -1,5 +1,5 @@
 import { StoreImage } from "@/components/store-image";
-import { useLiveProduct, useLivePrices, useAllProducts } from "@/lib/shopify";
+import { useLiveProduct, useLivePrices, useAllProducts, withShopifyDetails } from "@/lib/shopify";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, Minus, Plus, Truck, RotateCcw, Store, X, Ruler, Banknote, Expand } from "lucide-react";
@@ -273,8 +273,9 @@ function ProductPage() {
     return () => timers.forEach(clearTimeout);
   }, [slug, startImg]);
   const allProducts = useAllProducts();
-  const product = getProduct(slug) ?? allProducts.find((p) => p.slug === slug);
-  const { priceText, isSoldOut } = useLiveProduct(product);
+  const baseProduct = getProduct(slug) ?? allProducts.find((p) => p.slug === slug);
+  const { live, priceText, isSoldOut } = useLiveProduct(baseProduct);
+  const product = baseProduct && withShopifyDetails(baseProduct, live);
   const livePrice = useLivePrices();
   const [size, setSize] = useState<string | null>(null);
   const [pickerOpen, setPickerOpen] = useState(false);
