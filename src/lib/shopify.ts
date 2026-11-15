@@ -157,7 +157,11 @@ export function useAllProducts(): Product[] {
   const extra = Object.values(data)
     .filter((l) => !known.has(l.handle) && l.images.length > 0 && l.price > 0)
     .map(liveToProduct);
-  return [...localProducts, ...extra];
+  const designed = localProducts.map((p) => {
+    const imgs = data[p.slug]?.images ?? [];
+    return imgs.length ? { ...p, images: imgs } : p;
+  });
+  return [...designed, ...extra];
 }
 
 export function formatINR(n: number) {
