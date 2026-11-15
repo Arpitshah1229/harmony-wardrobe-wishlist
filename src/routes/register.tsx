@@ -18,8 +18,7 @@ export const Route = createFileRoute("/register")({
       { title: "Create Account | Notions in Pattern" },
       {
         name: "description",
-        content:
-          "Create your Notions in Pattern account with your name, mobile number and email to check out faster.",
+        content: "Create your Notions in Pattern account with your name, mobile number and email to check out faster.",
       },
       { property: "og:title", content: "Create Account | Notions in Pattern" },
       { property: "og:description", content: "Register with your name, mobile number and email." },
@@ -72,11 +71,17 @@ function RegisterPage() {
     if (name.trim().length < 2) return setError("Please enter your full name.");
     if (normalizeMobile(mobile).length !== 10) return setError("Enter a valid 10 digit mobile number.");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) return setError("Enter a valid email address.");
-    if (password.length < 6) return setError("Create a password with at least 6 characters.");
+    if (password.length < 5) return setError("Create a password with at least 5 characters.");
+    if (!/\d/.test(password)) {
+      return setError("Password must contain at least one number.");
+    }
     setError("");
     const result = await register({ name: name.trim(), mobile, email: email.trim(), password });
     if (!result.ok) return setError(result.error);
-    if (result.confirmationRequired) { setConfirmationSent(true); return; }
+    if (result.confirmationRequired) {
+      setConfirmationSent(true);
+      return;
+    }
     navigate({ to: redirect as never });
   };
 
@@ -86,10 +91,7 @@ function RegisterPage() {
       <AnnouncementBar />
 
       <main className="relative isolate w-full flex-1 overflow-hidden">
-        <div
-          className="relative w-full min-h-[740px] max-sm:min-h-[700px]"
-          style={{ aspectRatio: "1920 / 1212" }}
-        >
+        <div className="relative w-full min-h-[740px] max-sm:min-h-[700px]" style={{ aspectRatio: "1920 / 1212" }}>
           <StoreImage
             src={accountBackground.url}
             loading="eager"
@@ -105,141 +107,148 @@ function RegisterPage() {
           <div className="register-edge-blur register-edge-blur-right max-lg:hidden" aria-hidden="true" />
 
           <div className="absolute inset-y-0 left-1/2 flex w-full max-w-[1440px] -translate-x-1/2 items-center max-sm:items-start max-sm:px-1 max-sm:pt-[24%] px-5 py-10 sm:px-10 lg:px-[7.5%] min-[1440px]:px-[108px] lg:py-6 min-[1501px]:max-w-none min-[1501px]:px-[5%]">
-
-        <section className="w-[39%] max-w-[410px] text-background max-sm:hidden sm:block">
-          <h2 className="font-serif text-[26px] leading-[0.98] md:text-[34px] lg:text-[48px]">
-            Why wait!<br />
-            <em className="font-normal">C’mon.</em>
-          </h2>
-          <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
-          <p className="font-serif text-[17px] leading-[1.05] md:text-[23px] lg:text-[31px]">
-            Join us<br />
-            and see us evolve.<br />
-            Understand yourself.<br />
-            Change <em>our</em> patterns.
-          </p>
-          <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
-          <p className="font-serif text-[12px] leading-tight md:text-[15px] lg:text-[19px]">
-            Nothing is fixed.<br />
-            Not even us.
-          </p>
-          <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
-          <p className="font-serif text-[12px] leading-tight md:text-[15px] lg:text-[19px]">
-            Why not be a part<br />
-            of the community?
-          </p>
-        </section>
-
-        <section className="ml-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm max-sm:ml-0 max-sm:mr-auto max-sm:max-w-[300px] max-sm:origin-top-left max-sm:scale-[0.66] max-sm:bg-background/90 sm:translate-x-4 lg:translate-x-10">
-          <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
-            <div className="flex flex-col items-center">
-              <StoreImage src={nipLogo.url} alt="Notions in Pattern" className="h-24 w-auto object-contain md:h-28" />
-            </div>
-
-            <h1 className="-mt-3 text-center font-serif text-[30px] leading-tight text-foreground">
-              Create an account
-            </h1>
-            <p className="mx-auto mt-2 max-w-[300px] text-center text-[12px] leading-[1.45] text-foreground">
-              Create an account to track your orders, save your wishlists, get exclusive
-              discounts and everything else you love.
-            </p>
-
-            <div className="mt-5">
-            {!confirmationSent ? (
-              <>
-                <Field
-                  id="name"
-                  label="NAME"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your full name"
-                  autoComplete="name"
-                />
-                <Field
-                  id="mobile"
-                  label="MOBILE NUMBER"
-                  type="tel"
-                  inputMode="numeric"
-                  maxLength={10}
-                  value={mobile}
-                  onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}
-                  placeholder="98765 43210"
-                  autoComplete="tel"
-                />
-                <Field
-                  id="email"
-                  label="EMAIL ID"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@email.com"
-                  autoComplete="email"
-                />
-                <Field
-                  id="password"
-                  label="CREATE PASSWORD"
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="At least 6 characters"
-                  autoComplete="new-password"
-                  trailing={
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="icon"
-                      className="absolute right-1 top-1/2 -translate-y-1/2 rounded-none text-accent hover:bg-transparent hover:text-foreground"
-                      aria-label={showPassword ? "Hide password" : "Show password"}
-                      aria-pressed={showPassword}
-                      aria-controls="password"
-                      title={showPassword ? "Hide password" : "Show password"}
-                      onClick={() => setShowPassword((visible) => !visible)}
-                    >
-                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                    </Button>
-                  }
-                />
-
-                <Button
-                  type="button"
-                  onClick={submitDetails}
-                  className="mt-4 h-11 w-full rounded-none text-[11px] font-bold tracking-[0.24em]"
-                  style={{ backgroundColor: BROWN, color: IVORY }}
-                >
-                  <UserPlus size={13} /> CREATE ACCOUNT
-                </Button>
-              </>
-            ) : (
-              <p role="status" className="text-center text-sm leading-relaxed">Please check your email to confirm your account, then return to login.</p>
-            )}
-
-            {error && (
-              <p className="mt-4 text-[12px] font-bold text-center" style={{ color: "#7B1113" }}>
-                {error}
+            <section className="w-[39%] max-w-[410px] text-background max-sm:hidden sm:block">
+              <h2 className="font-serif text-[26px] leading-[0.98] md:text-[34px] lg:text-[48px]">
+                Why wait!
+                <br />
+                <em className="font-normal">C’mon.</em>
+              </h2>
+              <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
+              <p className="font-serif text-[17px] leading-[1.05] md:text-[23px] lg:text-[31px]">
+                Join us
+                <br />
+                and see us evolve.
+                <br />
+                Understand yourself.
+                <br />
+                Change <em>our</em> patterns.
               </p>
-            )}
-
-            <p className="mt-5 text-center text-[12px]" style={{ color: DARK }}>
-              Already have an account?{" "}
-              <Link to="/login" search={{ redirect }} className="font-bold underline" style={{ color: BROWN }}>
-                Login
-              </Link>
-            </p>
-
-            <div className="mt-3 flex flex-col items-center">
-              <p className="font-serif text-[24px] font-semibold tracking-[0.35em]" style={{ color: BROWN }}>
-                NIP
+              <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
+              <p className="font-serif text-[12px] leading-tight md:text-[15px] lg:text-[19px]">
+                Nothing is fixed.
+                <br />
+                Not even us.
               </p>
-              <p
-                className="mt-2 text-[10px] font-medium tracking-[0.26em]"
-                style={{ color: BROWN }}
-              >
-                YOU ARE YOUR PATTERNS.
+              <div className="my-3 h-px w-8 bg-background/70 md:my-4 lg:my-6" />
+              <p className="font-serif text-[12px] leading-tight md:text-[15px] lg:text-[19px]">
+                Why not be a part
+                <br />
+                of the community?
               </p>
-            </div>
-            </div>
-          </div>
-        </section>
+            </section>
+
+            <section className="ml-auto w-full max-w-[355px] border border-foreground/70 bg-background/95 p-1 shadow-xl backdrop-blur-sm max-sm:ml-0 max-sm:mr-auto max-sm:max-w-[300px] max-sm:origin-top-left max-sm:scale-[0.66] max-sm:bg-background/90 sm:translate-x-4 lg:translate-x-10">
+              <div className="border border-foreground/35 px-6 py-2.5 sm:px-7 sm:py-3.5">
+                <div className="flex flex-col items-center">
+                  <StoreImage
+                    src={nipLogo.url}
+                    alt="Notions in Pattern"
+                    className="h-24 w-auto object-contain md:h-28"
+                  />
+                </div>
+
+                <h1 className="-mt-3 text-center font-serif text-[30px] leading-tight text-foreground">
+                  Create an account
+                </h1>
+                <p className="mx-auto mt-2 max-w-[300px] text-center text-[12px] leading-[1.45] text-foreground">
+                  Create an account to track your orders, save your wishlists and everything else you love.
+                </p>
+
+                <div className="mt-5">
+                  {!confirmationSent ? (
+                    <>
+                      <Field
+                        id="name"
+                        label="NAME"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Your full name"
+                        autoComplete="name"
+                      />
+                      <Field
+                        id="mobile"
+                        label="MOBILE NUMBER"
+                        type="tel"
+                        inputMode="numeric"
+                        maxLength={10}
+                        value={mobile}
+                        onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                        placeholder="98765 43210"
+                        autoComplete="tel"
+                      />
+                      <Field
+                        id="email"
+                        label="EMAIL ID"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@email.com"
+                        autoComplete="email"
+                      />
+                      <Field
+                        id="password"
+                        label="CREATE PASSWORD"
+                        type={showPassword ? "text" : "password"}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="At least 6 characters"
+                        autoComplete="new-password"
+                        trailing={
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            className="absolute right-1 top-1/2 -translate-y-1/2 rounded-none text-accent hover:bg-transparent hover:text-foreground"
+                            aria-label={showPassword ? "Hide password" : "Show password"}
+                            aria-pressed={showPassword}
+                            aria-controls="password"
+                            title={showPassword ? "Hide password" : "Show password"}
+                            onClick={() => setShowPassword((visible) => !visible)}
+                          >
+                            {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                          </Button>
+                        }
+                      />
+
+                      <Button
+                        type="button"
+                        onClick={submitDetails}
+                        className="mt-4 h-11 w-full rounded-none text-[11px] font-bold tracking-[0.24em]"
+                        style={{ backgroundColor: BROWN, color: IVORY }}
+                      >
+                        <UserPlus size={13} /> CREATE ACCOUNT
+                      </Button>
+                    </>
+                  ) : (
+                    <p role="status" className="text-center text-sm leading-relaxed">
+                      Please check your email to confirm your account, then return to login.
+                    </p>
+                  )}
+
+                  {error && (
+                    <p className="mt-4 text-[12px] font-bold text-center" style={{ color: "#7B1113" }}>
+                      {error}
+                    </p>
+                  )}
+
+                  <p className="mt-5 text-center text-[12px]" style={{ color: DARK }}>
+                    Already have an account?{" "}
+                    <Link to="/login" search={{ redirect }} className="font-bold underline" style={{ color: BROWN }}>
+                      Login
+                    </Link>
+                  </p>
+
+                  <div className="mt-3 flex flex-col items-center">
+                    <p className="font-serif text-[24px] font-semibold tracking-[0.35em]" style={{ color: BROWN }}>
+                      NIP
+                    </p>
+                    <p className="mt-2 text-[10px] font-medium tracking-[0.26em]" style={{ color: BROWN }}>
+                      YOU ARE YOUR PATTERNS.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </main>
