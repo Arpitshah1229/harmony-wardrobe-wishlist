@@ -72,21 +72,25 @@ export function PageTransitionLoader() {
         finish();
         return;
       }
-      if (!ready()) return;
+      if (!ready()) {
+        // A query or photo can start just after the route renders. Keep watching through
+        // the quiet period so an early empty DOM cannot dismiss the loader prematurely.
+        if (!shownAt && elapsed >= SHOW_DELAY_MS) {
+          shownAt = Date.now();
+          setMounted(true);
+          requestAnimationFrame(() => setVisible(true));
+        }
+        return;
+      }
+      if (elapsed < QUIET_PERIOD_MS) return;
       if (!shownAt) {
         finish();
-      } else {
+      } else if (!timers.length) {
         timers.push(setTimeout(finish, Math.max(0, MIN_VISIBLE_MS - (Date.now() - shownAt))));
       }
     }
 
     const interval = window.setInterval(check, CHECK_MS);
-    timers.push(setTimeout(() => {
-      if (finished || ready()) return;
-      shownAt = Date.now();
-      setMounted(true);
-      requestAnimationFrame(() => setVisible(true));
-    }, SHOW_DELAY_MS));
 
     return () => {
       finished = true;
