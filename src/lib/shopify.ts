@@ -130,7 +130,7 @@ export function liveToProduct(l: LiveProduct): Product {
 /** Lays Shopify's tagline, description, colours and detail values over a shirt; blanks keep the site's own text. */
 export function withShopifyDetails(product: Product, live: LiveProduct | undefined): Product {
   if (!live) return product;
-  const m = live.meta;
+  const m = live.meta ?? {};
   const base = new Map(product.details);
   const details: [string, string][] = (["Fabric", "Handwork", "Buttons", "Fit"] as const)
     .map((label): [string, string] => [label, m[label.toLowerCase() as MetaKey] ?? base.get(label) ?? ""])
