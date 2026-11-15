@@ -16,7 +16,17 @@ function pendingPageImages() {
     if (image.loading === "eager") return true;
     const rect = image.getBoundingClientRect();
     // Off-screen photos, including the next photo in a horizontal strip, stay lazy.
-    return rect.top < window.innerHeight * 1.25 && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0;
+    if (rect.top >= window.innerHeight * 1.25 || rect.bottom <= 0 || rect.left >= window.innerWidth || rect.right <= 0) return false;
+    let ancestor = image.parentElement;
+    while (ancestor && ancestor !== document.body) {
+      const style = getComputedStyle(ancestor);
+      if (/(auto|hidden|scroll|clip)/.test(`${style.overflow} ${style.overflowX} ${style.overflowY}`)) {
+        const clip = ancestor.getBoundingClientRect();
+        if (rect.top >= clip.bottom || rect.bottom <= clip.top || rect.left >= clip.right || rect.right <= clip.left) return false;
+      }
+      ancestor = ancestor.parentElement;
+    }
+    return true;
   });
 }
 
