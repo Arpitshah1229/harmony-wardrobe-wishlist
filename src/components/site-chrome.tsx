@@ -13,7 +13,8 @@ import { useCart } from "@/lib/cart";
 import { useWishlist } from "@/lib/wishlist";
 import { useAuth } from "@/lib/auth";
 
-export const BROWN = "#4B3528";
+// export const BROWN = "#4B3528";
+export const BROWN = "#4C2D1D";
 export const DARK = "#2C2119";
 
 const navLinks = [
@@ -56,7 +57,15 @@ export function Header({
   hideLogo = true,
   scrolledBrown = false,
   solidInk = "#E5D9C5",
-}: { overlay?: boolean; subtleOverlay?: boolean; solid?: boolean; solidAfter?: number; hideLogo?: boolean; scrolledBrown?: boolean; solidInk?: string } = {}) {
+}: {
+  overlay?: boolean;
+  subtleOverlay?: boolean;
+  solid?: boolean;
+  solidAfter?: number;
+  hideLogo?: boolean;
+  scrolledBrown?: boolean;
+  solidInk?: string;
+} = {}) {
   const [scrolled, setScrolled] = useState(false);
   const { count: cartCount } = useCart();
   const { count: wishCount } = useWishlist();
@@ -75,76 +84,107 @@ export function Header({
   const ink = solidBg ? solidInk : BROWN;
 
   return (
-      <header
-        className={`${
-          overlay
-            ? "fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500"
-            : "relative z-50 w-full px-8 md:px-12 py-5 flex items-center justify-between"
-        } ${
-          solidBg
-            ? "shadow-sm"
-            : scrolled
-              ? "bg-background/95 backdrop-blur-md shadow-sm"
-              : subtleOverlay
-                ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
-                : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
-        }`}
-        style={{ color: ink, ...(solidBg ? { backgroundColor: "#4B3528" } : null) }}
-      >
-        <div className="flex min-w-0 items-center gap-3 xl:gap-4">
-          {!hideLogo && (
-            <StoreImage src={nipMonogram.url} loading="eager" sizes="80px" alt="Notions in Pattern" className="h-[19px] w-auto shrink-0 sm:h-[24px] lg:h-[27px] xl:h-[34px]" />
-          )}
-          {hideLogo && (
-            <span className="relative inline-flex shrink-0 md:hidden">
-              <StoreImage src={nipMonogram.url} loading="eager" sizes="40px" alt="Notions in Pattern monogram" className="h-[19px] w-auto" style={solidBg ? { opacity: 0 } : undefined} />
-              {solidBg && (
-                <span
-                  aria-hidden
-                  className="absolute inset-0"
-                  style={{ backgroundColor: ink, WebkitMaskImage: `url(${nipMonogram.url})`, maskImage: `url(${nipMonogram.url})`, WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskPosition: "center", maskPosition: "center" }}
-                />
-              )}
-            </span>
-          )}
-          <Wordmark ink={ink} />
-        </div>
+    <header
+      className={`${
+        overlay
+          ? "fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex items-center justify-between transition-all duration-500"
+          : "relative z-50 w-full px-8 md:px-12 py-5 flex items-center justify-between"
+      } ${
+        solidBg
+          ? "shadow-sm"
+          : scrolled
+            ? "bg-background/95 backdrop-blur-md shadow-sm"
+            : subtleOverlay
+              ? "bg-gradient-to-b from-background/25 via-background/10 to-transparent"
+              : "bg-gradient-to-b from-background/85 via-background/50 to-transparent backdrop-blur-[2px]"
+      }`}
+      style={{ color: ink, ...(solidBg ? { backgroundColor: "#4B3528" } : null) }}
+    >
+      <div className="flex min-w-0 items-center gap-3 xl:gap-4">
+        {!hideLogo && (
+          <StoreImage
+            src={nipMonogram.url}
+            loading="eager"
+            sizes="80px"
+            alt="Notions in Pattern"
+            className="h-[19px] w-auto shrink-0 sm:h-[24px] lg:h-[27px] xl:h-[34px]"
+          />
+        )}
+        {hideLogo && (
+          <span className="relative inline-flex shrink-0 md:hidden">
+            <StoreImage
+              src={nipMonogram.url}
+              loading="eager"
+              sizes="40px"
+              alt="Notions in Pattern monogram"
+              className="h-[19px] w-auto"
+              style={solidBg ? { opacity: 0 } : undefined}
+            />
+            {solidBg && (
+              <span
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  backgroundColor: ink,
+                  WebkitMaskImage: `url(${nipMonogram.url})`,
+                  maskImage: `url(${nipMonogram.url})`,
+                  WebkitMaskSize: "contain",
+                  maskSize: "contain",
+                  WebkitMaskRepeat: "no-repeat",
+                  maskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                  maskPosition: "center",
+                }}
+              />
+            )}
+          </span>
+        )}
+        <Wordmark ink={ink} />
+      </div>
 
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[10px] xl:text-[11px] font-bold tracking-[0.2em]">
-          {navLinks.map((l) => (
-            <Link key={l.label} to={l.to} className="hover:opacity-70 transition-opacity">{l.label}</Link>
-          ))}
-        </nav>
-        <div className="flex items-center gap-4 xl:gap-5 text-[11px] font-bold tracking-[0.18em]">
+      <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[10px] xl:text-[11px] font-bold tracking-[0.2em]">
+        {navLinks.map((l) => (
+          <Link key={l.label} to={l.to} className="hover:opacity-70 transition-opacity">
+            {l.label}
+          </Link>
+        ))}
+      </nav>
+      <div className="flex items-center gap-4 xl:gap-5 text-[11px] font-bold tracking-[0.18em]">
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+          className="lg:hidden hover:opacity-70 transition-opacity"
+        >
+          {menuOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
+        {isLoggedIn ? (
           <button
             type="button"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((v) => !v)}
-            className="lg:hidden hover:opacity-70 transition-opacity"
+            onClick={logout}
+            className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity uppercase"
           >
-            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            <User size={16} />{" "}
+            <span className="hidden 2xl:inline">{(user?.name || "Account").split(" ")[0]} · LOGOUT</span>
           </button>
-          {isLoggedIn ? (
-            <button
-              type="button"
-              onClick={logout}
-              className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity uppercase"
-            >
-              <User size={16} /> <span className="hidden 2xl:inline">{(user?.name || "Account").split(" ")[0]} · LOGOUT</span>
-            </button>
-          ) : (
-            <Link to="/login" search={{ redirect: "/cart" }} className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-              <User size={16} /> <span className="hidden 2xl:inline">ACCOUNT</span>
-            </Link>
-          )}
-          <Link to="/wishlist" className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-            <Heart size={16} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> <span className="hidden 2xl:inline">WISHLIST </span>({wishCount})
+        ) : (
+          <Link
+            to="/login"
+            search={{ redirect: "/cart" }}
+            className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity"
+          >
+            <User size={16} /> <span className="hidden 2xl:inline">ACCOUNT</span>
           </Link>
-          <Link to="/cart" className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-            <BagIcon size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
-          </Link>
-        </div>
+        )}
+        <Link to="/wishlist" className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+          <Heart size={16} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} />{" "}
+          <span className="hidden 2xl:inline">WISHLIST </span>({wishCount})
+        </Link>
+        <Link to="/cart" className="hidden lg:flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+          <BagIcon size={16} /> <span className="hidden 2xl:inline">CART </span>({cartCount})
+        </Link>
+      </div>
       {menuOpen && (
         <nav
           aria-label="Main navigation"
@@ -164,18 +204,42 @@ export function Header({
               </Link>
             ))}
             {isLoggedIn ? (
-              <button type="button" onClick={() => { setMenuOpen(false); logout(); }} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-left text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: ink }}>
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuOpen(false);
+                  logout();
+                }}
+                className="flex items-center gap-2 border-t border-border/40 py-3.5 text-left text-[11px] font-bold uppercase tracking-[0.2em]"
+                style={{ color: ink }}
+              >
                 <User size={15} /> {(user?.name || "Account").split(" ")[0]} · LOGOUT
               </button>
             ) : (
-              <Link to="/login" search={{ redirect: "/cart" }} onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
+              <Link
+                to="/login"
+                search={{ redirect: "/cart" }}
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]"
+                style={{ color: ink }}
+              >
                 <User size={15} /> ACCOUNT
               </Link>
             )}
-            <Link to="/wishlist" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
+            <Link
+              to="/wishlist"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]"
+              style={{ color: ink }}
+            >
               <Heart size={15} color="#7B1113" fill={wishCount > 0 ? "#7B1113" : "none"} /> WISHLIST ({wishCount})
             </Link>
-            <Link to="/cart" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]" style={{ color: ink }}>
+            <Link
+              to="/cart"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2 border-t border-border/40 py-3.5 text-[11px] font-bold tracking-[0.2em]"
+              style={{ color: ink }}
+            >
               <BagIcon size={15} /> CART ({cartCount})
             </Link>
           </div>
@@ -184,7 +248,6 @@ export function Header({
     </header>
   );
 }
-
 
 export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: string; color?: string } = {}) {
   const items = [
@@ -196,7 +259,6 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
   const strip = [...items, ...items];
   return (
     <div className="w-full overflow-hidden border-t border-b border-border/60 py-2" style={{ backgroundColor: bg }}>
-
       <div className="announcement-marquee-track flex w-max">
         {[0, 1].map((k) => (
           <div key={k} className="flex shrink-0 items-center">
@@ -206,7 +268,6 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
                 className="px-3 text-[10px] font-bold tracking-[0.16em] whitespace-nowrap sm:px-6 sm:text-[11px] sm:tracking-[0.24em]"
                 style={{ color }}
               >
-
                 {t} <span className="px-2 sm:px-3">✦</span>
               </span>
             ))}
@@ -217,8 +278,7 @@ export function AnnouncementBar({ bg = "#7B1113", color = "#F7F4EE" }: { bg?: st
   );
 }
 
-const INSTAGRAM_URL =
-  "https://instagram.com/notionsinpattern.nipstories?utm_source=qr&cplk=OG1hNDlpNThjYWl4";
+const INSTAGRAM_URL = "https://instagram.com/notionsinpattern.nipstories?utm_source=qr&cplk=OG1hNDlpNThjYWl4";
 const CONTACT_EMAIL = "hello@notionsinpattern.com";
 // Opens the Gmail app on phones, and the Gmail web compose window on a desktop browser.
 export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
@@ -229,16 +289,45 @@ const WHATSAPP_CHAT_URL =
   "https://wa.me/917521802791?text=Hi%20NIP%2C%20I%27d%20like%20to%20know%20more%20about%20this%20shirt.";
 
 type FooterItem =
-  | string
-  | { label: string; to?: string; href?: string; icon?: ComponentType<{ size?: number; className?: string }> };
+  string | { label: string; to?: string; href?: string; icon?: ComponentType<{ size?: number; className?: string }> };
 
 export function Footer() {
   const cols: { title: string; items: FooterItem[]; wide?: boolean }[] = [
-    { title: "SHOP", items: [{ label: "Home", to: "/" }, { label: "Collection", to: "/collections" }, { label: "Cart", to: "/cart" }, { label: "Wishlist", to: "/wishlist" }] },
-    { title: "HELP", items: [{ label: "Orders", to: "/orders" }, "Shipping", { label: "Exchange & Store Credit", to: "/exchange-policy" }, { label: "Privacy Policy", to: "/privacy" }] },
-    { title: "ABOUT", items: [{ label: "Our Story", to: "/about-us" }, { label: "Founder", to: "/founder" }] },
-    { title: "CONNECT", wide: true, items: [{ label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon }, { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon }, { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon }, { label: "hello@notionsinpattern.com", href: GMAIL_COMPOSE_URL, icon: GmailIcon }] },
-
+    {
+      title: "SHOP",
+      items: [
+        { label: "Home", to: "/" },
+        { label: "Collection", to: "/collections" },
+        { label: "Cart", to: "/cart" },
+        { label: "Wishlist", to: "/wishlist" },
+      ],
+    },
+    {
+      title: "HELP",
+      items: [
+        { label: "Orders", to: "/orders" },
+        "Shipping",
+        { label: "Exchange & Store Credit", to: "/exchange-policy" },
+        { label: "Privacy Policy", to: "/privacy" },
+      ],
+    },
+    {
+      title: "ABOUT",
+      items: [
+        { label: "Our Story", to: "/about-us" },
+        { label: "Founder", to: "/founder" },
+      ],
+    },
+    {
+      title: "CONNECT",
+      wide: true,
+      items: [
+        { label: PHONE_DISPLAY, href: PHONE_TEL, icon: PhoneIcon },
+        { label: "WhatsApp", href: WHATSAPP_CHAT_URL, icon: WhatsAppIcon },
+        { label: "Instagram", href: INSTAGRAM_URL, icon: InstagramIcon },
+        { label: "hello@notionsinpattern.com", href: GMAIL_COMPOSE_URL, icon: GmailIcon },
+      ],
+    },
   ];
   type Col = { title: string; items: FooterItem[]; wide?: boolean };
   // Desktop keeps SHOP, HELP, ABOUT, CONNECT; mobile shows the 2×2 grid below.
@@ -256,9 +345,15 @@ export function Footer() {
     ABOUT: "max-lg:order-4",
   };
   const renderCol = (c: Col) => (
-    <div key={c.title} className={[c.wide ? "min-w-0" : "", mobileOrder[c.title] ?? "", desktopOrder[c.title] ?? ""].filter(Boolean).join(" ")}>
-
-      <h4 className="text-[12px] font-bold tracking-[0.22em] mb-2" style={{ color: BROWN }}>{c.title}</h4>
+    <div
+      key={c.title}
+      className={[c.wide ? "min-w-0" : "", mobileOrder[c.title] ?? "", desktopOrder[c.title] ?? ""]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <h4 className="text-[12px] font-bold tracking-[0.22em] mb-2" style={{ color: BROWN }}>
+        {c.title}
+      </h4>
       <ul className="space-y-1 text-[13px] font-bold" style={{ color: BROWN }}>
         {c.items.map((i) => {
           const label = typeof i === "string" ? i : i.label;
@@ -268,7 +363,9 @@ export function Footer() {
           return (
             <li key={label}>
               {to ? (
-                <Link to={to} className="hover:opacity-70">{label}</Link>
+                <Link to={to} className="hover:opacity-70">
+                  {label}
+                </Link>
               ) : href ? (
                 <a
                   href={href}
@@ -280,7 +377,9 @@ export function Footer() {
                   {label}
                 </a>
               ) : (
-                <a href="#" className="hover:opacity-70">{label}</a>
+                <a href="#" className="hover:opacity-70">
+                  {label}
+                </a>
               )}
             </li>
           );
