@@ -291,7 +291,7 @@ function ProductPage() {
 
   if (!product) {
     return (
-      <div className="bg-background min-h-screen flex flex-col">
+      <div data-catalog-required className="bg-background min-h-screen flex flex-col">
         <Header />
         <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
         <div className="flex-1 px-8 py-32 text-center">
@@ -360,7 +360,7 @@ function ProductPage() {
   ].filter((a): a is { title: string; body: React.JSX.Element } => Boolean(a));
 
   return (
-    <div className="bg-background min-h-screen">
+    <div data-catalog-required className="bg-background min-h-screen">
       <Header />
       <AnnouncementBar bg="#7B1113" color="#F7F4EE" />
       <div className="product-page mx-auto w-full max-w-[1440px] min-[1501px]:max-w-[1720px]">

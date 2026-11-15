@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useIsFetching } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { useRouterState } from "@tanstack/react-router";
 import nipMonogram from "@/assets/optimized/nip-monogram.png.480.webp.asset.json";
 

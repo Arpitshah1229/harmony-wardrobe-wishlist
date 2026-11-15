@@ -267,7 +267,7 @@ function CollectionsPage() {
   }, [sorted.length, query, sort]);
 
   return (
-    <div className="collections-page bg-background min-h-screen">
+    <div data-catalog-required className="collections-page bg-background min-h-screen">
       <Header overlay subtleOverlay solidAfter={0.08} hideLogo={false} />
 
       {/* Hero */}
