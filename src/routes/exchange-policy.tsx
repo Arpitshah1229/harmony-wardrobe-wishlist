@@ -312,6 +312,7 @@ const sections: Section[] = [
           after deducting applicable shipping and handling charges. These charges will not be borne by or reimbursed by
           NIP.
         </P>
+        <P>Your credit note will be emailed as a code to use at checkout.</P>
       </Sub>
     ),
   },
