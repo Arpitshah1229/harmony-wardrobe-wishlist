@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Current requested adjustments
+- [ ] Prepare a separate native Shopify homepage section and media package, with matching layout and motion; verify locally on phone, tablet and desktop, then await testing inside the client's draft Shopify theme before converting other pages.
 - [x] "Create new password" (reset password) card parked on the right from tablet width up, matching the forgot-password screen; phones stay centred; verified 393/768x1024/1024x768/1280/1600px with the card fully inside the screen and the model's face clear, build OK.
 - [x] Forgot password card parked on the right from tablet width up (phones stay centred); photo crop shifted on tablet so the model's face stays clear of the card; verified 393/768x1024/1024x768/1280/1600px, reset-password still centred, build OK.
 - [x] Keep product and Collections shoppers on the same page after adding to cart; verified new items and duplicate-size additions at 393/1280px, with saved shirts displayed in the cart; build OK.

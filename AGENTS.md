@@ -11,6 +11,8 @@
 
 # Project Architecture Rules
 
+- Keep Shopify Liquid exports separate from the React app; scope their styles and JavaScript to the section instance and use native Shopify routes so draft-theme testing cannot alter the existing storefront.
+
 - Anchor the mobile gratitude signature to proportional coordinates of the photo section, independent of paragraph wrapping, so its position stays consistent across phone widths.
 
 - Coordinate navigation through TanStack Router's native view transitions, not pathname-keyed remounts or live-page fades, so the previous page remains visible during the crossfade and fixed headers stay stable.
