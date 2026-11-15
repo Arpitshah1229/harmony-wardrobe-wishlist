@@ -191,7 +191,7 @@ function RegisterPage() {
                         type={showPassword ? "text" : "password"}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="At least 6 characters"
+                        placeholder="At least 5 characters"
                         autoComplete="new-password"
                         trailing={
                           <Button
