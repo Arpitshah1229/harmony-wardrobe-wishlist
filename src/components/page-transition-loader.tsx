@@ -47,8 +47,11 @@ export function PageTransitionLoader() {
     });
 
     function ready() {
+      const catalogRequired = Boolean(document.querySelector("[data-catalog-required]"));
+      const catalogStatus = queryClient.getQueryState(["shopify-catalog"])?.status;
+      const catalogReady = !catalogRequired || (catalogStatus !== undefined && catalogStatus !== "pending");
       return !pendingRef.current
-        && !catalogFetchingRef.current
+        && catalogReady
         && document.fonts.status !== "loading"
         && pendingPageImages().length === 0;
     }
